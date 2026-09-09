@@ -2,272 +2,316 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="theme-color" content="#07111f">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#06121d">
 <title>Zeya AI — Selectum Noa Belek</title>
 
 <style>
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
 }
 
-:root{
-  --bg:#06101d;
-  --bg2:#0b1828;
-  --card:rgba(18,34,53,.78);
-  --card2:rgba(24,43,65,.9);
-  --line:rgba(255,255,255,.09);
-  --text:#f5f8fc;
-  --muted:#91a2b7;
-  --blue:#42a5ff;
-  --cyan:#57e0ff;
-  --green:#48d597;
-  --gold:#f4c76b;
-  --danger:#ff6878;
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 15% 0%,rgba(35,122,190,.22),transparent 30%),
-    radial-gradient(circle at 100% 30%,rgba(36,91,155,.16),transparent 30%),
-    var(--bg);
-  color:var(--text);
+  margin:0;
   min-height:100vh;
-  padding-bottom:90px;
+  overflow-x:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:#fff;
+  background:
+    radial-gradient(circle at 20% 0%,#15394d 0%,transparent 34%),
+    radial-gradient(circle at 100% 40%,#102c3c 0%,transparent 30%),
+    #06111b;
 }
 
-button,input,select{
+button,
+input,
+select{
   font:inherit;
 }
 
 button{
-  border:0;
   cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
 }
 
-.container{
-  width:min(100%,620px);
+.app{
+  width:100%;
+  max-width:850px;
   margin:auto;
-  padding:18px 16px 30px;
+  min-height:100vh;
+  padding-bottom:calc(130px + env(safe-area-inset-bottom));
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
-.header{
+header{
+  padding:
+    calc(20px + env(safe-area-inset-top))
+    16px
+    16px;
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin-bottom:22px;
+  gap:12px;
+
+  background:rgba(4,14,22,.92);
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  position:sticky;
+  top:0;
+  z-index:20;
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.logo-wrap{
+  flex:1;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.logo-icon{
-  width:45px;
-  height:45px;
-  border-radius:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:23px;
-  background:linear-gradient(135deg,#168cff,#56dcff);
-  box-shadow:0 8px 25px rgba(35,157,255,.25);
-}
-
-.logo-title{
-  font-size:20px;
+  font-size:30px;
   font-weight:800;
+  letter-spacing:-.5px;
 }
 
-.hotel-name{
-  color:var(--muted);
-  font-size:11px;
+.hotel{
   margin-top:2px;
+  font-size:16px;
+  color:#a8b6c3;
 }
 
-.lang{
-  background:rgba(255,255,255,.06);
-  border:1px solid var(--line);
-  color:white;
-  padding:9px 10px;
-  border-radius:12px;
+.status{
+  margin-top:5px;
+  font-size:13px;
+  color:#66ddc0;
+}
+
+.language-mini{
+  min-width:74px;
+  height:58px;
+  padding:0 12px;
+
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.13);
+
+  background:#101e2a;
+  color:#fff;
+
   outline:none;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
-  background:
-    linear-gradient(135deg,rgba(25,104,163,.7),rgba(8,24,42,.95)),
-    url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1000&q=80")
-    center/cover;
-  border-radius:27px;
-  padding:24px 20px;
-  min-height:190px;
+  margin:14px 16px 0;
+  padding:28px 20px 20px;
+
+  min-height:400px;
+
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:28px;
+
   position:relative;
   overflow:hidden;
-  margin-bottom:18px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(16,86,118,.42),
+      rgba(4,18,28,.92)
+    ),
+    url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=85")
+    center/cover;
 }
 
 .hero:after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(4,12,22,.9),transparent);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 25%,
+      rgba(3,13,21,.82) 72%,
+      rgba(3,13,21,.98) 100%
+    );
+
+  pointer-events:none;
 }
 
-.hero-content{
+.hero-top{
   position:relative;
   z-index:2;
-  margin-top:55px;
+  height:100%;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
 }
 
-.badge{
-  display:inline-flex;
-  padding:7px 10px;
-  background:rgba(0,0,0,.28);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:100px;
-  font-size:11px;
-  margin-bottom:9px;
+.welcome{
+  margin-top:135px;
 }
 
-.hero h1{
+.welcome h1{
+  margin:0;
+  font-size:36px;
+  line-height:1.05;
+  letter-spacing:-1px;
+}
+
+.welcome p{
+  margin:15px 0 0;
+  max-width:570px;
+
+  color:#c3d0da;
+  font-size:20px;
+  line-height:1.4;
+}
+
+.room{
+  margin-top:24px;
+
+  width:100%;
+  padding:18px;
+
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:20px;
+
+  background:rgba(5,16,24,.72);
+  color:#fff;
+
+  text-align:left;
+
+  backdrop-filter:blur(12px);
+}
+
+.room small{
+  display:block;
+  color:#1189e8;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.room strong{
   font-size:27px;
-  line-height:1.1;
+  color:#168cff;
 }
 
-.hero p{
-  color:#c3d0dd;
-  margin-top:7px;
-  font-size:13px;
+.room span{
+  color:#168cff;
+  font-size:14px;
 }
 
-/* ROOM */
+/* ================= SECTIONS ================= */
 
-.room-card{
+.section{
+  padding:18px 16px 0;
+}
+
+.section-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:16px;
-  margin-bottom:18px;
-  backdrop-filter:blur(15px);
-}
 
-.room-left{
-  display:flex;
-  gap:12px;
-  align-items:center;
+  margin-bottom:12px;
 }
-
-.room-icon{
-  width:42px;
-  height:42px;
-  background:rgba(66,165,255,.12);
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.room-title{
-  font-size:13px;
-  color:var(--muted);
-}
-
-.room-number{
-  font-size:18px;
-  font-weight:800;
-  margin-top:2px;
-}
-
-.status{
-  color:var(--green);
-  font-size:11px;
-}
-
-/* QUICK ACTIONS */
 
 .section-title{
-  font-size:17px;
+  font-size:25px;
   font-weight:800;
-  margin:24px 0 12px;
+  letter-spacing:-.4px;
 }
 
-.quick-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
+.section-more{
+  background:none;
+  border:0;
+  color:#66ddc0;
 }
+
+/* ================= QUICK ================= */
 
 .quick{
-  background:var(--card);
-  border:1px solid var(--line);
-  color:white;
-  border-radius:17px;
-  padding:15px 8px;
-  min-height:80px;
-  transition:.2s;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
 }
 
-.quick:active{
-  transform:scale(.96);
-}
+.quick button{
+  min-width:0;
+  min-height:112px;
 
-.quick-icon{
-  font-size:24px;
-  display:block;
-  margin-bottom:7px;
-}
+  padding:12px 6px;
 
-.quick span{
-  font-size:11px;
-  color:#c6d0dc;
-}
-
-/* INFO */
-
-.info-card{
-  background:linear-gradient(135deg,rgba(27,52,77,.9),rgba(12,27,44,.9));
-  border:1px solid var(--line);
   border-radius:20px;
-  padding:18px;
-  margin-top:12px;
+  border:1px solid rgba(255,255,255,.11);
+
+  background:#10212d;
+  color:#fff;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.025),
+    0 5px 18px rgba(0,0,0,.12);
 }
 
-.info-head{
+.quick button:active{
+  transform:scale(.97);
+}
+
+.quick .ico{
+  display:block;
+  font-size:31px;
+  margin-bottom:10px;
+}
+
+.quick .label{
+  display:block;
+  font-size:15px;
+  color:#d7dee5;
+}
+
+/* ================= FOOD ================= */
+
+.food-card{
+  padding:19px;
+
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.1);
+
+  background:#102330;
+}
+
+.food-title{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:13px;
+
+  margin-bottom:12px;
+
+  font-size:20px;
+  font-weight:800;
 }
 
-.info-head strong{
-  font-size:15px;
-}
-
-.live{
+.food-live{
   font-size:10px;
-  color:var(--green);
+  color:#61dcb9;
 }
 
 .meal{
   display:flex;
   justify-content:space-between;
-  padding:11px 0;
-  border-bottom:1px solid var(--line);
-  font-size:13px;
+
+  padding:13px 0;
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  font-size:14px;
 }
 
 .meal:last-child{
@@ -275,59 +319,107 @@ button{
 }
 
 .meal span{
-  color:var(--muted);
+  color:#93a5b4;
 }
 
-/* RECOMMEND */
+.food-button{
+  width:100%;
+  margin-top:12px;
+  padding:13px;
+
+  border:0;
+  border-radius:14px;
+
+  background:#1f9d88;
+  color:#fff;
+  font-weight:700;
+}
+
+/* ================= RECOMMEND ================= */
 
 .recommend{
-  background:
-    linear-gradient(90deg,rgba(5,15,26,.95),rgba(5,15,26,.35)),
-    url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=80")
-    center/cover;
-  min-height:160px;
-  border-radius:21px;
-  padding:19px;
+  min-height:180px;
+
+  padding:20px;
+
+  border-radius:23px;
+
   display:flex;
   flex-direction:column;
-  justify-content:end;
-  margin-top:12px;
+  justify-content:flex-end;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.05),
+      rgba(0,0,0,.9)
+    ),
+    url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=85")
+    center/cover;
 }
 
 .recommend small{
-  color:var(--cyan);
+  color:#68dfc1;
   font-weight:700;
 }
 
 .recommend h3{
-  margin:5px 0;
+  margin:6px 0;
+  font-size:21px;
 }
 
 .recommend p{
-  color:#c1ccd8;
-  font-size:12px;
+  margin:0;
+  color:#bdc8d0;
+  font-size:13px;
 }
 
-/* SERVICE CARDS */
+/* ================= SERVICES ================= */
 
-.service-list{
+.services{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
 }
 
 .service{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:16px;
+  min-height:88px;
+
+  display:flex;
+  align-items:center;
+  gap:11px;
+
+  padding:13px;
+
   text-align:left;
-  color:white;
+
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+
+  background:#0d202b;
+  color:#fff;
 }
 
-.service-icon{
-  font-size:25px;
-  margin-bottom:10px;
+.service:active{
+  transform:scale(.98);
+}
+
+.sicon{
+  width:42px;
+  height:42px;
+
+  display:grid;
+  place-items:center;
+
+  flex:none;
+
+  border-radius:13px;
+
+  background:#17394a;
+
+  font-size:22px;
 }
 
 .service strong{
@@ -337,326 +429,2369 @@ button{
 
 .service small{
   display:block;
-  color:var(--muted);
   margin-top:4px;
-  line-height:1.35;
+
+  color:#8093a2;
+  font-size:10px;
+  line-height:1.3;
 }
 
-/* CHAT */
+/* ================= INFO ================= */
 
-.chat-box{
-  background:rgba(7,18,30,.8);
-  border:1px solid var(--line);
-  border-radius:22px;
-  margin-top:12px;
-  padding:13px;
-  min-height:160px;
-}
-
-.message{
+.info-card{
   display:flex;
-  gap:9px;
-  margin-bottom:12px;
+  gap:12px;
+
+  padding:15px;
+
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+
+  background:#0d202b;
 }
 
-.avatar{
-  width:32px;
-  height:32px;
-  min-width:32px;
-  border-radius:11px;
-  background:linear-gradient(135deg,#168cff,#56dcff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.info-card img{
+  width:115px;
+  height:90px;
+
+  object-fit:cover;
+
+  border-radius:15px;
+}
+
+.info-body{
+  flex:1;
+}
+
+.info-body h3{
+  margin:0 0 6px;
   font-size:16px;
 }
 
-.bubble{
-  background:var(--card2);
-  border-radius:14px;
-  padding:10px 12px;
-  font-size:13px;
+.info-body p{
+  margin:0;
+
+  color:#91a2b0;
+  font-size:11px;
+  line-height:1.5;
+}
+
+/* ================= WIDE ================= */
+
+.wide{
+  display:flex;
+  gap:12px;
+  overflow:hidden;
+
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+
+  background:#102530;
+}
+
+.wide img{
+  width:130px;
+  height:100px;
+  object-fit:cover;
+}
+
+.wide-body{
+  padding:13px 10px 13px 0;
+  flex:1;
+}
+
+.wide-body strong{
+  font-size:14px;
+}
+
+.wide-body p{
+  margin:5px 0;
+
+  color:#8ea0ad;
+  font-size:11px;
   line-height:1.4;
-  max-width:85%;
+}
+
+.wide-body button{
+  padding:7px 10px;
+
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:10px;
+
+  background:transparent;
+  color:#fff;
+
+  font-size:11px;
+}
+
+/* ================= CHAT ================= */
+
+.chat{
+  padding:10px 16px 0;
+}
+
+.message{
+  max-width:86%;
+
+  margin:10px 0;
+  padding:13px 15px;
+
+  border-radius:17px;
+
+  line-height:1.5;
+  font-size:14px;
+
+  white-space:pre-wrap;
+}
+
+.bot{
+  background:#122631;
+  border-bottom-left-radius:5px;
 }
 
 .user{
-  justify-content:flex-end;
+  margin-left:auto;
+
+  background:#176b63;
+  border-bottom-right-radius:5px;
 }
 
-.user .bubble{
-  background:#1678c8;
+.typing{
+  display:none;
+
+  padding:7px 16px;
+
+  color:#8396a5;
+  font-size:12px;
 }
 
-/* INPUT */
+/* ================= VOICE ================= */
 
-.chat-input{
-  position:fixed;
-  bottom:64px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(100%,620px);
-  padding:9px 12px;
-  z-index:30;
-  background:rgba(4,13,23,.92);
-  backdrop-filter:blur(20px);
-  border-top:1px solid var(--line);
+.voice-area{
+  padding:10px 16px;
 }
 
-.input-wrap{
-  display:flex;
-  gap:7px;
-}
+.voice-button{
+  width:100%;
 
-.input-wrap input{
-  flex:1;
-  background:#122235;
-  border:1px solid var(--line);
-  color:white;
-  border-radius:15px;
-  padding:13px;
-  outline:none;
-}
+  padding:12px;
 
-.input-wrap button{
-  width:45px;
+  border:1px solid rgba(255,255,255,.12);
   border-radius:14px;
-  background:#168cff;
-  color:white;
-  font-size:18px;
+
+  background:#10202b;
+  color:#fff;
 }
 
-.mic{
-  background:#1c3046 !important;
+.voice-button.enabled{
+  background:#174c43;
+  border-color:#38cba6;
 }
 
-.mic.active{
-  background:#d94d63 !important;
+/* ================= INPUT ================= */
+
+.input-area{
+  position:fixed;
+
+  left:50%;
+  bottom:54px;
+
+  transform:translateX(-50%);
+
+  width:min(850px,100%);
+
+  padding:9px 12px;
+
+  display:flex;
+  gap:8px;
+
+  background:rgba(4,10,15,.97);
+
+  border-top:1px solid rgba(255,255,255,.1);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  z-index:30;
 }
 
-/* BOTTOM NAV */
+.input-area input{
+  flex:1;
+  min-width:0;
+
+  padding:14px;
+
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:15px;
+
+  background:#101b24;
+  color:#fff;
+
+  outline:none;
+
+  font-size:16px;
+}
+
+.input-area input::placeholder{
+  color:#83909b;
+}
+
+.input-area button{
+  width:48px;
+
+  border:0;
+  border-radius:14px;
+
+  background:#1b9a87;
+  color:#fff;
+
+  font-size:20px;
+}
+
+.input-area .mic{
+  background:#263746;
+}
+
+/* ================= BOTTOM NAV ================= */
 
 .bottom-nav{
   position:fixed;
-  bottom:0;
+
   left:50%;
+  bottom:0;
+
   transform:translateX(-50%);
-  width:min(100%,620px);
-  height:64px;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  background:rgba(6,15,26,.96);
-  border-top:1px solid var(--line);
-  backdrop-filter:blur(20px);
-  z-index:40;
+
+  width:min(850px,100%);
+  height:55px;
+
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+
+  background:rgba(4,10,15,.99);
+
+  border-top:1px solid rgba(255,255,255,.1);
+
+  z-index:31;
 }
 
-.nav-item{
-  color:#718196;
-  font-size:10px;
-  text-align:center;
+.bottom-nav button{
+  border:0;
   background:none;
+  color:#7f919d;
+  font-size:10px;
 }
 
-.nav-item div{
-  font-size:20px;
+.bottom-nav button span{
+  display:block;
   margin-bottom:2px;
+  font-size:19px;
 }
 
-.nav-item.active{
-  color:#58baff;
+.bottom-nav button.active{
+  color:#5bd6b8;
 }
 
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal{
+  display:none;
+
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.72);
-  z-index:100;
-  display:none;
+
   align-items:flex-end;
   justify-content:center;
+
+  background:rgba(0,0,0,.72);
+
+  z-index:100;
 }
 
 .modal.show{
   display:flex;
 }
 
-.modal-card{
-  width:min(100%,620px);
-  max-height:88vh;
-  overflow:auto;
-  background:#0b1929;
-  border-radius:27px 27px 0 0;
-  padding:22px 17px 35px;
-  border-top:1px solid var(--line);
-  animation:slideUp .25s ease;
-}
+.modal-box{
+  width:min(850px,100%);
+  max-height:85vh;
 
-@keyframes slideUp{
-  from{transform:translateY(100%)}
-  to{transform:translateY(0)}
+  overflow:auto;
+
+  padding:
+    20px
+    20px
+    calc(30px + env(safe-area-inset-bottom));
+
+  border-radius:25px 25px 0 0;
+  border:1px solid rgba(255,255,255,.12);
+
+  background:#0b1b25;
 }
 
 .modal-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:18px;
 }
 
 .modal-head h2{
-  font-size:20px;
+  margin:0;
+  font-size:21px;
 }
 
 .close{
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  background:#182b40;
-  color:white;
-  font-size:18px;
+  width:38px;
+  height:38px;
+
+  border:0;
+  border-radius:12px;
+
+  background:#1a303c;
+  color:#fff;
+
+  font-size:21px;
 }
 
-.modal-item{
-  background:var(--card);
-  border:1px solid var(--line);
-  padding:15px;
-  border-radius:17px;
-  margin-bottom:9px;
-}
+.modal-content{
+  margin-top:15px;
 
-.modal-item strong{
-  display:block;
+  color:#d4dfe5;
+
   font-size:14px;
+  line-height:1.6;
 }
 
-.modal-item span{
-  color:var(--muted);
-  display:block;
-  font-size:12px;
-  margin-top:5px;
-}
-
-.modal-btn{
-  width:100%;
-  background:#168cff;
-  color:white;
+.option{
   padding:13px;
+
+  margin:8px 0;
+
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;
+
+  background:#102632;
+}
+
+.modal-action{
+  width:100%;
+
+  margin-top:12px;
+  padding:13px;
+
+  border:0;
   border-radius:13px;
-  margin-top:11px;
+
+  background:#1f9d88;
+  color:#fff;
+
   font-weight:700;
 }
 
 .note{
-  color:#718196;
-  font-size:10px;
-  line-height:1.5;
-  margin-top:15px;
+  margin-top:12px;
+
+  color:#718492;
+
+  font-size:11px;
 }
 
-/* TOAST */
+/* ================= TOAST ================= */
 
 .toast{
   position:fixed;
-  top:18px;
+
   left:50%;
-  transform:translate(-50%,-130px);
-  background:#152b42;
-  border:1px solid var(--line);
-  padding:12px 17px;
-  border-radius:14px;
-  z-index:200;
+  bottom:120px;
+
+  transform:translateX(-50%);
+
+  display:none;
+
+  padding:11px 15px;
+
+  border-radius:13px;
+
+  background:#173c43;
+
+  color:#fff;
+
   font-size:12px;
-  transition:.3s;
+
+  z-index:200;
 }
 
-.toast.show{
-  transform:translate(-50%,0);
-}
+/* ================= MOBILE ================= */
 
-/* DESKTOP */
+@media(max-width:600px){
 
-@media(min-width:700px){
-  .container{
-    padding-top:30px;
+  .logo{
+    font-size:29px;
+  }
+
+  .hotel{
+    font-size:15px;
   }
 
   .hero{
-    min-height:220px;
+    min-height:400px;
   }
 
-  .quick-grid{
-    grid-template-columns:repeat(6,1fr);
+  .welcome h1{
+    font-size:34px;
+  }
+
+  .welcome p{
+    font-size:19px;
   }
 
   .quick{
-    min-height:95px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
   }
+
+  .quick button{
+    min-height:110px;
+  }
+
+  .services{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:390px){
+
+  .logo{
+    font-size:25px;
+  }
+
+  .language-mini{
+    min-width:62px;
+  }
+
+  .welcome h1{
+    font-size:29px;
+  }
+
+  .welcome p{
+    font-size:17px;
+  }
+
+  .quick .ico{
+    font-size:26px;
+  }
+
+  .quick .label{
+    font-size:13px;
+  }
+
+  .services{
+    grid-template-columns:1fr;
+  }
+
+}
+
+/* ================= DESKTOP ================= */
+
+@media(min-width:700px){
+
+  .quick{
+    grid-template-columns:repeat(6,minmax(0,1fr));
+  }
+
+  .quick button{
+    min-height:105px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-  <!-- HEADER -->
-  <header class="header">
+<!-- ================= HEADER ================= -->
+
+<header>
+
+  <div class="logo-wrap">
+
     <div class="logo">
-      <div class="logo-icon">🤖</div>
-      <div>
-        <div class="logo-title">Zeya AI</div>
-        <div class="hotel-name">Selectum Noa Belek</div>
-      </div>
+      🤖 Zeya AI
     </div>
 
-    <select id="language" class="lang">
-      <option value="ru">🇷🇺 RU</option>
-      <option value="en">🇬🇧 EN</option>
-      <option value="tr">🇹🇷 TR</option>
-      <option value="de">🇩🇪 DE</option>
-      <option value="fr">🇫🇷 FR</option>
-      <option value="es">🇪🇸 ES</option>
-      <option value="it">🇮🇹 IT</option>
-      <option value="ar">🇸🇦 AR</option>
-      <option value="uk">🇺🇦 UA</option>
-      <option value="pl">🇵🇱 PL</option>
-    </select>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="badge">✨ AI CONCIERGE</div>
-      <h1>Добро пожаловать<br>в Selectum Noa Belek</h1>
-      <p>Zeya поможет с ресторанами, SPA, активностями и всем отдыхом.</p>
+    <div class="hotel">
+      Selectum Noa Belek
     </div>
-  </section>
 
-  <!-- ROOM -->
-  <section class="room-card">
-    <div class="room-left">
-      <div class="room-icon">🛏️</div>
-      <div>
-        <div class="room-title">Ваш номер</div>
-        <div class="room-number">Номер 5407</div>
-      </div>
+    <div class="status" id="status">
+      AI Concierge
     </div>
-    <div class="status">● Гость отеля</div>
-  </section>
 
-  <!-- QUICK -->
-  <div class="section-title">Быстрый доступ</div>
+  </div>
 
-  <div class="quick-grid">
+  <select class="language-mini" id="language">
 
-    <button class="quick" onclick="openModal('restaurants')">
-      <span class="quick-icon">🍽️</span>
-      <span>Рестораны</span>
+    <option value="ru">🇷🇺 RU</option>
+    <option value="tr">🇹🇷 TR</option>
+    <option value="en">🇬🇧 EN</option>
+    <option value="de">🇩🇪 DE</option>
+    <option value="fr">🇫🇷 FR</option>
+    <option value="es">🇪🇸 ES</option>
+    <option value="it">🇮🇹 IT</option>
+    <option value="ar">🇸🇦 AR</option>
+    <option value="uk">🇺🇦 UA</option>
+    <option value="pl">🇵🇱 PL</option>
+
+  </select>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <div class="hero-top">
+
+    <div class="welcome">
+
+      <h1 id="welcomeTitle">
+        Добрый вечер! 👋
+      </h1>
+
+      <p id="welcomeText">
+        Я Зея, ваш персональный AI-консьерж
+        Selectum Noa Belek. Чем могу помочь сегодня?
+      </p>
+
+    </div>
+
+
+    <button class="room" onclick="openModal('room')">
+
+      <small>
+        🛏️ Ваш номер
+      </small>
+
+      <strong>
+        5407
+      </strong>
+
+      <span>
+        • 5 этаж
+      </span>
+
     </button>
 
-    <button class="quick" onclick="openModal('spa')">
-      <
+  </div>
+
+</section>
+
+
+<!-- ================= QUICK ================= -->
+
+<section class="section">
+
+  <div class="section-head">
+
+    <div class="section-title">
+      ⚡ Быстрые запросы
+    </div>
+
+  </div>
+
+
+  <div class="quick">
+
+    <button onclick="quickQuestion('Во сколько сегодня ужин?')">
+
+      <span class="ico">🍽️</span>
+
+      <span class="label">
+        Ужин
+      </span>
+
+    </button>
+
+
+    <button onclick="quickQuestion('Расскажи про бассейн')">
+
+      <span class="ico">🏊</span>
+
+      <span class="label">
+        Бассейн
+      </span>
+
+    </button>
+
+
+    <button onclick="quickQuestion('Расскажи про SPA')">
+
+      <span class="ico">🧖</span>
+
+      <span class="label">
+        SPA
+      </span>
+
+    </button>
+
+
+    <button onclick="quickQuestion('Какие напитки доступны?')">
+
+      <span class="ico">🍹</span>
+
+      <span class="label">
+        Напитки
+      </span>
+
+    </button>
+
+
+    <button onclick="quickQuestion('Расскажи про пляж')">
+
+      <span class="ico">🏖️</span>
+
+      <span class="label">
+        Пляж
+      </span>
+
+    </button>
+
+
+    <button onclick="openModal('events')">
+
+      <span class="ico">📅</span>
+
+      <span class="label">
+        События
+      </span>
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOD ================= -->
+
+<section class="section">
+
+  <div class="section-title">
+    🍽️ Питание сегодня
+  </div>
+
+
+  <div class="food-card">
+
+    <div class="food-title">
+
+      <span>
+        Главный ресторан
+      </span>
+
+      <span class="food-live">
+        ● РАСПИСАНИЕ
+      </span>
+
+    </div>
+
+
+    <div class="meal">
+
+      <span>
+        Завтрак
+      </span>
+
+      <b>
+        07:00 — 10:30
+      </b>
+
+    </div>
+
+
+    <div class="meal">
+
+      <span>
+        Обед
+      </span>
+
+      <b>
+        12:30 — 14:30
+      </b>
+
+    </div>
+
+
+    <div class="meal">
+
+      <span>
+        Ужин
+      </span>
+
+      <b>
+        18:00 — 21:00
+      </b>
+
+    </div>
+
+
+    <button
+      class="food-button"
+      onclick="openModal('restaurants')">
+
+      Все рестораны →
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= RECOMMEND ================= -->
+
+<section class="section">
+
+  <div class="section-title">
+    Zeya рекомендует
+  </div>
+
+
+  <div class="recommend">
+
+    <small>
+      ✨ НА ВЕЧЕР
+    </small>
+
+    <h3>
+      Выберите ресторан
+    </h3>
+
+    <p>
+      Посмотрите рестораны и варианты ужина
+      в Selectum Noa Belek.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section">
+
+  <div class="section-title">
+    Сервисы отеля
+  </div>
+
+
+  <div class="services">
+
+
+    <button
+      class="service"
+      onclick="openModal('food')">
+
+      <div class="sicon">
+        🍔
+      </div>
+
+      <div>
+
+        <strong>
+          Заказать еду
+        </strong>
+
+        <small>
+          Питание и рестораны
+        </small>
+
+      </div>
+
+    </button>
+
+
+    <button
+      class="service"
+      onclick="openModal('hotel')">
+
+      <div class="sicon">
+        🏨
+      </div>
+
+      <div>
+
+        <strong>
+          Мой отель
+        </strong>
+
+        <small>
+          Информация об отеле
+        </small>
+
+      </div>
+
+    </button>
+
+
+    <button
+      class="service"
+      onclick="openModal('activities')">
+
+      <div class="sicon">
+        ⚽
+      </div>
+
+      <div>
+
+        <strong>
+          Активности
+        </strong>
+
+        <small>
+          Спорт и развлечения
+        </small>
+
+      </div>
+
+    </button>
+
+
+    <button
+      class="service"
+      onclick="openModal('transfer')">
+
+      <div class="sicon">
+        🚕
+      </div>
+
+      <div>
+
+        <strong>
+          Трансфер / такси
+        </strong>
+
+        <small>
+          Поездки и аэропорт
+        </small>
+
+      </div>
+
+    </button>
+
+
+    <button
+      class="service"
+      onclick="openModal('map')">
+
+      <div class="sicon">
+        📍
+      </div>
+
+      <div>
+
+        <strong>
+          Карта
+        </strong>
+
+        <small>
+          Территория и расположение
+        </small>
+
+      </div>
+
+    </button>
+
+
+    <button
+      class="service"
+      onclick="openModal('excursions')">
+
+      <div class="sicon">
+        🗺️
+      </div>
+
+      <div>
+
+        <strong>
+          Экскурсии
+        </strong>
+
+        <small>
+          Анталья и окрестности
+        </small>
+
+      </div>
+
+    </button>
+
+
+    <button
+      class="service"
+      onclick="openModal('premium')">
+
+      <div class="sicon">
+        💎
+      </div>
+
+      <div>
+
+        <strong>
+          Premium
+        </strong>
+
+        <small>
+          Особые услуги
+        </small>
+
+      </div>
+
+    </button>
+
+
+    <button
+      class="service"
+      onclick="quickQuestion('Мне нужна помощь сотрудника отеля')">
+
+      <div class="sicon">
+        💬
+      </div>
+
+      <div>
+
+        <strong>
+          Помощь Zeya
+        </strong>
+
+        <small>
+          Связаться с консьержем
+        </small>
+
+      </div>
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= HOTEL INFO ================= -->
+
+<section class="section">
+
+  <div class="section-title">
+    Об отеле
+  </div>
+
+
+  <div class="info-card">
+
+    <img
+      src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=500&q=80"
+      alt="Hotel"
+    >
+
+    <div class="info-body">
+
+      <h3>
+        Selectum Noa Belek
+      </h3>
+
+      <p>
+        Пляж, бассейны, рестораны,
+        SPA, спорт и развлечения.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= DISCOVER ================= -->
+
+<section class="section">
+
+  <div class="section-title">
+    Исследуйте регион
+  </div>
+
+
+  <div class="wide">
+
+    <img
+      src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=500&q=80"
+      alt="Antalya"
+    >
+
+    <div class="wide-body">
+
+      <strong>
+        🗺️ Анталья и Belek
+      </strong>
+
+      <p>
+        Экскурсии, природа, античные города
+        и морские прогулки.
+      </p>
+
+      <button onclick="openModal('excursions')">
+        Подробнее →
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CHAT ================= -->
+
+<section class="section">
+
+  <div class="section-title">
+    Спросите Zeya
+  </div>
+
+</section>
+
+
+<div class="chat" id="chat">
+
+  <div class="message bot">
+    Привет! 👋 Я Zeya, ваш AI-консьерж.
+    Спросите меня про рестораны, SPA,
+    бассейн, пляж, активности,
+    трансфер или экскурсии.
+  </div>
+
+</div>
+
+
+<div class="typing" id="typing">
+  Zeya думает... 🤖
+</div>
+
+
+<!-- ================= VOICE ================= -->
+
+<div class="voice-area">
+
+  <button
+    class="voice-button"
+    id="voiceButton"
+    onclick="enableVoice()">
+
+    🔊 Включить голос Зеи
+
+  </button>
+
+</div>
+
+
+<!-- ================= INPUT ================= -->
+
+<div class="input-area">
+
+  <button
+    class="mic"
+    id="micButton"
+    onclick="startVoice()">
+
+    🎙️
+
+  </button>
+
+
+  <input
+    id="messageInput"
+    type="text"
+    placeholder="Задайте вопрос Зее..."
+    autocomplete="off"
+  >
+
+
+  <button onclick="sendMessage()">
+
+    ➤
+
+  </button>
+
+</div>
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<nav class="bottom-nav">
+
+  <button
+    class="active"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+    <span>⌂</span>
+    Главная
+
+  </button>
+
+
+  <button onclick="openModal('history')">
+
+    <span>◷</span>
+    История
+
+  </button>
+
+
+  <button onclick="openModal('favorites')">
+
+    <span>♡</span>
+    Избранное
+
+  </button>
+
+
+  <button onclick="openModal('profile')">
+
+    <span>●</span>
+    Профиль
+
+  </button>
+
+</nav>
+
+
+<!-- ================= MODAL ================= -->
+
+<div
+  class="modal"
+  id="modal"
+  onclick="closeOutside(event)">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2 id="modalTitle">
+        Zeya
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div
+      class="modal-content"
+      id="modalContent">
+    </div>
+
+  </div>
+
+</div>
+
+
+<div
+  class="toast"
+  id="toast">
+</div>
+
+
+<script>
+
+/* =====================================================
+   API ZEYA
+===================================================== */
+
+const API_URL =
+  "https://zeya-pi.vercel.app/api/chat";
+
+const TTS_URL =
+  "https://zeya-pi.vercel.app/api/tts";
+
+
+let voiceEnabled = false;
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+const language =
+  document.getElementById("language");
+
+const input =
+  document.getElementById("messageInput");
+
+const chat =
+  document.getElementById("chat");
+
+const typing =
+  document.getElementById("typing");
+
+const status =
+  document.getElementById("status");
+
+const voiceButton =
+  document.getElementById("voiceButton");
+
+const micButton =
+  document.getElementById("micButton");
+
+
+const langData = {
+
+  ru:{
+    welcome:"Добрый вечер! 👋",
+    text:"Я Зея, ваш персональный AI-консьерж Selectum Noa Belek. Чем могу помочь сегодня?",
+    placeholder:"Задайте вопрос Зее...",
+    voice:"🔊 Включить голос Зеи",
+    enabled:"🔊 Голос Зеи включён",
+    thinking:"Зея думает... 🤖"
+  },
+
+  tr:{
+    welcome:"İyi akşamlar! 👋",
+    text:"Ben Zeya, Selectum Noa Belek kişisel AI asistanınızım. Size nasıl yardımcı olabilirim?",
+    placeholder:"Zeya'ya soru sorun...",
+    voice:"🔊 Zeya'nın sesini aç",
+    enabled:"🔊 Zeya'nın sesi açık",
+    thinking:"Zeya düşünüyor... 🤖"
+  },
+
+  en:{
+    welcome:"Good evening! 👋",
+    text:"I'm Zeya, your personal AI concierge at Selectum Noa Belek. How can I help today?",
+    placeholder:"Ask Zeya a question...",
+    voice:"🔊 Turn on Zeya's voice",
+    enabled:"🔊 Zeya's voice is on",
+    thinking:"Zeya is thinking... 🤖"
+  },
+
+  de:{
+    welcome:"Guten Abend! 👋",
+    text:"Ich bin Zeya, Ihr persönlicher AI-Concierge im Selectum Noa Belek.",
+    placeholder:"Frage an Zeya...",
+    voice:"🔊 Zeyas Stimme einschalten",
+    enabled:"🔊 Zeyas Stimme ist aktiv",
+    thinking:"Zeya denkt nach... 🤖"
+  },
+
+  fr:{
+    welcome:"Bonsoir ! 👋",
+    text:"Je suis Zeya, votre concierge IA personnel au Selectum Noa Belek.",
+    placeholder:"Posez une question à Zeya...",
+    voice:"🔊 Activer la voix de Zeya",
+    enabled:"🔊 La voix de Zeya est activée",
+    thinking:"Zeya réfléchit... 🤖"
+  },
+
+  es:{
+    welcome:"¡Buenas tardes! 👋",
+    text:"Soy Zeya, tu conserje personal de IA en Selectum Noa Belek.",
+    placeholder:"Haz una pregunta a Zeya...",
+    voice:"🔊 Activar la voz de Zeya",
+    enabled:"🔊 La voz de Zeya está activa",
+    thinking:"Zeya está pensando... 🤖"
+  },
+
+  it:{
+    welcome:"Buonasera! 👋",
+    text:"Sono Zeya, il tuo concierge AI personale al Selectum Noa Belek.",
+    placeholder:"Fai una domanda a Zeya...",
+    voice:"🔊 Attiva la voce di Zeya",
+    enabled:"🔊 La voce di Zeya è attiva",
+    thinking:"Zeya sta pensando... 🤖"
+  },
+
+  ar:{
+    welcome:"مساء الخير! 👋",
+    text:"أنا زيا، مساعدك الذكي الشخصي في Selectum Noa Belek.",
+    placeholder:"اسأل زيا سؤالاً...",
+    voice:"🔊 تشغيل صوت زيا",
+    enabled:"🔊 صوت زيا يعمل",
+    thinking:"زيا تفكر..."
+  },
+
+  uk:{
+    welcome:"Добрий вечір! 👋",
+    text:"Я Зея, ваш персональний AI-консьєрж Selectum Noa Belek.",
+    placeholder:"Поставте запитання Зеї...",
+    voice:"🔊 Увімкнути голос Зеї",
+    enabled:"🔊 Голос Зеї увімкнено",
+    thinking:"Зея думає..."
+  },
+
+  pl:{
+    welcome:"Dobry wieczór! 👋",
+    text:"Jestem Zeya, Twoją osobistą asystentką AI w Selectum Noa Belek.",
+    placeholder:"Zadaj pytanie Zeyi...",
+    voice:"🔊 Włącz głos Zeyi",
+    enabled:"🔊 Głos Zeyi jest włączony",
+    thinking:"Zeya myśli..."
+  }
+
+};
+
+
+/* =====================================================
+   LANGUAGE CHANGE
+===================================================== */
+
+language.addEventListener(
+  "change",
+  function(){
+
+    const lang =
+      langData[this.value] || langData.ru;
+
+    document.getElementById(
+      "welcomeTitle"
+    ).textContent = lang.welcome;
+
+    document.getElementById(
+      "welcomeText"
+    ).textContent = lang.text;
+
+    input.placeholder =
+      lang.placeholder;
+
+    typing.textContent =
+      lang.thinking;
+
+    voiceButton.textContent =
+      voiceEnabled
+        ? lang.enabled
+        : lang.voice;
+
+    document.documentElement.dir =
+      this.value === "ar"
+        ? "rtl"
+        : "ltr";
+
+  }
+);
+
+
+/* =====================================================
+   QUICK QUESTIONS
+===================================================== */
+
+function quickQuestion(text){
+
+  input.value = text;
+
+  sendMessage();
+
+}
+
+
+/* =====================================================
+   CHAT MESSAGE
+===================================================== */
+
+function addMessage(text,type){
+
+  const message =
+    document.createElement("div");
+
+  message.className =
+    "message " + type;
+
+  message.textContent =
+    text;
+
+  chat.appendChild(message);
+
+  window.scrollTo({
+    top:document.body.scrollHeight,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   SEND MESSAGE
+===================================================== */
+
+async function sendMessage(){
+
+  const message =
+    input.value.trim();
+
+  if(!message){
+    return;
+  }
+
+
+  addMessage(
+    message,
+    "user"
+  );
+
+  input.value = "";
+
+  typing.style.display =
+    "block";
+
+  status.textContent =
+    "Zeya AI";
+
+
+  try{
+
+    const response =
+      await fetch(
+        API_URL,
+        {
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+
+          body:JSON.stringify({
+
+            message:message,
+
+            language:
+              language.value
+
+          })
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if(!response.ok){
+
+      throw new Error(
+        data.error ||
+        "API error"
+      );
+
+    }
+
+
+    const reply =
+      data.reply ||
+      data.message ||
+      data.text ||
+      "Извините, ответ не получен.";
+
+
+    addMessage(
+      reply,
+      "bot"
+    );
+
+
+    if(voiceEnabled){
+
+      speak(reply);
+
+    }
+
+
+  }catch(error){
+
+    console.error(error);
+
+    addMessage(
+      "Не удалось подключиться к Zeya. Проверьте интернет и попробуйте ещё раз.",
+      "bot"
+    );
+
+  }
+
+
+  typing.style.display =
+    "none";
+
+  status.textContent =
+    "AI Concierge";
+
+}
+
+
+/* =====================================================
+   ENTER
+===================================================== */
+
+input.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Enter"){
+
+      event.preventDefault();
+
+      sendMessage();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   VOICE OUTPUT
+===================================================== */
+
+function enableVoice(){
+
+  voiceEnabled = true;
+
+  voiceButton.classList.add(
+    "enabled"
+  );
+
+
+  const lang =
+    langData[language.value] ||
+    langData.ru;
+
+
+  voiceButton.textContent =
+    lang.enabled;
+
+
+  showToast(
+    "🔊 Голос Зеи включён"
+  );
+
+}
+
+
+/* =====================================================
+   TTS
+===================================================== */
+
+async function speak(text){
+
+  try{
+
+    const response =
+      await fetch(
+        TTS_URL,
+        {
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+
+          body:JSON.stringify({
+
+            text:text,
+
+            language:
+              language.value
+
+          })
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "TTS error"
+      );
+
+    }
+
+
+    const blob =
+      await response.blob();
+
+
+    const url =
+      URL.createObjectURL(blob);
+
+
+    const audio =
+      new Audio(url);
+
+
+    await audio.play();
+
+
+    audio.onended =
+      function(){
+
+        URL.revokeObjectURL(
+          url
+        );
+
+      };
+
+
+  }catch(error){
+
+    browserSpeak(text);
+
+  }
+
+}
+
+
+/* =====================================================
+   BROWSER SPEECH
+===================================================== */
+
+function browserSpeak(text){
+
+  if(
+    !("speechSynthesis" in window)
+  ){
+
+    return;
+
+  }
+
+
+  const languages = {
+
+    ru:"ru-RU",
+    tr:"tr-TR",
+    en:"en-US",
+    de:"de-DE",
+    fr:"fr-FR",
+    es:"es-ES",
+    it:"it-IT",
+    ar:"ar-SA",
+    uk:"uk-UA",
+    pl:"pl-PL"
+
+  };
+
+
+  const utterance =
+    new SpeechSynthesisUtterance(
+      text
+    );
+
+
+  utterance.lang =
+    languages[
+      language.value
+    ] || "ru-RU";
+
+
+  utterance.rate =
+    .95;
+
+
+  speechSynthesis.cancel();
+
+  speechSynthesis.speak(
+    utterance
+  );
+
+}
+
+
+/* =====================================================
+   VOICE INPUT
+===================================================== */
+
+function startVoice(){
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+  if(!SpeechRecognition){
+
+    showToast(
+      "Голосовой ввод не поддерживается этим браузером."
+    );
+
+    return;
+
+  }
+
+
+  const recognition =
+    new SpeechRecognition();
+
+
+  const languages = {
+
+    ru:"ru-RU",
+    tr:"tr-TR",
+    en:"en-US",
+    de:"de-DE",
+    fr:"fr-FR",
+    es:"es-ES",
+    it:"it-IT",
+    ar:"ar-SA",
+    uk:"uk-UA",
+    pl:"pl-PL"
+
+  };
+
+
+  recognition.lang =
+    languages[
+      language.value
+    ] || "ru-RU";
+
+
+  recognition.continuous =
+    false;
+
+  recognition.interimResults =
+    false;
+
+
+  micButton.textContent =
+    "🔴";
+
+
+  status.textContent =
+    "🎙️ Слушаю...";
+
+
+  recognition.start();
+
+
+  recognition.onresult =
+    function(event){
+
+      const text =
+        event.results[0][0]
+        .transcript;
+
+
+      input.value =
+        text;
+
+
+      micButton.textContent =
+        "🎙️";
+
+
+      status.textContent =
+        "AI Concierge";
+
+
+      sendMessage();
+
+    };
+
+
+  recognition.onerror =
+    function(){
+
+      micButton.textContent =
+        "🎙️";
+
+      status.textContent =
+        "AI Concierge";
+
+    };
+
+
+  recognition.onend =
+    function(){
+
+      micButton.textContent =
+        "🎙️";
+
+      status.textContent =
+        "AI Concierge";
+
+    };
+
+}
+
+
+/* =====================================================
+   MODALS
+===================================================== */
+
+const modalData = {
+
+  restaurants:{
+
+    title:"🍽️ Рестораны",
+
+    html:`
+
+      <div class="option">
+        <b>🥐 Главный ресторан</b><br>
+        Завтрак: 07:00–10:30<br>
+        Обед: 12:30–14:30<br>
+        Ужин: 18:00–21:00
+      </div>
+
+      <div class="option">
+        <b>🌙 Seven Twenty Four</b><br>
+        Работает вне основных часов главного ресторана.
+      </div>
+
+      <div class="option">
+        <b>🇹🇷 Tabla Kebap</b><br>
+        19:00–22:00<br>
+        Требуется предварительная резервация.
+      </div>
+
+      <div class="option">
+        <b>🐟 Harbour Sea & Salt Fish</b><br>
+        19:00–22:00<br>
+        Требуется предварительная резервация.
+      </div>
+
+      <div class="option">
+        <b>🇮🇹 Primavio Cucina Italiana</b><br>
+        19:00–22:00<br>
+        Требуется предварительная резервация.
+      </div>
+
+      <div class="option">
+        <b>🥞 Gözleme House</b><br>
+        11:00–16:00
+      </div>
+
+      <div class="option">
+        <b>🍰 Patisserie</b><br>
+        12:00–18:00
+      </div>
+
+      <div class="option">
+        <b>🍟 Food Corner</b><br>
+        12:00–16:00
+      </div>
+
+      <div class="note">
+        Время работы может изменяться отелем.
+      </div>
+
+    `
+
+  },
+
+
+  room:{
+
+    title:"🛏️ Мой номер",
+
+    html:`
+
+      <div class="option">
+        <b>Номер 5407</b><br>
+        5 этаж
+      </div>
+
+      <div class="option">
+        📶 Wi-Fi доступен для гостей отеля.
+      </div>
+
+      <div class="option">
+        🕑 Check-in: 14:00
+      </div>
+
+      <div class="option">
+        🕛 Check-out: 12:00
+      </div>
+
+    `
+
+  },
+
+
+  events:{
+
+    title:"📅 Сегодня",
+
+    html:`
+
+      <div class="option">
+        🥐 07:00–10:30 — Завтрак
+      </div>
+
+      <div class="option">
+        🍲 12:30–14:30 — Обед
+      </div>
+
+      <div class="option">
+        🍽️ 18:00–21:00 — Ужин
+      </div>
+
+      <div class="option">
+        🌙 Seven Twenty Four —
+        вне основных часов главного ресторана
+      </div>
+
+      <div class="note">
+        Актуальные мероприятия и расписание
+        лучше уточнять у Zeya или отеля.
+      </div>
+
+    `
+
+  },
+
+
+  food:{
+
+    title:"🍔 Питание",
+
+    html:`
+
+      <div class="option">
+        🍽️ Рестораны и часы работы
+      </div>
+
+      <div class="option">
+        🥡 Быстрые варианты питания
+      </div>
+
+      <button
+        class="modal-action"
+        onclick="openModal('restaurants')">
+
+        Посмотреть рестораны
+
+      </button>
+
+    `
+
+  },
+
+
+  hotel:{
+
+    title:"🏨 Мой отель",
+
+    html:`
+
+      <div class="option">
+        🏨 Selectum Noa Belek
+      </div>
+
+      <div class="option">
+        📶 Бесплатный Wi-Fi
+      </div>
+
+      <div class="option">
+        🏖️ Пляж
+      </div>
+
+      <div class="option">
+        🏊 Бассейны
+      </div>
+
+      <div class="option">
+        🧖 SPA и wellness
+      </div>
+
+      <div class="option">
+        ⚽ Спорт и развлечения
+      </div>
+
+    `
+
+  },
+
+
+  activities:{
+
+    title:"⚽ Активности",
+
+    html:`
+
+      <div class="option">
+        🎾 Теннис
+      </div>
+
+      <div class="option">
+        🏀 Баскетбол
+      </div>
+
+      <div class="option">
+        🏐 Пляжный волейбол
+      </div>
+
+      <div class="option">
+        🏓 Настольный теннис
+      </div>
+
+      <div class="option">
+        🏸 Бадминтон
+      </div>
+
+      <div class="option">
+        🎯 Дартс и Boccia
+      </div>
+
+      <div class="option">
+        🧘 Pilates
+      </div>
+
+      <div class="option">
+        🏋️ Fitness
+      </div>
+
+      <button
+        class="modal-action"
+        onclick="quickQuestion('Какие активности доступны сегодня?');closeModal()">
+
+        Спросить Zeya
+
+      </button>
+
+    `
+
+  },
+
+
+  transfer:{
+
+    title:"🚕 Трансфер и такси",
+
+    html:`
+
+      <div class="option">
+        ✈️ Трансфер в аэропорт Антальи
+      </div>
+
+      <div class="option">
+        🚕 Такси
+      </div>
+
+      <div class="option">
+        🚌 Экскурсионный транспорт
+      </div>
+
+      <button
+        class="modal-action"
+        onclick="quickQuestion('Мне нужен трансфер до аэропорта Антальи');closeModal()">
+
+        Запросить трансфер
+
+      </button>
+
+      <div class="note">
+        Перед заказом уточните стоимость,
+        время и условия поездки.
+      </div>
+
+    `
+
+  },
+
+
+  map:{
+
+    title:"📍 Карта",
+
+    html:`
+
+      <div class="option">
+        🏨 Selectum Noa Belek
+      </div>
+
+      <div class="option">
+        🏊 Бассейн — центральная зона
+      </div>
+
+      <div class="option">
+        🧖 SPA — wellness-зона
+      </div>
+
+      <div class="option">
+        🍽️ Рестораны — основная зона отеля
+      </div>
+
+      <div class="option">
+        🏖️ Пляж — рядом с территорией отеля
+      </div>
+
+      <button
+        class="modal-action"
+        onclick="openGoogleMaps()">
+
+        📍 Открыть Google Maps
+
+      </button>
+
+    `
+
+  },
+
+
+  excursions:{
+
+    title:"🗺️ Экскурсии",
+
+    html:`
+
+      <div class="option">
+        🏛️ Античные города
+      </div>
+
+      <div class="option">
+        💦 Водопады и природа
+      </div>
+
+      <div class="option">
+        🛥️ Морская прогулка
+      </div>
+
+      <div class="option">
+        🚙 Сафари
+      </div>
+
+      <button
+        class="modal-action"
+        onclick="quickQuestion('Посоветуй экскурсию рядом с Belek');closeModal()">
+
+        Подобрать экскурсию
+
+      </button>
+
+    `
+
+  },
+
+
+  premium:{
+
+    title:"💎 Premium",
+
+    html:`
+
+      <div class="option">
+        💎 Premium-поддержка
+      </div>
+
+      <div class="option">
+        🎁 Сюрприз в номер
+      </div>
+
+      <div class="option">
+        💆 Индивидуальные SPA-процедуры
+      </div>
+
+      <div class="option">
+        🚗 Индивидуальный трансфер
+      </div>
+
+      <button
+        class="modal-action"
+        onclick="quickQuestion('Какие premium услуги доступны?');closeModal()">
+
+        Спросить Zeya
+
+      </button>
+
+    `
+
+  },
+
+
+  history:{
+
+    title:"◷ История",
+
+    html:`
+
+      <div class="option">
+        История запросов Zeya будет отображаться здесь.
+      </div>
+
+    `
+
+  },
+
+
+  favorites:{
+
+    title:"♡ Избранное",
+
+    html:`
+
+      <div class="option">
+        Здесь будут ваши избранные рестораны,
+        услуги и рекомендации.
+      </div>
+
+    `
+
+  },
+
+
+  profile:{
+
+    title:"● Профиль",
+
+    html:`
+
+      <div class="option">
+        🛏️ Номер: <b>5407</b>
+      </div>
+
+      <div class="option">
+        🌐 Язык: выбран в верхнем меню
+      </div>
+
+      <div class="option">
+        🤖 Zeya AI Concierge
+      </div>
+
+    `
+
+  }
+
+};
+
+
+/* =====================================================
+   OPEN MODAL
+===================================================== */
+
+function openModal(key){
+
+  const data =
+    modalData[key];
+
+
+  if(!data){
+
+    return;
+
+  }
+
+
+  document.getElementById(
+    "modalTitle"
+  ).innerHTML =
+    data.title;
+
+
+  document.getElementById(
+    "modalContent"
+  ).innerHTML =
+    data.html;
+
+
+  document.getElementById(
+    "modal"
+  ).classList.add("show");
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+function closeModal(){
+
+  document.getElementById(
+    "modal"
+  ).classList.remove("show");
+
+}
+
+
+function closeOutside(event){
+
+  if(
+    event.target.id === "modal"
+  ){
+
+    closeModal();
+
+  }
+
+}
+
+
+/* =====================================================
+   GOOGLE MAPS
+===================================================== */
+
+function openGoogleMaps(){
+
+  window.open(
+    "https://www.google.com/maps/search/?api=1&query=Selectum+Noa+Belek",
+    "_blank"
+  );
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(text){
+
+  const toast =
+    document.getElementById("toast");
+
+
+  toast.textContent =
+    text;
+
+
+  toast.style.display =
+    "block";
+
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+
+  window.toastTimer =
+    setTimeout(
+      function(){
+
+        toast.style.display =
+          "none";
+
+      },
+      2300
+    );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+input.placeholder =
+  langData.ru.placeholder;
+
+
+</script>
+
+</div>
+
+</body>
+</html>
