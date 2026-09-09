@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
+
 <title>Zeya AI — Selectum Noa Belek</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -19,16 +21,33 @@ body{
   margin:0;
   min-height:100vh;
   overflow-x:hidden;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
   color:#14212b;
+
   background:
-    radial-gradient(circle at 20% 0%,#eef9f7 0%,transparent 34%),
-    radial-gradient(circle at 100% 40%,#edf6fb 0%,transparent 30%),
+    radial-gradient(
+      circle at 20% 0%,
+      #eef9f7 0%,
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 100% 40%,
+      #edf6fb 0%,
+      transparent 30%
+    ),
     #f7fafb;
 }
 
 button,
 input,
+textarea,
 select{
   font:inherit;
 }
@@ -43,10 +62,18 @@ button{
   max-width:850px;
   margin:auto;
   min-height:100vh;
-  padding-bottom:calc(130px + env(safe-area-inset-bottom));
+
+  padding-bottom:
+    calc(
+      130px +
+      env(safe-area-inset-bottom)
+    );
 }
 
-/* ================= HEADER ================= */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
   padding:
@@ -59,13 +86,17 @@ header{
   gap:12px;
 
   background:rgba(255,255,255,.94);
-  border-bottom:1px solid rgba(19,48,62,.08);
+
+  border-bottom:
+    1px solid rgba(19,48,62,.08);
 
   position:sticky;
   top:0;
+
   z-index:20;
 
-  box-shadow:0 5px 20px rgba(20,50,65,.05);
+  box-shadow:
+    0 5px 20px rgba(20,50,65,.05);
 
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
@@ -76,8 +107,6 @@ header{
   min-width:0;
 }
 
-/* ================= NEW BRAND HEADER ================= */
-
 .brand-header{
   display:flex;
   align-items:center;
@@ -86,6 +115,7 @@ header{
 
 .brand-logo{
   width:128px;
+
   max-width:36vw;
 
   display:flex;
@@ -95,16 +125,20 @@ header{
 
 .brand-logo img{
   display:block;
+
   width:100%;
   max-width:128px;
+
   height:auto;
   max-height:48px;
+
   object-fit:contain;
 }
 
 .brand-divider{
   width:1px;
   height:40px;
+
   margin:0 13px;
 
   background:rgba(20,40,50,.15);
@@ -117,8 +151,11 @@ header{
 .brand-zeya-title{
   font-size:24px;
   line-height:1;
+
   font-weight:850;
+
   letter-spacing:-.7px;
+
   color:#14242d;
 }
 
@@ -128,55 +165,50 @@ header{
 
 .brand-zeya-sub{
   margin-top:5px;
+
   font-size:11px;
   font-weight:650;
+
   letter-spacing:.3px;
+
   color:#15917c;
-}
-
-.logo{
-  font-size:30px;
-  font-weight:800;
-  letter-spacing:-.5px;
-}
-
-.hotel{
-  margin-top:2px;
-  font-size:16px;
-  color:#71808a;
-}
-
-.status{
-  margin-top:5px;
-  font-size:13px;
-  color:#16977f;
 }
 
 .language-mini{
   min-width:74px;
   height:52px;
+
   padding:0 10px;
 
   border-radius:16px;
-  border:1px solid rgba(20,40,50,.12);
+
+  border:
+    1px solid rgba(20,40,50,.12);
 
   background:#f5f8f9;
   color:#182832;
 
   outline:none;
 
-  box-shadow:0 3px 12px rgba(20,50,65,.04);
+  box-shadow:
+    0 3px 12px rgba(20,50,65,.04);
 }
 
-/* ================= HERO ================= */
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
   margin:14px 16px 0;
+
   padding:28px 20px 20px;
 
   min-height:400px;
 
-  border:1px solid rgba(255,255,255,.55);
+  border:
+    1px solid rgba(255,255,255,.55);
+
   border-radius:28px;
 
   position:relative;
@@ -191,11 +223,13 @@ header{
     url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=85")
     center/cover;
 
-  box-shadow:0 12px 35px rgba(20,50,65,.12);
+  box-shadow:
+    0 12px 35px rgba(20,50,65,.12);
 }
 
 .hero:after{
   content:"";
+
   position:absolute;
   inset:0;
 
@@ -212,11 +246,14 @@ header{
 
 .hero-top{
   position:relative;
+
   z-index:2;
+
   height:100%;
 
   display:flex;
   flex-direction:column;
+
   justify-content:flex-end;
 }
 
@@ -226,17 +263,22 @@ header{
 
 .welcome h1{
   margin:0;
+
   font-size:36px;
   line-height:1.05;
+
   letter-spacing:-1px;
+
   color:#fff;
 }
 
 .welcome p{
   margin:15px 0 0;
+
   max-width:570px;
 
   color:#e4edf1;
+
   font-size:20px;
   line-height:1.4;
 }
@@ -245,12 +287,16 @@ header{
   margin-top:24px;
 
   width:100%;
+
   padding:18px;
 
-  border:1px solid rgba(255,255,255,.25);
+  border:
+    1px solid rgba(255,255,255,.25);
+
   border-radius:20px;
 
   background:rgba(255,255,255,.14);
+
   color:#fff;
 
   text-align:left;
@@ -261,8 +307,11 @@ header{
 
 .room small{
   display:block;
+
   color:#d8eee9;
+
   font-size:14px;
+
   margin-bottom:4px;
 }
 
@@ -276,7 +325,10 @@ header{
   font-size:14px;
 }
 
-/* ================= SECTIONS ================= */
+
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 .section{
   padding:18px 16px 0;
@@ -284,6 +336,7 @@ header{
 
 .section-head{
   display:flex;
+
   justify-content:space-between;
   align-items:center;
 
@@ -292,22 +345,32 @@ header{
 
 .section-title{
   font-size:25px;
+
   font-weight:800;
+
   letter-spacing:-.4px;
+
   color:#152630;
 }
 
 .section-more{
   background:none;
   border:0;
+
   color:#15947d;
 }
 
-/* ================= QUICK ================= */
+
+/* =====================================================
+   QUICK
+===================================================== */
 
 .quick{
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
   gap:10px;
 }
 
@@ -318,9 +381,12 @@ header{
   padding:12px 6px;
 
   border-radius:20px;
-  border:1px solid rgba(20,50,65,.08);
+
+  border:
+    1px solid rgba(20,50,65,.08);
 
   background:#fff;
+
   color:#182933;
 
   box-shadow:
@@ -333,33 +399,45 @@ header{
 
 .quick .ico{
   display:block;
+
   font-size:31px;
+
   margin-bottom:10px;
 }
 
 .quick .label{
   display:block;
+
   font-size:15px;
+
   color:#50616b;
 }
 
-/* ================= SMART TODAY ================= */
+
+/* =====================================================
+   SMART TODAY
+===================================================== */
 
 .smart-today{
   padding:17px;
 
-  border:1px solid rgba(20,50,65,.08);
+  border:
+    1px solid rgba(20,50,65,.08);
+
   border-radius:22px;
 
   background:#fff;
 
-  box-shadow:0 7px 24px rgba(20,50,65,.06);
+  box-shadow:
+    0 7px 24px rgba(20,50,65,.06);
 }
 
 .smart-today-head{
   display:flex;
+
   align-items:center;
   justify-content:space-between;
+
   gap:10px;
 
   margin-bottom:13px;
@@ -367,7 +445,9 @@ header{
 
 .smart-day-title{
   font-size:18px;
+
   font-weight:800;
+
   color:#182b35;
 }
 
@@ -377,9 +457,11 @@ header{
   border-radius:20px;
 
   background:#e9f7f3;
+
   color:#158b76;
 
   font-size:11px;
+
   font-weight:750;
 }
 
@@ -389,24 +471,32 @@ header{
   border-radius:16px;
 
   background:#f2faf8;
-  border:1px solid #dcefe9;
+
+  border:
+    1px solid #dcefe9;
 }
 
 .smart-now strong{
   display:block;
+
   color:#168c76;
+
   font-size:14px;
 }
 
 .smart-now span{
   display:block;
+
   margin-top:4px;
+
   color:#50616a;
+
   font-size:12px;
 }
 
 .smart-next{
   margin-top:9px;
+
   padding:12px;
 
   border-radius:15px;
@@ -416,14 +506,19 @@ header{
 
 .smart-next strong{
   display:block;
+
   font-size:12px;
+
   color:#60717a;
 }
 
 .smart-next span{
   display:block;
+
   margin-top:4px;
+
   font-size:13px;
+
   color:#1b2d37;
 }
 
@@ -433,12 +528,15 @@ header{
 
 .smart-list-row{
   display:flex;
+
   align-items:center;
+
   gap:10px;
 
   padding:8px 0;
 
-  border-bottom:1px solid #edf1f2;
+  border-bottom:
+    1px solid #edf1f2;
 
   font-size:12px;
 }
@@ -449,9 +547,11 @@ header{
 
 .smart-list-time{
   width:48px;
+
   flex:none;
 
   color:#178cda;
+
   font-weight:800;
 }
 
@@ -461,47 +561,61 @@ header{
 
 .smart-empty{
   color:#71818a;
+
   font-size:13px;
+
   line-height:1.5;
 }
 
-/* ================= FOOD ================= */
+
+/* =====================================================
+   FOOD
+===================================================== */
 
 .food-card{
   padding:19px;
 
   border-radius:22px;
-  border:1px solid rgba(20,50,65,.08);
+
+  border:
+    1px solid rgba(20,50,65,.08);
 
   background:#fff;
 
-  box-shadow:0 7px 24px rgba(20,50,65,.06);
+  box-shadow:
+    0 7px 24px rgba(20,50,65,.06);
 }
 
 .food-title{
   display:flex;
+
   justify-content:space-between;
   align-items:center;
 
   margin-bottom:12px;
 
   font-size:20px;
+
   font-weight:800;
+
   color:#182b35;
 }
 
 .food-live{
   font-size:10px;
+
   color:#15947d;
 }
 
 .meal{
   display:flex;
+
   justify-content:space-between;
 
   padding:13px 0;
 
-  border-bottom:1px solid #edf1f2;
+  border-bottom:
+    1px solid #edf1f2;
 
   font-size:14px;
 }
@@ -516,18 +630,26 @@ header{
 
 .food-button{
   width:100%;
+
   margin-top:12px;
+
   padding:13px;
 
   border:0;
+
   border-radius:14px;
 
   background:#1c9b86;
+
   color:#fff;
+
   font-weight:700;
 }
 
-/* ================= RECOMMEND ================= */
+
+/* =====================================================
+   RECOMMEND
+===================================================== */
 
 .recommend{
   min-height:180px;
@@ -537,7 +659,9 @@ header{
   border-radius:23px;
 
   display:flex;
+
   flex-direction:column;
+
   justify-content:flex-end;
 
   overflow:hidden;
@@ -551,31 +675,42 @@ header{
     url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=85")
     center/cover;
 
-  box-shadow:0 8px 25px rgba(20,50,65,.1);
+  box-shadow:
+    0 8px 25px rgba(20,50,65,.1);
 }
 
 .recommend small{
   color:#68dfc1;
+
   font-weight:700;
 }
 
 .recommend h3{
   margin:6px 0;
+
   font-size:21px;
+
   color:#fff;
 }
 
 .recommend p{
   margin:0;
+
   color:#bdc8d0;
+
   font-size:13px;
 }
 
-/* ================= SERVICES ================= */
+
+/* =====================================================
+   SERVICES
+===================================================== */
 
 .services{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:10px;
 }
 
@@ -583,20 +718,26 @@ header{
   min-height:88px;
 
   display:flex;
+
   align-items:center;
+
   gap:11px;
 
   padding:13px;
 
   text-align:left;
 
-  border:1px solid rgba(20,50,65,.08);
+  border:
+    1px solid rgba(20,50,65,.08);
+
   border-radius:18px;
 
   background:#fff;
+
   color:#172a34;
 
-  box-shadow:0 5px 18px rgba(20,50,65,.05);
+  box-shadow:
+    0 5px 18px rgba(20,50,65,.05);
 }
 
 .service:active{
@@ -621,51 +762,67 @@ header{
 
 .service strong{
   display:block;
+
   font-size:13px;
 }
 
 .service small{
   display:block;
+
   margin-top:4px;
 
   color:#82919a;
+
   font-size:10px;
+
   line-height:1.3;
 }
 
-/* ================= ACTIVITIES ================= */
+
+/* =====================================================
+   ACTIVITIES
+===================================================== */
 
 .activities-preview{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:10px;
 }
 
 .activity-day{
   padding:15px;
 
-  border:1px solid rgba(20,50,65,.08);
+  border:
+    1px solid rgba(20,50,65,.08);
+
   border-radius:18px;
 
   background:#fff;
 
-  box-shadow:0 5px 18px rgba(20,50,65,.05);
+  box-shadow:
+    0 5px 18px rgba(20,50,65,.05);
 }
 
 .activity-day h3{
   margin:0 0 10px;
 
   font-size:16px;
+
   color:#168c76;
 }
 
 .activity-item{
   padding:7px 0;
 
-  border-bottom:1px solid #edf1f2;
+  border-bottom:
+    1px solid #edf1f2;
 
   color:#435660;
+
   font-size:12px;
+
   line-height:1.4;
 }
 
@@ -675,59 +832,49 @@ header{
 
 .activity-time{
   color:#168cff;
+
   font-weight:700;
 }
 
 .activity-more{
   width:100%;
+
   margin-top:10px;
+
   padding:13px;
 
   border:0;
+
   border-radius:14px;
 
   background:#1f9d88;
+
   color:#fff;
 
   font-weight:700;
 }
 
-.category-card{
-  margin-top:10px;
 
-  padding:15px;
-
-  border:1px solid #e4eeee;
-  border-radius:18px;
-
-  background:#f8fbfb;
-}
-
-.category-card strong{
-  display:block;
-  margin-bottom:5px;
-  font-size:15px;
-}
-
-.category-card span{
-  color:#74858e;
-  font-size:12px;
-}
-
-/* ================= INFO ================= */
+/* =====================================================
+   INFO
+===================================================== */
 
 .info-card{
   display:flex;
+
   gap:12px;
 
   padding:15px;
 
-  border:1px solid rgba(20,50,65,.08);
+  border:
+    1px solid rgba(20,50,65,.08);
+
   border-radius:20px;
 
   background:#fff;
 
-  box-shadow:0 5px 18px rgba(20,50,65,.05);
+  box-shadow:
+    0 5px 18px rgba(20,50,65,.05);
 }
 
 .info-card img{
@@ -745,6 +892,7 @@ header{
 
 .info-body h3{
   margin:0 0 6px;
+
   font-size:16px;
 }
 
@@ -752,33 +900,45 @@ header{
   margin:0;
 
   color:#71818a;
+
   font-size:11px;
+
   line-height:1.5;
 }
 
-/* ================= WIDE ================= */
+
+/* =====================================================
+   WIDE
+===================================================== */
 
 .wide{
   display:flex;
+
   gap:12px;
+
   overflow:hidden;
 
-  border:1px solid rgba(20,50,65,.08);
+  border:
+    1px solid rgba(20,50,65,.08);
+
   border-radius:20px;
 
   background:#fff;
 
-  box-shadow:0 5px 18px rgba(20,50,65,.05);
+  box-shadow:
+    0 5px 18px rgba(20,50,65,.05);
 }
 
 .wide img{
   width:130px;
   height:100px;
+
   object-fit:cover;
 }
 
 .wide-body{
   padding:13px 10px 13px 0;
+
   flex:1;
 }
 
@@ -790,23 +950,311 @@ header{
   margin:5px 0;
 
   color:#7a8a93;
+
   font-size:11px;
+
   line-height:1.4;
 }
 
 .wide-body button{
   padding:7px 10px;
 
-  border:1px solid #dbe5e8;
+  border:
+    1px solid #dbe5e8;
+
   border-radius:10px;
 
   background:#f7fafb;
+
   color:#31505d;
 
   font-size:11px;
 }
 
-/* ================= CHAT ================= */
+
+/* =====================================================
+   REVIEWS
+===================================================== */
+
+.review-summary{
+  padding:18px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eefaf7,
+      #f8fbfc
+    );
+
+  border:
+    1px solid #dcefea;
+
+  text-align:center;
+}
+
+.review-average{
+  font-size:42px;
+
+  line-height:1;
+
+  font-weight:850;
+
+  color:#15947d;
+}
+
+.review-stars-display{
+  margin-top:7px;
+
+  color:#f1b82d;
+
+  font-size:22px;
+
+  letter-spacing:2px;
+}
+
+.review-count{
+  margin-top:5px;
+
+  color:#71818a;
+
+  font-size:12px;
+}
+
+.review-write-button{
+  width:100%;
+
+  margin-top:12px;
+
+  padding:14px;
+
+  border:0;
+
+  border-radius:14px;
+
+  background:#1f9d88;
+
+  color:#fff;
+
+  font-weight:800;
+}
+
+.review-item{
+  margin-top:10px;
+
+  padding:15px;
+
+  border:
+    1px solid #e3ebed;
+
+  border-radius:18px;
+
+  background:#fff;
+
+  box-shadow:
+    0 4px 15px rgba(20,50,65,.04);
+}
+
+.review-item-head{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:10px;
+}
+
+.review-user{
+  font-weight:800;
+
+  color:#1b2d37;
+
+  font-size:14px;
+}
+
+.review-country{
+  margin-left:5px;
+
+  color:#7b8a92;
+
+  font-size:11px;
+
+  font-weight:500;
+}
+
+.review-item-stars{
+  color:#f1b82d;
+
+  font-size:14px;
+
+  white-space:nowrap;
+}
+
+.review-item-text{
+  margin-top:9px;
+
+  color:#52636c;
+
+  font-size:13px;
+
+  line-height:1.55;
+}
+
+.review-date{
+  margin-top:8px;
+
+  color:#9aa6ac;
+
+  font-size:10px;
+}
+
+.review-empty{
+  padding:20px;
+
+  text-align:center;
+
+  color:#82919a;
+
+  font-size:13px;
+}
+
+.review-form-title{
+  margin-bottom:8px;
+
+  font-size:15px;
+
+  font-weight:800;
+
+  color:#1a2d37;
+}
+
+.review-stars{
+  display:flex;
+
+  justify-content:center;
+
+  gap:7px;
+
+  margin:15px 0 8px;
+}
+
+.review-star{
+  width:48px;
+  height:48px;
+
+  border:
+    1px solid #dfe8ea;
+
+  border-radius:14px;
+
+  background:#f7fafb;
+
+  color:#b8c3c7;
+
+  font-size:25px;
+
+  transition:.15s;
+}
+
+.review-star.active{
+  background:#fff7df;
+
+  border-color:#f3cf68;
+
+  color:#f2b928;
+}
+
+.review-rating-text{
+  text-align:center;
+
+  color:#168c76;
+
+  font-size:13px;
+
+  font-weight:700;
+}
+
+.review-label{
+  display:block;
+
+  margin:13px 0 6px;
+
+  color:#52656f;
+
+  font-size:12px;
+
+  font-weight:700;
+}
+
+.review-input,
+.review-textarea{
+  width:100%;
+
+  padding:13px;
+
+  border:
+    1px solid #dce5e8;
+
+  border-radius:14px;
+
+  background:#f8fafb;
+
+  color:#172b35;
+
+  outline:none;
+
+  font-size:14px;
+}
+
+.review-textarea{
+  min-height:120px;
+
+  resize:none;
+}
+
+.review-input:focus,
+.review-textarea:focus{
+  border-color:#36b79f;
+
+  background:#fff;
+}
+
+.review-success{
+  text-align:center;
+
+  padding:25px 10px;
+}
+
+.review-success-icon{
+  font-size:50px;
+
+  margin-bottom:12px;
+}
+
+.review-success h3{
+  margin:0;
+
+  font-size:21px;
+
+  color:#172a34;
+}
+
+.review-success p{
+  margin:8px 0 0;
+
+  color:#71818a;
+
+  font-size:13px;
+
+  line-height:1.5;
+}
+
+
+/* =====================================================
+   CHAT
+===================================================== */
 
 .chat{
   padding:10px 16px 0;
@@ -816,21 +1264,27 @@ header{
   max-width:86%;
 
   margin:10px 0;
+
   padding:13px 15px;
 
   border-radius:17px;
 
   line-height:1.5;
+
   font-size:14px;
 
   white-space:pre-wrap;
 
-  box-shadow:0 3px 12px rgba(20,50,65,.04);
+  box-shadow:
+    0 3px 12px rgba(20,50,65,.04);
 }
 
 .bot{
   background:#fff;
-  border:1px solid #e5ecee;
+
+  border:
+    1px solid #e5ecee;
+
   border-bottom-left-radius:5px;
 }
 
@@ -838,7 +1292,9 @@ header{
   margin-left:auto;
 
   background:#176b63;
+
   color:#fff;
+
   border-bottom-right-radius:5px;
 }
 
@@ -848,10 +1304,14 @@ header{
   padding:7px 16px;
 
   color:#8396a5;
+
   font-size:12px;
 }
 
-/* ================= VOICE ================= */
+
+/* =====================================================
+   VOICE
+===================================================== */
 
 .voice-area{
   padding:10px 16px;
@@ -862,22 +1322,31 @@ header{
 
   padding:12px;
 
-  border:1px solid #dce6e8;
+  border:
+    1px solid #dce6e8;
+
   border-radius:14px;
 
   background:#fff;
+
   color:#30434d;
 
-  box-shadow:0 4px 15px rgba(20,50,65,.04);
+  box-shadow:
+    0 4px 15px rgba(20,50,65,.04);
 }
 
 .voice-button.enabled{
   background:#edf9f5;
+
   border-color:#38cba6;
+
   color:#137d6b;
 }
 
-/* ================= INPUT ================= */
+
+/* =====================================================
+   INPUT
+===================================================== */
 
 .input-area{
   position:fixed;
@@ -892,11 +1361,13 @@ header{
   padding:9px 12px;
 
   display:flex;
+
   gap:8px;
 
   background:rgba(255,255,255,.97);
 
-  border-top:1px solid #e5ebed;
+  border-top:
+    1px solid #e5ebed;
 
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
@@ -906,14 +1377,18 @@ header{
 
 .input-area input{
   flex:1;
+
   min-width:0;
 
   padding:14px;
 
-  border:1px solid #dce5e8;
+  border:
+    1px solid #dce5e8;
+
   border-radius:15px;
 
   background:#f7fafb;
+
   color:#172b35;
 
   outline:none;
@@ -929,9 +1404,11 @@ header{
   width:48px;
 
   border:0;
+
   border-radius:14px;
 
   background:#1b9a87;
+
   color:#fff;
 
   font-size:20px;
@@ -939,10 +1416,14 @@ header{
 
 .input-area .mic{
   background:#e8eff2;
+
   color:#31515e;
 }
 
-/* ================= BOTTOM NAV ================= */
+
+/* =====================================================
+   BOTTOM NAV
+===================================================== */
 
 .bottom-nav{
   position:fixed;
@@ -953,30 +1434,40 @@ header{
   transform:translateX(-50%);
 
   width:min(850px,100%);
+
   height:55px;
 
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
 
   background:rgba(255,255,255,.99);
 
-  border-top:1px solid #e5ebed;
+  border-top:
+    1px solid #e5ebed;
 
-  box-shadow:0 -5px 20px rgba(20,50,65,.05);
+  box-shadow:
+    0 -5px 20px rgba(20,50,65,.05);
 
   z-index:31;
 }
 
 .bottom-nav button{
   border:0;
+
   background:none;
+
   color:#819099;
+
   font-size:10px;
 }
 
 .bottom-nav button span{
   display:block;
+
   margin-bottom:2px;
+
   font-size:19px;
 }
 
@@ -984,15 +1475,20 @@ header{
   color:#15947d;
 }
 
-/* ================= MODAL ================= */
+
+/* =====================================================
+   MODAL
+===================================================== */
 
 .modal{
   display:none;
 
   position:fixed;
+
   inset:0;
 
   align-items:flex-end;
+
   justify-content:center;
 
   background:rgba(8,25,34,.52);
@@ -1006,6 +1502,7 @@ header{
 
 .modal-box{
   width:min(850px,100%);
+
   max-height:85vh;
 
   overflow:auto;
@@ -1015,23 +1512,34 @@ header{
     20px
     calc(30px + env(safe-area-inset-bottom));
 
-  border-radius:25px 25px 0 0;
-  border:1px solid #e2eaec;
+  border-radius:
+    25px
+    25px
+    0
+    0;
+
+  border:
+    1px solid #e2eaec;
 
   background:#fff;
 
-  box-shadow:0 -15px 40px rgba(20,50,65,.14);
+  box-shadow:
+    0 -15px 40px rgba(20,50,65,.14);
 }
 
 .modal-head{
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
 }
 
 .modal-head h2{
   margin:0;
+
   font-size:21px;
+
   color:#172a34;
 }
 
@@ -1040,9 +1548,11 @@ header{
   height:38px;
 
   border:0;
+
   border-radius:12px;
 
   background:#edf2f4;
+
   color:#30434d;
 
   font-size:21px;
@@ -1054,6 +1564,7 @@ header{
   color:#40545e;
 
   font-size:14px;
+
   line-height:1.6;
 }
 
@@ -1062,72 +1573,27 @@ header{
 
   margin:8px 0;
 
-  border:1px solid #e4ecee;
+  border:
+    1px solid #e4ecee;
+
   border-radius:14px;
 
   background:#f8fafb;
-}
-
-.day-title{
-  margin-top:18px;
-  margin-bottom:8px;
-
-  padding:10px 12px;
-
-  border-radius:12px;
-
-  background:#e9f7f3;
-
-  color:#168c76;
-
-  font-size:16px;
-  font-weight:800;
-}
-
-.schedule-row{
-  display:flex;
-  gap:10px;
-
-  padding:9px 0;
-
-  border-bottom:1px solid #edf1f2;
-}
-
-.schedule-row:last-child{
-  border-bottom:0;
-}
-
-.schedule-time{
-  width:55px;
-  flex:none;
-
-  color:#168cff;
-  font-weight:700;
-}
-
-.schedule-name{
-  color:#3e535e;
-}
-
-.sub-title{
-  margin-top:18px;
-  margin-bottom:8px;
-
-  color:#168c76;
-  font-size:17px;
-  font-weight:800;
 }
 
 .modal-action{
   width:100%;
 
   margin-top:12px;
+
   padding:13px;
 
   border:0;
+
   border-radius:13px;
 
   background:#1f9d88;
+
   color:#fff;
 
   font-weight:700;
@@ -1141,7 +1607,96 @@ header{
   font-size:11px;
 }
 
-/* ================= TOAST ================= */
+.sub-title{
+  margin-top:18px;
+
+  margin-bottom:8px;
+
+  color:#168c76;
+
+  font-size:17px;
+
+  font-weight:800;
+}
+
+.day-title{
+  margin-top:18px;
+
+  margin-bottom:8px;
+
+  padding:10px 12px;
+
+  border-radius:12px;
+
+  background:#e9f7f3;
+
+  color:#168c76;
+
+  font-size:16px;
+
+  font-weight:800;
+}
+
+.schedule-row{
+  display:flex;
+
+  gap:10px;
+
+  padding:9px 0;
+
+  border-bottom:
+    1px solid #edf1f2;
+}
+
+.schedule-row:last-child{
+  border-bottom:0;
+}
+
+.schedule-time{
+  width:55px;
+
+  flex:none;
+
+  color:#168cff;
+
+  font-weight:700;
+}
+
+.schedule-name{
+  color:#3e535e;
+}
+
+.category-card{
+  margin-top:10px;
+
+  padding:15px;
+
+  border:
+    1px solid #e4eeee;
+
+  border-radius:18px;
+
+  background:#f8fbfb;
+}
+
+.category-card strong{
+  display:block;
+
+  margin-bottom:5px;
+
+  font-size:15px;
+}
+
+.category-card span{
+  color:#74858e;
+
+  font-size:12px;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
 
 .toast{
   position:fixed;
@@ -1166,7 +1721,10 @@ header{
   z-index:200;
 }
 
-/* ================= MOBILE ================= */
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:600px){
 
@@ -1198,14 +1756,6 @@ header{
     padding:0 7px;
   }
 
-  .logo{
-    font-size:29px;
-  }
-
-  .hotel{
-    font-size:15px;
-  }
-
   .hero{
     min-height:400px;
   }
@@ -1219,15 +1769,12 @@ header{
   }
 
   .quick{
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
   }
 
   .quick button{
     min-height:110px;
-  }
-
-  .services{
-    grid-template-columns:1fr 1fr;
   }
 
   .activities-preview{
@@ -1235,6 +1782,11 @@ header{
   }
 
 }
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
 
 @media(max-width:390px){
 
@@ -1256,10 +1808,6 @@ header{
 
   .brand-zeya-sub{
     font-size:8px;
-  }
-
-  .logo{
-    font-size:25px;
   }
 
   .language-mini{
@@ -1288,12 +1836,16 @@ header{
 
 }
 
-/* ================= DESKTOP ================= */
+
+/* =====================================================
+   DESKTOP
+===================================================== */
 
 @media(min-width:700px){
 
   .quick{
-    grid-template-columns:repeat(6,minmax(0,1fr));
+    grid-template-columns:
+      repeat(6,minmax(0,1fr));
   }
 
   .quick button{
@@ -1301,18 +1853,24 @@ header{
   }
 
   .activities-preview{
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+      repeat(3,1fr);
   }
 
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -1337,8 +1895,12 @@ header{
           Zeya <span>AI</span>
         </div>
 
-        <div class="brand-zeya-sub" id="status">
+        <div
+          class="brand-zeya-sub"
+          id="status">
+
           AI Concierge
+
         </div>
 
       </div>
@@ -1348,7 +1910,9 @@ header{
   </div>
 
 
-  <select class="language-mini" id="language">
+  <select
+    class="language-mini"
+    id="language">
 
     <option value="ru">🇷🇺 RU</option>
     <option value="tr">🇹🇷 TR</option>
@@ -1366,7 +1930,9 @@ header{
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -1386,7 +1952,9 @@ header{
     </div>
 
 
-    <button class="room" onclick="openModal('room')">
+    <button
+      class="room"
+      onclick="openModal('room')">
 
       <small>
         🛏️ Ваш номер
@@ -1407,7 +1975,9 @@ header{
 </section>
 
 
-<!-- ================= QUICK ================= -->
+<!-- =====================================================
+     QUICK
+===================================================== -->
 
 <section class="section">
 
@@ -1422,7 +1992,8 @@ header{
 
   <div class="quick">
 
-    <button onclick="quickQuestion('Во сколько сегодня ужин?')">
+    <button
+      onclick="quickQuestion('Во сколько сегодня ужин?')">
 
       <span class="ico">🍽️</span>
 
@@ -1433,7 +2004,8 @@ header{
     </button>
 
 
-    <button onclick="quickQuestion('Расскажи про бассейн')">
+    <button
+      onclick="quickQuestion('Расскажи про бассейн')">
 
       <span class="ico">🏊</span>
 
@@ -1444,7 +2016,8 @@ header{
     </button>
 
 
-    <button onclick="quickQuestion('Расскажи про SPA')">
+    <button
+      onclick="quickQuestion('Расскажи про SPA')">
 
       <span class="ico">🧖</span>
 
@@ -1455,7 +2028,8 @@ header{
     </button>
 
 
-    <button onclick="quickQuestion('Какие напитки доступны?')">
+    <button
+      onclick="quickQuestion('Какие напитки доступны?')">
 
       <span class="ico">🍹</span>
 
@@ -1466,7 +2040,8 @@ header{
     </button>
 
 
-    <button onclick="quickQuestion('Расскажи про пляж')">
+    <button
+      onclick="quickQuestion('Расскажи про пляж')">
 
       <span class="ico">🏖️</span>
 
@@ -1477,7 +2052,8 @@ header{
     </button>
 
 
-    <button onclick="openModal('events')">
+    <button
+      onclick="openModal('events')">
 
       <span class="ico">📅</span>
 
@@ -1492,7 +2068,9 @@ header{
 </section>
 
 
-<!-- ================= SMART TODAY ================= -->
+<!-- =====================================================
+     SMART TODAY
+===================================================== -->
 
 <section class="section">
 
@@ -1513,7 +2091,9 @@ header{
   </div>
 
 
-  <div class="smart-today" id="smartToday">
+  <div
+    class="smart-today"
+    id="smartToday">
 
     <div class="smart-today-head">
 
@@ -1537,9 +2117,7 @@ header{
 
 
     <div id="smartTodayContent">
-
       Загружаю расписание...
-
     </div>
 
   </div>
@@ -1547,7 +2125,9 @@ header{
 </section>
 
 
-<!-- ================= ACTIVITIES WEEK ================= -->
+<!-- =====================================================
+     ACTIVITIES
+===================================================== -->
 
 <section class="section">
 
@@ -1741,7 +2321,9 @@ header{
 </section>
 
 
-<!-- ================= FOOD ================= -->
+<!-- =====================================================
+     FOOD
+===================================================== -->
 
 <section class="section">
 
@@ -1817,7 +2399,9 @@ header{
 </section>
 
 
-<!-- ================= RECOMMEND ================= -->
+<!-- =====================================================
+     RECOMMEND
+===================================================== -->
 
 <section class="section">
 
@@ -1846,7 +2430,9 @@ header{
 </section>
 
 
-<!-- ================= SERVICES ================= -->
+<!-- =====================================================
+     SERVICES
+===================================================== -->
 
 <section class="section">
 
@@ -2019,6 +2605,31 @@ header{
     </button>
 
 
+    <!-- НОВАЯ КНОПКА ОТЗЫВОВ -->
+
+    <button
+      class="service"
+      onclick="openModal('review')">
+
+      <div class="sicon">
+        ⭐
+      </div>
+
+      <div>
+
+        <strong>
+          Оставить отзыв
+        </strong>
+
+        <small>
+          Поделитесь впечатлениями
+        </small>
+
+      </div>
+
+    </button>
+
+
     <button
       class="service"
       onclick="quickQuestion('Мне нужна помощь сотрудника отеля')">
@@ -2046,7 +2657,41 @@ header{
 </section>
 
 
-<!-- ================= HOTEL INFO ================= -->
+<!-- =====================================================
+     REVIEWS PREVIEW
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-head">
+
+    <div class="section-title">
+      ⭐ Отзывы гостей
+    </div>
+
+    <button
+      class="section-more"
+      onclick="openModal('reviews')">
+
+      Все →
+
+    </button>
+
+  </div>
+
+
+  <div id="reviewPreview">
+
+    <!-- Отзывы загружаются JS -->
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOTEL INFO
+===================================================== -->
 
 <section class="section">
 
@@ -2080,7 +2725,9 @@ header{
 </section>
 
 
-<!-- ================= DISCOVER ================= -->
+<!-- =====================================================
+     DISCOVER
+===================================================== -->
 
 <section class="section">
 
@@ -2107,8 +2754,11 @@ header{
         и морские прогулки.
       </p>
 
-      <button onclick="openModal('excursions')">
+      <button
+        onclick="openModal('excursions')">
+
         Подробнее →
+
       </button>
 
     </div>
@@ -2118,7 +2768,9 @@ header{
 </section>
 
 
-<!-- ================= CHAT ================= -->
+<!-- =====================================================
+     CHAT
+===================================================== -->
 
 <section class="section">
 
@@ -2129,10 +2781,14 @@ header{
 </section>
 
 
-<div class="chat" id="chat">
+<div
+  class="chat"
+  id="chat">
 
   <div class="message bot">
+
     Привет! 👋 Я Zeya, ваш AI-консьерж.
+
     Спросите меня про рестораны, SPA,
     бассейн, пляж, активности,
     трансфер или экскурсии.
@@ -2143,17 +2799,24 @@ header{
     «А завтра?»
     «Когда Dart?»
     «Во сколько Aqua Gym?»
+
   </div>
 
 </div>
 
 
-<div class="typing" id="typing">
+<div
+  class="typing"
+  id="typing">
+
   Zeya думает...
+
 </div>
 
 
-<!-- ================= VOICE ================= -->
+<!-- =====================================================
+     VOICE
+===================================================== -->
 
 <div class="voice-area">
 
@@ -2169,7 +2832,9 @@ header{
 </div>
 
 
-<!-- ================= INPUT ================= -->
+<!-- =====================================================
+     INPUT
+===================================================== -->
 
 <div class="input-area">
 
@@ -2191,7 +2856,8 @@ header{
   >
 
 
-  <button onclick="sendMessage()">
+  <button
+    onclick="sendMessage()">
 
     ➤
 
@@ -2200,7 +2866,9 @@ header{
 </div>
 
 
-<!-- ================= BOTTOM NAV ================= -->
+<!-- =====================================================
+     BOTTOM NAV
+===================================================== -->
 
 <nav class="bottom-nav">
 
@@ -2214,7 +2882,8 @@ header{
   </button>
 
 
-  <button onclick="openModal('history')">
+  <button
+    onclick="openModal('history')">
 
     <span>◷</span>
     История
@@ -2222,7 +2891,8 @@ header{
   </button>
 
 
-  <button onclick="openModal('favorites')">
+  <button
+    onclick="openModal('favorites')">
 
     <span>♡</span>
     Избранное
@@ -2230,7 +2900,8 @@ header{
   </button>
 
 
-  <button onclick="openModal('profile')">
+  <button
+    onclick="openModal('profile')">
 
     <span>●</span>
     Профиль
@@ -2240,7 +2911,9 @@ header{
 </nav>
 
 
-<!-- ================= MODAL ================= -->
+<!-- =====================================================
+     MODAL
+===================================================== -->
 
 <div
   class="modal"
@@ -2284,8 +2957,9 @@ header{
 
 <script>
 
+
 /* =====================================================
-   API ZEYA
+   API
 ===================================================== */
 
 const API_URL =
@@ -2294,12 +2968,11 @@ const API_URL =
 const TTS_URL =
   "https://zeya-pi.vercel.app/api/tts";
 
-
 let voiceEnabled = false;
 
 
 /* =====================================================
-   LANGUAGE
+   BASIC ELEMENTS
 ===================================================== */
 
 const language =
@@ -2323,6 +2996,10 @@ const voiceButton =
 const micButton =
   document.getElementById("micButton");
 
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
 
 const langData = {
 
@@ -2420,7 +3097,7 @@ const langData = {
 
 
 /* =====================================================
-   SMART HOTEL SCHEDULE
+   SCHEDULE
 ===================================================== */
 
 const weeklySchedule = {
@@ -2587,8 +3264,7 @@ const dayAliases = {
     "пн",
     "monday",
     "mon",
-    "pazartesi",
-    "pazartesi günü"
+    "pazartesi"
   ],
 
   tuesday:[
@@ -2651,23 +3327,19 @@ const activityAliases = {
     "dart",
     "darts",
     "дартс",
-    "дарт",
-    "dart oyunu"
+    "дарт"
   ],
 
   beachVoleybol:[
     "beach voleybol",
     "beach volleyball",
-    "beach volley",
     "пляжный волейбол",
-    "волейбол",
-    "пляжный волейбол"
+    "волейбол"
   ],
 
   suTopu:[
     "su topu",
     "water polo",
-    "водное поло",
     "водное поло"
   ],
 
@@ -2675,7 +3347,6 @@ const activityAliases = {
     "havuz oyunu",
     "pool game",
     "pool games",
-    "игра в бассейне",
     "игра в бассейне"
   ],
 
@@ -2688,7 +3359,6 @@ const activityAliases = {
     "aqua gym",
     "аква гим",
     "акваджим",
-    "аква gym",
     "aqua jim"
   ],
 
@@ -2701,15 +3371,13 @@ const activityAliases = {
   stepAerobic:[
     "step aerobic",
     "степ аэробика",
-    "степ аэробик",
     "step"
   ],
 
   kangooJumping:[
     "kangoo jumping",
     "kangoo",
-    "канго джампинг",
-    "кангу джампинг"
+    "канго джампинг"
   ],
 
   flyYoga:[
@@ -2727,61 +3395,13 @@ const activityAliases = {
     "pool party",
     "poolparty",
     "пул пати",
-    "пул парти",
     "вечеринка у бассейна"
-  ],
-
-  cafeGames:[
-    "cafe games",
-    "cafe game",
-    "кафе игры",
-    "игры кафе",
-    "cafe oyunları",
-    "cafe oyunlari"
-  ],
-
-  surf:[
-    "surf",
-    "серф",
-    "сёрф"
-  ],
-
-  oryantal:[
-    "oryantal",
-    "ориентал",
-    "восточные танцы"
-  ],
-
-  basket:[
-    "basket",
-    "баскет",
-    "баскетбол"
-  ],
-
-  havluSikma:[
-    "havlu sıkma",
-    "havlu sikma",
-    "полотенце",
-    "выжимание полотенца"
-  ],
-
-  power:[
-    "power",
-    "пауэр"
-  ],
-
-  ipAtlama:[
-    "ip atlama",
-    "ip atləmə",
-    "прыжки через скакалку",
-    "скакалка"
   ]
 
 };
 
 
 let lastScheduleActivityKey = null;
-let lastScheduleDayIndex = null;
 
 
 /* =====================================================
@@ -2819,14 +3439,13 @@ function getCurrentWeekdayIndex(){
 
 
 /* =====================================================
-   DAY FROM MESSAGE
+   DAY DETECTION
 ===================================================== */
 
 function getDayIndexFromMessage(message){
 
   const text =
     normalizeText(message);
-
 
   if(
     text.includes("сегодня") ||
@@ -2838,7 +3457,6 @@ function getDayIndexFromMessage(message){
 
   }
 
-
   if(
     text.includes("завтра") ||
     text.includes("tomorrow") ||
@@ -2847,11 +3465,10 @@ function getDayIndexFromMessage(message){
   ){
 
     return (
-      getCurrentWeekdayIndex() + 1
+      getCurrentWeekdayIndex()+1
     ) % 7;
 
   }
-
 
   for(
     let i=0;
@@ -2863,7 +3480,6 @@ function getDayIndexFromMessage(message){
       dayAliases[
         dayKeys[i]
       ] || [];
-
 
     for(
       const alias of aliases
@@ -2883,7 +3499,6 @@ function getDayIndexFromMessage(message){
 
   }
 
-
   return null;
 
 }
@@ -2900,14 +3515,12 @@ function findActivityKeys(message){
 
   const found = [];
 
-
   Object.keys(activityAliases)
     .forEach(
       function(key){
 
         const aliases =
           activityAliases[key];
-
 
         for(
           const alias of aliases
@@ -2930,7 +3543,6 @@ function findActivityKeys(message){
       }
     );
 
-
   return [
     ...new Set(found)
   ];
@@ -2939,7 +3551,7 @@ function findActivityKeys(message){
 
 
 /* =====================================================
-   SCHEDULE ITEMS FOR DAY
+   ACTIVITIES FOR DAY
 ===================================================== */
 
 function getActivitiesForDay(dayIndex){
@@ -2954,20 +3566,16 @@ function getActivitiesForDay(dayIndex){
 
   }
 
-
   const key =
     dayKeys[dayIndex];
 
-
   const weekly =
     weeklySchedule[key] || [];
-
 
   const daily =
     dayIndex < 6
       ? dailyActivities
       : [];
-
 
   return [
     ...weekly,
@@ -2995,11 +3603,9 @@ function getActivityTimes(
   activityKey
 ){
 
-  const items =
-    getActivitiesForDay(dayIndex);
-
-
-  return items.filter(
+  return getActivitiesForDay(
+    dayIndex
+  ).filter(
     function(item){
 
       return item.key === activityKey;
@@ -3011,7 +3617,7 @@ function getActivityTimes(
 
 
 /* =====================================================
-   TIME TO MINUTES
+   TIME
 ===================================================== */
 
 function timeToMinutes(time){
@@ -3019,9 +3625,8 @@ function timeToMinutes(time){
   const parts =
     time.split(":");
 
-
   return (
-    Number(parts[0]) * 60 +
+    Number(parts[0])*60 +
     Number(parts[1])
   );
 
@@ -3035,39 +3640,34 @@ function timeToMinutes(time){
 function getDayLabel(dayIndex){
 
   if(
-    dayIndex === getCurrentWeekdayIndex()
+    dayIndex ===
+    getCurrentWeekdayIndex()
   ){
 
-    if(language.value === "tr"){
+    if(language.value === "tr")
       return "BUGÜN";
-    }
 
-    if(language.value === "en"){
+    if(language.value === "en")
       return "TODAY";
-    }
 
     return "СЕГОДНЯ";
 
   }
-
 
   if(
     dayIndex ===
     (getCurrentWeekdayIndex()+1)%7
   ){
 
-    if(language.value === "tr"){
+    if(language.value === "tr")
       return "YARIN";
-    }
 
-    if(language.value === "en"){
+    if(language.value === "en")
       return "TOMORROW";
-    }
 
     return "ЗАВТРА";
 
   }
-
 
   return dayNames[dayIndex];
 
@@ -3075,19 +3675,14 @@ function getDayLabel(dayIndex){
 
 
 /* =====================================================
-   MULTILINGUAL ACTIVITY NAME
+   ACTIVITY NAME
 ===================================================== */
 
-function activityDisplayName(
-  item
-){
+function activityDisplayName(item){
 
-  if(
-    language.value === "tr"
-  ){
+  const names = {
 
-    const tr = {
-
+    tr:{
       dart:"Dart",
       beachVoleybol:"Beach Voleybol",
       suTopu:"Su Topu",
@@ -3100,21 +3695,9 @@ function activityDisplayName(
       flyYoga:"Fly Yoga",
       zumba:"Zumba",
       poolParty:"Pool Party"
+    },
 
-    };
-
-    return tr[item.key] ||
-      item.name;
-
-  }
-
-
-  if(
-    language.value === "en"
-  ){
-
-    const en = {
-
+    en:{
       dart:"Darts",
       beachVoleybol:"Beach Volleyball",
       suTopu:"Water Polo",
@@ -3127,21 +3710,9 @@ function activityDisplayName(
       flyYoga:"Fly Yoga",
       zumba:"Zumba",
       poolParty:"Pool Party"
+    },
 
-    };
-
-    return en[item.key] ||
-      item.name;
-
-  }
-
-
-  if(
-    language.value === "ru"
-  ){
-
-    const ru = {
-
+    ru:{
       dart:"Дартс",
       beachVoleybol:"Пляжный волейбол",
       suTopu:"Водное поло",
@@ -3154,22 +3725,21 @@ function activityDisplayName(
       flyYoga:"Fly Yoga",
       zumba:"Zumba",
       poolParty:"Pool Party"
+    }
 
-    };
+  };
 
-    return ru[item.key] ||
-      item.name;
-
-  }
-
-
-  return item.name;
+  return (
+    names[language.value] &&
+    names[language.value][item.key]
+  ) ||
+  item.name;
 
 }
 
 
 /* =====================================================
-   CURRENT SCHEDULE STATE
+   SCHEDULE STATE
 ===================================================== */
 
 function getCurrentScheduleState(){
@@ -3177,12 +3747,10 @@ function getCurrentScheduleState(){
   const dayIndex =
     getCurrentWeekdayIndex();
 
-
   const items =
     getActivitiesForDay(
       dayIndex
     );
-
 
   if(!items.length){
 
@@ -3190,24 +3758,20 @@ function getCurrentScheduleState(){
       current:null,
       next:null,
       items:[],
-      dayIndex:dayIndex
+      dayIndex
     };
 
   }
 
-
   const now =
     new Date();
-
 
   const currentMinutes =
     now.getHours()*60 +
     now.getMinutes();
 
-
   let current = null;
   let next = null;
-
 
   for(
     let i=0;
@@ -3218,24 +3782,20 @@ function getCurrentScheduleState(){
     const item =
       items[i];
 
-
     const start =
       timeToMinutes(
         item.time
       );
 
-
     const following =
       items[i+1] || null;
-
 
     const end =
       following
         ? timeToMinutes(
             following.time
           )
-        : start + 45;
-
+        : start+45;
 
     if(
       currentMinutes >= start &&
@@ -3244,28 +3804,28 @@ function getCurrentScheduleState(){
 
       current = item;
       next = following;
+
       break;
 
     }
-
 
     if(
       currentMinutes < start
     ){
 
       next = item;
+
       break;
 
     }
 
   }
 
-
   return {
-    current:current,
-    next:next,
-    items:items,
-    dayIndex:dayIndex
+    current,
+    next,
+    items,
+    dayIndex
   };
 
 }
@@ -3275,32 +3835,25 @@ function getCurrentScheduleState(){
    SCHEDULE ANSWER
 ===================================================== */
 
-function getScheduleAnswer(
-  message
-){
+function getScheduleAnswer(message){
 
   const text =
     normalizeText(message);
 
-
   const activityKeys =
     findActivityKeys(message);
-
 
   let dayIndex =
     getDayIndexFromMessage(message);
 
-
   const asksNow =
     text.includes("сейчас") ||
     text.includes("what now") ||
-    text.includes("whats now") ||
     text.includes("right now") ||
     text.includes("şu anda") ||
     text.includes("su anda") ||
     text.includes("şimdi") ||
     text.includes("simdi");
-
 
   const asksSchedule =
     text.includes("расписание") ||
@@ -3315,48 +3868,20 @@ function getScheduleAnswer(
     text.includes("what today") ||
     text.includes("what tomorrow");
 
-
-  const followTomorrow =
-    (
-      text === "а завтра" ||
-      text === "завтра" ||
-      text === "а завтра?" ||
-      text === "tomorrow" ||
-      text === "and tomorrow" ||
-      text === "yarın" ||
-      text === "yarin"
-    );
-
-
-  if(
-    activityKeys.length
-  ){
+  if(activityKeys.length){
 
     lastScheduleActivityKey =
       activityKeys[0];
 
   }
 
-
   if(
-    dayIndex !== null
-  ){
-
-    lastScheduleDayIndex =
-      dayIndex;
-
-  }
-
-
-  if(
-    followTomorrow &&
+    text === "завтра" &&
     lastScheduleActivityKey
   ){
 
     dayIndex =
-      (
-        getCurrentWeekdayIndex()+1
-      ) % 7;
+      (getCurrentWeekdayIndex()+1)%7;
 
     activityKeys.push(
       lastScheduleActivityKey
@@ -3364,119 +3889,55 @@ function getScheduleAnswer(
 
   }
 
+  const uniqueKeys =
+    [...new Set(activityKeys)];
 
-  const uniqueActivityKeys =
-    [
-      ...new Set(activityKeys)
-    ];
-
-
-  /* ================= ACTIVITY + DAY ================= */
-
-  if(
-    uniqueActivityKeys.length
-  ){
+  if(uniqueKeys.length){
 
     const targetDay =
       dayIndex !== null
         ? dayIndex
         : getCurrentWeekdayIndex();
 
-
     const answers = [];
 
+    uniqueKeys.forEach(
+      function(key){
 
-    uniqueActivityKeys
-      .forEach(
-        function(activityKey){
+        const times =
+          getActivityTimes(
+            targetDay,
+            key
+          );
 
-          const times =
-            getActivityTimes(
-              targetDay,
-              activityKey
-            );
+        if(times.length){
 
+          answers.push(
+            times.map(
+              function(item){
 
-          if(times.length){
+                return (
+                  item.time +
+                  " — " +
+                  activityDisplayName(item)
+                );
 
-            const names =
-              times.map(
-                function(item){
-
-                  return (
-                    item.time +
-                    " — " +
-                    activityDisplayName(
-                      item
-                    )
-                  );
-
-                }
-              );
-
-
-            answers.push(
-              names.join("\n")
-            );
-
-          }
+              }
+            ).join("\n")
+          );
 
         }
-      );
 
+      }
+    );
 
     if(answers.length){
 
-      const prefix =
-        language.value === "tr"
-          ? "📅 " + getDayLabel(targetDay) + ":\n"
-          : language.value === "en"
-            ? "📅 " + getDayLabel(targetDay) + ":\n"
-            : "📅 " + getDayLabel(targetDay) + ":\n";
-
-
       return (
-        prefix +
+        "📅 " +
+        getDayLabel(targetDay) +
+        ":\n" +
         answers.join("\n")
-      );
-
-    }
-
-
-    if(
-      dayIndex !== null
-    ){
-
-      const dayName =
-        dayNames[dayIndex];
-
-
-      if(language.value === "tr"){
-
-        return (
-          "Bu gün " +
-          dayName +
-          " için bu aktivite programda görünmüyor."
-        );
-
-      }
-
-
-      if(language.value === "en"){
-
-        return (
-          "This activity is not listed for " +
-          dayName +
-          "."
-        );
-
-      }
-
-
-      return (
-        "На " +
-        dayName +
-        " этой активности в предоставленном расписании нет."
       );
 
     }
@@ -3484,87 +3945,21 @@ function getScheduleAnswer(
   }
 
 
-  /* ================= NOW ================= */
-
   if(asksNow){
 
     const state =
       getCurrentScheduleState();
 
-
-    if(
-      state.current
-    ){
-
-      const currentName =
-        activityDisplayName(
-          state.current
-        );
-
-
-      if(language.value === "tr"){
-
-        let result =
-          "🟢 Şu anda: " +
-          currentName +
-          " (" +
-          state.current.time +
-          ")";
-
-
-        if(state.next){
-
-          result +=
-            "\n➡️ Sonraki: " +
-            activityDisplayName(
-              state.next
-            ) +
-            " — " +
-            state.next.time;
-
-        }
-
-
-        return result;
-
-      }
-
-
-      if(language.value === "en"){
-
-        let result =
-          "🟢 Now: " +
-          currentName +
-          " (" +
-          state.current.time +
-          ")";
-
-
-        if(state.next){
-
-          result +=
-            "\n➡️ Next: " +
-            activityDisplayName(
-              state.next
-            ) +
-            " — " +
-            state.next.time;
-
-        }
-
-
-        return result;
-
-      }
-
+    if(state.current){
 
       let result =
         "🟢 Сейчас проходит: " +
-        currentName +
+        activityDisplayName(
+          state.current
+        ) +
         " (" +
         state.current.time +
         ")";
-
 
       if(state.next){
 
@@ -3578,76 +3973,27 @@ function getScheduleAnswer(
 
       }
 
-
       return result;
 
     }
 
-
-    if(
-      state.next
-    ){
-
-      const nextName =
-        activityDisplayName(
-          state.next
-        );
-
-
-      if(language.value === "tr"){
-
-        return (
-          "➡️ Sıradaki aktivite: " +
-          nextName +
-          " — " +
-          state.next.time
-        );
-
-      }
-
-
-      if(language.value === "en"){
-
-        return (
-          "➡️ Next activity: " +
-          nextName +
-          " — " +
-          state.next.time
-        );
-
-      }
-
+    if(state.next){
 
       return (
         "➡️ Ближайшая активность: " +
-        nextName +
+        activityDisplayName(
+          state.next
+        ) +
         " — " +
         state.next.time
       );
 
     }
 
-
-    if(language.value === "tr"){
-
-      return "Bugünkü ana aktiviteler tamamlandı.";
-
-    }
-
-
-    if(language.value === "en"){
-
-      return "Today's main activities are finished.";
-
-    }
-
-
     return "Основные активности на сегодня уже завершены.";
 
   }
 
-
-  /* ================= TODAY / TOMORROW / SCHEDULE ================= */
 
   if(
     asksSchedule ||
@@ -3659,35 +4005,12 @@ function getScheduleAnswer(
         ? dayIndex
         : getCurrentWeekdayIndex();
 
-
     const items =
       getActivitiesForDay(
         targetDay
       );
 
-
     if(!items.length){
-
-      if(language.value === "tr"){
-
-        return (
-          getDayLabel(targetDay) +
-          " için program bilgisi bulunmuyor."
-        );
-
-      }
-
-
-      if(language.value === "en"){
-
-        return (
-          "No activity schedule is provided for " +
-          getDayLabel(targetDay) +
-          "."
-        );
-
-      }
-
 
       return (
         "Для " +
@@ -3697,8 +4020,10 @@ function getScheduleAnswer(
 
     }
 
-
-    const lines =
+    return (
+      "📅 " +
+      getDayLabel(targetDay) +
+      ":\n" +
       items.map(
         function(item){
 
@@ -3709,44 +4034,11 @@ function getScheduleAnswer(
           );
 
         }
-      );
-
-
-    if(language.value === "tr"){
-
-      return (
-        "📅 " +
-        getDayLabel(targetDay) +
-        " aktiviteleri:\n" +
-        lines.join("\n")
-      );
-
-    }
-
-
-    if(language.value === "en"){
-
-      return (
-        "📅 Activities for " +
-        getDayLabel(targetDay) +
-        ":\n" +
-        lines.join("\n")
-      );
-
-    }
-
-
-    return (
-      "📅 " +
-      getDayLabel(targetDay) +
-      ":\n" +
-      lines.join("\n")
+      ).join("\n")
     );
 
   }
 
-
-  /* ================= CATEGORY QUESTIONS ================= */
 
   if(
     text.includes("бассейн") ||
@@ -3754,39 +4046,10 @@ function getScheduleAnswer(
     text.includes("havuz")
   ){
 
-    if(
-      text.includes("актив") ||
-      text.includes("что") ||
-      text.includes("какие") ||
-      text.includes("which")
-    ){
-
-      if(language.value === "tr"){
-
-        return (
-          "🏊 Havuz aktiviteleri:\n" +
-          "Havuz Oyunu, Su Topu, Aqua Gym, Aqua Jumping ve Pool Party."
-        );
-
-      }
-
-
-      if(language.value === "en"){
-
-        return (
-          "🏊 Pool activities:\n" +
-          "Pool Game, Water Polo, Aqua Gym, Aqua Jumping and Pool Party."
-        );
-
-      }
-
-
-      return (
-        "🏊 Активности у бассейна:\n" +
-        "Havuz Oyunu, Su Topu, Aqua Gym, Aqua Jumping и Pool Party."
-      );
-
-    }
+    return (
+      "🏊 Активности у бассейна:\n" +
+      "Havuz Oyunu, Su Topu, Aqua Gym, Aqua Jumping и Pool Party."
+    );
 
   }
 
@@ -3797,26 +4060,6 @@ function getScheduleAnswer(
     text.includes("спорт")
   ){
 
-    if(language.value === "tr"){
-
-      return (
-        "🧘 Wellness:\n" +
-        "Pilates, Fly Yoga, Zumba, Step Aerobic ve Kangoo Jumping."
-      );
-
-    }
-
-
-    if(language.value === "en"){
-
-      return (
-        "🧘 Wellness:\n" +
-        "Pilates, Fly Yoga, Zumba, Step Aerobic and Kangoo Jumping."
-      );
-
-    }
-
-
     return (
       "🧘 Wellness:\n" +
       "Pilates, Fly Yoga, Zumba, Step Aerobic и Kangoo Jumping."
@@ -3824,14 +4067,13 @@ function getScheduleAnswer(
 
   }
 
-
   return null;
 
 }
 
 
 /* =====================================================
-   SCHEDULE CONTEXT FOR API
+   SCHEDULE CONTEXT
 ===================================================== */
 
 function getScheduleContext(){
@@ -3853,21 +4095,8 @@ function getScheduleContext(){
     cafeGames:
       cafeGames,
 
-    categories:[
-
-      "Бассейн",
-      "Pool",
-      "Havuz",
-
-      "Wellness",
-
-      "Вечерняя программа",
-      "Evening program"
-
-    ],
-
     instructions:
-      "Use the provided hotel schedule when answering questions about today, tomorrow, current activities, Dart, Beach Voleybol, Su Topu, Havuz Oyunu, Pilates, Aqua Gym, Aqua Jumping, Step Aerobic, Kangoo Jumping, Fly Yoga, Zumba, Pool Party and Cafe Games. Do not invent times that are not present in the schedule."
+      "Use only the provided hotel schedule when answering activity questions. Do not invent activity times."
 
   };
 
@@ -3875,7 +4104,7 @@ function getScheduleContext(){
 
 
 /* =====================================================
-   SMART TODAY UI
+   SMART TODAY
 ===================================================== */
 
 function updateSmartToday(){
@@ -3895,17 +4124,11 @@ function updateSmartToday(){
       "smartTodayContent"
     );
 
-
-  if(!title || !clock || !content){
-
+  if(!title || !clock || !content)
     return;
-
-  }
-
 
   const now =
     new Date();
-
 
   clock.textContent =
     now.toLocaleTimeString(
@@ -3920,70 +4143,89 @@ function updateSmartToday(){
       }
     );
 
-
   const dayIndex =
     getCurrentWeekdayIndex();
-
 
   title.textContent =
     getDayLabel(dayIndex);
 
-
   const state =
     getCurrentScheduleState();
-
 
   if(!state.items.length){
 
     content.innerHTML =
-      `<div class="smart-empty">
+      `
+      <div class="smart-empty">
         Расписание активностей на этот день не предоставлено.
-      </div>`;
+      </div>
+      `;
 
     return;
 
   }
 
-
   let html = "";
-
 
   if(state.current){
 
     html +=
-      `<div class="smart-now">
-        <strong>🟢 Сейчас</strong>
+      `
+      <div class="smart-now">
+
+        <strong>
+          🟢 Сейчас
+        </strong>
+
         <span>
-          ${state.current.time} — ${activityDisplayName(state.current)}
+          ${state.current.time}
+          —
+          ${activityDisplayName(state.current)}
         </span>
-      </div>`;
+
+      </div>
+      `;
 
   }else if(state.next){
 
     html +=
-      `<div class="smart-next">
-        <strong>➡️ Ближайшая активность</strong>
+      `
+      <div class="smart-next">
+
+        <strong>
+          ➡️ Ближайшая активность
+        </strong>
+
         <span>
-          ${state.next.time} — ${activityDisplayName(state.next)}
+          ${state.next.time}
+          —
+          ${activityDisplayName(state.next)}
         </span>
-      </div>`;
+
+      </div>
+      `;
 
   }else{
 
     html +=
-      `<div class="smart-next">
-        <strong>✓ На сегодня</strong>
+      `
+      <div class="smart-next">
+
+        <strong>
+          ✓ На сегодня
+        </strong>
+
         <span>
           Основные активности уже завершены.
         </span>
-      </div>`;
+
+      </div>
+      `;
 
   }
 
-
   html +=
     `<div class="smart-list">`;
-
 
   state.items
     .slice(0,7)
@@ -3991,22 +4233,25 @@ function updateSmartToday(){
       function(item){
 
         html +=
-          `<div class="smart-list-row">
+          `
+          <div class="smart-list-row">
+
             <span class="smart-list-time">
               ${item.time}
             </span>
+
             <span class="smart-list-name">
               ${activityDisplayName(item)}
             </span>
-          </div>`;
+
+          </div>
+          `;
 
       }
     );
 
-
   html +=
     `</div>`;
-
 
   content.innerHTML =
     html;
@@ -4026,40 +4271,35 @@ language.addEventListener(
       langData[this.value] ||
       langData.ru;
 
-
     document.getElementById(
       "welcomeTitle"
     ).textContent =
       lang.welcome;
-
 
     document.getElementById(
       "welcomeText"
     ).textContent =
       lang.text;
 
-
     input.placeholder =
       lang.placeholder;
 
-
     typing.textContent =
       lang.thinking;
-
 
     voiceButton.textContent =
       voiceEnabled
         ? lang.enabled
         : lang.voice;
 
-
     document.documentElement.dir =
       this.value === "ar"
         ? "rtl"
         : "ltr";
 
-
     updateSmartToday();
+
+    renderReviewPreview();
 
   }
 );
@@ -4080,7 +4320,7 @@ function quickQuestion(text){
 
 
 /* =====================================================
-   CHAT MESSAGE
+   CHAT
 ===================================================== */
 
 function addMessage(
@@ -4093,19 +4333,15 @@ function addMessage(
       "div"
     );
 
-
   message.className =
     "message " + type;
-
 
   message.textContent =
     text;
 
-
   chat.appendChild(
     message
   );
-
 
   window.scrollTo({
 
@@ -4129,51 +4365,27 @@ async function sendMessage(){
   const message =
     input.value.trim();
 
-
-  if(!message){
-
+  if(!message)
     return;
-
-  }
-
 
   addMessage(
     message,
     "user"
   );
 
-
   input.value =
     "";
-
 
   typing.style.display =
     "block";
 
-
   status.textContent =
     "Zeya AI";
-
-
-  /*
-    СНАЧАЛА проверяем локальное расписание.
-
-    Это позволяет Zeya отвечать без API
-    на точные вопросы:
-
-    Когда Dart?
-    Dart завтра?
-    Что сейчас?
-    Что сегодня?
-    Что завтра?
-    Во сколько Aqua Gym?
-  */
 
   const localAnswer =
     getScheduleAnswer(
       message
     );
-
 
   if(localAnswer){
 
@@ -4182,30 +4394,20 @@ async function sendMessage(){
       "bot"
     );
 
-
-    if(voiceEnabled){
-
-      speak(
-        localAnswer
-      );
-
-    }
-
+    if(voiceEnabled)
+      speak(localAnswer);
 
     typing.style.display =
       "none";
 
-
     status.textContent =
       "AI Concierge";
-
 
     updateSmartToday();
 
     return;
 
   }
-
 
   try{
 
@@ -4222,9 +4424,7 @@ async function sendMessage(){
 
           body:JSON.stringify({
 
-            message:
-              message,
-
+            message,
             language:
               language.value,
 
@@ -4241,10 +4441,8 @@ async function sendMessage(){
         }
       );
 
-
     const data =
       await response.json();
-
 
     if(!response.ok){
 
@@ -4255,56 +4453,33 @@ async function sendMessage(){
 
     }
 
-
     const reply =
       data.reply ||
       data.message ||
       data.text ||
       "Извините, ответ не получен.";
 
-
     addMessage(
       reply,
       "bot"
     );
 
-
-    if(voiceEnabled){
-
-      speak(
-        reply
-      );
-
-    }
-
+    if(voiceEnabled)
+      speak(reply);
 
   }catch(error){
 
-    console.error(
-      error
-    );
-
-
-    /*
-      Даже если API недоступен,
-      пользователь получает понятный
-      ответ вместо пустого чата.
-    */
+    console.error(error);
 
     addMessage(
-
       "Не удалось подключиться к Zeya. Проверьте интернет и попробуйте ещё раз.",
-
       "bot"
-
     );
 
   }
 
-
   typing.style.display =
     "none";
-
 
   status.textContent =
     "AI Concierge";
@@ -4335,7 +4510,7 @@ input.addEventListener(
 
 
 /* =====================================================
-   VOICE OUTPUT
+   VOICE
 ===================================================== */
 
 function enableVoice(){
@@ -4343,11 +4518,9 @@ function enableVoice(){
   voiceEnabled =
     true;
 
-
   voiceButton.classList.add(
     "enabled"
   );
-
 
   const lang =
     langData[
@@ -4355,10 +4528,8 @@ function enableVoice(){
     ] ||
     langData.ru;
 
-
   voiceButton.textContent =
     lang.enabled;
-
 
   showToast(
     "🔊 Голос Зеи включён"
@@ -4371,9 +4542,7 @@ function enableVoice(){
    TTS
 ===================================================== */
 
-async function speak(
-  text
-){
+async function speak(text){
 
   try{
 
@@ -4390,42 +4559,31 @@ async function speak(
 
           body:JSON.stringify({
 
-            text:
-              text,
+            text,
 
             language:
               language.value
 
           })
+
         }
       );
 
-
-    if(!response.ok){
-
-      throw new Error(
-        "TTS error"
-      );
-
-    }
-
+    if(!response.ok)
+      throw new Error("TTS error");
 
     const blob =
       await response.blob();
-
 
     const url =
       URL.createObjectURL(
         blob
       );
 
-
     const audio =
       new Audio(url);
 
-
     await audio.play();
-
 
     audio.onended =
       function(){
@@ -4436,12 +4594,9 @@ async function speak(
 
       };
 
-
   }catch(error){
 
-    browserSpeak(
-      text
-    );
+    browserSpeak(text);
 
   }
 
@@ -4452,18 +4607,12 @@ async function speak(
    BROWSER SPEECH
 ===================================================== */
 
-function browserSpeak(
-  text
-){
+function browserSpeak(text){
 
   if(
     !("speechSynthesis" in window)
-  ){
-
+  )
     return;
-
-  }
-
 
   const languages = {
 
@@ -4480,12 +4629,10 @@ function browserSpeak(
 
   };
 
-
   const utterance =
     new SpeechSynthesisUtterance(
       text
     );
-
 
   utterance.lang =
     languages[
@@ -4493,13 +4640,10 @@ function browserSpeak(
     ] ||
     "ru-RU";
 
-
   utterance.rate =
     .95;
 
-
   speechSynthesis.cancel();
-
 
   speechSynthesis.speak(
     utterance
@@ -4518,7 +4662,6 @@ function startVoice(){
     window.SpeechRecognition ||
     window.webkitSpeechRecognition;
 
-
   if(!SpeechRecognition){
 
     showToast(
@@ -4529,10 +4672,8 @@ function startVoice(){
 
   }
 
-
   const recognition =
     new SpeechRecognition();
-
 
   const languages = {
 
@@ -4549,32 +4690,25 @@ function startVoice(){
 
   };
 
-
   recognition.lang =
     languages[
       language.value
     ] ||
     "ru-RU";
 
-
   recognition.continuous =
     false;
-
 
   recognition.interimResults =
     false;
 
-
   micButton.textContent =
     "🔴";
-
 
   status.textContent =
     "🎙️ Слушаю...";
 
-
   recognition.start();
-
 
   recognition.onresult =
     function(event){
@@ -4583,23 +4717,18 @@ function startVoice(){
         event.results[0][0]
           .transcript;
 
-
       input.value =
         text;
-
 
       micButton.textContent =
         "🎙️";
 
-
       status.textContent =
         "AI Concierge";
-
 
       sendMessage();
 
     };
-
 
   recognition.onerror =
     function(){
@@ -4607,19 +4736,16 @@ function startVoice(){
       micButton.textContent =
         "🎙️";
 
-
       status.textContent =
         "AI Concierge";
 
     };
-
 
   recognition.onend =
     function(){
 
       micButton.textContent =
         "🎙️";
-
 
       status.textContent =
         "AI Concierge";
@@ -4630,10 +4756,657 @@ function startVoice(){
 
 
 /* =====================================================
-   MODALS
+   REVIEWS SYSTEM
+===================================================== */
+
+const REVIEW_STORAGE =
+  "zeyaReviews";
+
+let selectedReviewRating =
+  0;
+
+
+/* =====================================================
+   GET REVIEWS
+===================================================== */
+
+function getReviews(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        REVIEW_STORAGE
+      ) || "[]"
+    );
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+/* =====================================================
+   SAVE REVIEWS
+===================================================== */
+
+function saveReviews(reviews){
+
+  localStorage.setItem(
+    REVIEW_STORAGE,
+    JSON.stringify(reviews)
+  );
+
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+function starsHTML(rating){
+
+  const safeRating =
+    Math.max(
+      0,
+      Math.min(
+        5,
+        Number(rating) || 0
+      )
+    );
+
+  return (
+    "★".repeat(safeRating) +
+    "☆".repeat(5-safeRating)
+  );
+
+}
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatReviewDate(date){
+
+  try{
+
+    return new Date(date)
+      .toLocaleDateString(
+        language.value === "tr"
+          ? "tr-TR"
+          : language.value === "en"
+            ? "en-GB"
+            : "ru-RU"
+      );
+
+  }catch(error){
+
+    return "";
+
+  }
+
+}
+
+
+/* =====================================================
+   REVIEW PREVIEW
+===================================================== */
+
+function renderReviewPreview(){
+
+  const container =
+    document.getElementById(
+      "reviewPreview"
+    );
+
+  if(!container)
+    return;
+
+  const reviews =
+    getReviews();
+
+  if(!reviews.length){
+
+    container.innerHTML =
+      `
+      <div class="review-summary">
+
+        <div class="review-average">
+          0.0
+        </div>
+
+        <div class="review-stars-display">
+          ☆☆☆☆☆
+        </div>
+
+        <div class="review-count">
+          Пока нет отзывов
+        </div>
+
+        <button
+          class="review-write-button"
+          onclick="openModal('review')">
+
+          ⭐ Оставить первый отзыв
+
+        </button>
+
+      </div>
+      `;
+
+    return;
+
+  }
+
+  const average =
+    reviews.reduce(
+      function(sum,review){
+
+        return sum +
+          Number(review.rating || 0);
+
+      },
+      0
+    ) / reviews.length;
+
+  const latest =
+    reviews
+      .slice()
+      .reverse()
+      .slice(0,2);
+
+  let html = `
+
+    <div class="review-summary">
+
+      <div class="review-average">
+        ${average.toFixed(1)}
+      </div>
+
+      <div class="review-stars-display">
+        ${starsHTML(
+          Math.round(average)
+        )}
+      </div>
+
+      <div class="review-count">
+        ${reviews.length} отзыв(ов)
+      </div>
+
+      <button
+        class="review-write-button"
+        onclick="openModal('review')">
+
+        ⭐ Оставить отзыв
+
+      </button>
+
+    </div>
+
+  `;
+
+  latest.forEach(
+    function(review){
+
+      html +=
+        createReviewHTML(
+          review
+        );
+
+    }
+  );
+
+  container.innerHTML =
+    html;
+
+}
+
+
+/* =====================================================
+   CREATE REVIEW HTML
+===================================================== */
+
+function createReviewHTML(review){
+
+  return `
+
+    <div class="review-item">
+
+      <div class="review-item-head">
+
+        <div class="review-user">
+
+          ${escapeHTML(
+            review.name || "Гость"
+          )}
+
+          ${
+            review.country
+              ? `
+                <span class="review-country">
+                  ${escapeHTML(
+                    review.country
+                  )}
+                </span>
+              `
+              : ""
+          }
+
+        </div>
+
+        <div class="review-item-stars">
+
+          ${starsHTML(
+            Number(review.rating)
+          )}
+
+        </div>
+
+      </div>
+
+
+      <div class="review-item-text">
+
+        ${escapeHTML(
+          review.text
+        )}
+
+      </div>
+
+
+      <div class="review-date">
+
+        ${formatReviewDate(
+          review.date
+        )}
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   SELECT RATING
+===================================================== */
+
+function setReviewRating(rating){
+
+  selectedReviewRating =
+    rating;
+
+  const stars =
+    document.querySelectorAll(
+      ".review-star"
+    );
+
+  stars.forEach(
+    function(star,index){
+
+      if(
+        index < rating
+      ){
+
+        star.classList.add(
+          "active"
+        );
+
+      }else{
+
+        star.classList.remove(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+
+  const ratingText =
+    document.getElementById(
+      "reviewRatingText"
+    );
+
+  const texts = {
+
+    1:"😕 Очень плохо",
+
+    2:"😐 Можно лучше",
+
+    3:"🙂 Нормально",
+
+    4:"😊 Очень хорошо",
+
+    5:"😍 Великолепно!"
+
+  };
+
+  if(ratingText){
+
+    ratingText.textContent =
+      texts[rating];
+
+  }
+
+}
+
+
+/* =====================================================
+   SUBMIT REVIEW
+===================================================== */
+
+function submitReview(){
+
+  const name =
+    document.getElementById(
+      "reviewName"
+    ).value.trim();
+
+  const country =
+    document.getElementById(
+      "reviewCountry"
+    ).value.trim();
+
+  const text =
+    document.getElementById(
+      "reviewText"
+    ).value.trim();
+
+  if(!selectedReviewRating){
+
+    showToast(
+      "⭐ Пожалуйста, поставьте оценку"
+    );
+
+    return;
+
+  }
+
+  if(!text){
+
+    showToast(
+      "✍️ Напишите ваш отзыв"
+    );
+
+    return;
+
+  }
+
+  const review = {
+
+    id:
+      Date.now(),
+
+    rating:
+      selectedReviewRating,
+
+    name:
+      name || "Гость",
+
+    country:
+      country || "",
+
+    text:
+      text,
+
+    room:
+      "5407",
+
+    date:
+      new Date().toISOString()
+
+  };
+
+  const reviews =
+    getReviews();
+
+  reviews.push(
+    review
+  );
+
+  saveReviews(
+    reviews
+  );
+
+
+  document.getElementById(
+    "modalContent"
+  ).innerHTML = `
+
+    <div class="review-success">
+
+      <div class="review-success-icon">
+        ⭐
+      </div>
+
+      <h3>
+        Спасибо за ваш отзыв!
+      </h3>
+
+      <p>
+        Ваше мнение очень важно для нас.
+        Спасибо, что помогаете сделать
+        Selectum Noa Belek ещё лучше.
+      </p>
+
+      <button
+        class="modal-action"
+        onclick="closeModal();renderReviewPreview()">
+
+        Готово
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  selectedReviewRating =
+    0;
+
+  renderReviewPreview();
+
+}
+
+
+/* =====================================================
+   MODAL DATA
 ===================================================== */
 
 const modalData = {
+
+
+  /* ===================================================
+     REVIEW
+  =================================================== */
+
+  review:{
+
+    title:"⭐ Оставить отзыв",
+
+    html:`
+
+      <div class="option">
+
+        <div class="review-form-title">
+
+          Как вам отдых в Selectum Noa Belek?
+
+        </div>
+
+
+        <div class="review-stars">
+
+          <button
+            class="review-star"
+            onclick="setReviewRating(1)">
+
+            ★
+
+          </button>
+
+          <button
+            class="review-star"
+            onclick="setReviewRating(2)">
+
+            ★
+
+          </button>
+
+          <button
+            class="review-star"
+            onclick="setReviewRating(3)">
+
+            ★
+
+          </button>
+
+          <button
+            class="review-star"
+            onclick="setReviewRating(4)">
+
+            ★
+
+          </button>
+
+          <button
+            class="review-star"
+            onclick="setReviewRating(5)">
+
+            ★
+
+          </button>
+
+        </div>
+
+
+        <div
+          class="review-rating-text"
+          id="reviewRatingText">
+
+          Выберите оценку
+
+        </div>
+
+      </div>
+
+
+      <label class="review-label">
+        Ваше имя
+      </label>
+
+      <input
+        class="review-input"
+        id="reviewName"
+        type="text"
+        placeholder="Например: Ali"
+        maxlength="40"
+      >
+
+
+      <label class="review-label">
+        Страна
+      </label>
+
+      <input
+        class="review-input"
+        id="reviewCountry"
+        type="text"
+        placeholder="Например: Türkiye"
+        maxlength="40"
+      >
+
+
+      <label class="review-label">
+        Ваш отзыв
+      </label>
+
+      <textarea
+        class="review-textarea"
+        id="reviewText"
+        placeholder="Расскажите о вашем отдыхе..."
+        maxlength="1000">
+      </textarea>
+
+
+      <button
+        class="modal-action"
+        onclick="submitReview()">
+
+        ⭐ Отправить отзыв
+
+      </button>
+
+
+      <div class="note">
+
+        Ваш отзыв поможет нам сделать
+        отдых гостей ещё лучше.
+
+      </div>
+
+    `
+
+  },
+
+
+  /* ===================================================
+     ALL REVIEWS
+  =================================================== */
+
+  reviews:{
+
+    title:"⭐ Отзывы гостей",
+
+    html:`
+
+      <div id="allReviewsContainer">
+
+        Загружаем отзывы...
+
+      </div>
+
+      <button
+        class="modal-action"
+        onclick="openModal('review')">
+
+        ⭐ Оставить свой отзыв
+
+      </button>
+
+    `
+
+  },
+
+
+  /* ===================================================
+     RESTAURANTS
+  =================================================== */
 
   restaurants:{
 
@@ -4695,6 +5468,10 @@ const modalData = {
   },
 
 
+  /* ===================================================
+     ROOM
+  =================================================== */
+
   room:{
 
     title:"🛏️ Мой номер",
@@ -4702,8 +5479,15 @@ const modalData = {
     html:`
 
       <div class="option">
-        <b>Номер 5407</b><br>
+
+        <b>
+          Номер 5407
+        </b>
+
+        <br>
+
         5 этаж
+
       </div>
 
       <div class="option">
@@ -4722,6 +5506,10 @@ const modalData = {
 
   },
 
+
+  /* ===================================================
+     EVENTS
+  =================================================== */
 
   events:{
 
@@ -4746,11 +5534,6 @@ const modalData = {
         вне основных часов главного ресторана
       </div>
 
-      <div class="option">
-        🏊 Активности и Cafe Games —
-        смотрите полное расписание в разделе «Активности».
-      </div>
-
       <button
         class="modal-action"
         onclick="openModal('activities')">
@@ -4759,15 +5542,14 @@ const modalData = {
 
       </button>
 
-      <div class="note">
-        Актуальные мероприятия и расписание
-        лучше уточнять у Zeya или отеля.
-      </div>
-
     `
 
   },
 
+
+  /* ===================================================
+     FOOD
+  =================================================== */
 
   food:{
 
@@ -4795,6 +5577,10 @@ const modalData = {
 
   },
 
+
+  /* ===================================================
+     HOTEL
+  =================================================== */
 
   hotel:{
 
@@ -4830,6 +5616,10 @@ const modalData = {
 
   },
 
+
+  /* ===================================================
+     ACTIVITIES
+  =================================================== */
 
   activities:{
 
@@ -5061,101 +5851,55 @@ const modalData = {
       </div>
 
 
-      <div class="day-title">
-        ПОНЕДЕЛЬНИК
-      </div>
-
       <div class="option">
+
         🎯 Pool Game<br>
         🥄 Kaşık Oyunu
+
       </div>
 
-
-      <div class="day-title">
-        ВТОРНИК
-      </div>
 
       <div class="option">
+
         🏄 Surf<br>
         💃 Oryantal
+
       </div>
 
-
-      <div class="day-title">
-        СРЕДА
-      </div>
 
       <div class="option">
+
         🏄 Surf<br>
         🏀 Basket
+
       </div>
 
-
-      <div class="day-title">
-        ЧЕТВЕРГ
-      </div>
-
-      <div class="option">
-        💪 Havlu Sıkma
-      </div>
-
-
-      <div class="day-title">
-        ПЯТНИЦА
-      </div>
-
-      <div class="option">
-        🏄 Surf<br>
-        ⚡ Power
-      </div>
-
-
-      <div class="day-title">
-        СУББОТА
-      </div>
-
-      <div class="option">
-        🏄 Surf<br>
-        🪢 İp Atlama
-      </div>
-
-
-      <div class="sub-title">
-        🏊 Бассейн
-      </div>
 
       <div class="category-card">
-        <strong>Бассейн</strong>
+
+        <strong>
+          🏊 Бассейн
+        </strong>
+
         <span>
           Havuz Oyunu, Su Topu, Aqua Gym,
           Aqua Jumping и Pool Party.
         </span>
+
       </div>
 
-
-      <div class="sub-title">
-        🧘 Wellness
-      </div>
 
       <div class="category-card">
-        <strong>Wellness</strong>
+
+        <strong>
+          🧘 Wellness
+        </strong>
+
         <span>
           Pilates, Fly Yoga, Zumba,
           Step Aerobic и Kangoo Jumping.
         </span>
-      </div>
 
-
-      <div class="sub-title">
-        🎉 Вечерняя программа
-      </div>
-
-      <div class="category-card">
-        <strong>Вечерние развлечения</strong>
-        <span>
-          Актуальную программу на сегодня
-          можно уточнить у Zeya.
-        </span>
       </div>
 
 
@@ -5169,14 +5913,17 @@ const modalData = {
 
 
       <div class="note">
-        Время и программа мероприятий могут
-        изменяться отелем.
+        Время и программа мероприятий могут изменяться отелем.
       </div>
 
     `
 
   },
 
+
+  /* ===================================================
+     TRANSFER
+  =================================================== */
 
   transfer:{
 
@@ -5204,15 +5951,14 @@ const modalData = {
 
       </button>
 
-      <div class="note">
-        Перед заказом уточните стоимость,
-        время и условия поездки.
-      </div>
-
     `
 
   },
 
+
+  /* ===================================================
+     MAP
+  =================================================== */
 
   map:{
 
@@ -5253,6 +5999,10 @@ const modalData = {
   },
 
 
+  /* ===================================================
+     EXCURSIONS
+  =================================================== */
+
   excursions:{
 
     title:"🗺️ Экскурсии",
@@ -5287,6 +6037,10 @@ const modalData = {
 
   },
 
+
+  /* ===================================================
+     PREMIUM
+  =================================================== */
 
   premium:{
 
@@ -5323,6 +6077,10 @@ const modalData = {
   },
 
 
+  /* ===================================================
+     HISTORY
+  =================================================== */
+
   history:{
 
     title:"◷ История",
@@ -5337,6 +6095,10 @@ const modalData = {
 
   },
 
+
+  /* ===================================================
+     FAVORITES
+  =================================================== */
 
   favorites:{
 
@@ -5353,6 +6115,10 @@ const modalData = {
 
   },
 
+
+  /* ===================================================
+     PROFILE
+  =================================================== */
 
   profile:{
 
@@ -5383,38 +6149,129 @@ const modalData = {
    OPEN MODAL
 ===================================================== */
 
-function openModal(
-  key
-){
+function openModal(key){
 
   const data =
     modalData[key];
 
-
-  if(!data){
-
+  if(!data)
     return;
-
-  }
-
 
   document.getElementById(
     "modalTitle"
   ).innerHTML =
     data.title;
 
-
   document.getElementById(
     "modalContent"
   ).innerHTML =
     data.html;
-
 
   document.getElementById(
     "modal"
   ).classList.add(
     "show"
   );
+
+
+  if(key === "reviews"){
+
+    renderAllReviews();
+
+  }
+
+}
+
+
+/* =====================================================
+   ALL REVIEWS
+===================================================== */
+
+function renderAllReviews(){
+
+  const container =
+    document.getElementById(
+      "allReviewsContainer"
+    );
+
+  if(!container)
+    return;
+
+  const reviews =
+    getReviews();
+
+  if(!reviews.length){
+
+    container.innerHTML =
+      `
+      <div class="review-empty">
+
+        ⭐ Пока нет отзывов.
+
+        <br><br>
+
+        Будьте первым гостем,
+        который оставит отзыв!
+
+      </div>
+      `;
+
+    return;
+
+  }
+
+  const average =
+    reviews.reduce(
+      function(sum,review){
+
+        return sum +
+          Number(review.rating || 0);
+
+      },
+      0
+    ) / reviews.length;
+
+
+  let html = `
+
+    <div class="review-summary">
+
+      <div class="review-average">
+        ${average.toFixed(1)}
+      </div>
+
+      <div class="review-stars-display">
+        ${starsHTML(
+          Math.round(average)
+        )}
+      </div>
+
+      <div class="review-count">
+        ${reviews.length} отзыв(ов)
+      </div>
+
+    </div>
+
+  `;
+
+
+  reviews
+    .slice()
+    .reverse()
+    .forEach(
+      function(review){
+
+        html +=
+          createReviewHTML(
+            review
+          );
+
+      }
+    );
+
+
+  container.innerHTML =
+    html;
 
 }
 
@@ -5434,9 +6291,7 @@ function closeModal(){
 }
 
 
-function closeOutside(
-  event
-){
+function closeOutside(event){
 
   if(
     event.target.id === "modal"
@@ -5467,28 +6322,22 @@ function openGoogleMaps(){
    TOAST
 ===================================================== */
 
-function showToast(
-  text
-){
+function showToast(text){
 
   const toast =
     document.getElementById(
       "toast"
     );
 
-
   toast.textContent =
     text;
-
 
   toast.style.display =
     "block";
 
-
   clearTimeout(
     window.toastTimer
   );
-
 
   window.toastTimer =
     setTimeout(
@@ -5511,19 +6360,14 @@ function showToast(
 input.placeholder =
   langData.ru.placeholder;
 
-
 updateSmartToday();
 
+renderReviewPreview();
 
 setInterval(
   updateSmartToday,
   30000
 );
-
-
-/* =====================================================
-   INITIAL STATUS
-===================================================== */
 
 status.textContent =
   "AI Concierge";
