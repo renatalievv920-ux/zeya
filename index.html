@@ -2,1167 +2,661 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#07111f">
 
-<title>Selectum Noa Belek — Zeya AI</title>
+<title>Zeya AI — Selectum Noa Belek</title>
 
 <style>
-
 *{
-    box-sizing:border-box;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#06101d;
+  --bg2:#0b1828;
+  --card:rgba(18,34,53,.78);
+  --card2:rgba(24,43,65,.9);
+  --line:rgba(255,255,255,.09);
+  --text:#f5f8fc;
+  --muted:#91a2b7;
+  --blue:#42a5ff;
+  --cyan:#57e0ff;
+  --green:#48d597;
+  --gold:#f4c76b;
+  --danger:#ff6878;
 }
 
 body{
-    margin:0;
-    min-height:100vh;
-    font-family:Arial,Helvetica,sans-serif;
-    background:
-        radial-gradient(circle at top,#173d52 0,#08131d 45%,#050a10 100%);
-    color:white;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 15% 0%,rgba(35,122,190,.22),transparent 30%),
+    radial-gradient(circle at 100% 30%,rgba(36,91,155,.16),transparent 30%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding-bottom:90px;
 }
 
-.app{
-    width:100%;
-    max-width:850px;
-    margin:auto;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
+button,input,select{
+  font:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.container{
+  width:min(100%,620px);
+  margin:auto;
+  padding:18px 16px 30px;
 }
 
 /* HEADER */
 
-header{
-    padding:20px 16px;
-    text-align:center;
-    border-bottom:1px solid rgba(255,255,255,.1);
-    background:rgba(4,12,18,.75);
-    backdrop-filter:blur(15px);
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:22px;
 }
 
 .logo{
-    font-size:28px;
-    font-weight:bold;
-    letter-spacing:.5px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.hotel{
-    margin-top:5px;
-    font-size:15px;
-    opacity:.75;
+.logo-icon{
+  width:45px;
+  height:45px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  background:linear-gradient(135deg,#168cff,#56dcff);
+  box-shadow:0 8px 25px rgba(35,157,255,.25);
+}
+
+.logo-title{
+  font-size:20px;
+  font-weight:800;
+}
+
+.hotel-name{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:2px;
+}
+
+.lang{
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+  color:white;
+  padding:9px 10px;
+  border-radius:12px;
+  outline:none;
+}
+
+/* HERO */
+
+.hero{
+  background:
+    linear-gradient(135deg,rgba(25,104,163,.7),rgba(8,24,42,.95)),
+    url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1000&q=80")
+    center/cover;
+  border-radius:27px;
+  padding:24px 20px;
+  min-height:190px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:18px;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(4,12,22,.9),transparent);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  margin-top:55px;
+}
+
+.badge{
+  display:inline-flex;
+  padding:7px 10px;
+  background:rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:100px;
+  font-size:11px;
+  margin-bottom:9px;
+}
+
+.hero h1{
+  font-size:27px;
+  line-height:1.1;
+}
+
+.hero p{
+  color:#c3d0dd;
+  margin-top:7px;
+  font-size:13px;
+}
+
+/* ROOM */
+
+.room-card{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:18px;
+  backdrop-filter:blur(15px);
+}
+
+.room-left{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.room-icon{
+  width:42px;
+  height:42px;
+  background:rgba(66,165,255,.12);
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.room-title{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.room-number{
+  font-size:18px;
+  font-weight:800;
+  margin-top:2px;
 }
 
 .status{
-    margin-top:8px;
-    font-size:13px;
-    color:#7ee7c6;
+  color:var(--green);
+  font-size:11px;
 }
 
-/* LANGUAGE */
+/* QUICK ACTIONS */
 
-.language-box{
-    padding:12px 16px 0;
+.section-title{
+  font-size:17px;
+  font-weight:800;
+  margin:24px 0 12px;
 }
 
-select{
-    width:100%;
-    padding:13px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,.15);
-    background:#101d27;
-    color:white;
-    font-size:15px;
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
 }
-
-/* WELCOME */
-
-.welcome{
-    padding:22px 16px 8px;
-}
-
-.welcome h1{
-    margin:0;
-    font-size:25px;
-}
-
-.welcome p{
-    margin:8px 0 0;
-    opacity:.75;
-    line-height:1.5;
-}
-
-/* QUICK BUTTONS */
 
 .quick{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:12px 16px;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:white;
+  border-radius:17px;
+  padding:15px 8px;
+  min-height:80px;
+  transition:.2s;
 }
 
-.quick button{
-    white-space:nowrap;
-    border:1px solid rgba(255,255,255,.12);
-    background:#10202b;
-    color:white;
-    border-radius:20px;
-    padding:10px 14px;
-    cursor:pointer;
+.quick:active{
+  transform:scale(.96);
 }
 
-.quick button:active{
-    transform:scale(.97);
+.quick-icon{
+  font-size:24px;
+  display:block;
+  margin-bottom:7px;
+}
+
+.quick span{
+  font-size:11px;
+  color:#c6d0dc;
+}
+
+/* INFO */
+
+.info-card{
+  background:linear-gradient(135deg,rgba(27,52,77,.9),rgba(12,27,44,.9));
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  margin-top:12px;
+}
+
+.info-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:13px;
+}
+
+.info-head strong{
+  font-size:15px;
+}
+
+.live{
+  font-size:10px;
+  color:var(--green);
+}
+
+.meal{
+  display:flex;
+  justify-content:space-between;
+  padding:11px 0;
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+}
+
+.meal:last-child{
+  border-bottom:0;
+}
+
+.meal span{
+  color:var(--muted);
+}
+
+/* RECOMMEND */
+
+.recommend{
+  background:
+    linear-gradient(90deg,rgba(5,15,26,.95),rgba(5,15,26,.35)),
+    url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=80")
+    center/cover;
+  min-height:160px;
+  border-radius:21px;
+  padding:19px;
+  display:flex;
+  flex-direction:column;
+  justify-content:end;
+  margin-top:12px;
+}
+
+.recommend small{
+  color:var(--cyan);
+  font-weight:700;
+}
+
+.recommend h3{
+  margin:5px 0;
+}
+
+.recommend p{
+  color:#c1ccd8;
+  font-size:12px;
+}
+
+/* SERVICE CARDS */
+
+.service-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.service{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  text-align:left;
+  color:white;
+}
+
+.service-icon{
+  font-size:25px;
+  margin-bottom:10px;
+}
+
+.service strong{
+  display:block;
+  font-size:13px;
+}
+
+.service small{
+  display:block;
+  color:var(--muted);
+  margin-top:4px;
+  line-height:1.35;
 }
 
 /* CHAT */
 
-.chat{
-    flex:1;
-    padding:10px 16px 120px;
-    overflow-y:auto;
+.chat-box{
+  background:rgba(7,18,30,.8);
+  border:1px solid var(--line);
+  border-radius:22px;
+  margin-top:12px;
+  padding:13px;
+  min-height:160px;
 }
 
 .message{
-    max-width:85%;
-    margin:10px 0;
-    padding:13px 15px;
-    border-radius:17px;
-    line-height:1.45;
-    white-space:pre-wrap;
+  display:flex;
+  gap:9px;
+  margin-bottom:12px;
 }
 
-.bot{
-    background:#122631;
-    border-bottom-left-radius:5px;
+.avatar{
+  width:32px;
+  height:32px;
+  min-width:32px;
+  border-radius:11px;
+  background:linear-gradient(135deg,#168cff,#56dcff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+}
+
+.bubble{
+  background:var(--card2);
+  border-radius:14px;
+  padding:10px 12px;
+  font-size:13px;
+  line-height:1.4;
+  max-width:85%;
 }
 
 .user{
-    margin-left:auto;
-    background:#176b63;
-    border-bottom-right-radius:5px;
+  justify-content:flex-end;
 }
 
-/* TYPING */
-
-.typing{
-    display:none;
-    opacity:.65;
-    font-size:14px;
-    padding:5px 5px 12px;
-}
-
-/* VOICE */
-
-.voice-area{
-    padding:0 16px 10px;
-}
-
-.voice-button{
-    width:100%;
-    padding:13px;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,.15);
-    background:#101f2a;
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-}
-
-.voice-button.enabled{
-    background:#164c45;
-    border-color:#3ac9a4;
+.user .bubble{
+  background:#1678c8;
 }
 
 /* INPUT */
 
-.input-area{
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    max-width:850px;
-    margin:auto;
-    padding:10px 12px 14px;
-    background:rgba(4,10,15,.94);
-    backdrop-filter:blur(18px);
-    display:flex;
-    gap:8px;
-    border-top:1px solid rgba(255,255,255,.1);
+.chat-input{
+  position:fixed;
+  bottom:64px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(100%,620px);
+  padding:9px 12px;
+  z-index:30;
+  background:rgba(4,13,23,.92);
+  backdrop-filter:blur(20px);
+  border-top:1px solid var(--line);
 }
 
-.input-area input{
-    flex:1;
-    min-width:0;
-    padding:14px;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,.15);
-    background:#101b24;
-    color:white;
-    outline:none;
-    font-size:15px;
+.input-wrap{
+  display:flex;
+  gap:7px;
 }
 
-.input-area button{
-    width:48px;
-    border:0;
-    border-radius:14px;
-    background:#18796c;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
+.input-wrap input{
+  flex:1;
+  background:#122235;
+  border:1px solid var(--line);
+  color:white;
+  border-radius:15px;
+  padding:13px;
+  outline:none;
+}
+
+.input-wrap button{
+  width:45px;
+  border-radius:14px;
+  background:#168cff;
+  color:white;
+  font-size:18px;
 }
 
 .mic{
-    background:#273746 !important;
+  background:#1c3046 !important;
 }
 
-/* CLEAR */
-
-.clear{
-    text-align:center;
-    padding:4px 16px 10px;
+.mic.active{
+  background:#d94d63 !important;
 }
 
-.clear button{
-    border:0;
-    background:none;
-    color:#aaa;
-    cursor:pointer;
-    font-size:13px;
+/* BOTTOM NAV */
+
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(100%,620px);
+  height:64px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  background:rgba(6,15,26,.96);
+  border-top:1px solid var(--line);
+  backdrop-filter:blur(20px);
+  z-index:40;
 }
 
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .logo{
-        font-size:24px;
-    }
-
-    .hotel{
-        font-size:13px;
-    }
-
-    .welcome h1{
-        font-size:22px;
-    }
-
-    .message{
-        max-width:90%;
-    }
-
+.nav-item{
+  color:#718196;
+  font-size:10px;
+  text-align:center;
+  background:none;
 }
 
+.nav-item div{
+  font-size:20px;
+  margin-bottom:2px;
+}
+
+.nav-item.active{
+  color:#58baff;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  z-index:100;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-card{
+  width:min(100%,620px);
+  max-height:88vh;
+  overflow:auto;
+  background:#0b1929;
+  border-radius:27px 27px 0 0;
+  padding:22px 17px 35px;
+  border-top:1px solid var(--line);
+  animation:slideUp .25s ease;
+}
+
+@keyframes slideUp{
+  from{transform:translateY(100%)}
+  to{transform:translateY(0)}
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.modal-head h2{
+  font-size:20px;
+}
+
+.close{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#182b40;
+  color:white;
+  font-size:18px;
+}
+
+.modal-item{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:15px;
+  border-radius:17px;
+  margin-bottom:9px;
+}
+
+.modal-item strong{
+  display:block;
+  font-size:14px;
+}
+
+.modal-item span{
+  color:var(--muted);
+  display:block;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.modal-btn{
+  width:100%;
+  background:#168cff;
+  color:white;
+  padding:13px;
+  border-radius:13px;
+  margin-top:11px;
+  font-weight:700;
+}
+
+.note{
+  color:#718196;
+  font-size:10px;
+  line-height:1.5;
+  margin-top:15px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translate(-50%,-130px);
+  background:#152b42;
+  border:1px solid var(--line);
+  padding:12px 17px;
+  border-radius:14px;
+  z-index:200;
+  font-size:12px;
+  transition:.3s;
+}
+
+.toast.show{
+  transform:translate(-50%,0);
+}
+
+/* DESKTOP */
+
+@media(min-width:700px){
+  .container{
+    padding-top:30px;
+  }
+
+  .hero{
+    min-height:220px;
+  }
+
+  .quick-grid{
+    grid-template-columns:repeat(6,1fr);
+  }
+
+  .quick{
+    min-height:95px;
+  }
+}
 </style>
 </head>
 
-
 <body>
 
-<div class="app">
+<div class="container">
 
-<header>
-
+  <!-- HEADER -->
+  <header class="header">
     <div class="logo">
-        🤖 Zeya AI
+      <div class="logo-icon">🤖</div>
+      <div>
+        <div class="logo-title">Zeya AI</div>
+        <div class="hotel-name">Selectum Noa Belek</div>
+      </div>
     </div>
 
-    <div class="hotel">
-        Selectum Noa Belek
+    <select id="language" class="lang">
+      <option value="ru">🇷🇺 RU</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="tr">🇹🇷 TR</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="es">🇪🇸 ES</option>
+      <option value="it">🇮🇹 IT</option>
+      <option value="ar">🇸🇦 AR</option>
+      <option value="uk">🇺🇦 UA</option>
+      <option value="pl">🇵🇱 PL</option>
+    </select>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">✨ AI CONCIERGE</div>
+      <h1>Добро пожаловать<br>в Selectum Noa Belek</h1>
+      <p>Zeya поможет с ресторанами, SPA, активностями и всем отдыхом.</p>
     </div>
+  </section>
 
-    <div class="status" id="status">
-        AI Concierge
+  <!-- ROOM -->
+  <section class="room-card">
+    <div class="room-left">
+      <div class="room-icon">🛏️</div>
+      <div>
+        <div class="room-title">Ваш номер</div>
+        <div class="room-number">Номер 5407</div>
+      </div>
     </div>
+    <div class="status">● Гость отеля</div>
+  </section>
 
-</header>
+  <!-- QUICK -->
+  <div class="section-title">Быстрый доступ</div>
 
+  <div class="quick-grid">
 
-<div class="language-box">
-
-<select id="language">
-
-    <option value="tr">🇹🇷 Türkçe</option>
-    <option value="ru">🇷🇺 Русский</option>
-    <option value="en">🇬🇧 English</option>
-    <option value="de">🇩🇪 Deutsch</option>
-    <option value="fr">🇫🇷 Français</option>
-    <option value="es">🇪🇸 Español</option>
-    <option value="it">🇮🇹 Italiano</option>
-    <option value="ar">🇸🇦 العربية</option>
-    <option value="uk">🇺🇦 Українська</option>
-    <option value="pl">🇵🇱 Polski</option>
-
-</select>
-
-</div>
-
-
-<section class="welcome">
-
-    <h1 id="welcomeTitle">
-        Hoş geldiniz! 👋
-    </h1>
-
-    <p id="welcomeText">
-        Ben Zeya, Selectum Noa Belek AI asistanınızım.
-        Oteliniz hakkında size yardımcı olabilirim.
-    </p>
-
-</section>
-
-
-<div class="quick">
-
-    <button onclick="quickQuestion('Restoranlar saat kaçta açılıyor?')">
-        🍽️ Restoranlar
+    <button class="quick" onclick="openModal('restaurants')">
+      <span class="quick-icon">🍽️</span>
+      <span>Рестораны</span>
     </button>
 
-    <button onclick="quickQuestion('Kahvaltı saat kaçta?')">
-        🍳 Kahvaltı
-    </button>
-
-    <button onclick="quickQuestion('Akşam yemeği saat kaçta?')">
-        🌙 Akşam yemeği
-    </button>
-
-    <button onclick="quickQuestion('SPA hakkında bilgi verir misiniz?')">
-        💆 SPA
-    </button>
-
-    <button onclick="quickQuestion('Otelde hangi aktiviteler var?')">
-        🎯 Aktiviteler
-    </button>
-
-</div>
-
-
-<div class="chat" id="chat"></div>
-
-<div class="typing" id="typing">
-    Zeya düşünüyor... 🤖
-</div>
-
-
-<div class="voice-area">
-
-    <button
-        class="voice-button"
-        id="voiceButton"
-        onclick="enableVoice()"
-    >
-        🔊 Zeya'nın sesini aç
-    </button>
-
-</div>
-
-
-<div class="clear">
-
-    <button onclick="clearChat()">
-        🗑️ Sohbeti temizle
-    </button>
-
-</div>
-
-
-<div class="input-area">
-
-    <button
-        class="mic"
-        onclick="startVoice()"
-        id="micButton"
-    >
-        🎙️
-    </button>
-
-    <input
-        id="input"
-        type="text"
-        placeholder="Zeya'ya bir soru sorun..."
-        autocomplete="off"
-    >
-
-    <button onclick="sendMessage()">
-        ➤
-    </button>
-
-</div>
-
-</div>
-
-
-<script>
-
-/* =========================
-   API
-========================= */
-
-const API_URL =
-    "https://zeya-pi.vercel.app/api/chat";
-
-const TTS_URL =
-    "https://zeya-pi.vercel.app/api/tts";
-
-
-/* =========================
-   ELEMENTS
-========================= */
-
-const chat =
-    document.getElementById("chat");
-
-const input =
-    document.getElementById("input");
-
-const language =
-    document.getElementById("language");
-
-const typing =
-    document.getElementById("typing");
-
-const status =
-    document.getElementById("status");
-
-const voiceButton =
-    document.getElementById("voiceButton");
-
-const micButton =
-    document.getElementById("micButton");
-
-
-/* =========================
-   VOICE
-========================= */
-
-let voiceEnabled = false;
-
-let audio = new Audio();
-
-audio.preload = "auto";
-
-
-/* =========================
-   LANGUAGE TEXT
-========================= */
-
-const langData = {
-
-    tr:{
-        welcome:"Hoş geldiniz! 👋",
-        text:"Ben Zeya, Selectum Noa Belek AI asistanınızım. Oteliniz hakkında size yardımcı olabilirim.",
-        placeholder:"Zeya'ya bir soru sorun...",
-        voice:"🔊 Zeya'nın sesini aç",
-        enabled:"🔊 Zeya'nın sesi açık",
-        thinking:"Zeya düşünüyor... 🤖",
-        listening:"🎙️ Sizi dinliyorum..."
-    },
-
-    ru:{
-        welcome:"Добро пожаловать! 👋",
-        text:"Я Зея, AI-консьерж Selectum Noa Belek. Я помогу вам с вопросами об отеле.",
-        placeholder:"Задайте вопрос Зее...",
-        voice:"🔊 Включить голос Зеи",
-        enabled:"🔊 Голос Зеи включён",
-        thinking:"Зея думает... 🤖",
-        listening:"🎙️ Я слушаю..."
-    },
-
-    en:{
-        welcome:"Welcome! 👋",
-        text:"I'm Zeya, the Selectum Noa Belek AI concierge. I can help you with questions about the hotel.",
-        placeholder:"Ask Zeya a question...",
-        voice:"🔊 Turn on Zeya's voice",
-        enabled:"🔊 Zeya's voice is on",
-        thinking:"Zeya is thinking... 🤖",
-        listening:"🎙️ I'm listening..."
-    },
-
-    de:{
-        welcome:"Willkommen! 👋",
-        text:"Ich bin Zeya, der AI-Concierge des Selectum Noa Belek.",
-        placeholder:"Frage an Zeya...",
-        voice:"🔊 Zeyas Stimme einschalten",
-        enabled:"🔊 Zeyas Stimme ist aktiv",
-        thinking:"Zeya denkt nach... 🤖",
-        listening:"🎙️ Ich höre zu..."
-    },
-
-    fr:{
-        welcome:"Bienvenue ! 👋",
-        text:"Je suis Zeya, votre concierge IA du Selectum Noa Belek.",
-        placeholder:"Posez une question à Zeya...",
-        voice:"🔊 Activer la voix de Zeya",
-        enabled:"🔊 La voix de Zeya est activée",
-        thinking:"Zeya réfléchit... 🤖",
-        listening:"🎙️ Je vous écoute..."
-    },
-
-    es:{
-        welcome:"¡Bienvenido! 👋",
-        text:"Soy Zeya, la asistente de IA del Selectum Noa Belek.",
-        placeholder:"Haz una pregunta a Zeya...",
-        voice:"🔊 Activar la voz de Zeya",
-        enabled:"🔊 La voz de Zeya está activa",
-        thinking:"Zeya está pensando... 🤖",
-        listening:"🎙️ Te escucho..."
-    },
-
-    it:{
-        welcome:"Benvenuti! 👋",
-        text:"Sono Zeya, l'assistente AI del Selectum Noa Belek.",
-        placeholder:"Fai una domanda a Zeya...",
-        voice:"🔊 Attiva la voce di Zeya",
-        enabled:"🔊 La voce di Zeya è attiva",
-        thinking:"Zeya sta pensando... 🤖",
-        listening:"🎙️ Ti ascolto..."
-    },
-
-    ar:{
-        welcome:"مرحباً بكم! 👋",
-        text:"أنا زيا، المساعدة الذكية في Selectum Noa Belek.",
-        placeholder:"اسأل زيا سؤالاً...",
-        voice:"🔊 تشغيل صوت زيا",
-        enabled:"🔊 صوت زيا يعمل",
-        thinking:"زيا تفكر... 🤖",
-        listening:"🎙️ أنا أستمع..."
-    },
-
-    uk:{
-        welcome:"Ласкаво просимо! 👋",
-        text:"Я Зея, AI-консьєрж Selectum Noa Belek.",
-        placeholder:"Поставте запитання Зеї...",
-        voice:"🔊 Увімкнути голос Зеї",
-        enabled:"🔊 Голос Зеї увімкнено",
-        thinking:"Зея думає... 🤖",
-        listening:"🎙️ Я слухаю..."
-    },
-
-    pl:{
-        welcome:"Witamy! 👋",
-        text:"Jestem Zeya, asystentką AI hotelu Selectum Noa Belek.",
-        placeholder:"Zadaj pytanie Zeyi...",
-        voice:"🔊 Włącz głos Zeyi",
-        enabled:"🔊 Głos Zeyi jest włączony",
-        thinking:"Zeya myśli... 🤖",
-        listening:"🎙️ Słucham..."
-    }
-
-};
-
-
-/* =========================
-   LANGUAGE CHANGE
-========================= */
-
-language.addEventListener(
-    "change",
-    function(){
-
-        const data =
-            langData[language.value] ||
-            langData.tr;
-
-        document.getElementById(
-            "welcomeTitle"
-        ).textContent =
-            data.welcome;
-
-        document.getElementById(
-            "welcomeText"
-        ).textContent =
-            data.text;
-
-        input.placeholder =
-            data.placeholder;
-
-        if(!voiceEnabled){
-
-            voiceButton.textContent =
-                data.voice;
-
-        }else{
-
-            voiceButton.textContent =
-                data.enabled;
-
-        }
-
-        typing.textContent =
-            data.thinking;
-
-    }
-);
-
-
-/* =========================
-   ADD MESSAGE
-========================= */
-
-function addMessage(
-    text,
-    type
-){
-
-    const div =
-        document.createElement("div");
-
-    div.className =
-        "message " + type;
-
-    div.textContent =
-        text;
-
-    chat.appendChild(div);
-
-    chat.scrollTop =
-        chat.scrollHeight;
-}
-
-
-/* =========================
-   SEND
-========================= */
-
-async function sendMessage(){
-
-    const message =
-        input.value.trim();
-
-    if(!message){
-        return;
-    }
-
-    addMessage(
-        message,
-        "user"
-    );
-
-    input.value = "";
-
-    typing.style.display =
-        "block";
-
-    status.textContent =
-        "Zeya AI";
-
-
-    try{
-
-        const response =
-            await fetch(
-                API_URL,
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:JSON.stringify({
-
-                        message:message,
-
-                        language:
-                            language.value
-
-                    })
-                }
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if(!response.ok){
-
-            throw new Error(
-                data.error ||
-                "API error"
-            );
-
-        }
-
-
-        const reply =
-            data.reply ||
-            "Üzgünüm, cevap alınamadı.";
-
-
-        addMessage(
-            reply,
-            "bot"
-        );
-
-
-        if(voiceEnabled){
-
-            speak(reply);
-
-        }
-
-
-    }catch(error){
-
-        console.error(
-            "CHAT ERROR:",
-            error
-        );
-
-        addMessage(
-            "Bağlantıda bir sorun oluştu. Lütfen tekrar deneyin.",
-            "bot"
-        );
-
-    }
-
-
-    typing.style.display =
-        "none";
-}
-
-
-/* =========================
-   ENTER
-========================= */
-
-input.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Enter"){
-
-            event.preventDefault();
-
-            sendMessage();
-
-        }
-
-    }
-);
-
-
-/* =========================
-   QUICK QUESTION
-========================= */
-
-function quickQuestion(
-    question
-){
-
-    input.value =
-        question;
-
-    sendMessage();
-
-}
-
-
-/* =========================
-   OPENAI TTS
-========================= */
-
-async function speak(text){
-
-    if(!voiceEnabled){
-        return;
-    }
-
-    try{
-
-        const response =
-            await fetch(
-                TTS_URL,
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:JSON.stringify({
-
-                        text:text,
-
-                        language:
-                            language.value
-
-                    })
-                }
-            );
-
-
-        if(!response.ok){
-
-            throw new Error(
-                "TTS error"
-            );
-
-        }
-
-
-        const blob =
-            await response.blob();
-
-
-        const url =
-            URL.createObjectURL(blob);
-
-
-        audio.pause();
-
-        audio.src =
-            url;
-
-        audio.currentTime =
-            0;
-
-        await audio.play();
-
-
-        audio.onended =
-            function(){
-
-                URL.revokeObjectURL(
-                    url
-                );
-
-            };
-
-
-    }catch(error){
-
-        console.error(
-            "TTS ERROR:",
-            error
-        );
-
-
-        /* fallback */
-
-        if(
-            "speechSynthesis"
-            in window
-        ){
-
-            const utterance =
-                new SpeechSynthesisUtterance(
-                    text
-                );
-
-            utterance.lang =
-                language.value === "tr"
-                    ? "tr-TR"
-                    : language.value + "-" +
-                      language.value.toUpperCase();
-
-            utterance.rate =
-                0.95;
-
-            speechSynthesis.cancel();
-
-            speechSynthesis.speak(
-                utterance
-            );
-
-        }
-
-    }
-
-}
-
-
-/* =========================
-   ENABLE VOICE
-========================= */
-
-async function enableVoice(){
-
-    try{
-
-        const silentWav =
-            "data:audio/wav;base64," +
-            "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=";
-
-
-        audio.src =
-            silentWav;
-
-        audio.volume =
-            0.01;
-
-
-        try{
-
-            await audio.play();
-
-        }catch(e){
-
-            console.log(
-                "Silent audio:",
-                e
-            );
-
-        }
-
-
-        audio.pause();
-
-        audio.currentTime =
-            0;
-
-        audio.volume =
-            1;
-
-
-        const AC =
-            window.AudioContext ||
-            window.webkitAudioContext;
-
-
-        if(AC){
-
-            if(!window.zeyaContext){
-
-                window.zeyaContext =
-                    new AC();
-
-            }
-
-
-            if(
-                window.zeyaContext.state ===
-                "suspended"
-            ){
-
-                await window.zeyaContext.resume();
-
-            }
-
-        }
-
-
-        voiceEnabled =
-            true;
-
-
-        voiceButton.textContent =
-            (
-                langData[
-                    language.value
-                ] ||
-                langData.tr
-            ).enabled;
-
-
-        voiceButton.classList.add(
-            "enabled"
-        );
-
-
-        status.textContent =
-            (
-                langData[
-                    language.value
-                ] ||
-                langData.tr
-            ).enabled;
-
-
-        setTimeout(
-            function(){
-
-                status.textContent =
-                    "AI Concierge";
-
-            },
-            2000
-        );
-
-
-    }catch(error){
-
-        console.error(
-            "VOICE ENABLE:",
-            error
-        );
-
-    }
-
-}
-
-
-/* =========================
-   MICROPHONE
-========================= */
-
-function startVoice(){
-
-    const SpeechRecognition =
-        window.SpeechRecognition ||
-        window.webkitSpeechRecognition;
-
-
-    if(!SpeechRecognition){
-
-        alert(
-            "Sesli giriş bu tarayıcıda desteklenmiyor."
-        );
-
-        return;
-
-    }
-
-
-    const recognition =
-        new SpeechRecognition();
-
-
-    recognition.continuous =
-        false;
-
-    recognition.interimResults =
-        false;
-
-    recognition.lang =
-        getSpeechLanguage();
-
-
-    const data =
-        langData[
-            language.value
-        ] ||
-        langData.tr;
-
-
-    micButton.textContent =
-        "🔴";
-
-
-    status.textContent =
-        data.listening;
-
-
-    recognition.start();
-
-
-    recognition.onresult =
-        function(event){
-
-            const text =
-                event.results[0][0].transcript;
-
-
-            input.value =
-                text;
-
-
-            micButton.textContent =
-                "🎙️";
-
-
-            status.textContent =
-                "AI Concierge";
-
-
-            sendMessage();
-
-        };
-
-
-    recognition.onerror =
-        function(event){
-
-            console.error(
-                "MIC ERROR:",
-                event.error
-            );
-
-
-            micButton.textContent =
-                "🎙️";
-
-
-            status.textContent =
-                "AI Concierge";
-
-        };
-
-
-    recognition.onend =
-        function(){
-
-            micButton.textContent =
-                "🎙️";
-
-        };
-
-}
-
-
-/* =========================
-   SPEECH LANGUAGE
-========================= */
-
-function getSpeechLanguage(){
-
-    const languages = {
-
-        tr:"tr-TR",
-
-        ru:"ru-RU",
-
-        en:"en-US",
-
-        de:"de-DE",
-
-        fr:"fr-FR",
-
-        es:"es-ES",
-
-        it:"it-IT",
-
-        ar:"ar-SA",
-
-        uk:"uk-UA",
-
-        pl:"pl-PL"
-
-    };
-
-
-    return languages[
-        language.value
-    ] || "tr-TR";
-
-}
-
-
-/* =========================
-   CLEAR
-========================= */
-
-function clearChat(){
-
-    chat.innerHTML =
-        "";
-
-}
-
-
-/* =========================
-   START MESSAGE
-========================= */
-
-addMessage(
-    "Merhaba! 👋 Ben Zeya, Selectum Noa Belek AI asistanınızım. Size nasıl yardımcı olabilirim?",
-    "bot"
-);
-
-</script>
-
-</body>
-</html>
+    <button class="quick" onclick="openModal('spa')">
+      <
