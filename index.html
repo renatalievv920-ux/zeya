@@ -2,4106 +2,1266 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-
 <title>Zeya AI — Selectum Noa Belek</title>
 
 <style>
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   min-height:100vh;
   overflow-x:hidden;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   color:#14212b;
-
   background:
-    radial-gradient(
-      circle at 20% 0%,
-      #eef9f7 0%,
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at 100% 40%,
-      #edf6fb 0%,
-      transparent 30%
-    ),
+    radial-gradient(circle at 20% 0%,#eef9f7 0%,transparent 34%),
+    radial-gradient(circle at 100% 40%,#edf6fb 0%,transparent 30%),
     #f7fafb;
 }
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.app{width:100%;max-width:850px;margin:auto;min-height:100vh;padding-bottom:135px}
 
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-}
-
-.app{
-  width:100%;
-  max-width:850px;
-  margin:auto;
-  min-height:100vh;
-
-  padding-bottom:
-    calc(
-      130px +
-      env(safe-area-inset-bottom)
-    );
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
+/* HEADER */
 header{
-  padding:
-    calc(14px + env(safe-area-inset-top))
-    16px
-    14px;
-
-  display:flex;
-  align-items:center;
-  gap:12px;
-
+  padding:calc(14px + env(safe-area-inset-top)) 16px 14px;
+  display:flex;align-items:center;gap:12px;
   background:rgba(255,255,255,.94);
-
-  border-bottom:
-    1px solid rgba(19,48,62,.08);
-
-  position:sticky;
-  top:0;
-
-  z-index:20;
-
-  box-shadow:
-    0 5px 20px rgba(20,50,65,.05);
-
+  border-bottom:1px solid rgba(19,48,62,.08);
+  position:sticky;top:0;z-index:20;
+  box-shadow:0 5px 20px rgba(20,50,65,.05);
   backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
 }
-
-.logo-wrap{
-  flex:1;
-  min-width:0;
-}
-
-.brand-header{
-  display:flex;
-  align-items:center;
-  min-width:0;
-}
-
-.brand-logo{
-  width:128px;
-
-  max-width:36vw;
-
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-}
-
-.brand-logo img{
-  display:block;
-
-  width:100%;
-  max-width:128px;
-
-  height:auto;
-  max-height:48px;
-
-  object-fit:contain;
-}
-
-.brand-divider{
-  width:1px;
-  height:40px;
-
-  margin:0 13px;
-
-  background:rgba(20,40,50,.15);
-}
-
-.brand-zeya{
-  min-width:0;
-}
-
-.brand-zeya-title{
-  font-size:24px;
-  line-height:1;
-
-  font-weight:850;
-
-  letter-spacing:-.7px;
-
-  color:#14242d;
-}
-
-.brand-zeya-title span{
-  color:#16977f;
-}
-
-.brand-zeya-sub{
-  margin-top:5px;
-
-  font-size:11px;
-  font-weight:650;
-
-  letter-spacing:.3px;
-
-  color:#15917c;
-}
-
+.logo-wrap{flex:1;min-width:0}
+.brand-header{display:flex;align-items:center;min-width:0}
+.brand-logo{width:128px;max-width:36vw}
+.brand-logo img{display:block;width:100%;max-width:128px;max-height:48px;object-fit:contain}
+.brand-divider{width:1px;height:40px;margin:0 13px;background:rgba(20,40,50,.15)}
+.brand-zeya-title{font-size:24px;line-height:1;font-weight:850;letter-spacing:-.7px}
+.brand-zeya-title span{color:#16977f}
+.brand-zeya-sub{margin-top:5px;font-size:11px;font-weight:650;letter-spacing:.3px;color:#15917c}
 .language-mini{
-  min-width:74px;
-  height:52px;
-
-  padding:0 10px;
-
-  border-radius:16px;
-
-  border:
-    1px solid rgba(20,40,50,.12);
-
-  background:#f5f8f9;
-  color:#182832;
-
-  outline:none;
-
-  box-shadow:
-    0 3px 12px rgba(20,50,65,.04);
+  min-width:74px;height:52px;padding:0 10px;
+  border-radius:16px;border:1px solid rgba(20,40,50,.12);
+  background:#f5f8f9;color:#182832;outline:none
 }
 
+/* GENERAL */
+.section{padding:18px 16px 0}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.section-title{font-size:25px;font-weight:800;letter-spacing:-.4px;color:#152630}
+.section-more{background:none;border:0;color:#15947d}
+.option{
+  padding:13px;margin:8px 0;
+  border:1px solid #e4ecee;border-radius:14px;
+  background:#f8fafb
+}
+.note{margin-top:12px;color:#718492;font-size:11px;line-height:1.5}
+.modal-action{
+  width:100%;margin-top:12px;padding:13px;
+  border:0;border-radius:13px;background:#1f9d88;color:#fff;font-weight:700
+}
 
-/* =====================================================
-   HERO
-===================================================== */
-
+/* HERO */
 .hero{
-  margin:14px 16px 0;
-
-  padding:28px 20px 20px;
-
-  min-height:400px;
-
-  border:
-    1px solid rgba(255,255,255,.55);
-
-  border-radius:28px;
-
-  position:relative;
-  overflow:hidden;
-
+  margin:14px 16px 0;padding:28px 20px 20px;min-height:400px;
+  border-radius:28px;position:relative;overflow:hidden;
   background:
-    linear-gradient(
-      to bottom,
-      rgba(16,86,118,.25),
-      rgba(4,18,28,.78)
-    ),
+    linear-gradient(to bottom,rgba(16,86,118,.25),rgba(4,18,28,.78)),
     url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=85")
     center/cover;
-
-  box-shadow:
-    0 12px 35px rgba(20,50,65,.12);
+  box-shadow:0 12px 35px rgba(20,50,65,.12)
 }
-
 .hero:after{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      to bottom,
-      transparent 25%,
-      rgba(3,13,21,.55) 72%,
-      rgba(3,13,21,.90) 100%
-    );
-
-  pointer-events:none;
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 25%,rgba(3,13,21,.55) 72%,rgba(3,13,21,.9));
 }
-
-.hero-top{
-  position:relative;
-
-  z-index:2;
-
-  height:100%;
-
-  display:flex;
-  flex-direction:column;
-
-  justify-content:flex-end;
-}
-
-.welcome{
-  margin-top:135px;
-}
-
-.welcome h1{
-  margin:0;
-
-  font-size:36px;
-  line-height:1.05;
-
-  letter-spacing:-1px;
-
-  color:#fff;
-}
-
-.welcome p{
-  margin:15px 0 0;
-
-  max-width:570px;
-
-  color:#e4edf1;
-
-  font-size:20px;
-  line-height:1.4;
-}
-
+.hero-top{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.welcome{margin-top:135px}
+.welcome h1{margin:0;font-size:36px;line-height:1.05;letter-spacing:-1px;color:#fff}
+.welcome p{margin:15px 0 0;max-width:570px;color:#e4edf1;font-size:20px;line-height:1.4}
 .room{
-  margin-top:24px;
-
-  width:100%;
-
-  padding:18px;
-
-  border:
-    1px solid rgba(255,255,255,.25);
-
-  border-radius:20px;
-
-  background:rgba(255,255,255,.14);
-
-  color:#fff;
-
-  text-align:left;
-
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+  margin-top:24px;width:100%;padding:18px;
+  border:1px solid rgba(255,255,255,.25);border-radius:20px;
+  background:rgba(255,255,255,.14);color:#fff;text-align:left;
+  backdrop-filter:blur(12px)
 }
+.room small{display:block;color:#d8eee9;font-size:14px;margin-bottom:4px}
+.room strong{font-size:27px}.room span{color:#d7ebe7;font-size:14px}
 
-.room small{
-  display:block;
-
-  color:#d8eee9;
-
-  font-size:14px;
-
-  margin-bottom:4px;
-}
-
-.room strong{
-  font-size:27px;
-  color:#fff;
-}
-
-.room span{
-  color:#d7ebe7;
-  font-size:14px;
-}
-
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-.section{
-  padding:18px 16px 0;
-}
-
-.section-head{
-  display:flex;
-
-  justify-content:space-between;
-  align-items:center;
-
-  margin-bottom:12px;
-}
-
-.section-title{
-  font-size:25px;
-
-  font-weight:800;
-
-  letter-spacing:-.4px;
-
-  color:#152630;
-}
-
-.section-more{
-  background:none;
-  border:0;
-
-  color:#15947d;
-}
-
-
-/* =====================================================
-   QUICK
-===================================================== */
-
-.quick{
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,minmax(0,1fr));
-
-  gap:10px;
-}
-
+/* QUICK */
+.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .quick button{
-  min-width:0;
-  min-height:112px;
-
-  padding:12px 6px;
-
-  border-radius:20px;
-
-  border:
-    1px solid rgba(20,50,65,.08);
-
-  background:#fff;
-
-  color:#182933;
-
-  box-shadow:
-    0 6px 20px rgba(20,50,65,.07);
+  min-width:0;min-height:112px;padding:12px 6px;
+  border-radius:20px;border:1px solid rgba(20,50,65,.08);
+  background:#fff;color:#182933;box-shadow:0 6px 20px rgba(20,50,65,.07)
 }
+.quick button:active{transform:scale(.97)}
+.quick .ico{display:block;font-size:31px;margin-bottom:10px}
+.quick .label{display:block;font-size:14px;color:#50616b}
 
-.quick button:active{
-  transform:scale(.97);
-}
-
-.quick .ico{
-  display:block;
-
-  font-size:31px;
-
-  margin-bottom:10px;
-}
-
-.quick .label{
-  display:block;
-
-  font-size:15px;
-
-  color:#50616b;
-}
-
-
-/* =====================================================
-   SMART TODAY
-===================================================== */
-
+/* SMART */
 .smart-today{
-  padding:17px;
-
-  border:
-    1px solid rgba(20,50,65,.08);
-
-  border-radius:22px;
-
-  background:#fff;
-
-  box-shadow:
-    0 7px 24px rgba(20,50,65,.06);
+  padding:17px;border:1px solid rgba(20,50,65,.08);
+  border-radius:22px;background:#fff;box-shadow:0 7px 24px rgba(20,50,65,.06)
 }
+.smart-today-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.smart-day-title{font-size:18px;font-weight:800}
+.smart-pill{padding:7px 10px;border-radius:20px;background:#e9f7f3;color:#158b76;font-size:11px;font-weight:750}
+.smart-now{padding:13px;border-radius:16px;background:#f2faf8;border:1px solid #dcefe9}
+.smart-now strong{display:block;color:#168c76;font-size:14px}
+.smart-now span{display:block;margin-top:4px;color:#50616a;font-size:12px}
+.smart-next{margin-top:9px;padding:12px;border-radius:15px;background:#f7f9fa}
+.smart-next strong{display:block;font-size:12px;color:#60717a}
+.smart-next span{display:block;margin-top:4px;font-size:13px}
+.smart-list{margin-top:10px}
+.smart-list-row{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid #edf1f2;font-size:12px}
+.smart-list-time{width:48px;color:#178cda;font-weight:800}
+.smart-empty{color:#71818a;font-size:13px;line-height:1.5}
 
-.smart-today-head{
-  display:flex;
-
-  align-items:center;
-  justify-content:space-between;
-
-  gap:10px;
-
-  margin-bottom:13px;
+/* NIGHT */
+.night-wrap{
+  padding:14px;border:1px solid rgba(20,50,65,.08);
+  border-radius:22px;background:#fff;box-shadow:0 7px 24px rgba(20,50,65,.06)
 }
-
-.smart-day-title{
-  font-size:18px;
-
-  font-weight:800;
-
-  color:#182b35;
+.night-dates{display:flex;gap:8px;overflow-x:auto;padding:2px 1px 10px;scrollbar-width:none}
+.night-dates::-webkit-scrollbar{display:none}
+.night-date{
+  min-width:62px;padding:9px 7px;border:1px solid #e0e9eb;
+  border-radius:14px;background:#f7fafb;color:#52656f;text-align:center
 }
-
-.smart-pill{
-  padding:7px 10px;
-
-  border-radius:20px;
-
-  background:#e9f7f3;
-
-  color:#158b76;
-
-  font-size:11px;
-
-  font-weight:750;
+.night-date b{display:block;font-size:17px}.night-date small{font-size:9px}
+.night-date.active{background:#1b9a87;border-color:#1b9a87;color:#fff}
+.night-card{
+  margin-top:10px;overflow:hidden;border:1px solid #e2eaec;
+  border-radius:18px;background:#fff;box-shadow:0 5px 15px rgba(20,50,65,.05)
 }
-
-.smart-now{
-  padding:13px;
-
-  border-radius:16px;
-
-  background:#f2faf8;
-
-  border:
-    1px solid #dcefe9;
+.night-card img{width:100%;height:155px;object-fit:cover;display:block}
+.night-card-body{padding:13px}
+.night-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.tag{padding:5px 8px;border-radius:10px;background:#eef8f5;color:#158b76;font-size:10px;font-weight:700}
+.night-card h3{margin:5px 0;font-size:17px}
+.night-card p{margin:4px 0;color:#74858e;font-size:12px}
+.night-actions{display:flex;gap:8px;margin-top:10px}
+.night-actions button{
+  flex:1;padding:10px;border-radius:12px;border:1px solid #dce6e8;
+  background:#f8fafb;color:#34515c;font-size:11px
 }
+.night-actions .primary{background:#1b9a87;color:#fff;border-color:#1b9a87}
+.fav-on{background:#fff1f2!important;color:#d34b58!important;border-color:#ffd4d9!important}
 
-.smart-now strong{
-  display:block;
-
-  color:#168c76;
-
-  font-size:14px;
+/* RECOMMEND */
+.recommend-card{
+  padding:17px;border:1px solid rgba(20,50,65,.08);
+  border-radius:22px;background:#fff;box-shadow:0 7px 24px rgba(20,50,65,.06)
 }
-
-.smart-now span{
-  display:block;
-
-  margin-top:4px;
-
-  color:#50616a;
-
-  font-size:12px;
+.recommend-item{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #edf1f2}
+.recommend-item:last-child{border-bottom:0}
+.recommend-icon{
+  width:44px;height:44px;display:grid;place-items:center;
+  border-radius:14px;background:#edf8f5;font-size:22px
 }
-
-.smart-next{
-  margin-top:9px;
-
-  padding:12px;
-
-  border-radius:15px;
-
-  background:#f7f9fa;
-}
-
-.smart-next strong{
-  display:block;
-
-  font-size:12px;
-
-  color:#60717a;
-}
-
-.smart-next span{
-  display:block;
-
-  margin-top:4px;
-
-  font-size:13px;
-
-  color:#1b2d37;
-}
-
-.smart-list{
-  margin-top:10px;
-}
-
-.smart-list-row{
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  padding:8px 0;
-
-  border-bottom:
-    1px solid #edf1f2;
-
-  font-size:12px;
-}
-
-.smart-list-row:last-child{
-  border-bottom:0;
-}
-
-.smart-list-time{
-  width:48px;
-
-  flex:none;
-
-  color:#178cda;
-
-  font-weight:800;
-}
-
-.smart-list-name{
-  color:#3d505b;
-}
-
-.smart-empty{
-  color:#71818a;
-
-  font-size:13px;
-
-  line-height:1.5;
-}
-
-
-/* =====================================================
-   FOOD
-===================================================== */
-
-.food-card{
-  padding:19px;
-
-  border-radius:22px;
-
-  border:
-    1px solid rgba(20,50,65,.08);
-
-  background:#fff;
-
-  box-shadow:
-    0 7px 24px rgba(20,50,65,.06);
-}
-
-.food-title{
-  display:flex;
-
-  justify-content:space-between;
-  align-items:center;
-
-  margin-bottom:12px;
-
-  font-size:20px;
-
-  font-weight:800;
-
-  color:#182b35;
-}
-
-.food-live{
-  font-size:10px;
-
-  color:#15947d;
-}
-
-.meal{
-  display:flex;
-
-  justify-content:space-between;
-
-  padding:13px 0;
-
-  border-bottom:
-    1px solid #edf1f2;
-
-  font-size:14px;
-}
-
-.meal:last-child{
-  border-bottom:0;
-}
-
-.meal span{
-  color:#75858e;
-}
-
-.food-button{
-  width:100%;
-
-  margin-top:12px;
-
-  padding:13px;
-
-  border:0;
-
-  border-radius:14px;
-
-  background:#1c9b86;
-
-  color:#fff;
-
-  font-weight:700;
-}
-
-
-/* =====================================================
-   RECOMMEND
-===================================================== */
-
-.recommend{
-  min-height:180px;
-
-  padding:20px;
-
-  border-radius:23px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:flex-end;
-
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.05),
-      rgba(0,0,0,.9)
-    ),
-    url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=85")
-    center/cover;
-
-  box-shadow:
-    0 8px 25px rgba(20,50,65,.1);
-}
-
-.recommend small{
-  color:#68dfc1;
-
-  font-weight:700;
-}
-
-.recommend h3{
-  margin:6px 0;
-
-  font-size:21px;
-
-  color:#fff;
-}
-
-.recommend p{
-  margin:0;
-
-  color:#bdc8d0;
-
-  font-size:13px;
-}
-
-
-/* =====================================================
-   SERVICES
-===================================================== */
-
-.services{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:10px;
-}
-
+.recommend-item b{display:block;font-size:14px}
+.recommend-item span{display:block;margin-top:3px;color:#74858e;font-size:11px}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .service{
-  min-height:88px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:11px;
-
-  padding:13px;
-
-  text-align:left;
-
-  border:
-    1px solid rgba(20,50,65,.08);
-
-  border-radius:18px;
-
-  background:#fff;
-
-  color:#172a34;
-
-  box-shadow:
-    0 5px 18px rgba(20,50,65,.05);
+  min-height:88px;display:flex;align-items:center;gap:11px;padding:13px;
+  text-align:left;border:1px solid rgba(20,50,65,.08);
+  border-radius:18px;background:#fff;color:#172a34;box-shadow:0 5px 18px rgba(20,50,65,.05)
 }
-
-.service:active{
-  transform:scale(.98);
-}
-
 .sicon{
-  width:42px;
-  height:42px;
-
-  display:grid;
-  place-items:center;
-
-  flex:none;
-
-  border-radius:13px;
-
-  background:#edf7f5;
-
-  font-size:22px;
+  width:42px;height:42px;display:grid;place-items:center;flex:none;
+  border-radius:13px;background:#edf7f5;font-size:22px
 }
+.service strong{display:block;font-size:13px}.service small{display:block;margin-top:4px;color:#82919a;font-size:10px}
 
-.service strong{
-  display:block;
-
-  font-size:13px;
+/* FOOD */
+.food-card{
+  padding:19px;border-radius:22px;border:1px solid rgba(20,50,65,.08);
+  background:#fff;box-shadow:0 7px 24px rgba(20,50,65,.06)
 }
+.food-title{display:flex;justify-content:space-between;margin-bottom:12px;font-size:20px;font-weight:800}
+.food-live{font-size:10px;color:#15947d}
+.meal{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #edf1f2;font-size:14px}
+.meal span{color:#75858e}
+.food-button{width:100%;margin-top:12px;padding:13px;border:0;border-radius:14px;background:#1c9b86;color:#fff;font-weight:700}
 
-.service small{
-  display:block;
-
-  margin-top:4px;
-
-  color:#82919a;
-
-  font-size:10px;
-
-  line-height:1.3;
-}
-
-
-/* =====================================================
-   ACTIVITIES
-===================================================== */
-
-.activities-preview{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:10px;
-}
-
+/* ACTIVITIES */
+.activities-preview{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .activity-day{
-  padding:15px;
-
-  border:
-    1px solid rgba(20,50,65,.08);
-
-  border-radius:18px;
-
-  background:#fff;
-
-  box-shadow:
-    0 5px 18px rgba(20,50,65,.05);
+  padding:15px;border:1px solid rgba(20,50,65,.08);border-radius:18px;
+  background:#fff;box-shadow:0 5px 18px rgba(20,50,65,.05)
 }
+.activity-day h3{margin:0 0 10px;font-size:16px;color:#168c76}
+.activity-item{padding:7px 0;border-bottom:1px solid #edf1f2;color:#435660;font-size:12px}
+.activity-time{color:#168cff;font-weight:700}
+.activity-more{width:100%;margin-top:10px;padding:13px;border:0;border-radius:14px;background:#1f9d88;color:#fff;font-weight:700}
 
-.activity-day h3{
-  margin:0 0 10px;
-
-  font-size:16px;
-
-  color:#168c76;
+/* INFO */
+.info-card,.wide{
+  display:flex;gap:12px;border:1px solid rgba(20,50,65,.08);
+  border-radius:20px;background:#fff;box-shadow:0 5px 18px rgba(20,50,65,.05);overflow:hidden
 }
-
-.activity-item{
-  padding:7px 0;
-
-  border-bottom:
-    1px solid #edf1f2;
-
-  color:#435660;
-
-  font-size:12px;
-
-  line-height:1.4;
-}
-
-.activity-item:last-child{
-  border-bottom:0;
-}
-
-.activity-time{
-  color:#168cff;
-
-  font-weight:700;
-}
-
-.activity-more{
-  width:100%;
-
-  margin-top:10px;
-
-  padding:13px;
-
-  border:0;
-
-  border-radius:14px;
-
-  background:#1f9d88;
-
-  color:#fff;
-
-  font-weight:700;
-}
-
-
-/* =====================================================
-   INFO
-===================================================== */
-
-.info-card{
-  display:flex;
-
-  gap:12px;
-
-  padding:15px;
-
-  border:
-    1px solid rgba(20,50,65,.08);
-
-  border-radius:20px;
-
-  background:#fff;
-
-  box-shadow:
-    0 5px 18px rgba(20,50,65,.05);
-}
-
-.info-card img{
-  width:115px;
-  height:90px;
-
-  object-fit:cover;
-
-  border-radius:15px;
-}
-
-.info-body{
-  flex:1;
-}
-
-.info-body h3{
-  margin:0 0 6px;
-
-  font-size:16px;
-}
-
-.info-body p{
-  margin:0;
-
-  color:#71818a;
-
-  font-size:11px;
-
-  line-height:1.5;
-}
-
-
-/* =====================================================
-   WIDE
-===================================================== */
-
-.wide{
-  display:flex;
-
-  gap:12px;
-
-  overflow:hidden;
-
-  border:
-    1px solid rgba(20,50,65,.08);
-
-  border-radius:20px;
-
-  background:#fff;
-
-  box-shadow:
-    0 5px 18px rgba(20,50,65,.05);
-}
-
-.wide img{
-  width:130px;
-  height:100px;
-
-  object-fit:cover;
-}
-
-.wide-body{
-  padding:13px 10px 13px 0;
-
-  flex:1;
-}
-
-.wide-body strong{
-  font-size:14px;
-}
-
-.wide-body p{
-  margin:5px 0;
-
-  color:#7a8a93;
-
-  font-size:11px;
-
-  line-height:1.4;
-}
-
-.wide-body button{
-  padding:7px 10px;
-
-  border:
-    1px solid #dbe5e8;
-
-  border-radius:10px;
-
-  background:#f7fafb;
-
-  color:#31505d;
-
-  font-size:11px;
-}
-
-
-/* =====================================================
-   REVIEWS
-===================================================== */
-
-.review-summary{
-  padding:18px;
-
-  border-radius:20px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eefaf7,
-      #f8fbfc
-    );
-
-  border:
-    1px solid #dcefea;
-
-  text-align:center;
-}
-
-.review-average{
-  font-size:42px;
-
-  line-height:1;
-
-  font-weight:850;
-
-  color:#15947d;
-}
-
-.review-stars-display{
-  margin-top:7px;
-
-  color:#f1b82d;
-
-  font-size:22px;
-
-  letter-spacing:2px;
-}
-
-.review-count{
-  margin-top:5px;
-
-  color:#71818a;
-
-  font-size:12px;
-}
-
-.review-write-button{
-  width:100%;
-
-  margin-top:12px;
-
-  padding:14px;
-
-  border:0;
-
-  border-radius:14px;
-
-  background:#1f9d88;
-
-  color:#fff;
-
-  font-weight:800;
-}
-
-.review-item{
-  margin-top:10px;
-
-  padding:15px;
-
-  border:
-    1px solid #e3ebed;
-
-  border-radius:18px;
-
-  background:#fff;
-
-  box-shadow:
-    0 4px 15px rgba(20,50,65,.04);
-}
-
-.review-item-head{
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:10px;
-}
-
-.review-user{
-  font-weight:800;
-
-  color:#1b2d37;
-
-  font-size:14px;
-}
-
-.review-country{
-  margin-left:5px;
-
-  color:#7b8a92;
-
-  font-size:11px;
-
-  font-weight:500;
-}
-
-.review-item-stars{
-  color:#f1b82d;
-
-  font-size:14px;
-
-  white-space:nowrap;
-}
-
-.review-item-text{
-  margin-top:9px;
-
-  color:#52636c;
-
-  font-size:13px;
-
-  line-height:1.55;
-}
-
-.review-date{
-  margin-top:8px;
-
-  color:#9aa6ac;
-
-  font-size:10px;
-}
-
-.review-empty{
-  padding:20px;
-
-  text-align:center;
-
-  color:#82919a;
-
-  font-size:13px;
-}
-
-.review-form-title{
-  margin-bottom:8px;
-
-  font-size:15px;
-
-  font-weight:800;
-
-  color:#1a2d37;
-}
-
-.review-stars{
-  display:flex;
-
-  justify-content:center;
-
-  gap:7px;
-
-  margin:15px 0 8px;
-}
-
-.review-star{
-  width:48px;
-  height:48px;
-
-  border:
-    1px solid #dfe8ea;
-
-  border-radius:14px;
-
-  background:#f7fafb;
-
-  color:#b8c3c7;
-
-  font-size:25px;
-
-  transition:.15s;
-}
-
-.review-star.active{
-  background:#fff7df;
-
-  border-color:#f3cf68;
-
-  color:#f2b928;
-}
-
-.review-rating-text{
-  text-align:center;
-
-  color:#168c76;
-
-  font-size:13px;
-
-  font-weight:700;
-}
-
-.review-label{
-  display:block;
-
-  margin:13px 0 6px;
-
-  color:#52656f;
-
-  font-size:12px;
-
-  font-weight:700;
-}
-
-.review-input,
-.review-textarea{
-  width:100%;
-
-  padding:13px;
-
-  border:
-    1px solid #dce5e8;
-
-  border-radius:14px;
-
-  background:#f8fafb;
-
-  color:#172b35;
-
-  outline:none;
-
-  font-size:14px;
-}
-
-.review-textarea{
-  min-height:120px;
-
-  resize:none;
-}
-
-.review-input:focus,
-.review-textarea:focus{
-  border-color:#36b79f;
-
-  background:#fff;
-}
-
-.review-success{
-  text-align:center;
-
-  padding:25px 10px;
-}
-
-.review-success-icon{
-  font-size:50px;
-
-  margin-bottom:12px;
-}
-
-.review-success h3{
-  margin:0;
-
-  font-size:21px;
-
-  color:#172a34;
-}
-
-.review-success p{
-  margin:8px 0 0;
-
-  color:#71818a;
-
-  font-size:13px;
-
-  line-height:1.5;
-}
-
-
-/* =====================================================
-   CHAT
-===================================================== */
-
-.chat{
-  padding:10px 16px 0;
-}
-
+.info-card{padding:15px}.info-card img{width:115px;height:90px;object-fit:cover;border-radius:15px}
+.info-body{flex:1}.info-body h3{margin:0 0 6px;font-size:16px}
+.info-body p{margin:0;color:#71818a;font-size:11px;line-height:1.5}
+.wide img{width:130px;height:100px;object-fit:cover}.wide-body{padding:13px 10px 13px 0;flex:1}
+.wide-body strong{font-size:14px}.wide-body p{margin:5px 0;color:#7a8a93;font-size:11px}
+.wide-body button{padding:7px 10px;border:1px solid #dbe5e8;border-radius:10px;background:#f7fafb;color:#31505d;font-size:11px}
+
+/* CHAT */
+.chat{padding:10px 16px 0}
 .message{
-  max-width:86%;
-
-  margin:10px 0;
-
-  padding:13px 15px;
-
-  border-radius:17px;
-
-  line-height:1.5;
-
-  font-size:14px;
-
-  white-space:pre-wrap;
-
-  box-shadow:
-    0 3px 12px rgba(20,50,65,.04);
+  max-width:86%;margin:10px 0;padding:13px 15px;border-radius:17px;
+  line-height:1.5;font-size:14px;white-space:pre-wrap;box-shadow:0 3px 12px rgba(20,50,65,.04)
 }
-
-.bot{
-  background:#fff;
-
-  border:
-    1px solid #e5ecee;
-
-  border-bottom-left-radius:5px;
-}
-
-.user{
-  margin-left:auto;
-
-  background:#176b63;
-
-  color:#fff;
-
-  border-bottom-right-radius:5px;
-}
-
-.typing{
-  display:none;
-
-  padding:7px 16px;
-
-  color:#8396a5;
-
-  font-size:12px;
-}
-
-
-/* =====================================================
-   VOICE
-===================================================== */
-
-.voice-area{
-  padding:10px 16px;
-}
-
+.bot{background:#fff;border:1px solid #e5ecee;border-bottom-left-radius:5px}
+.user{margin-left:auto;background:#176b63;color:#fff;border-bottom-right-radius:5px}
+.typing{display:none;padding:7px 16px;color:#8396a5;font-size:12px}
+.voice-area{padding:10px 16px}
 .voice-button{
-  width:100%;
-
-  padding:12px;
-
-  border:
-    1px solid #dce6e8;
-
-  border-radius:14px;
-
-  background:#fff;
-
-  color:#30434d;
-
-  box-shadow:
-    0 4px 15px rgba(20,50,65,.04);
+  width:100%;padding:12px;border:1px solid #dce6e8;border-radius:14px;
+  background:#fff;color:#30434d;box-shadow:0 4px 15px rgba(20,50,65,.04)
 }
+.voice-button.enabled{background:#edf9f5;border-color:#38cba6;color:#137d6b}
 
-.voice-button.enabled{
-  background:#edf9f5;
-
-  border-color:#38cba6;
-
-  color:#137d6b;
-}
-
-
-/* =====================================================
-   INPUT
-===================================================== */
-
+/* INPUT */
 .input-area{
-  position:fixed;
-
-  left:50%;
-  bottom:54px;
-
-  transform:translateX(-50%);
-
-  width:min(850px,100%);
-
-  padding:9px 12px;
-
-  display:flex;
-
-  gap:8px;
-
-  background:rgba(255,255,255,.97);
-
-  border-top:
-    1px solid #e5ebed;
-
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-
-  z-index:30;
+  position:fixed;left:50%;bottom:54px;transform:translateX(-50%);
+  width:min(850px,100%);padding:9px 12px;display:flex;gap:8px;
+  background:rgba(255,255,255,.97);border-top:1px solid #e5ebed;
+  backdrop-filter:blur(18px);z-index:30
 }
-
 .input-area input{
-  flex:1;
-
-  min-width:0;
-
-  padding:14px;
-
-  border:
-    1px solid #dce5e8;
-
-  border-radius:15px;
-
-  background:#f7fafb;
-
-  color:#172b35;
-
-  outline:none;
-
-  font-size:16px;
+  flex:1;min-width:0;padding:14px;border:1px solid #dce5e8;
+  border-radius:15px;background:#f7fafb;color:#172b35;outline:none;font-size:16px
 }
+.input-area button{width:48px;border:0;border-radius:14px;background:#1b9a87;color:#fff;font-size:20px}
+.input-area .mic{background:#e8eff2;color:#31515e}
 
-.input-area input::placeholder{
-  color:#89979e;
-}
-
-.input-area button{
-  width:48px;
-
-  border:0;
-
-  border-radius:14px;
-
-  background:#1b9a87;
-
-  color:#fff;
-
-  font-size:20px;
-}
-
-.input-area .mic{
-  background:#e8eff2;
-
-  color:#31515e;
-}
-
-
-/* =====================================================
-   BOTTOM NAV
-===================================================== */
-
+/* NAV */
 .bottom-nav{
-  position:fixed;
-
-  left:50%;
-  bottom:0;
-
-  transform:translateX(-50%);
-
-  width:min(850px,100%);
-
-  height:55px;
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  background:rgba(255,255,255,.99);
-
-  border-top:
-    1px solid #e5ebed;
-
-  box-shadow:
-    0 -5px 20px rgba(20,50,65,.05);
-
-  z-index:31;
+  position:fixed;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(850px,100%);height:55px;display:grid;grid-template-columns:repeat(4,1fr);
+  background:#fff;border-top:1px solid #e5ebed;box-shadow:0 -5px 20px rgba(20,50,65,.05);z-index:31
 }
+.bottom-nav button{border:0;background:none;color:#819099;font-size:10px}
+.bottom-nav button span{display:block;margin-bottom:2px;font-size:19px}
+.bottom-nav button.active{color:#15947d}
 
-.bottom-nav button{
-  border:0;
-
-  background:none;
-
-  color:#819099;
-
-  font-size:10px;
-}
-
-.bottom-nav button span{
-  display:block;
-
-  margin-bottom:2px;
-
-  font-size:19px;
-}
-
-.bottom-nav button.active{
-  color:#15947d;
-}
-
-
-/* =====================================================
-   MODAL
-===================================================== */
-
+/* MODAL */
 .modal{
-  display:none;
-
-  position:fixed;
-
-  inset:0;
-
-  align-items:flex-end;
-
-  justify-content:center;
-
-  background:rgba(8,25,34,.52);
-
-  z-index:100;
+  display:none;position:fixed;inset:0;align-items:flex-end;justify-content:center;
+  background:rgba(8,25,34,.52);z-index:100
 }
-
-.modal.show{
-  display:flex;
-}
-
+.modal.show{display:flex}
 .modal-box{
-  width:min(850px,100%);
-
-  max-height:85vh;
-
-  overflow:auto;
-
-  padding:
-    20px
-    20px
-    calc(30px + env(safe-area-inset-bottom));
-
-  border-radius:
-    25px
-    25px
-    0
-    0;
-
-  border:
-    1px solid #e2eaec;
-
-  background:#fff;
-
-  box-shadow:
-    0 -15px 40px rgba(20,50,65,.14);
+  width:min(850px,100%);max-height:87vh;overflow:auto;
+  padding:20px 20px calc(30px + env(safe-area-inset-bottom));
+  border-radius:25px 25px 0 0;background:#fff;box-shadow:0 -15px 40px rgba(20,50,65,.14)
 }
-
-.modal-head{
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-}
-
-.modal-head h2{
-  margin:0;
-
-  font-size:21px;
-
-  color:#172a34;
-}
-
+.modal-head{display:flex;justify-content:space-between;align-items:center}
+.modal-head h2{margin:0;font-size:21px;color:#172a34}
 .close{
-  width:38px;
-  height:38px;
-
-  border:0;
-
-  border-radius:12px;
-
-  background:#edf2f4;
-
-  color:#30434d;
-
-  font-size:21px;
+  width:38px;height:38px;border:0;border-radius:12px;background:#edf2f4;
+  color:#30434d;font-size:21px
 }
-
-.modal-content{
-  margin-top:15px;
-
-  color:#40545e;
-
-  font-size:14px;
-
-  line-height:1.6;
-}
-
-.option{
-  padding:13px;
-
-  margin:8px 0;
-
-  border:
-    1px solid #e4ecee;
-
-  border-radius:14px;
-
-  background:#f8fafb;
-}
-
-.modal-action{
-  width:100%;
-
-  margin-top:12px;
-
-  padding:13px;
-
-  border:0;
-
-  border-radius:13px;
-
-  background:#1f9d88;
-
-  color:#fff;
-
-  font-weight:700;
-}
-
-.note{
-  margin-top:12px;
-
-  color:#718492;
-
-  font-size:11px;
-}
-
-.sub-title{
-  margin-top:18px;
-
-  margin-bottom:8px;
-
-  color:#168c76;
-
-  font-size:17px;
-
-  font-weight:800;
-}
-
+.modal-content{margin-top:15px;color:#40545e;font-size:14px;line-height:1.6}
 .day-title{
-  margin-top:18px;
-
-  margin-bottom:8px;
-
-  padding:10px 12px;
-
-  border-radius:12px;
-
-  background:#e9f7f3;
-
-  color:#168c76;
-
-  font-size:16px;
-
-  font-weight:800;
+  margin-top:18px;margin-bottom:8px;padding:10px 12px;border-radius:12px;
+  background:#e9f7f3;color:#168c76;font-size:16px;font-weight:800
 }
-
-.schedule-row{
-  display:flex;
-
-  gap:10px;
-
-  padding:9px 0;
-
-  border-bottom:
-    1px solid #edf1f2;
+.schedule-row{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #edf1f2}
+.schedule-time{width:55px;flex:none;color:#168cff;font-weight:700}
+.sub-title{margin-top:18px;margin-bottom:8px;color:#168c76;font-size:17px;font-weight:800}
+.request-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.request-btn{
+  padding:14px;border:1px solid #e1e9eb;border-radius:15px;
+  background:#f8fafb;text-align:left
 }
-
-.schedule-row:last-child{
-  border-bottom:0;
+.request-btn b{display:block;font-size:13px}.request-btn span{display:block;margin-top:4px;color:#778991;font-size:10px}
+.weather-box{
+  padding:18px;border-radius:18px;
+  background:linear-gradient(135deg,#edf9f7,#eef6fb);border:1px solid #dcebed
 }
-
-.schedule-time{
-  width:55px;
-
-  flex:none;
-
-  color:#168cff;
-
-  font-weight:700;
+.weather-temp{font-size:40px;font-weight:800}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gallery-grid img{width:100%;height:125px;object-fit:cover;border-radius:14px}
+.sos-box{padding:17px;border-radius:18px;background:#fff4f4;border:1px solid #ffd9dc}
+.sos-box strong{color:#c53f4c}
+.danger-btn{
+  width:100%;padding:14px;margin-top:10px;border:0;border-radius:14px;
+  background:#d94b59;color:#fff;font-weight:800
 }
-
-.schedule-name{
-  color:#3e535e;
+.review-input{
+  width:100%;min-height:100px;padding:13px;resize:vertical;
+  border:1px solid #dce5e8;border-radius:14px;outline:none;background:#f8fafb
 }
+.stars{color:#f0a31a;font-size:20px;letter-spacing:2px}
+.review-row{margin-top:10px;padding:12px;border-radius:14px;background:#f7fafb;font-size:12px}
 
-.category-card{
-  margin-top:10px;
-
-  padding:15px;
-
-  border:
-    1px solid #e4eeee;
-
-  border-radius:18px;
-
-  background:#f8fbfb;
-}
-
-.category-card strong{
-  display:block;
-
-  margin-bottom:5px;
-
-  font-size:15px;
-}
-
-.category-card span{
-  color:#74858e;
-
-  font-size:12px;
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
+/* TOAST */
 .toast{
-  position:fixed;
-
-  left:50%;
-  bottom:120px;
-
-  transform:translateX(-50%);
-
-  display:none;
-
-  padding:11px 15px;
-
-  border-radius:13px;
-
-  background:#173c43;
-
-  color:#fff;
-
-  font-size:12px;
-
-  z-index:200;
+  position:fixed;left:50%;bottom:120px;transform:translateX(-50%);
+  display:none;max-width:90%;padding:11px 15px;border-radius:13px;
+  background:#173c43;color:#fff;font-size:12px;z-index:200
 }
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media(max-width:600px){
-
-  .brand-logo{
-    width:105px;
-  }
-
-  .brand-logo img{
-    max-width:105px;
-    max-height:42px;
-  }
-
-  .brand-divider{
-    margin:0 9px;
-    height:34px;
-  }
-
-  .brand-zeya-title{
-    font-size:21px;
-  }
-
-  .brand-zeya-sub{
-    font-size:9px;
-  }
-
-  .language-mini{
-    min-width:67px;
-    height:49px;
-    padding:0 7px;
-  }
-
-  .hero{
-    min-height:400px;
-  }
-
-  .welcome h1{
-    font-size:34px;
-  }
-
-  .welcome p{
-    font-size:19px;
-  }
-
-  .quick{
-    grid-template-columns:
-      repeat(3,minmax(0,1fr));
-  }
-
-  .quick button{
-    min-height:110px;
-  }
-
-  .activities-preview{
-    grid-template-columns:1fr;
-  }
-
+  .brand-logo{width:105px}.brand-logo img{max-width:105px;max-height:42px}
+  .brand-divider{margin:0 9px;height:34px}
+  .brand-zeya-title{font-size:21px}.brand-zeya-sub{font-size:9px}
+  .language-mini{min-width:67px;height:49px;padding:0 7px}
+  .hero{min-height:400px}.welcome h1{font-size:34px}.welcome p{font-size:19px}
+  .activities-preview{grid-template-columns:1fr}
 }
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
 @media(max-width:390px){
-
-  .brand-logo{
-    width:88px;
-  }
-
-  .brand-logo img{
-    max-width:88px;
-  }
-
-  .brand-divider{
-    margin:0 7px;
-  }
-
-  .brand-zeya-title{
-    font-size:19px;
-  }
-
-  .brand-zeya-sub{
-    font-size:8px;
-  }
-
-  .language-mini{
-    min-width:62px;
-  }
-
-  .welcome h1{
-    font-size:29px;
-  }
-
-  .welcome p{
-    font-size:17px;
-  }
-
-  .quick .ico{
-    font-size:26px;
-  }
-
-  .quick .label{
-    font-size:13px;
-  }
-
-  .services{
-    grid-template-columns:1fr;
-  }
-
+  .brand-logo{width:88px}.brand-logo img{max-width:88px}
+  .brand-divider{margin:0 7px}.brand-zeya-title{font-size:19px}.brand-zeya-sub{font-size:8px}
+  .language-mini{min-width:62px}.welcome h1{font-size:29px}.welcome p{font-size:17px}
+  .quick .ico{font-size:26px}.quick .label{font-size:13px}
+  .services,.request-grid{grid-template-columns:1fr}
 }
-
-
-/* =====================================================
-   DESKTOP
-===================================================== */
-
 @media(min-width:700px){
-
-  .quick{
-    grid-template-columns:
-      repeat(6,minmax(0,1fr));
-  }
-
-  .quick button{
-    min-height:105px;
-  }
-
-  .activities-preview{
-    grid-template-columns:
-      repeat(3,1fr);
-  }
-
+  .quick{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .activities-preview{grid-template-columns:repeat(3,1fr)}
 }
-
 </style>
 </head>
 
-
 <body>
-
 <div class="app">
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
+<div class="logo-wrap">
+<div class="brand-header">
+<div class="brand-logo">
+<img src="https://content.anexapps.com/v1/selectum-hotels/b543c3c5aee6490c98d68f5da139a308.svg" alt="Selectum Noa Belek">
+</div>
+<div class="brand-divider"></div>
+<div>
+<div class="brand-zeya-title">Zeya <span>AI</span></div>
+<div class="brand-zeya-sub" id="status">AI Concierge</div>
+</div>
+</div>
+</div>
 
-  <div class="logo-wrap">
-
-    <div class="brand-header">
-
-      <div class="brand-logo">
-
-        <img
-          src="https://content.anexapps.com/v1/selectum-hotels/b543c3c5aee6490c98d68f5da139a308.svg"
-          alt="Selectum Noa Belek"
-        >
-
-      </div>
-
-      <div class="brand-divider"></div>
-
-      <div class="brand-zeya">
-
-        <div class="brand-zeya-title">
-          Zeya <span>AI</span>
-        </div>
-
-        <div
-          class="brand-zeya-sub"
-          id="status">
-
-          AI Concierge
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <select
-    class="language-mini"
-    id="language">
-
-    <option value="ru">🇷🇺 RU</option>
-    <option value="tr">🇹🇷 TR</option>
-    <option value="en">🇬🇧 EN</option>
-    <option value="de">🇩🇪 DE</option>
-    <option value="fr">🇫🇷 FR</option>
-    <option value="es">🇪🇸 ES</option>
-    <option value="it">🇮🇹 IT</option>
-    <option value="ar">🇸🇦 AR</option>
-    <option value="uk">🇺🇦 UA</option>
-    <option value="pl">🇵🇱 PL</option>
-
-  </select>
-
+<select class="language-mini" id="language">
+<option value="ru">🇷🇺 RU</option>
+<option value="tr">🇹🇷 TR</option>
+<option value="en">🇬🇧 EN</option>
+<option value="de">🇩🇪 DE</option>
+<option value="fr">🇫🇷 FR</option>
+<option value="es">🇪🇸 ES</option>
+<option value="it">🇮🇹 IT</option>
+<option value="ar">🇸🇦 AR</option>
+<option value="uk">🇺🇦 UA</option>
+<option value="pl">🇵🇱 PL</option>
+</select>
 </header>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="hero">
-
-  <div class="hero-top">
-
-    <div class="welcome">
-
-      <h1 id="welcomeTitle">
-        Добрый вечер! 👋
-      </h1>
-
-      <p id="welcomeText">
-        Я Зея, ваш персональный AI-консьерж
-        Selectum Noa Belek. Чем могу помочь сегодня?
-      </p>
-
-    </div>
-
-
-    <button
-      class="room"
-      onclick="openModal('room')">
-
-      <small>
-        🛏️ Ваш номер
-      </small>
-
-      <strong>
-        5407
-      </strong>
-
-      <span>
-        • 5 этаж
-      </span>
-
-    </button>
-
-  </div>
-
+<div class="hero-top">
+<div class="welcome">
+<h1 id="welcomeTitle">Добрый вечер! 👋</h1>
+<p id="welcomeText">Я Зея, ваш персональный AI-консьерж Selectum Noa Belek. Чем могу помочь сегодня?</p>
+</div>
+<button class="room" onclick="openModal('room')">
+<small>🛏️ Ваш номер</small>
+<strong>5407</strong>
+<span> • 5 этаж</span>
+</button>
+</div>
 </section>
-
-
-<!-- =====================================================
-     QUICK
-===================================================== -->
 
 <section class="section">
-
-  <div class="section-head">
-
-    <div class="section-title">
-      ⚡ Быстрые запросы
-    </div>
-
-  </div>
-
-
-  <div class="quick">
-
-    <button
-      onclick="quickQuestion('Во сколько сегодня ужин?')">
-
-      <span class="ico">🍽️</span>
-
-      <span class="label">
-        Ужин
-      </span>
-
-    </button>
-
-
-    <button
-      onclick="quickQuestion('Расскажи про бассейн')">
-
-      <span class="ico">🏊</span>
-
-      <span class="label">
-        Бассейн
-      </span>
-
-    </button>
-
-
-    <button
-      onclick="quickQuestion('Расскажи про SPA')">
-
-      <span class="ico">🧖</span>
-
-      <span class="label">
-        SPA
-      </span>
-
-    </button>
-
-
-    <button
-      onclick="quickQuestion('Какие напитки доступны?')">
-
-      <span class="ico">🍹</span>
-
-      <span class="label">
-        Напитки
-      </span>
-
-    </button>
-
-
-    <button
-      onclick="quickQuestion('Расскажи про пляж')">
-
-      <span class="ico">🏖️</span>
-
-      <span class="label">
-        Пляж
-      </span>
-
-    </button>
-
-
-    <button
-      onclick="openModal('events')">
-
-      <span class="ico">📅</span>
-
-      <span class="label">
-        События
-      </span>
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     SMART TODAY
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-head">
-
-    <div class="section-title">
-      ✨ Сегодня в отеле
-    </div>
-
-    <button
-      class="section-more"
-      onclick="quickQuestion('Что сейчас происходит в отеле?')">
-
-      Zeya →
-
-    </button>
-
-  </div>
-
-
-  <div
-    class="smart-today"
-    id="smartToday">
-
-    <div class="smart-today-head">
-
-      <div
-        class="smart-day-title"
-        id="smartDayTitle">
-
-        Сегодня
-
-      </div>
-
-      <div
-        class="smart-pill"
-        id="smartClock">
-
-        --
-
-      </div>
-
-    </div>
-
-
-    <div id="smartTodayContent">
-      Загружаю расписание...
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     ACTIVITIES
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-head">
-
-    <div class="section-title">
-      📅 Активности недели
-    </div>
-
-    <button
-      class="section-more"
-      onclick="openModal('activities')">
-
-      Все →
-
-    </button>
-
-  </div>
-
-
-  <div class="activities-preview">
-
-
-    <div class="activity-day">
-
-      <h3>ПОНЕДЕЛЬНИК</h3>
-
-      <div class="activity-item">
-        <span class="activity-time">10:15</span>
-        — Pilates
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">11:30</span>
-        — Aqua Gym
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:00</span>
-        — Step Aerobic
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:45</span>
-        — Kangoo Jumping
-      </div>
-
-    </div>
-
-
-    <div class="activity-day">
-
-      <h3>ВТОРНИК</h3>
-
-      <div class="activity-item">
-        <span class="activity-time">10:15</span>
-        — Pilates
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">11:30</span>
-        — Aqua Jumping
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:00</span>
-        — Fly Yoga
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:45</span>
-        — Zumba
-      </div>
-
-    </div>
-
-
-    <div class="activity-day">
-
-      <h3>СРЕДА</h3>
-
-      <div class="activity-item">
-        <span class="activity-time">10:15</span>
-        — Pilates
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">11:30</span>
-        — Aqua Gym
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:00</span>
-        — Step Aerobic
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:45</span>
-        — Kangoo Jumping
-      </div>
-
-    </div>
-
-
-    <div class="activity-day">
-
-      <h3>ЧЕТВЕРГ</h3>
-
-      <div class="activity-item">
-        <span class="activity-time">10:15</span>
-        — Pilates
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">11:30</span>
-        — Aqua Jumping
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:00</span>
-        — Fly Yoga
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:45</span>
-        — Zumba
-      </div>
-
-    </div>
-
-
-    <div class="activity-day">
-
-      <h3>ПЯТНИЦА</h3>
-
-      <div class="activity-item">
-        <span class="activity-time">10:15</span>
-        — Pilates
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">11:30</span>
-        — Aqua Gym
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:30</span>
-        — Pool Party
-      </div>
-
-    </div>
-
-
-    <div class="activity-day">
-
-      <h3>СУББОТА</h3>
-
-      <div class="activity-item">
-        <span class="activity-time">10:15</span>
-        — Pilates
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">11:30</span>
-        — Aqua Jumping
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:00</span>
-        — Fly Yoga
-      </div>
-
-      <div class="activity-item">
-        <span class="activity-time">15:45</span>
-        — Zumba
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <button
-    class="activity-more"
-    onclick="openModal('activities')">
-
-    🗓️ Полное расписание + Cafe Games
-
-  </button>
-
-</section>
-
-
-<!-- =====================================================
-     FOOD
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-title">
-    🍽️ Питание сегодня
-  </div>
-
-
-  <div class="food-card">
-
-    <div class="food-title">
-
-      <span>
-        Главный ресторан
-      </span>
-
-      <span class="food-live">
-        ● РАСПИСАНИЕ
-      </span>
-
-    </div>
-
-
-    <div class="meal">
-
-      <span>
-        Завтрак
-      </span>
-
-      <b>
-        07:00 — 10:30
-      </b>
-
-    </div>
-
-
-    <div class="meal">
-
-      <span>
-        Обед
-      </span>
-
-      <b>
-        12:30 — 14:30
-      </b>
-
-    </div>
-
-
-    <div class="meal">
-
-      <span>
-        Ужин
-      </span>
-
-      <b>
-        18:00 — 21:00
-      </b>
-
-    </div>
-
-
-    <button
-      class="food-button"
-      onclick="openModal('restaurants')">
-
-      Все рестораны →
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     RECOMMEND
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-title">
-    Zeya рекомендует
-  </div>
-
-
-  <div class="recommend">
-
-    <small>
-      ✨ НА ВЕЧЕР
-    </small>
-
-    <h3>
-      Выберите ресторан
-    </h3>
-
-    <p>
-      Посмотрите рестораны и варианты ужина
-      в Selectum Noa Belek.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     SERVICES
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-title">
-    Сервисы отеля
-  </div>
-
-
-  <div class="services">
-
-
-    <button
-      class="service"
-      onclick="openModal('food')">
-
-      <div class="sicon">
-        🍔
-      </div>
-
-      <div>
-
-        <strong>
-          Заказать еду
-        </strong>
-
-        <small>
-          Питание и рестораны
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <button
-      class="service"
-      onclick="openModal('hotel')">
-
-      <div class="sicon">
-        🏨
-      </div>
-
-      <div>
-
-        <strong>
-          Мой отель
-        </strong>
-
-        <small>
-          Информация об отеле
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <button
-      class="service"
-      onclick="openModal('activities')">
-
-      <div class="sicon">
-        ⚽
-      </div>
-
-      <div>
-
-        <strong>
-          Активности
-        </strong>
-
-        <small>
-          Спорт и развлечения
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <button
-      class="service"
-      onclick="openModal('transfer')">
-
-      <div class="sicon">
-        🚕
-      </div>
-
-      <div>
-
-        <strong>
-          Трансфер / такси
-        </strong>
-
-        <small>
-          Поездки и аэропорт
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <button
-      class="service"
-      onclick="openModal('map')">
-
-      <div class="sicon">
-        📍
-      </div>
-
-      <div>
-
-        <strong>
-          Карта
-        </strong>
-
-        <small>
-          Территория и расположение
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <button
-      class="service"
-      onclick="openModal('excursions')">
-
-      <div class="sicon">
-        🗺️
-      </div>
-
-      <div>
-
-        <strong>
-          Экскурсии
-        </strong>
-
-        <small>
-          Анталья и окрестности
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <button
-      class="service"
-      onclick="openModal('premium')">
-
-      <div class="sicon">
-        💎
-      </div>
-
-      <div>
-
-        <strong>
-          Premium
-        </strong>
-
-        <small>
-          Особые услуги
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <!-- НОВАЯ КНОПКА ОТЗЫВОВ -->
-
-    <button
-      class="service"
-      onclick="openModal('review')">
-
-      <div class="sicon">
-        ⭐
-      </div>
-
-      <div>
-
-        <strong>
-          Оставить отзыв
-        </strong>
-
-        <small>
-          Поделитесь впечатлениями
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <button
-      class="service"
-      onclick="quickQuestion('Мне нужна помощь сотрудника отеля')">
-
-      <div class="sicon">
-        💬
-      </div>
-
-      <div>
-
-        <strong>
-          Помощь Zeya
-        </strong>
-
-        <small>
-          Связаться с консьержем
-        </small>
-
-      </div>
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     REVIEWS PREVIEW
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-head">
-
-    <div class="section-title">
-      ⭐ Отзывы гостей
-    </div>
-
-    <button
-      class="section-more"
-      onclick="openModal('reviews')">
-
-      Все →
-
-    </button>
-
-  </div>
-
-
-  <div id="reviewPreview">
-
-    <!-- Отзывы загружаются JS -->
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     HOTEL INFO
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-title">
-    Об отеле
-  </div>
-
-
-  <div class="info-card">
-
-    <img
-      src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=500&q=80"
-      alt="Hotel"
-    >
-
-    <div class="info-body">
-
-      <h3>
-        Selectum Noa Belek
-      </h3>
-
-      <p>
-        Пляж, бассейны, рестораны,
-        SPA, спорт и развлечения.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     DISCOVER
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-title">
-    Исследуйте регион
-  </div>
-
-
-  <div class="wide">
-
-    <img
-      src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=500&q=80"
-      alt="Antalya"
-    >
-
-    <div class="wide-body">
-
-      <strong>
-        🗺️ Анталья и Belek
-      </strong>
-
-      <p>
-        Экскурсии, природа, античные города
-        и морские прогулки.
-      </p>
-
-      <button
-        onclick="openModal('excursions')">
-
-        Подробнее →
-
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     CHAT
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-title">
-    Спросите Zeya
-  </div>
-
-</section>
-
-
-<div
-  class="chat"
-  id="chat">
-
-  <div class="message bot">
-
-    Привет! 👋 Я Zeya, ваш AI-консьерж.
-
-    Спросите меня про рестораны, SPA,
-    бассейн, пляж, активности,
-    трансфер или экскурсии.
-
-    Например:
-    «Что сейчас?»
-    «Что сегодня?»
-    «А завтра?»
-    «Когда Dart?»
-    «Во сколько Aqua Gym?»
-
-  </div>
-
+<div class="section-head">
+<div class="section-title">⚡ Быстрые запросы</div>
 </div>
 
+<div class="quick">
+<button onclick="quickQuestion('Во сколько сегодня ужин?')"><span class="ico">🍽️</span><span class="label">Ужин</span></button>
+<button onclick="quickQuestion('Расскажи про бассейн')"><span class="ico">🏊</span><span class="label">Бассейн</span></button>
+<button onclick="quickQuestion('Расскажи про SPA')"><span class="ico">🧖</span><span class="label">SPA</span></button>
+<button onclick="quickQuestion('Расскажи про пляж')"><span class="ico">🏖️</span><span class="label">Пляж</span></button>
+<button onclick="quickQuestion('Что делать сегодня вечером?')"><span class="ico">🎉</span><span class="label">Вечер</span></button>
+<button onclick="openModal('night')"><span class="ico">🌙</span><span class="label">Шоу</span></button>
+</div>
+</section>
 
-<div
-  class="typing"
-  id="typing">
-
-  Zeya думает...
-
+<section class="section">
+<div class="section-head">
+<div class="section-title">✨ Сегодня в отеле</div>
+<button class="section-more" onclick="quickQuestion('Что сейчас происходит в отеле?')">Zeya →</button>
 </div>
 
+<div class="smart-today">
+<div class="smart-today-head">
+<div class="smart-day-title" id="smartDayTitle">Сегодня</div>
+<div class="smart-pill" id="smartClock">--</div>
+</div>
+<div id="smartTodayContent">Загружаю расписание...</div>
+</div>
+</section>
 
-<!-- =====================================================
-     VOICE
-===================================================== -->
+<section class="section">
+<div class="section-head">
+<div class="section-title">🌙 Вечерняя программа</div>
+<button class="section-more" onclick="showTonight()">Сегодня →</button>
+</div>
+
+<div class="night-wrap">
+<div class="night-dates" id="nightDates"></div>
+<div id="nightShows"></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<div class="section-title">🤖 Что делать сегодня?</div>
+<button class="section-more" onclick="openModal('recommend')">Zeya →</button>
+</div>
+
+<div class="recommend-card">
+<div class="recommend-item">
+<div class="recommend-icon">🏖️</div>
+<div><b>Хочется расслабиться</b><span>Пляж → бассейн → SPA</span></div>
+</div>
+<div class="recommend-item">
+<div class="recommend-icon">🎉</div>
+<div><b>Хочется развлечений</b><span>Активности → шоу → Disco</span></div>
+</div>
+<div class="recommend-item">
+<div class="recommend-icon">👨‍👩‍👧</div>
+<div><b>Вы с детьми</b><span>Kids Club → Mini Disco → шоу</span></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<div class="section-title">📅 Активности недели</div>
+<button class="section-more" onclick="openModal('activities')">Все →</button>
+</div>
+<div class="activities-preview" id="activitiesPreview"></div>
+<button class="activity-more" onclick="openModal('activities')">🗓️ Полное расписание + Cafe Games</button>
+</section>
+
+<section class="section">
+<div class="section-title">🍽️ Питание сегодня</div>
+<div class="food-card">
+<div class="food-title"><span>Главный ресторан</span><span class="food-live">● РАСПИСАНИЕ</span></div>
+<div class="meal"><span>Завтрак</span><b>07:00 — 10:30</b></div>
+<div class="meal"><span>Обед</span><b>12:30 — 14:30</b></div>
+<div class="meal"><span>Ужин</span><b>18:00 — 21:00</b></div>
+<button class="food-button" onclick="openModal('restaurants')">Все рестораны →</button>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">Сервисы отеля</div>
+
+<div class="services">
+
+<button class="service" onclick="openModal('food')">
+<div class="sicon">🍔</div><div><strong>Room Service</strong><small>Заказать еду</small></div>
+</button>
+
+<button class="service" onclick="openModal('staff')">
+<div class="sicon">📲</div><div><strong>Персонал</strong><small>Помощь в номер</small></div>
+</button>
+
+<button class="service" onclick="openModal('sos')">
+<div class="sicon">🆘</div><div><strong>SOS</strong><small>Срочная помощь</small></div>
+</button>
+
+<button class="service" onclick="openModal('weather')">
+<div class="sicon">🌤️</div><div><strong>Погода</strong><small>Belek</small></div>
+</button>
+
+<button class="service" onclick="openModal('hotel')">
+<div class="sicon">🏨</div><div><strong>Мой отель</strong><small>Информация</small></div>
+</button>
+
+<button class="service" onclick="openModal('transfer')">
+<div class="sicon">🚕</div><div><strong>Трансфер</strong><small>Аэропорт / такси</small></div>
+</button>
+
+<button class="service" onclick="openModal('map')">
+<div class="sicon">📍</div><div><strong>Карта</strong><small>Территория</small></div>
+</button>
+
+<button class="service" onclick="openModal('gallery')">
+<div class="sicon">📸</div><div><strong>Галерея</strong><small>Фото</small></div>
+</button>
+
+<button class="service" onclick="openModal('excursions')">
+<div class="sicon">🗺️</div><div><strong>Экскурсии</strong><small>Belek / Antalya</small></div>
+</button>
+
+<button class="service" onclick="openModal('premium')">
+<div class="sicon">💎</div><div><strong>Premium</strong><small>Особые услуги</small></div>
+</button>
+
+<button class="service" onclick="openModal('reviews')">
+<div class="sicon">⭐</div><div><strong>Отзывы</strong><small>Оставить отзыв</small></div>
+</button>
+
+<button class="service" onclick="openModal('requests')">
+<div class="sicon">📋</div><div><strong>Мои запросы</strong><small>История</small></div>
+</button>
+
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">Об отеле</div>
+<div class="info-card">
+<img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=500&q=80">
+<div class="info-body">
+<h3>Selectum Noa Belek</h3>
+<p>Пляж, бассейны, рестораны, SPA, спорт и развлечения.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">Исследуйте регион</div>
+<div class="wide">
+<img src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=500&q=80">
+<div class="wide-body">
+<strong>🗺️ Анталья и Belek</strong>
+<p>Экскурсии, природа, античные города и морские прогулки.</p>
+<button onclick="openModal('excursions')">Подробнее →</button>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">Спросите Zeya</div>
+</section>
+
+<div class="chat" id="chat">
+<div class="message bot">
+Привет! 👋 Я Zeya, ваш AI-консьерж.
+
+Спросите меня про рестораны, SPA,
+бассейн, пляж, активности,
+вечерние шоу, трансфер или экскурсии.
+
+Например:
+«Что сейчас?»
+«Что сегодня?»
+«Что вечером?»
+«Когда Dart?»
+«Какое шоу сегодня?»
+</div>
+</div>
+
+<div class="typing" id="typing">Zeya думает...</div>
 
 <div class="voice-area">
-
-  <button
-    class="voice-button"
-    id="voiceButton"
-    onclick="enableVoice()">
-
-    🔊 Включить голос Зеи
-
-  </button>
-
+<button class="voice-button" id="voiceButton" onclick="enableVoice()">🔊 Включить голос Зеи</button>
 </div>
-
-
-<!-- =====================================================
-     INPUT
-===================================================== -->
 
 <div class="input-area">
-
-  <button
-    class="mic"
-    id="micButton"
-    onclick="startVoice()">
-
-    🎙️
-
-  </button>
-
-
-  <input
-    id="messageInput"
-    type="text"
-    placeholder="Задайте вопрос Зее..."
-    autocomplete="off"
-  >
-
-
-  <button
-    onclick="sendMessage()">
-
-    ➤
-
-  </button>
-
+<button class="mic" id="micButton" onclick="startVoice()">🎙️</button>
+<input id="messageInput" type="text" placeholder="Задайте вопрос Зее..." autocomplete="off">
+<button onclick="sendMessage()">➤</button>
 </div>
-
-
-<!-- =====================================================
-     BOTTOM NAV
-===================================================== -->
 
 <nav class="bottom-nav">
-
-  <button
-    class="active"
-    onclick="window.scrollTo({top:0,behavior:'smooth'})">
-
-    <span>⌂</span>
-    Главная
-
-  </button>
-
-
-  <button
-    onclick="openModal('history')">
-
-    <span>◷</span>
-    История
-
-  </button>
-
-
-  <button
-    onclick="openModal('favorites')">
-
-    <span>♡</span>
-    Избранное
-
-  </button>
-
-
-  <button
-    onclick="openModal('profile')">
-
-    <span>●</span>
-    Профиль
-
-  </button>
-
+<button class="active" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span>⌂</span>Главная</button>
+<button onclick="openModal('history')"><span>◷</span>История</button>
+<button onclick="openModal('favorites')"><span>♡</span>Избранное</button>
+<button onclick="openModal('profile')"><span>●</span>Профиль</button>
 </nav>
 
-
-<!-- =====================================================
-     MODAL
-===================================================== -->
-
-<div
-  class="modal"
-  id="modal"
-  onclick="closeOutside(event)">
-
-  <div class="modal-box">
-
-    <div class="modal-head">
-
-      <h2 id="modalTitle">
-        Zeya
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-
-        ×
-
-      </button>
-
-    </div>
-
-
-    <div
-      class="modal-content"
-      id="modalContent">
-    </div>
-
-  </div>
-
+<div class="modal" id="modal" onclick="closeOutside(event)">
+<div class="modal-box">
+<div class="modal-head">
+<h2 id="modalTitle">Zeya</h2>
+<button class="close" onclick="closeModal()">×</button>
+</div>
+<div class="modal-content" id="modalContent"></div>
+</div>
 </div>
 
-
-<div
-  class="toast"
-  id="toast">
-</div>
-
+<div class="toast" id="toast"></div>
 
 <script>
-
-
 /* =====================================================
-   API
+   CONFIG
 ===================================================== */
 
-const API_URL =
-  "https://zeya-pi.vercel.app/api/chat";
+const API_URL="https://zeya-pi.vercel.app/api/chat";
+const TTS_URL="https://zeya-pi.vercel.app/api/tts";
 
-const TTS_URL =
-  "https://zeya-pi.vercel.app/api/tts";
+let voiceEnabled=false;
+let selectedNightDate="2026-09-07";
 
-let voiceEnabled = false;
-
-
-/* =====================================================
-   BASIC ELEMENTS
-===================================================== */
-
-const language =
-  document.getElementById("language");
-
-const input =
-  document.getElementById("messageInput");
-
-const chat =
-  document.getElementById("chat");
-
-const typing =
-  document.getElementById("typing");
-
-const status =
-  document.getElementById("status");
-
-const voiceButton =
-  document.getElementById("voiceButton");
-
-const micButton =
-  document.getElementById("micButton");
-
+const language=document.getElementById("language");
+const input=document.getElementById("messageInput");
+const chat=document.getElementById("chat");
+const typing=document.getElementById("typing");
+const status=document.getElementById("status");
+const voiceButton=document.getElementById("voiceButton");
+const micButton=document.getElementById("micButton");
 
 /* =====================================================
    LANGUAGE
 ===================================================== */
 
-const langData = {
-
-  ru:{
-    welcome:"Добрый вечер! 👋",
-    text:"Я Зея, ваш персональный AI-консьерж Selectum Noa Belek. Чем могу помочь сегодня?",
-    placeholder:"Задайте вопрос Зее...",
-    voice:"🔊 Включить голос Зеи",
-    enabled:"🔊 Голос Зеи включён",
-    thinking:"Zeya думает..."
-  },
-
-  tr:{
-    welcome:"İyi akşamlar! 👋",
-    text:"Ben Zeya, Selectum Noa Belek kişisel AI asistanınızım. Size nasıl yardımcı olabilirim?",
-    placeholder:"Zeya'ya soru sorun...",
-    voice:"🔊 Zeya'nın sesini aç",
-    enabled:"🔊 Zeya'nın sesi açık",
-    thinking:"Zeya düşünüyor..."
-  },
-
-  en:{
-    welcome:"Good evening! 👋",
-    text:"I'm Zeya, your personal AI concierge at Selectum Noa Belek. How can I help today?",
-    placeholder:"Ask Zeya a question...",
-    voice:"🔊 Turn on Zeya's voice",
-    enabled:"🔊 Zeya's voice is on",
-    thinking:"Zeya is thinking..."
-  },
-
-  de:{
-    welcome:"Guten Abend! 👋",
-    text:"Ich bin Zeya, Ihr persönlicher AI-Concierge im Selectum Noa Belek.",
-    placeholder:"Frage an Zeya...",
-    voice:"🔊 Zeyas Stimme einschalten",
-    enabled:"🔊 Zeyas Stimme ist aktiv",
-    thinking:"Zeya denkt nach..."
-  },
-
-  fr:{
-    welcome:"Bonsoir ! 👋",
-    text:"Je suis Zeya, votre concierge IA personnel au Selectum Noa Belek.",
-    placeholder:"Posez une question à Zeya...",
-    voice:"🔊 Activer la voix de Zeya",
-    enabled:"🔊 La voix de Zeya est activée",
-    thinking:"Zeya réfléchit..."
-  },
-
-  es:{
-    welcome:"¡Buenas tardes! 👋",
-    text:"Soy Zeya, tu conserje personal de IA en Selectum Noa Belek.",
-    placeholder:"Haz una pregunta a Zeya...",
-    voice:"🔊 Activar la voz de Zeya",
-    enabled:"🔊 La voz de Zeya está activa",
-    thinking:"Zeya está pensando..."
-  },
-
-  it:{
-    welcome:"Buonasera! 👋",
-    text:"Sono Zeya, il tuo concierge AI personale al Selectum Noa Belek.",
-    placeholder:"Fai una domanda a Zeya...",
-    voice:"🔊 Attiva la voce di Zeya",
-    enabled:"🔊 La voce di Zeya è attiva",
-    thinking:"Zeya sta pensando..."
-  },
-
-  ar:{
-    welcome:"مساء الخير! 👋",
-    text:"أنا زيا، مساعدك الذكي الشخصي في Selectum Noa Belek.",
-    placeholder:"اسأل زيا سؤالاً...",
-    voice:"🔊 تشغيل صوت زيا",
-    enabled:"🔊 صوت زيا يعمل",
-    thinking:"زيا تفكر..."
-  },
-
-  uk:{
-    welcome:"Добрий вечір! 👋",
-    text:"Я Зея, ваш персональний AI-консьєрж Selectum Noa Belek.",
-    placeholder:"Поставте запитання Зеї...",
-    voice:"🔊 Увімкнути голос Зеї",
-    enabled:"🔊 Голос Зеї увімкнено",
-    thinking:"Зея думає..."
-  },
-
-  pl:{
-    welcome:"Dobry wieczór! 👋",
-    text:"Jestem Zeya, Twoją osobistą asystentką AI w Selectum Noa Belek.",
-    placeholder:"Zadaj pytanie Zeyi...",
-    voice:"🔊 Włącz głos Zeyi",
-    enabled:"🔊 Głos Zeyi jest włączony",
-    thinking:"Zeya myśli..."
-  }
-
+const langData={
+ru:{
+welcome:"Добрый вечер! 👋",
+text:"Я Зея, ваш персональный AI-консьерж Selectum Noa Belek. Чем могу помочь сегодня?",
+placeholder:"Задайте вопрос Зее...",
+voice:"🔊 Включить голос Зеи",
+enabled:"🔊 Голос Зеи включён",
+thinking:"Zeya думает..."
+},
+tr:{
+welcome:"İyi akşamlar! 👋",
+text:"Ben Zeya, Selectum Noa Belek kişisel AI asistanınızım.",
+placeholder:"Zeya'ya soru sorun...",
+voice:"🔊 Zeya'nın sesini aç",
+enabled:"🔊 Zeya'nın sesi açık",
+thinking:"Zeya düşünüyor..."
+},
+en:{
+welcome:"Good evening! 👋",
+text:"I'm Zeya, your personal AI concierge at Selectum Noa Belek.",
+placeholder:"Ask Zeya a question...",
+voice:"🔊 Turn on Zeya's voice",
+enabled:"🔊 Zeya's voice is on",
+thinking:"Zeya is thinking..."
+},
+de:{
+welcome:"Guten Abend! 👋",
+text:"Ich bin Zeya, Ihr persönlicher AI-Concierge im Selectum Noa Belek.",
+placeholder:"Frage an Zeya...",
+voice:"🔊 Zeyas Stimme einschalten",
+enabled:"🔊 Zeyas Stimme ist aktiv",
+thinking:"Zeya denkt nach..."
+},
+fr:{
+welcome:"Bonsoir ! 👋",
+text:"Je suis Zeya, votre concierge IA personnel au Selectum Noa Belek.",
+placeholder:"Posez une question à Zeya...",
+voice:"🔊 Activer la voix de Zeya",
+enabled:"🔊 La voix de Zeya est activée",
+thinking:"Zeya réfléchit..."
+},
+es:{
+welcome:"¡Buenas tardes! 👋",
+text:"Soy Zeya, tu conserje personal de IA en Selectum Noa Belek.",
+placeholder:"Haz una pregunta a Zeya...",
+voice:"🔊 Activar la voz de Zeya",
+enabled:"🔊 La voz de Zeya está activa",
+thinking:"Zeya está pensando..."
+},
+it:{
+welcome:"Buonasera! 👋",
+text:"Sono Zeya, il tuo concierge AI personale al Selectum Noa Belek.",
+placeholder:"Fai una domanda a Zeya...",
+voice:"🔊 Attiva la voce di Zeya",
+enabled:"🔊 La voce di Zeya è attiva",
+thinking:"Zeya sta pensando..."
+},
+ar:{
+welcome:"مساء الخير! 👋",
+text:"أنا زيا، مساعدك الذكي الشخصي في Selectum Noa Belek.",
+placeholder:"اسأل زيا سؤالاً...",
+voice:"🔊 تشغيل صوت زيا",
+enabled:"🔊 صوت زيا يعمل",
+thinking:"زيا تفكر..."
+},
+uk:{
+welcome:"Добрий вечір! 👋",
+text:"Я Зея, ваш персональний AI-консьєрж Selectum Noa Belek.",
+placeholder:"Поставте запитання Зеї...",
+voice:"🔊 Увімкнути голос Зеї",
+enabled:"🔊 Голос Зеї увімкнено",
+thinking:"Зея думає..."
+},
+pl:{
+welcome:"Dobry wieczór! 👋",
+text:"Jestem Zeya, Twoją osobistą asystentką AI w Selectum Noa Belek.",
+placeholder:"Zadaj pytanie Zeyi...",
+voice:"🔊 Włącz głos Zeyi",
+enabled:"🔊 Głos Zeyi jest włączony",
+thinking:"Zeya myśli..."
+}
 };
-
 
 /* =====================================================
-   SCHEDULE
+   DAY SCHEDULE
 ===================================================== */
 
-const weeklySchedule = {
-
-  monday:[
-    {time:"10:15",name:"Pilates",key:"pilates"},
-    {time:"11:30",name:"Aqua Gym",key:"aquaGym"},
-    {time:"15:00",name:"Step Aerobic",key:"stepAerobic"},
-    {time:"15:45",name:"Kangoo Jumping",key:"kangooJumping"}
-  ],
-
-  tuesday:[
-    {time:"10:15",name:"Pilates",key:"pilates"},
-    {time:"11:30",name:"Aqua Jumping",key:"aquaJumping"},
-    {time:"15:00",name:"Fly Yoga",key:"flyYoga"},
-    {time:"15:45",name:"Zumba",key:"zumba"}
-  ],
-
-  wednesday:[
-    {time:"10:15",name:"Pilates",key:"pilates"},
-    {time:"11:30",name:"Aqua Gym",key:"aquaGym"},
-    {time:"15:00",name:"Step Aerobic",key:"stepAerobic"},
-    {time:"15:45",name:"Kangoo Jumping",key:"kangooJumping"}
-  ],
-
-  thursday:[
-    {time:"10:15",name:"Pilates",key:"pilates"},
-    {time:"11:30",name:"Aqua Jumping",key:"aquaJumping"},
-    {time:"15:00",name:"Fly Yoga",key:"flyYoga"},
-    {time:"15:45",name:"Zumba",key:"zumba"}
-  ],
-
-  friday:[
-    {time:"10:15",name:"Pilates",key:"pilates"},
-    {time:"11:30",name:"Aqua Gym",key:"aquaGym"},
-    {time:"15:30",name:"Pool Party",key:"poolParty"}
-  ],
-
-  saturday:[
-    {time:"10:15",name:"Pilates",key:"pilates"},
-    {time:"11:30",name:"Aqua Jumping",key:"aquaJumping"},
-    {time:"15:00",name:"Fly Yoga",key:"flyYoga"},
-    {time:"15:45",name:"Zumba",key:"zumba"}
-  ],
-
-  sunday:[]
-
+const weeklySchedule={
+monday:[
+["10:15","Pilates","pilates"],
+["11:30","Aqua Gym","aquaGym"],
+["15:00","Step Aerobic","stepAerobic"],
+["15:45","Kangoo Jumping","kangooJumping"]
+],
+tuesday:[
+["10:15","Pilates","pilates"],
+["11:30","Aqua Jumping","aquaJumping"],
+["15:00","Fly Yoga","flyYoga"],
+["15:45","Zumba","zumba"]
+],
+wednesday:[
+["10:15","Pilates","pilates"],
+["11:30","Aqua Gym","aquaGym"],
+["15:00","Step Aerobic","stepAerobic"],
+["15:45","Kangoo Jumping","kangooJumping"]
+],
+thursday:[
+["10:15","Pilates","pilates"],
+["11:30","Aqua Jumping","aquaJumping"],
+["15:00","Fly Yoga","flyYoga"],
+["15:45","Zumba","zumba"]
+],
+friday:[
+["10:15","Pilates","pilates"],
+["11:30","Aqua Gym","aquaGym"],
+["15:30","Pool Party","poolParty"]
+],
+saturday:[
+["10:15","Pilates","pilates"],
+["11:30","Aqua Jumping","aquaJumping"],
+["15:00","Fly Yoga","flyYoga"],
+["15:45","Zumba","zumba"]
+],
+sunday:[]
 };
 
-
-const dailyActivities = [
-
-  {
-    time:"10:30",
-    name:"Beach Voleybol",
-    key:"beachVoleybol"
-  },
-
-  {
-    time:"10:45",
-    name:"Dart",
-    key:"dart"
-  },
-
-  {
-    time:"11:00",
-    name:"Su Topu",
-    key:"suTopu"
-  },
-
-  {
-    time:"12:00",
-    name:"Havuz Oyunu",
-    key:"havuzOyunu"
-  },
-
-  {
-    time:"14:45",
-    name:"Su Topu",
-    key:"suTopu"
-  },
-
-  {
-    time:"15:30",
-    name:"Dart",
-    key:"dart"
-  },
-
-  {
-    time:"16:30",
-    name:"Beach Voleybol",
-    key:"beachVoleybol"
-  }
-
+const dailyActivities=[
+["10:30","Beach Voleybol","beachVoleybol"],
+["10:45","Dart","dart"],
+["11:00","Su Topu","suTopu"],
+["12:00","Havuz Oyunu","havuzOyunu"],
+["14:45","Su Topu","suTopu"],
+["15:30","Dart","dart"],
+["16:30","Beach Voleybol","beachVoleybol"]
 ];
 
-
-const cafeGames = {
-
-  monday:[
-    "Pool Game",
-    "Kaşık Oyunu"
-  ],
-
-  tuesday:[
-    "Surf",
-    "Oryantal"
-  ],
-
-  wednesday:[
-    "Surf",
-    "Basket"
-  ],
-
-  thursday:[
-    "Havlu Sıkma"
-  ],
-
-  friday:[
-    "Surf",
-    "Power"
-  ],
-
-  saturday:[
-    "Surf",
-    "İp Atlama"
-  ],
-
-  sunday:[]
-
-};
-
-
-const dayNames = [
-
-  "ПОНЕДЕЛЬНИК",
-  "ВТОРНИК",
-  "СРЕДА",
-  "ЧЕТВЕРГ",
-  "ПЯТНИЦА",
-  "СУББОТА",
-  "ВОСКРЕСЕНЬЕ"
-
-];
-
-
-const dayKeys = [
-
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-  "saturday",
-  "sunday"
-
-];
-
-
-const dayAliases = {
-
-  monday:[
-    "понедельник",
-    "пн",
-    "monday",
-    "mon",
-    "pazartesi"
-  ],
-
-  tuesday:[
-    "вторник",
-    "вт",
-    "tuesday",
-    "tue",
-    "salı",
-    "sali"
-  ],
-
-  wednesday:[
-    "среда",
-    "ср",
-    "wednesday",
-    "wed",
-    "çarşamba",
-    "carsamba"
-  ],
-
-  thursday:[
-    "четверг",
-    "чт",
-    "thursday",
-    "thu",
-    "perşembe",
-    "persembe"
-  ],
-
-  friday:[
-    "пятница",
-    "пт",
-    "friday",
-    "fri",
-    "cuma"
-  ],
-
-  saturday:[
-    "суббота",
-    "сб",
-    "saturday",
-    "sat",
-    "cumartesi"
-  ],
-
-  sunday:[
-    "воскресенье",
-    "вс",
-    "sunday",
-    "sun",
-    "pazar"
-  ]
-
-};
-
-
-const activityAliases = {
-
-  dart:[
-    "dart",
-    "darts",
-    "дартс",
-    "дарт"
-  ],
-
-  beachVoleybol:[
-    "beach voleybol",
-    "beach volleyball",
-    "пляжный волейбол",
-    "волейбол"
-  ],
-
-  suTopu:[
-    "su topu",
-    "water polo",
-    "водное поло"
-  ],
-
-  havuzOyunu:[
-    "havuz oyunu",
-    "pool game",
-    "pool games",
-    "игра в бассейне"
-  ],
-
-  pilates:[
-    "pilates",
-    "пилатес"
-  ],
-
-  aquaGym:[
-    "aqua gym",
-    "аква гим",
-    "акваджим",
-    "aqua jim"
-  ],
-
-  aquaJumping:[
-    "aqua jumping",
-    "аква джампинг",
-    "акваджампинг"
-  ],
-
-  stepAerobic:[
-    "step aerobic",
-    "степ аэробика",
-    "step"
-  ],
-
-  kangooJumping:[
-    "kangoo jumping",
-    "kangoo",
-    "канго джампинг"
-  ],
-
-  flyYoga:[
-    "fly yoga",
-    "флай йога",
-    "flyyoga"
-  ],
-
-  zumba:[
-    "zumba",
-    "зумба"
-  ],
-
-  poolParty:[
-    "pool party",
-    "poolparty",
-    "пул пати",
-    "вечеринка у бассейна"
-  ]
-
-};
-
-
-let lastScheduleActivityKey = null;
-
+const dayKeys=["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+const dayNames=["ПОНЕДЕЛЬНИК","ВТОРНИК","СРЕДА","ЧЕТВЕРГ","ПЯТНИЦА","СУББОТА","ВОСКРЕСЕНЬЕ"];
 
 /* =====================================================
-   NORMALIZE
+   NIGHT PROGRAM 07–20 SEPTEMBER 2026
 ===================================================== */
 
-function normalizeText(text){
+const nightProgram={
+"2026-09-07":[
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:00","Amphitheater","Magic Show","magic"],
+["21:30","Nona Concert Hall","Hollywood Party","party"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-08":[
+["18:30","Ana Restaurant","Fasil","fasil"],
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:15","Amphitheater","Turkish Night","turkish"],
+["22:00","Nona Concert Hall","Live Music","live"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-09":[
+["20:30","Kids Club Area","Mini Disco","mini"],
+["21:00","Nona Concert Hall","Family Fest","family"],
+["21:30","Nona Concert Hall","Live Music","live"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-10":[
+["16:00","Kids Club Area","Bubble Fest","bubble"],
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:30","Nona Concert Hall","Ethno Party","party"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-11":[
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:15","Amphitheater","Fly Dance Show","dance"],
+["22:00","Nona Concert Hall","Live Music","live"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-12":[
+["10:30","Beach","Olympic Games","sport"],
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:00","Amphitheater","Circus Show","circus"],
+["21:30","Nona Concert Hall","Boho Party","party"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-13":[
+["20:30","Amphitheater","Mini Disco","mini"],
+["22:00","Galeo Bar","DJ Performance","dj"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-14":[
+["10:30","All Areas","Wellday Fest","wellness"],
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:00","Amphitheater","Magic Show","magic"],
+["21:30","Nona Concert Hall","Hollywood Party","party"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-15":[
+["18:30","Ana Restaurant","Fasil","fasil"],
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:15","Amphitheater","Turkish Night","turkish"],
+["22:00","Nona Concert Hall","Live Music","live"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-16":[
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:15","Amphitheater","X-ASHION DANCE SHOW","dance"],
+["22:00","Nona Concert Hall","Live Music","live"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-17":[
+["16:00","Kids Club Area","Bubble Fest","bubble"],
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:30","Nona Concert Hall","Bohem Party","party"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-18":[
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:15","Amphitheater","LOLLIPOP DANCE SHOW","dance"],
+["22:00","Nona Concert Hall","Live Music","live"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-19":[
+["20:30","Amphitheater","Mini Disco","mini"],
+["21:00","Amphitheater","Circus Show","circus"],
+["21:30","Nona Concert Hall","Charm Party","party"],
+["23:30","Galeo Bar","Disco","disco"]
+],
+"2026-09-20":[
+["20:30","Amphitheater","Mini Disco","mini"],
+["22:00","Nona Concert Hall","DJ Performance","dj"],
+["23:30","Galeo Bar","Disco","disco"]
+]
+};
 
-  return String(text || "")
-    .toLowerCase()
+const showImages={
+mini:"https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80",
+magic:"https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=80",
+party:"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80",
+disco:"https://images.unsplash.com/photo-1571266028243-d220c8e3e3f3?auto=format&fit=crop&w=900&q=80",
+live:"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80",
+dj:"https://images.unsplash.com/photo-1571266028243-d220c8e3e3f3?auto=format&fit=crop&w=900&q=80",
+dance:"https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=900&q=80",
+circus:"https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=80",
+turkish:"https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=900&q=80",
+family:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80",
+bubble:"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=80",
+sport:"https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80",
+fasil:"https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=80",
+wellness:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80"
+};
+
+/* =====================================================
+   STORAGE
+===================================================== */
+
+function getStore(key,fallback=[]){
+  try{return JSON.parse(localStorage.getItem(key))||fallback}
+  catch(e){return fallback}
+}
+
+function saveStore(key,value){
+  localStorage.setItem(key,JSON.stringify(value));
+}
+
+let favorites=getStore("zeyaFavorites",[]);
+let history=getStore("zeyaHistory",[]);
+let requests=getStore("zeyaRequests",[]);
+let reminders=getStore("zeyaReminders",[]);
+let reviews=getStore("zeyaReviews",[]);
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function normalize(t){
+  return String(t||"").toLowerCase()
     .replace(/ё/g,"е")
     .replace(/ı/g,"i")
-    .replace(/İ/g,"i")
     .replace(/[.,!?;:()[\]{}"'`]/g," ")
     .replace(/\s+/g," ")
     .trim();
-
 }
 
-
-/* =====================================================
-   CURRENT DAY
-===================================================== */
-
-function getCurrentWeekdayIndex(){
-
-  const day =
-    new Date().getDay();
-
-  return day === 0
-    ? 6
-    : day - 1;
-
+function todayKey(){
+  const d=new Date();
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 }
 
+function dateLabel(key){
+  const d=new Date(key+"T12:00:00");
+  return d.toLocaleDateString(
+    language.value==="tr"?"tr-TR":"ru-RU",
+    {day:"numeric",month:"short"}
+  );
+}
+
+function timeMinutes(t){
+  const p=t.split(":");
+  return Number(p[0])*60+Number(p[1]);
+}
 
 /* =====================================================
-   DAY DETECTION
+   NIGHT UI
 ===================================================== */
 
-function getDayIndexFromMessage(message){
+function renderNightDates(){
 
-  const text =
-    normalizeText(message);
+  const box=document.getElementById("nightDates");
+  box.innerHTML="";
 
-  if(
-    text.includes("сегодня") ||
-    text.includes("today") ||
-    text.includes("bugün")
-  ){
+  Object.keys(nightProgram).forEach(key=>{
 
-    return getCurrentWeekdayIndex();
+    const d=new Date(key+"T12:00:00");
 
+    const btn=document.createElement("button");
+    btn.className="night-date"+(key===selectedNightDate?" active":"");
+
+    btn.innerHTML=
+      "<b>"+d.getDate()+"</b>"+
+      "<small>"+d.toLocaleDateString("ru-RU",{month:"short"})+"</small>";
+
+    btn.onclick=()=>{
+      selectedNightDate=key;
+      renderNightDates();
+      renderNightShows();
+    };
+
+    box.appendChild(btn);
+  });
+}
+
+function isFavorite(id){
+  return favorites.some(x=>x.id===id);
+}
+
+function toggleFavorite(id){
+
+  const item=favorites.find(x=>x.id===id);
+
+  if(item){
+    favorites=favorites.filter(x=>x.id!==id);
+    showToast("♡ Убрано из избранного");
+  }else{
+    const parts=id.split("|");
+    favorites.push({
+      id:id,
+      date:parts[0],
+      time:parts[1],
+      place:parts[2],
+      name:parts.slice(3).join("|")
+    });
+    showToast("❤️ Добавлено в избранное");
   }
 
-  if(
-    text.includes("завтра") ||
-    text.includes("tomorrow") ||
-    text.includes("yarın") ||
-    text.includes("yarin")
-  ){
+  saveStore("zeyaFavorites",favorites);
+  renderNightShows();
+}
 
-    return (
-      getCurrentWeekdayIndex()+1
-    ) % 7;
+function setReminder(key,time,name,place){
 
+  const exists=reminders.find(x=>
+    x.date===key &&
+    x.time===time &&
+    x.name===name
+  );
+
+  if(exists){
+    reminders=reminders.filter(x=>x!==exists);
+    saveStore("zeyaReminders",reminders);
+    showToast("🔕 Напоминание отменено");
+    return;
   }
 
-  for(
-    let i=0;
-    i<dayKeys.length;
-    i++
-  ){
+  reminders.push({
+    date:key,
+    time,
+    name,
+    place,
+    notified:false
+  });
 
-    const aliases =
-      dayAliases[
-        dayKeys[i]
-      ] || [];
+  saveStore("zeyaReminders",reminders);
 
-    for(
-      const alias of aliases
-    ){
+  if("Notification" in window && Notification.permission==="default"){
+    Notification.requestPermission().catch(()=>{});
+  }
 
-      if(
-        text.includes(
-          normalizeText(alias)
-        )
-      ){
+  showToast("🔔 Напоминание установлено");
+}
 
-        return i;
+function renderNightShows(){
 
-      }
+  const box=document.getElementById("nightShows");
+  const events=nightProgram[selectedNightDate]||[];
 
-    }
+  if(!events.length){
+    box.innerHTML='<div class="night-empty">На эту дату программа не найдена.</div>';
+    return;
+  }
 
+  box.innerHTML="";
+
+  events.forEach((event,index)=>{
+
+    const time=event[0];
+    const place=event[1];
+    const name=event[2];
+    const type=event[3];
+
+    const id=selectedNightDate+"|"+time+"|"+place+"|"+name;
+
+    const fav=isFavorite(id);
+
+    const reminder=reminders.some(x=>
+      x.date===selectedNightDate &&
+      x.time===time &&
+      x.name===name
+    );
+
+    const card=document.createElement("div");
+    card.className="night-card";
+
+    card.innerHTML=`
+      <img src="${showImages[type]||showImages.party}" alt="${name}">
+      <div class="night-card-body">
+        <div class="night-meta">
+          <span class="tag">🕐 ${time}</span>
+          <span class="tag">📍 ${place}</span>
+        </div>
+        <h3>${name}</h3>
+        <p>Вечерняя программа Selectum Noa Belek</p>
+        <div class="night-actions">
+          <button class="${fav?"fav-on":""}" onclick='toggleFavorite(${JSON.stringify(id)})'>
+            ${fav?"❤️ Сохранено":"♡ Избранное"}
+          </button>
+          <button class="${reminder?"primary":""}" onclick='setReminder(${JSON.stringify(selectedNightDate)},${JSON.stringify(time)},${JSON.stringify(name)},${JSON.stringify(place)})'>
+            ${reminder?"🔔 Установлено":"🔔 Напомнить"}
+          </button>
+        </div>
+      </div>
+    `;
+
+    box.appendChild(card);
+  });
+}
+
+function showTonight(){
+
+  selectedNightDate=todayKey();
+
+  if(!nightProgram[selectedNightDate]){
+    const keys=Object.keys(nightProgram);
+    const closest=keys.find(x=>x>=todayKey())||keys[keys.length-1];
+    selectedNightDate=closest;
+  }
+
+  renderNightDates();
+  renderNightShows();
+
+  document.querySelector(".night-wrap")?.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+}
+
+/* =====================================================
+   NIGHT AI ANSWERS
+===================================================== */
+
+function getNightAnswer(message){
+
+  const t=normalize(message);
+
+  const asksNight=
+    t.includes("вечер")||
+    t.includes("шоу")||
+    t.includes("шоу сегодня")||
+    t.includes("вечерняя программа")||
+    t.includes("развлечен")||
+    t.includes("disco")||
+    t.includes("dj")||
+    t.includes("party")||
+    t.includes("night")||
+    t.includes("show")||
+    t.includes("program");
+
+  if(!asksNight)return null;
+
+  let key=t.includes("завтра")||t.includes("tomorrow")||t.includes("yarın")
+    ? nextDateKey()
+    : todayKey();
+
+  if(!nightProgram[key]){
+    key=Object.keys(nightProgram).find(x=>x>=todayKey())||Object.keys(nightProgram)[0];
+  }
+
+  const events=nightProgram[key]||[];
+
+  if(!events.length)return null;
+
+  const lines=events.map(x=>"🕐 "+x[0]+" — "+x[2]+" · "+x[1]);
+
+  if(language.value==="en")
+    return "🌙 Evening program "+dateLabel(key)+":\n"+lines.join("\n");
+
+  if(language.value==="tr")
+    return "🌙 "+dateLabel(key)+" akşam programı:\n"+lines.join("\n");
+
+  return "🌙 Вечерняя программа "+dateLabel(key)+":\n"+lines.join("\n");
+}
+
+function nextDateKey(){
+
+  const d=new Date();
+  d.setDate(d.getDate()+1);
+
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+
+/* =====================================================
+   DAY SCHEDULE ANSWER
+===================================================== */
+
+function currentDayIndex(){
+  const d=new Date().getDay();
+  return d===0?6:d-1;
+}
+
+function getDayItems(index){
+
+  const key=dayKeys[index];
+  const weekly=(weeklySchedule[key]||[]).map(x=>({
+    time:x[0],name:x[1],key:x[2]
+  }));
+
+  const daily=index<6?dailyActivities.map(x=>({
+    time:x[0],name:x[1],key:x[2]
+  })):[ ];
+
+  return [...weekly,...daily].sort((a,b)=>
+    timeMinutes(a.time)-timeMinutes(b.time)
+  );
+}
+
+const aliases={
+dart:["dart","дартс","дарт"],
+beachVoleybol:["beach volleyball","beach voleybol","пляжный волейбол","волейбол"],
+suTopu:["su topu","water polo","водное поло"],
+havuzOyunu:["havuz oyunu","pool game","игра в бассейне"],
+pilates:["pilates","пилатес"],
+aquaGym:["aqua gym","аква гим"],
+aquaJumping:["aqua jumping","аква джампинг"],
+stepAerobic:["step aerobic","степ аэробика"],
+kangooJumping:["kangoo jumping","kangoo","канго"],
+flyYoga:["fly yoga","флай йога"],
+zumba:["zumba","зумба"],
+poolParty:["pool party","пул пати"]
+};
+
+function findActivity(text){
+
+  for(const key in aliases){
+    if(aliases[key].some(a=>text.includes(normalize(a))))return key;
   }
 
   return null;
-
 }
 
+function scheduleAnswer(message){
 
-/* =====================================================
-   ACTIVITY DETECTION
-===================================================== */
+  const t=normalize(message);
+  const activity=findActivity(t);
 
-function findActivityKeys(message){
+  const asksToday=
+    t.includes("сегодня")||
+    t.includes("today")||
+    t.includes("bugün");
 
-  const text =
-    normalizeText(message);
+  const asksTomorrow=
+    t.includes("завтра")||
+    t.includes("tomorrow")||
+    t.includes("yarın");
 
-  const found = [];
+  const asksNow=
+    t.includes("сейчас")||
+    t.includes("сейчас происходит")||
+    t.includes("right now")||
+    t.includes("şimdi")||
+    t.includes("şu anda");
 
-  Object.keys(activityAliases)
-    .forEach(
-      function(key){
+  if(!activity && !asksToday && !asksTomorrow && !asksNow)return null;
 
-        const aliases =
-          activityAliases[key];
+  let day=currentDayIndex();
 
-        for(
-          const alias of aliases
-        ){
+  if(asksTomorrow)day=(day+1)%7;
 
-          if(
-            text.includes(
-              normalizeText(alias)
-            )
-          ){
+  const items=getDayItems(day);
 
-            found.push(key);
+  if(activity){
 
-            break;
+    const found=items.filter(x=>x.key===activity);
 
-          }
-
-        }
-
-      }
-    );
-
-  return [
-    ...new Set(found)
-  ];
-
-}
-
-
-/* =====================================================
-   ACTIVITIES FOR DAY
-===================================================== */
-
-function getActivitiesForDay(dayIndex){
-
-  if(
-    dayIndex === null ||
-    dayIndex < 0 ||
-    dayIndex > 6
-  ){
-
-    return [];
-
-  }
-
-  const key =
-    dayKeys[dayIndex];
-
-  const weekly =
-    weeklySchedule[key] || [];
-
-  const daily =
-    dayIndex < 6
-      ? dailyActivities
-      : [];
-
-  return [
-    ...weekly,
-    ...daily
-  ]
-    .slice()
-    .sort(
-      function(a,b){
-
-        return a.time
-          .localeCompare(b.time);
-
-      }
-    );
-
-}
-
-
-/* =====================================================
-   ACTIVITY TIMES
-===================================================== */
-
-function getActivityTimes(
-  dayIndex,
-  activityKey
-){
-
-  return getActivitiesForDay(
-    dayIndex
-  ).filter(
-    function(item){
-
-      return item.key === activityKey;
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   TIME
-===================================================== */
-
-function timeToMinutes(time){
-
-  const parts =
-    time.split(":");
-
-  return (
-    Number(parts[0])*60 +
-    Number(parts[1])
-  );
-
-}
-
-
-/* =====================================================
-   DAY LABEL
-===================================================== */
-
-function getDayLabel(dayIndex){
-
-  if(
-    dayIndex ===
-    getCurrentWeekdayIndex()
-  ){
-
-    if(language.value === "tr")
-      return "BUGÜN";
-
-    if(language.value === "en")
-      return "TODAY";
-
-    return "СЕГОДНЯ";
-
-  }
-
-  if(
-    dayIndex ===
-    (getCurrentWeekdayIndex()+1)%7
-  ){
-
-    if(language.value === "tr")
-      return "YARIN";
-
-    if(language.value === "en")
-      return "TOMORROW";
-
-    return "ЗАВТРА";
-
-  }
-
-  return dayNames[dayIndex];
-
-}
-
-
-/* =====================================================
-   ACTIVITY NAME
-===================================================== */
-
-function activityDisplayName(item){
-
-  const names = {
-
-    tr:{
-      dart:"Dart",
-      beachVoleybol:"Beach Voleybol",
-      suTopu:"Su Topu",
-      havuzOyunu:"Havuz Oyunu",
-      pilates:"Pilates",
-      aquaGym:"Aqua Gym",
-      aquaJumping:"Aqua Jumping",
-      stepAerobic:"Step Aerobic",
-      kangooJumping:"Kangoo Jumping",
-      flyYoga:"Fly Yoga",
-      zumba:"Zumba",
-      poolParty:"Pool Party"
-    },
-
-    en:{
-      dart:"Darts",
-      beachVoleybol:"Beach Volleyball",
-      suTopu:"Water Polo",
-      havuzOyunu:"Pool Game",
-      pilates:"Pilates",
-      aquaGym:"Aqua Gym",
-      aquaJumping:"Aqua Jumping",
-      stepAerobic:"Step Aerobic",
-      kangooJumping:"Kangoo Jumping",
-      flyYoga:"Fly Yoga",
-      zumba:"Zumba",
-      poolParty:"Pool Party"
-    },
-
-    ru:{
-      dart:"Дартс",
-      beachVoleybol:"Пляжный волейбол",
-      suTopu:"Водное поло",
-      havuzOyunu:"Игра в бассейне",
-      pilates:"Pilates",
-      aquaGym:"Aqua Gym",
-      aquaJumping:"Aqua Jumping",
-      stepAerobic:"Step Aerobic",
-      kangooJumping:"Kangoo Jumping",
-      flyYoga:"Fly Yoga",
-      zumba:"Zumba",
-      poolParty:"Pool Party"
+    if(!found.length){
+      return "На "+dayNames[day]+" этой активности в предоставленном расписании нет.";
     }
 
-  };
-
-  return (
-    names[language.value] &&
-    names[language.value][item.key]
-  ) ||
-  item.name;
-
-}
-
-
-/* =====================================================
-   SCHEDULE STATE
-===================================================== */
-
-function getCurrentScheduleState(){
-
-  const dayIndex =
-    getCurrentWeekdayIndex();
-
-  const items =
-    getActivitiesForDay(
-      dayIndex
-    );
-
-  if(!items.length){
-
-    return {
-      current:null,
-      next:null,
-      items:[],
-      dayIndex
-    };
-
+    return "📅 "+dayNames[day]+":\n"+
+      found.map(x=>x.time+" — "+x.name).join("\n");
   }
-
-  const now =
-    new Date();
-
-  const currentMinutes =
-    now.getHours()*60 +
-    now.getMinutes();
-
-  let current = null;
-  let next = null;
-
-  for(
-    let i=0;
-    i<items.length;
-    i++
-  ){
-
-    const item =
-      items[i];
-
-    const start =
-      timeToMinutes(
-        item.time
-      );
-
-    const following =
-      items[i+1] || null;
-
-    const end =
-      following
-        ? timeToMinutes(
-            following.time
-          )
-        : start+45;
-
-    if(
-      currentMinutes >= start &&
-      currentMinutes < end
-    ){
-
-      current = item;
-      next = following;
-
-      break;
-
-    }
-
-    if(
-      currentMinutes < start
-    ){
-
-      next = item;
-
-      break;
-
-    }
-
-  }
-
-  return {
-    current,
-    next,
-    items,
-    dayIndex
-  };
-
-}
-
-
-/* =====================================================
-   SCHEDULE ANSWER
-===================================================== */
-
-function getScheduleAnswer(message){
-
-  const text =
-    normalizeText(message);
-
-  const activityKeys =
-    findActivityKeys(message);
-
-  let dayIndex =
-    getDayIndexFromMessage(message);
-
-  const asksNow =
-    text.includes("сейчас") ||
-    text.includes("what now") ||
-    text.includes("right now") ||
-    text.includes("şu anda") ||
-    text.includes("su anda") ||
-    text.includes("şimdi") ||
-    text.includes("simdi");
-
-  const asksSchedule =
-    text.includes("расписание") ||
-    text.includes("schedule") ||
-    text.includes("программа") ||
-    text.includes("program") ||
-    text.includes("активности") ||
-    text.includes("activities") ||
-    text.includes("aktiviteler") ||
-    text.includes("что сегодня") ||
-    text.includes("что завтра") ||
-    text.includes("what today") ||
-    text.includes("what tomorrow");
-
-  if(activityKeys.length){
-
-    lastScheduleActivityKey =
-      activityKeys[0];
-
-  }
-
-  if(
-    text === "завтра" &&
-    lastScheduleActivityKey
-  ){
-
-    dayIndex =
-      (getCurrentWeekdayIndex()+1)%7;
-
-    activityKeys.push(
-      lastScheduleActivityKey
-    );
-
-  }
-
-  const uniqueKeys =
-    [...new Set(activityKeys)];
-
-  if(uniqueKeys.length){
-
-    const targetDay =
-      dayIndex !== null
-        ? dayIndex
-        : getCurrentWeekdayIndex();
-
-    const answers = [];
-
-    uniqueKeys.forEach(
-      function(key){
-
-        const times =
-          getActivityTimes(
-            targetDay,
-            key
-          );
-
-        if(times.length){
-
-          answers.push(
-            times.map(
-              function(item){
-
-                return (
-                  item.time +
-                  " — " +
-                  activityDisplayName(item)
-                );
-
-              }
-            ).join("\n")
-          );
-
-        }
-
-      }
-    );
-
-    if(answers.length){
-
-      return (
-        "📅 " +
-        getDayLabel(targetDay) +
-        ":\n" +
-        answers.join("\n")
-      );
-
-    }
-
-  }
-
 
   if(asksNow){
 
-    const state =
-      getCurrentScheduleState();
+    const now=new Date();
+    const mins=now.getHours()*60+now.getMinutes();
 
-    if(state.current){
+    let current=null;
+    let next=null;
 
-      let result =
-        "🟢 Сейчас проходит: " +
-        activityDisplayName(
-          state.current
-        ) +
-        " (" +
-        state.current.time +
-        ")";
+    for(let i=0;i<items.length;i++){
 
-      if(state.next){
+      const start=timeMinutes(items[i].time);
+      const end=i<items.length-1?timeMinutes(items[i+1].time):start+45;
 
-        result +=
-          "\n➡️ Далее: " +
-          activityDisplayName(
-            state.next
-          ) +
-          " — " +
-          state.next.time;
-
+      if(mins>=start && mins<end){
+        current=items[i];
+        next=items[i+1];
+        break;
       }
 
-      return result;
-
+      if(mins<start){
+        next=items[i];
+        break;
+      }
     }
 
-    if(state.next){
-
-      return (
-        "➡️ Ближайшая активность: " +
-        activityDisplayName(
-          state.next
-        ) +
-        " — " +
-        state.next.time
-      );
-
+    if(current){
+      return "🟢 Сейчас: "+current.time+" — "+current.name+
+        (next?"\n➡️ Далее: "+next.time+" — "+next.name:"");
     }
 
-    return "Основные активности на сегодня уже завершены.";
+    if(next)return "➡️ Ближайшая активность: "+next.time+" — "+next.name;
 
+    return "Основные дневные активности на сегодня уже завершены.";
   }
 
-
-  if(
-    asksSchedule ||
-    dayIndex !== null
-  ){
-
-    const targetDay =
-      dayIndex !== null
-        ? dayIndex
-        : getCurrentWeekdayIndex();
-
-    const items =
-      getActivitiesForDay(
-        targetDay
-      );
-
-    if(!items.length){
-
-      return (
-        "Для " +
-        getDayLabel(targetDay) +
-        " расписание активностей не предоставлено."
-      );
-
-    }
-
-    return (
-      "📅 " +
-      getDayLabel(targetDay) +
-      ":\n" +
-      items.map(
-        function(item){
-
-          return (
-            item.time +
-            " — " +
-            activityDisplayName(item)
-          );
-
-        }
-      ).join("\n")
-    );
-
-  }
-
-
-  if(
-    text.includes("бассейн") ||
-    text.includes("pool") ||
-    text.includes("havuz")
-  ){
-
-    return (
-      "🏊 Активности у бассейна:\n" +
-      "Havuz Oyunu, Su Topu, Aqua Gym, Aqua Jumping и Pool Party."
-    );
-
-  }
-
-
-  if(
-    text.includes("wellness") ||
-    text.includes("велнес") ||
-    text.includes("спорт")
-  ){
-
-    return (
-      "🧘 Wellness:\n" +
-      "Pilates, Fly Yoga, Zumba, Step Aerobic и Kangoo Jumping."
-    );
-
-  }
-
-  return null;
-
+  return "📅 "+dayNames[day]+":\n"+
+    items.map(x=>x.time+" — "+x.name).join("\n");
 }
-
-
-/* =====================================================
-   SCHEDULE CONTEXT
-===================================================== */
-
-function getScheduleContext(){
-
-  return {
-
-    hotel:
-      "Selectum Noa Belek",
-
-    room:
-      "5407",
-
-    weeklySchedule:
-      weeklySchedule,
-
-    dailyActivities:
-      dailyActivities,
-
-    cafeGames:
-      cafeGames,
-
-    instructions:
-      "Use only the provided hotel schedule when answering activity questions. Do not invent activity times."
-
-  };
-
-}
-
 
 /* =====================================================
    SMART TODAY
@@ -4109,367 +1269,589 @@ function getScheduleContext(){
 
 function updateSmartToday(){
 
-  const title =
-    document.getElementById(
-      "smartDayTitle"
-    );
+  const now=new Date();
 
-  const clock =
-    document.getElementById(
-      "smartClock"
-    );
+  document.getElementById("smartClock").textContent=
+    now.toLocaleTimeString("ru-RU",{hour:"2-digit",minute:"2-digit"});
 
-  const content =
-    document.getElementById(
-      "smartTodayContent"
-    );
+  const day=currentDayIndex();
+  document.getElementById("smartDayTitle").textContent=dayNames[day];
 
-  if(!title || !clock || !content)
-    return;
+  const items=getDayItems(day);
+  const mins=now.getHours()*60+now.getMinutes();
 
-  const now =
-    new Date();
+  let current=null,next=null;
 
-  clock.textContent =
-    now.toLocaleTimeString(
-      language.value === "tr"
-        ? "tr-TR"
-        : language.value === "en"
-          ? "en-GB"
-          : "ru-RU",
-      {
-        hour:"2-digit",
-        minute:"2-digit"
-      }
-    );
+  for(let i=0;i<items.length;i++){
 
-  const dayIndex =
-    getCurrentWeekdayIndex();
+    const start=timeMinutes(items[i].time);
+    const end=i<items.length-1?timeMinutes(items[i+1].time):start+45;
 
-  title.textContent =
-    getDayLabel(dayIndex);
+    if(mins>=start && mins<end){
+      current=items[i];
+      next=items[i+1];
+      break;
+    }
 
-  const state =
-    getCurrentScheduleState();
-
-  if(!state.items.length){
-
-    content.innerHTML =
-      `
-      <div class="smart-empty">
-        Расписание активностей на этот день не предоставлено.
-      </div>
-      `;
-
-    return;
-
+    if(mins<start){
+      next=items[i];
+      break;
+    }
   }
 
-  let html = "";
+  let html="";
 
-  if(state.current){
-
-    html +=
-      `
+  if(current){
+    html+=`
       <div class="smart-now">
-
-        <strong>
-          🟢 Сейчас
-        </strong>
-
-        <span>
-          ${state.current.time}
-          —
-          ${activityDisplayName(state.current)}
-        </span>
-
-      </div>
-      `;
-
-  }else if(state.next){
-
-    html +=
-      `
+        <strong>🟢 Сейчас</strong>
+        <span>${current.time} — ${current.name}</span>
+      </div>`;
+  }else if(next){
+    html+=`
       <div class="smart-next">
-
-        <strong>
-          ➡️ Ближайшая активность
-        </strong>
-
-        <span>
-          ${state.next.time}
-          —
-          ${activityDisplayName(state.next)}
-        </span>
-
-      </div>
-      `;
-
+        <strong>➡️ Ближайшая активность</strong>
+        <span>${next.time} — ${next.name}</span>
+      </div>`;
   }else{
-
-    html +=
-      `
+    html+=`
       <div class="smart-next">
+        <strong>✓ Дневная программа</strong>
+        <span>Основные активности уже завершены.</span>
+      </div>`;
+  }
 
-        <strong>
-          ✓ На сегодня
-        </strong>
+  html+='<div class="smart-list">';
 
-        <span>
-          Основные активности уже завершены.
-        </span>
+  items.forEach(item=>{
+    html+=`
+      <div class="smart-list-row">
+        <span class="smart-list-time">${item.time}</span>
+        <span>${item.name}</span>
+      </div>`;
+  });
 
+  html+="</div>";
+
+  document.getElementById("smartTodayContent").innerHTML=html;
+}
+
+/* =====================================================
+   ACTIVITIES PREVIEW
+===================================================== */
+
+function renderActivities(){
+
+  const box=document.getElementById("activitiesPreview");
+  box.innerHTML="";
+
+  for(let i=0;i<6;i++){
+
+    const items=weeklySchedule[dayKeys[i]]||[];
+
+    let html=`
+      <div class="activity-day">
+      <h3>${dayNames[i]}</h3>`;
+
+    items.forEach(x=>{
+      html+=`
+        <div class="activity-item">
+          <span class="activity-time">${x[0]}</span> — ${x[1]}
+        </div>`;
+    });
+
+    html+="</div>";
+
+    box.innerHTML+=html;
+  }
+}
+
+/* =====================================================
+   MODALS
+===================================================== */
+
+function openModal(type){
+
+  let title="";
+  let html="";
+
+  if(type==="night"){
+    title="🌙 Вечерняя программа";
+    html=`
+      <div class="option">
+        Выберите дату в разделе вечерней программы.
       </div>
-      `;
-
+      <button class="modal-action" onclick="closeModal();showTonight()">
+        Открыть программу →
+      </button>`;
   }
 
-  html +=
-    `<div class="smart-list">`;
+  if(type==="room"){
+    title="🛏️ Мой номер";
+    html=`
+      <div class="option"><b>Номер 5407</b><br>5 этаж</div>
+      <div class="option">📶 Wi-Fi доступен для гостей отеля.</div>
+      <div class="option">🕑 Check-in: 14:00</div>
+      <div class="option">🕛 Check-out: 12:00</div>`;
+  }
 
-  state.items
-    .slice(0,7)
-    .forEach(
-      function(item){
+  if(type==="restaurants"){
+    title="🍽️ Рестораны";
+    html=`
+      <div class="option"><b>🥐 Главный ресторан</b><br>07:00–10:30 · 12:30–14:30 · 18:00–21:00</div>
+      <div class="option"><b>🌙 Seven Twenty Four</b><br>Вариант питания вне основных часов.</div>
+      <div class="option"><b>🇹🇷 Tabla Kebap</b><br>19:00–22:00 · предварительная резервация.</div>
+      <div class="option"><b>🐟 Harbour Sea & Salt Fish</b><br>19:00–22:00 · предварительная резервация.</div>
+      <div class="option"><b>🇮🇹 Primavio Cucina Italiana</b><br>19:00–22:00 · предварительная резервация.</div>
+      <div class="option"><b>🥞 Gözleme House</b><br>11:00–16:00</div>
+      <div class="option"><b>🍰 Patisserie</b><br>12:00–18:00</div>`;
+  }
 
-        html +=
-          `
-          <div class="smart-list-row">
+  if(type==="food"){
+    title="🍔 Room Service";
+    html=`
+      <div class="option"><b>🍔 Заказать еду</b><br>Оставьте запрос для персонала.</div>
+      <div class="request-grid">
+        <button class="request-btn" onclick="createRequest('Еда','Заказ еды')"><b>🍔 Еда</b><span>Заказать питание</span></button>
+        <button class="request-btn" onclick="createRequest('Напитки','Заказ напитков')"><b>🥤 Напитки</b><span>В номер</span></button>
+        <button class="request-btn" onclick="createRequest('Вода','Бутылочная вода')"><b>💧 Вода</b><span>Принести воду</span></button>
+        <button class="request-btn" onclick="createRequest('Другое','Room Service')"><b>📝 Другое</b><span>Особый запрос</span></button>
+      </div>
+      <div class="note">Сейчас запрос сохраняется на устройстве. Для реальной передачи персоналу нужен backend-интегратор отеля.</div>`;
+  }
 
-            <span class="smart-list-time">
-              ${item.time}
-            </span>
+  if(type==="staff"){
+    title="📲 Позвать персонал";
+    html=`
+      <div class="option">Выберите, что нужно в номер:</div>
+      <div class="request-grid">
+        <button class="request-btn" onclick="createRequest('Полотенца','Нужны дополнительные полотенца')"><b>🧺 Полотенца</b><span>Дополнительные</span></button>
+        <button class="request-btn" onclick="createRequest('Уборка','Нужна уборка номера')"><b>🧹 Уборка</b><span>Уборка номера</span></button>
+        <button class="request-btn" onclick="createRequest('Вода','Нужна вода')"><b>💧 Вода</b><span>Принести воду</span></button>
+        <button class="request-btn" onclick="createRequest('Техника','Техническая проблема')"><b>🔧 Техника</b><span>Проблема в номере</span></button>
+        <button class="request-btn" onclick="createRequest('Багаж','Помощь с багажом')"><b>🧳 Багаж</b><span>Помощь</span></button>
+        <button class="request-btn" onclick="createRequest('Другое','Нужна помощь персонала')"><b>💬 Другое</b><span>Другой запрос</span></button>
+      </div>
+      <div class="note">Запрос сохраняется локально. Чтобы сотрудник реально получил его, подключим hotel backend.</div>`;
+  }
 
-            <span class="smart-list-name">
-              ${activityDisplayName(item)}
-            </span>
+  if(type==="sos"){
+    title="🆘 SOS";
+    html=`
+      <div class="sos-box">
+        <strong>Если ситуация действительно срочная:</strong>
+        <p>Свяжитесь с экстренной службой или сразу обратитесь на ресепшен.</p>
+        <button class="danger-btn" onclick="window.location.href='tel:112'">📞 Позвонить 112</button>
+        <button class="secondary-btn" onclick="createRequest('SOS','Срочная помощь в номер')">🏨 Сообщить персоналу</button>
+      </div>
+      <div class="note">Для реальной гостиничной SOS-системы рекомендуется подключить внутренний номер/endpoint отеля.</div>`;
+  }
 
-          </div>
-          `;
+  if(type==="weather"){
+    title="🌤️ Погода";
+    html=`
+      <div class="weather-box">
+        <div style="font-size:30px">☀️</div>
+        <div class="weather-temp" id="weatherTemp">--°</div>
+        <div class="weather-sub" id="weatherText">Загрузка погоды Belek...</div>
+      </div>
+      <button class="modal-action" onclick="loadWeather()">Обновить погоду</button>`;
+  }
 
-      }
-    );
+  if(type==="hotel"){
+    title="🏨 Мой отель";
+    html=`
+      <div class="option">🏨 Selectum Noa Belek</div>
+      <div class="option">🏖️ Пляж</div>
+      <div class="option">🏊 Бассейны</div>
+      <div class="option">🧖 SPA & Wellness</div>
+      <div class="option">⚽ Спорт и развлечения</div>
+      <div class="option">🎉 Вечерняя программа</div>`;
+  }
 
-  html +=
-    `</div>`;
+  if(type==="transfer"){
+    title="🚕 Трансфер / такси";
+    html=`
+      <div class="option">✈️ Трансфер в аэропорт Антальи</div>
+      <div class="option">🚕 Такси</div>
+      <div class="option">🚙 Индивидуальный трансфер</div>
+      <button class="modal-action" onclick="createRequest('Трансфер','Нужен трансфер')">Запросить трансфер</button>`;
+  }
 
-  content.innerHTML =
-    html;
+  if(type==="map"){
+    title="📍 Карта";
+    html=`
+      <div class="option">🏨 Selectum Noa Belek</div>
+      <div class="option">🏊 Бассейны</div>
+      <div class="option">🍽️ Рестораны</div>
+      <div class="option">🧖 SPA</div>
+      <div class="option">🏖️ Пляж</div>
+      <button class="modal-action" onclick="openGoogleMaps()">📍 Открыть Google Maps</button>`;
+  }
 
+  if(type==="excursions"){
+    title="🗺️ Экскурсии";
+    html=`
+      <div class="option">🏛️ Перге / античные города</div>
+      <div class="option">💦 Водопады</div>
+      <div class="option">🛥️ Морская прогулка</div>
+      <div class="option">🚙 Сафари</div>
+      <button class="modal-action" onclick="quickQuestion('Посоветуй мне лучшую экскурсию рядом с Belek');closeModal()">🤖 Подобрать через Zeya</button>`;
+  }
+
+  if(type==="premium"){
+    title="💎 Premium";
+    html=`
+      <div class="option">💎 Premium-поддержка</div>
+      <div class="option">🎁 Сюрприз в номер</div>
+      <div class="option">💆 Индивидуальное SPA</div>
+      <div class="option">🚗 Индивидуальный трансфер</div>
+      <button class="modal-action" onclick="quickQuestion('Какие premium услуги доступны?');closeModal()">Спросить Zeya</button>`;
+  }
+
+  if(type==="gallery"){
+    title="📸 Галерея";
+    html=`
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=700&q=80">
+        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=700&q=80">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=700&q=80">
+        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=700&q=80">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=80">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=700&q=80">
+      </div>`;
+  }
+
+  if(type==="recommend"){
+    title="🤖 Zeya рекомендует";
+    html=`
+      <div class="option">🏖️ <b>Relax:</b> пляж → бассейн → SPA → спокойный ужин.</div>
+      <div class="option">🎉 <b>Fun:</b> дневные активности → ужин → вечернее шоу → Disco.</div>
+      <div class="option">👨‍👩‍👧 <b>С детьми:</b> Kids Club → Mini Disco → семейное шоу.</div>
+      <div class="option">💎 <b>Premium:</b> SPA → a la carte → индивидуальный трансфер.</div>`;
+  }
+
+  if(type==="reviews"){
+    title="⭐ Отзывы";
+    html=`
+      <div class="stars">★★★★★</div>
+      <textarea class="review-input" id="reviewText" placeholder="Напишите ваш отзыв об отеле..."></textarea>
+      <button class="modal-action" onclick="saveReview()">Опубликовать отзыв</button>
+      <div id="reviewsList"></div>`;
+  }
+
+  if(type==="requests"){
+    title="📋 Мои запросы";
+    html=requests.length
+      ? requests.slice().reverse().map(r=>`
+        <div class="option">
+          <b>${r.type}</b><br>
+          ${r.text}<br>
+          <small>${r.date}</small>
+        </div>`).join("")
+      : `<div class="option">Пока запросов нет.</div>`;
+  }
+
+  if(type==="history"){
+    title="◷ История";
+    html=history.length
+      ? history.slice().reverse().map(x=>`
+        <div class="option">${x}</div>`).join("")
+      : `<div class="option">История запросов пока пустая.</div>`;
+  }
+
+  if(type==="favorites"){
+    title="♡ Избранное";
+
+    if(!favorites.length){
+      html=`<div class="option">Пока ничего не добавлено в избранное.</div>`;
+    }else{
+      html=favorites.map(x=>`
+        <div class="option">
+          ❤️ <b>${x.name}</b><br>
+          🕐 ${x.time} · 📍 ${x.place}<br>
+          <button class="modal-action" onclick="selectedNightDate='${x.date}';closeModal();showTonight()">Открыть</button>
+        </div>`).join("");
+    }
+  }
+
+  if(type==="profile"){
+    title="● Профиль";
+    html=`
+      <div class="option">🛏️ Номер: <b>5407</b></div>
+      <div class="option">🌐 Язык: ${language.value.toUpperCase()}</div>
+      <div class="option">❤️ Избранных шоу: ${favorites.length}</div>
+      <div class="option">🔔 Напоминаний: ${reminders.length}</div>`;
+  }
+
+  if(type==="activities"){
+    title="📅 Полное расписание";
+    html=renderActivitiesModal();
+  }
+
+  document.getElementById("modalTitle").textContent=title;
+  document.getElementById("modalContent").innerHTML=html;
+  document.getElementById("modal").classList.add("show");
+
+  if(type==="weather")loadWeather();
+  if(type==="reviews")renderReviews();
 }
 
+function renderActivitiesModal(){
+
+  let html="";
+
+  for(let i=0;i<7;i++){
+
+    const items=getDayItems(i);
+
+    html+=`<div class="day-title">${dayNames[i]}</div>`;
+
+    if(!items.length){
+      html+=`<div class="option">Нет данных.</div>`;
+      continue;
+    }
+
+    html+=`<div class="option">`;
+
+    items.forEach(x=>{
+      html+=`
+        <div class="schedule-row">
+          <span class="schedule-time">${x.time}</span>
+          <span>${x.name}</span>
+        </div>`;
+    });
+
+    html+="</div>";
+  }
+
+  html+=`
+    <div class="sub-title">🌙 Вечерняя программа</div>
+    <div class="option">Откройте раздел «Вечерняя программа» для программы 7–20 сентября.</div>
+    <button class="modal-action" onclick="closeModal();showTonight()">Открыть вечернюю программу</button>
+  `;
+
+  return html;
+}
 
 /* =====================================================
-   LANGUAGE CHANGE
+   REQUESTS
 ===================================================== */
 
-language.addEventListener(
-  "change",
-  function(){
+function createRequest(type,text){
 
-    const lang =
-      langData[this.value] ||
-      langData.ru;
+  requests.push({
+    type,
+    text,
+    date:new Date().toLocaleString("ru-RU")
+  });
 
-    document.getElementById(
-      "welcomeTitle"
-    ).textContent =
-      lang.welcome;
+  saveStore("zeyaRequests",requests);
 
-    document.getElementById(
-      "welcomeText"
-    ).textContent =
-      lang.text;
+  closeModal();
+  showToast("📲 Запрос сохранён");
 
-    input.placeholder =
-      lang.placeholder;
+  setTimeout(()=>{
+    openModal("requests");
+  },400);
+}
 
-    typing.textContent =
-      lang.thinking;
+/* =====================================================
+   REVIEWS
+===================================================== */
 
-    voiceButton.textContent =
-      voiceEnabled
-        ? lang.enabled
-        : lang.voice;
+function saveReview(){
 
-    document.documentElement.dir =
-      this.value === "ar"
-        ? "rtl"
-        : "ltr";
+  const input=document.getElementById("reviewText");
 
-    updateSmartToday();
+  if(!input || !input.value.trim()){
+    showToast("Напишите отзыв");
+    return;
+  }
 
-    renderReviewPreview();
+  reviews.push({
+    text:input.value.trim(),
+    date:new Date().toLocaleDateString("ru-RU"),
+    rating:5
+  });
+
+  saveStore("zeyaReviews",reviews);
+
+  input.value="";
+  renderReviews();
+  showToast("⭐ Отзыв сохранён");
+}
+
+function renderReviews(){
+
+  const box=document.getElementById("reviewsList");
+
+  if(!box)return;
+
+  if(!reviews.length){
+    box.innerHTML='<div class="note">Пока отзывов на этом устройстве нет.</div>';
+    return;
+  }
+
+  box.innerHTML=reviews.slice().reverse().map(r=>`
+    <div class="review-row">
+      <div class="stars">★★★★★</div>
+      ${r.text}
+      <br><small>${r.date}</small>
+    </div>
+  `).join("");
+}
+
+/* =====================================================
+   WEATHER
+===================================================== */
+
+async function loadWeather(){
+
+  const temp=document.getElementById("weatherTemp");
+  const text=document.getElementById("weatherText");
+
+  if(!temp)return;
+
+  try{
+
+    const url=
+      "https://api.open-meteo.com/v1/forecast"+
+      "?latitude=36.8629"+
+      "&longitude=31.0574"+
+      "&current=temperature_2m,weather_code,wind_speed_10m"+
+      "&timezone=Europe%2FIstanbul";
+
+    const response=await fetch(url);
+    const data=await response.json();
+
+    temp.textContent=
+      Math.round(data.current.temperature_2m)+"°";
+
+    text.textContent=
+      "Belek · ветер "+
+      Math.round(data.current.wind_speed_10m)+" км/ч";
+
+  }catch(e){
+
+    temp.textContent="—";
+    text.textContent="Не удалось загрузить погоду.";
 
   }
-);
-
-
-/* =====================================================
-   QUICK QUESTIONS
-===================================================== */
-
-function quickQuestion(text){
-
-  input.value =
-    text;
-
-  sendMessage();
-
 }
-
 
 /* =====================================================
    CHAT
 ===================================================== */
 
-function addMessage(
-  text,
-  type
-){
+function addMessage(text,type){
 
-  const message =
-    document.createElement(
-      "div"
-    );
+  const el=document.createElement("div");
 
-  message.className =
-    "message " + type;
+  el.className="message "+type;
+  el.textContent=text;
 
-  message.textContent =
-    text;
-
-  chat.appendChild(
-    message
-  );
+  chat.appendChild(el);
 
   window.scrollTo({
-
-    top:
-      document.body.scrollHeight,
-
-    behavior:
-      "smooth"
-
+    top:document.body.scrollHeight,
+    behavior:"smooth"
   });
-
 }
 
+function quickQuestion(text){
+  input.value=text;
+  sendMessage();
+}
 
-/* =====================================================
-   SEND MESSAGE
-===================================================== */
+function saveHistory(text){
+  history.push(text);
+  if(history.length>30)history=history.slice(-30);
+  saveStore("zeyaHistory",history);
+}
 
 async function sendMessage(){
 
-  const message =
-    input.value.trim();
+  const message=input.value.trim();
 
-  if(!message)
+  if(!message)return;
+
+  addMessage(message,"user");
+  saveHistory(message);
+
+  input.value="";
+  typing.style.display="block";
+
+  /* Локальные ответы */
+
+  const nightAnswer=getNightAnswer(message);
+
+  if(nightAnswer){
+
+    addMessage(nightAnswer,"bot");
+
+    if(voiceEnabled)speak(nightAnswer);
+
+    typing.style.display="none";
     return;
+  }
 
-  addMessage(
-    message,
-    "user"
-  );
+  const schedule=scheduleAnswer(message);
 
-  input.value =
-    "";
+  if(schedule){
 
-  typing.style.display =
-    "block";
+    addMessage(schedule,"bot");
 
-  status.textContent =
-    "Zeya AI";
+    if(voiceEnabled)speak(schedule);
 
-  const localAnswer =
-    getScheduleAnswer(
-      message
-    );
-
-  if(localAnswer){
-
-    addMessage(
-      localAnswer,
-      "bot"
-    );
-
-    if(voiceEnabled)
-      speak(localAnswer);
-
-    typing.style.display =
-      "none";
-
-    status.textContent =
-      "AI Concierge";
-
+    typing.style.display="none";
     updateSmartToday();
-
     return;
-
   }
 
   try{
 
-    const response =
-      await fetch(
-        API_URL,
-        {
-          method:"POST",
+    const response=await fetch(API_URL,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
 
-          headers:{
-            "Content-Type":
-              "application/json"
-          },
+        message,
+        language:language.value,
+        hotel:"Selectum Noa Belek",
+        room:"5407",
 
-          body:JSON.stringify({
+        scheduleContext:{
+          weeklySchedule,
+          dailyActivities,
+          nightProgram,
 
-            message,
-            language:
-              language.value,
-
-            hotel:
-              "Selectum Noa Belek",
-
-            room:
-              "5407",
-
-            scheduleContext:
-              getScheduleContext()
-
-          })
+          instructions:
+            "Use only provided hotel schedule. Evening program dates are 7–20 September 2026. Do not invent show times."
         }
-      );
 
-    const data =
-      await response.json();
+      })
+    });
 
-    if(!response.ok){
+    const data=await response.json();
 
-      throw new Error(
-        data.error ||
-        "API error"
-      );
+    if(!response.ok)throw new Error("API error");
 
-    }
-
-    const reply =
-      data.reply ||
-      data.message ||
-      data.text ||
+    const reply=
+      data.reply||
+      data.message||
+      data.text||
       "Извините, ответ не получен.";
 
-    addMessage(
-      reply,
-      "bot"
-    );
+    addMessage(reply,"bot");
 
-    if(voiceEnabled)
-      speak(reply);
+    if(voiceEnabled)speak(reply);
 
-  }catch(error){
+  }catch(e){
 
-    console.error(error);
+    console.error(e);
 
     addMessage(
       "Не удалось подключиться к Zeya. Проверьте интернет и попробуйте ещё раз.",
@@ -4478,36 +1860,8 @@ async function sendMessage(){
 
   }
 
-  typing.style.display =
-    "none";
-
-  status.textContent =
-    "AI Concierge";
-
+  typing.style.display="none";
 }
-
-
-/* =====================================================
-   ENTER
-===================================================== */
-
-input.addEventListener(
-  "keydown",
-  function(event){
-
-    if(
-      event.key === "Enter"
-    ){
-
-      event.preventDefault();
-
-      sendMessage();
-
-    }
-
-  }
-);
-
 
 /* =====================================================
    VOICE
@@ -4515,107 +1869,54 @@ input.addEventListener(
 
 function enableVoice(){
 
-  voiceEnabled =
-    true;
+  voiceEnabled=true;
 
-  voiceButton.classList.add(
-    "enabled"
-  );
+  voiceButton.classList.add("enabled");
 
-  const lang =
-    langData[
-      language.value
-    ] ||
-    langData.ru;
+  voiceButton.textContent=
+    (langData[language.value]||langData.ru).enabled;
 
-  voiceButton.textContent =
-    lang.enabled;
-
-  showToast(
-    "🔊 Голос Зеи включён"
-  );
-
+  showToast("🔊 Голос Зеи включён");
 }
-
-
-/* =====================================================
-   TTS
-===================================================== */
 
 async function speak(text){
 
   try{
 
-    const response =
-      await fetch(
-        TTS_URL,
-        {
-          method:"POST",
+    const response=await fetch(TTS_URL,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        text,
+        language:language.value
+      })
+    });
 
-          headers:{
-            "Content-Type":
-              "application/json"
-          },
+    if(!response.ok)throw new Error();
 
-          body:JSON.stringify({
+    const blob=await response.blob();
 
-            text,
+    const url=URL.createObjectURL(blob);
+    const audio=new Audio(url);
 
-            language:
-              language.value
-
-          })
-
-        }
-      );
-
-    if(!response.ok)
-      throw new Error("TTS error");
-
-    const blob =
-      await response.blob();
-
-    const url =
-      URL.createObjectURL(
-        blob
-      );
-
-    const audio =
-      new Audio(url);
+    audio.onended=()=>URL.revokeObjectURL(url);
 
     await audio.play();
 
-    audio.onended =
-      function(){
-
-        URL.revokeObjectURL(
-          url
-        );
-
-      };
-
-  }catch(error){
+  }catch(e){
 
     browserSpeak(text);
 
   }
-
 }
-
-
-/* =====================================================
-   BROWSER SPEECH
-===================================================== */
 
 function browserSpeak(text){
 
-  if(
-    !("speechSynthesis" in window)
-  )
-    return;
+  if(!("speechSynthesis" in window))return;
 
-  const languages = {
-
+  const map={
     ru:"ru-RU",
     tr:"tr-TR",
     en:"en-US",
@@ -4626,1686 +1927,89 @@ function browserSpeak(text){
     ar:"ar-SA",
     uk:"uk-UA",
     pl:"pl-PL"
-
   };
 
-  const utterance =
-    new SpeechSynthesisUtterance(
-      text
-    );
+  const u=new SpeechSynthesisUtterance(text);
 
-  utterance.lang =
-    languages[
-      language.value
-    ] ||
-    "ru-RU";
-
-  utterance.rate =
-    .95;
+  u.lang=map[language.value]||"ru-RU";
+  u.rate=.95;
 
   speechSynthesis.cancel();
-
-  speechSynthesis.speak(
-    utterance
-  );
-
+  speechSynthesis.speak(u);
 }
-
-
-/* =====================================================
-   VOICE INPUT
-===================================================== */
 
 function startVoice(){
 
-  const SpeechRecognition =
-    window.SpeechRecognition ||
+  const Recognition=
+    window.SpeechRecognition||
     window.webkitSpeechRecognition;
 
-  if(!SpeechRecognition){
-
-    showToast(
-      "Голосовой ввод не поддерживается этим браузером."
-    );
-
+  if(!Recognition){
+    showToast("Голосовой ввод не поддерживается.");
     return;
-
   }
 
-  const recognition =
-    new SpeechRecognition();
+  const r=new Recognition();
 
-  const languages = {
-
-    ru:"ru-RU",
-    tr:"tr-TR",
-    en:"en-US",
-    de:"de-DE",
-    fr:"fr-FR",
-    es:"es-ES",
-    it:"it-IT",
-    ar:"ar-SA",
-    uk:"uk-UA",
-    pl:"pl-PL"
-
+  const map={
+    ru:"ru-RU",tr:"tr-TR",en:"en-US",de:"de-DE",
+    fr:"fr-FR",es:"es-ES",it:"it-IT",ar:"ar-SA",
+    uk:"uk-UA",pl:"pl-PL"
   };
 
-  recognition.lang =
-    languages[
-      language.value
-    ] ||
-    "ru-RU";
-
-  recognition.continuous =
-    false;
-
-  recognition.interimResults =
-    false;
-
-  micButton.textContent =
-    "🔴";
-
-  status.textContent =
-    "🎙️ Слушаю...";
-
-  recognition.start();
-
-  recognition.onresult =
-    function(event){
-
-      const text =
-        event.results[0][0]
-          .transcript;
-
-      input.value =
-        text;
-
-      micButton.textContent =
-        "🎙️";
-
-      status.textContent =
-        "AI Concierge";
-
-      sendMessage();
-
-    };
-
-  recognition.onerror =
-    function(){
-
-      micButton.textContent =
-        "🎙️";
-
-      status.textContent =
-        "AI Concierge";
-
-    };
-
-  recognition.onend =
-    function(){
-
-      micButton.textContent =
-        "🎙️";
-
-      status.textContent =
-        "AI Concierge";
-
-    };
-
-}
-
-
-/* =====================================================
-   REVIEWS SYSTEM
-===================================================== */
-
-const REVIEW_STORAGE =
-  "zeyaReviews";
-
-let selectedReviewRating =
-  0;
-
-
-/* =====================================================
-   GET REVIEWS
-===================================================== */
-
-function getReviews(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        REVIEW_STORAGE
-      ) || "[]"
-    );
-
-  }catch(error){
-
-    return [];
-
-  }
-
-}
-
-
-/* =====================================================
-   SAVE REVIEWS
-===================================================== */
-
-function saveReviews(reviews){
-
-  localStorage.setItem(
-    REVIEW_STORAGE,
-    JSON.stringify(reviews)
-  );
-
-}
-
-
-/* =====================================================
-   STARS
-===================================================== */
-
-function starsHTML(rating){
-
-  const safeRating =
-    Math.max(
-      0,
-      Math.min(
-        5,
-        Number(rating) || 0
-      )
-    );
-
-  return (
-    "★".repeat(safeRating) +
-    "☆".repeat(5-safeRating)
-  );
-
-}
-
-
-/* =====================================================
-   FORMAT DATE
-===================================================== */
-
-function formatReviewDate(date){
-
-  try{
-
-    return new Date(date)
-      .toLocaleDateString(
-        language.value === "tr"
-          ? "tr-TR"
-          : language.value === "en"
-            ? "en-GB"
-            : "ru-RU"
-      );
-
-  }catch(error){
-
-    return "";
-
-  }
-
-}
-
-
-/* =====================================================
-   REVIEW PREVIEW
-===================================================== */
-
-function renderReviewPreview(){
-
-  const container =
-    document.getElementById(
-      "reviewPreview"
-    );
-
-  if(!container)
-    return;
-
-  const reviews =
-    getReviews();
-
-  if(!reviews.length){
-
-    container.innerHTML =
-      `
-      <div class="review-summary">
-
-        <div class="review-average">
-          0.0
-        </div>
-
-        <div class="review-stars-display">
-          ☆☆☆☆☆
-        </div>
-
-        <div class="review-count">
-          Пока нет отзывов
-        </div>
-
-        <button
-          class="review-write-button"
-          onclick="openModal('review')">
-
-          ⭐ Оставить первый отзыв
-
-        </button>
-
-      </div>
-      `;
-
-    return;
-
-  }
-
-  const average =
-    reviews.reduce(
-      function(sum,review){
-
-        return sum +
-          Number(review.rating || 0);
-
-      },
-      0
-    ) / reviews.length;
-
-  const latest =
-    reviews
-      .slice()
-      .reverse()
-      .slice(0,2);
-
-  let html = `
-
-    <div class="review-summary">
-
-      <div class="review-average">
-        ${average.toFixed(1)}
-      </div>
-
-      <div class="review-stars-display">
-        ${starsHTML(
-          Math.round(average)
-        )}
-      </div>
-
-      <div class="review-count">
-        ${reviews.length} отзыв(ов)
-      </div>
-
-      <button
-        class="review-write-button"
-        onclick="openModal('review')">
-
-        ⭐ Оставить отзыв
-
-      </button>
-
-    </div>
-
-  `;
-
-  latest.forEach(
-    function(review){
-
-      html +=
-        createReviewHTML(
-          review
-        );
-
-    }
-  );
-
-  container.innerHTML =
-    html;
-
-}
-
-
-/* =====================================================
-   CREATE REVIEW HTML
-===================================================== */
-
-function createReviewHTML(review){
-
-  return `
-
-    <div class="review-item">
-
-      <div class="review-item-head">
-
-        <div class="review-user">
-
-          ${escapeHTML(
-            review.name || "Гость"
-          )}
-
-          ${
-            review.country
-              ? `
-                <span class="review-country">
-                  ${escapeHTML(
-                    review.country
-                  )}
-                </span>
-              `
-              : ""
-          }
-
-        </div>
-
-        <div class="review-item-stars">
-
-          ${starsHTML(
-            Number(review.rating)
-          )}
-
-        </div>
-
-      </div>
-
-
-      <div class="review-item-text">
-
-        ${escapeHTML(
-          review.text
-        )}
-
-      </div>
-
-
-      <div class="review-date">
-
-        ${formatReviewDate(
-          review.date
-        )}
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value){
-
-  return String(value || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* =====================================================
-   SELECT RATING
-===================================================== */
-
-function setReviewRating(rating){
-
-  selectedReviewRating =
-    rating;
-
-  const stars =
-    document.querySelectorAll(
-      ".review-star"
-    );
-
-  stars.forEach(
-    function(star,index){
-
-      if(
-        index < rating
-      ){
-
-        star.classList.add(
-          "active"
-        );
-
-      }else{
-
-        star.classList.remove(
-          "active"
-        );
-
-      }
-
-    }
-  );
-
-
-  const ratingText =
-    document.getElementById(
-      "reviewRatingText"
-    );
-
-  const texts = {
-
-    1:"😕 Очень плохо",
-
-    2:"😐 Можно лучше",
-
-    3:"🙂 Нормально",
-
-    4:"😊 Очень хорошо",
-
-    5:"😍 Великолепно!"
-
+  r.lang=map[language.value]||"ru-RU";
+  r.continuous=false;
+  r.interimResults=false;
+
+  micButton.textContent="🔴";
+  status.textContent="🎙️ Слушаю...";
+
+  r.start();
+
+  r.onresult=e=>{
+    input.value=e.results[0][0].transcript;
+    micButton.textContent="🎙️";
+    status.textContent="AI Concierge";
+    sendMessage();
   };
 
-  if(ratingText){
-
-    ratingText.textContent =
-      texts[rating];
-
-  }
-
-}
-
-
-/* =====================================================
-   SUBMIT REVIEW
-===================================================== */
-
-function submitReview(){
-
-  const name =
-    document.getElementById(
-      "reviewName"
-    ).value.trim();
-
-  const country =
-    document.getElementById(
-      "reviewCountry"
-    ).value.trim();
-
-  const text =
-    document.getElementById(
-      "reviewText"
-    ).value.trim();
-
-  if(!selectedReviewRating){
-
-    showToast(
-      "⭐ Пожалуйста, поставьте оценку"
-    );
-
-    return;
-
-  }
-
-  if(!text){
-
-    showToast(
-      "✍️ Напишите ваш отзыв"
-    );
-
-    return;
-
-  }
-
-  const review = {
-
-    id:
-      Date.now(),
-
-    rating:
-      selectedReviewRating,
-
-    name:
-      name || "Гость",
-
-    country:
-      country || "",
-
-    text:
-      text,
-
-    room:
-      "5407",
-
-    date:
-      new Date().toISOString()
-
+  r.onerror=()=>{
+    micButton.textContent="🎙️";
+    status.textContent="AI Concierge";
   };
 
-  const reviews =
-    getReviews();
-
-  reviews.push(
-    review
-  );
-
-  saveReviews(
-    reviews
-  );
-
-
-  document.getElementById(
-    "modalContent"
-  ).innerHTML = `
-
-    <div class="review-success">
-
-      <div class="review-success-icon">
-        ⭐
-      </div>
-
-      <h3>
-        Спасибо за ваш отзыв!
-      </h3>
-
-      <p>
-        Ваше мнение очень важно для нас.
-        Спасибо, что помогаете сделать
-        Selectum Noa Belek ещё лучше.
-      </p>
-
-      <button
-        class="modal-action"
-        onclick="closeModal();renderReviewPreview()">
-
-        Готово
-
-      </button>
-
-    </div>
-
-  `;
-
-
-  selectedReviewRating =
-    0;
-
-  renderReviewPreview();
-
+  r.onend=()=>{
+    micButton.textContent="🎙️";
+    status.textContent="AI Concierge";
+  };
 }
 
-
 /* =====================================================
-   MODAL DATA
+   LANGUAGE CHANGE
 ===================================================== */
 
-const modalData = {
+language.addEventListener("change",function(){
 
+  const lang=langData[this.value]||langData.ru;
 
-  /* ===================================================
-     REVIEW
-  =================================================== */
+  document.getElementById("welcomeTitle").textContent=lang.welcome;
+  document.getElementById("welcomeText").textContent=lang.text;
+  input.placeholder=lang.placeholder;
+  typing.textContent=lang.thinking;
 
-  review:{
+  voiceButton.textContent=
+    voiceEnabled?lang.enabled:lang.voice;
 
-    title:"⭐ Оставить отзыв",
+  document.documentElement.dir=
+    this.value==="ar"?"rtl":"ltr";
 
-    html:`
-
-      <div class="option">
-
-        <div class="review-form-title">
-
-          Как вам отдых в Selectum Noa Belek?
-
-        </div>
-
-
-        <div class="review-stars">
-
-          <button
-            class="review-star"
-            onclick="setReviewRating(1)">
-
-            ★
-
-          </button>
-
-          <button
-            class="review-star"
-            onclick="setReviewRating(2)">
-
-            ★
-
-          </button>
-
-          <button
-            class="review-star"
-            onclick="setReviewRating(3)">
-
-            ★
-
-          </button>
-
-          <button
-            class="review-star"
-            onclick="setReviewRating(4)">
-
-            ★
-
-          </button>
-
-          <button
-            class="review-star"
-            onclick="setReviewRating(5)">
-
-            ★
-
-          </button>
-
-        </div>
-
-
-        <div
-          class="review-rating-text"
-          id="reviewRatingText">
-
-          Выберите оценку
-
-        </div>
-
-      </div>
-
-
-      <label class="review-label">
-        Ваше имя
-      </label>
-
-      <input
-        class="review-input"
-        id="reviewName"
-        type="text"
-        placeholder="Например: Ali"
-        maxlength="40"
-      >
-
-
-      <label class="review-label">
-        Страна
-      </label>
-
-      <input
-        class="review-input"
-        id="reviewCountry"
-        type="text"
-        placeholder="Например: Türkiye"
-        maxlength="40"
-      >
-
-
-      <label class="review-label">
-        Ваш отзыв
-      </label>
-
-      <textarea
-        class="review-textarea"
-        id="reviewText"
-        placeholder="Расскажите о вашем отдыхе..."
-        maxlength="1000">
-      </textarea>
-
-
-      <button
-        class="modal-action"
-        onclick="submitReview()">
-
-        ⭐ Отправить отзыв
-
-      </button>
-
-
-      <div class="note">
-
-        Ваш отзыв поможет нам сделать
-        отдых гостей ещё лучше.
-
-      </div>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     ALL REVIEWS
-  =================================================== */
-
-  reviews:{
-
-    title:"⭐ Отзывы гостей",
-
-    html:`
-
-      <div id="allReviewsContainer">
-
-        Загружаем отзывы...
-
-      </div>
-
-      <button
-        class="modal-action"
-        onclick="openModal('review')">
-
-        ⭐ Оставить свой отзыв
-
-      </button>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     RESTAURANTS
-  =================================================== */
-
-  restaurants:{
-
-    title:"🍽️ Рестораны",
-
-    html:`
-
-      <div class="option">
-        <b>🥐 Главный ресторан</b><br>
-        Завтрак: 07:00–10:30<br>
-        Обед: 12:30–14:30<br>
-        Ужин: 18:00–21:00
-      </div>
-
-      <div class="option">
-        <b>🌙 Seven Twenty Four</b><br>
-        Работает вне основных часов главного ресторана.
-      </div>
-
-      <div class="option">
-        <b>🇹🇷 Tabla Kebap</b><br>
-        19:00–22:00<br>
-        Требуется предварительная резервация.
-      </div>
-
-      <div class="option">
-        <b>🐟 Harbour Sea & Salt Fish</b><br>
-        19:00–22:00<br>
-        Требуется предварительная резервация.
-      </div>
-
-      <div class="option">
-        <b>🇮🇹 Primavio Cucina Italiana</b><br>
-        19:00–22:00<br>
-        Требуется предварительная резервация.
-      </div>
-
-      <div class="option">
-        <b>🥞 Gözleme House</b><br>
-        11:00–16:00
-      </div>
-
-      <div class="option">
-        <b>🍰 Patisserie</b><br>
-        12:00–18:00
-      </div>
-
-      <div class="option">
-        <b>🍟 Food Corner</b><br>
-        12:00–16:00
-      </div>
-
-      <div class="note">
-        Время работы может изменяться отелем.
-      </div>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     ROOM
-  =================================================== */
-
-  room:{
-
-    title:"🛏️ Мой номер",
-
-    html:`
-
-      <div class="option">
-
-        <b>
-          Номер 5407
-        </b>
-
-        <br>
-
-        5 этаж
-
-      </div>
-
-      <div class="option">
-        📶 Wi-Fi доступен для гостей отеля.
-      </div>
-
-      <div class="option">
-        🕑 Check-in: 14:00
-      </div>
-
-      <div class="option">
-        🕛 Check-out: 12:00
-      </div>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     EVENTS
-  =================================================== */
-
-  events:{
-
-    title:"📅 Сегодня",
-
-    html:`
-
-      <div class="option">
-        🥐 07:00–10:30 — Завтрак
-      </div>
-
-      <div class="option">
-        🍲 12:30–14:30 — Обед
-      </div>
-
-      <div class="option">
-        🍽️ 18:00–21:00 — Ужин
-      </div>
-
-      <div class="option">
-        🌙 Seven Twenty Four —
-        вне основных часов главного ресторана
-      </div>
-
-      <button
-        class="modal-action"
-        onclick="openModal('activities')">
-
-        📅 Открыть расписание активностей
-
-      </button>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     FOOD
-  =================================================== */
-
-  food:{
-
-    title:"🍔 Питание",
-
-    html:`
-
-      <div class="option">
-        🍽️ Рестораны и часы работы
-      </div>
-
-      <div class="option">
-        🥡 Быстрые варианты питания
-      </div>
-
-      <button
-        class="modal-action"
-        onclick="openModal('restaurants')">
-
-        Посмотреть рестораны
-
-      </button>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     HOTEL
-  =================================================== */
-
-  hotel:{
-
-    title:"🏨 Мой отель",
-
-    html:`
-
-      <div class="option">
-        🏨 Selectum Noa Belek
-      </div>
-
-      <div class="option">
-        📶 Бесплатный Wi-Fi
-      </div>
-
-      <div class="option">
-        🏖️ Пляж
-      </div>
-
-      <div class="option">
-        🏊 Бассейны
-      </div>
-
-      <div class="option">
-        🧖 SPA и wellness
-      </div>
-
-      <div class="option">
-        ⚽ Спорт и развлечения
-      </div>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     ACTIVITIES
-  =================================================== */
-
-  activities:{
-
-    title:"📅 Полное расписание активностей",
-
-    html:`
-
-      <div class="sub-title">
-        🧘 Wellness / Спортивные активности
-      </div>
-
-
-      <div class="day-title">
-        ПОНЕДЕЛЬНИК
-      </div>
-
-      <div class="option">
-
-        <div class="schedule-row">
-          <span class="schedule-time">10:15</span>
-          <span class="schedule-name">Pilates</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">11:30</span>
-          <span class="schedule-name">Aqua Gym</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:00</span>
-          <span class="schedule-name">Step Aerobic</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:45</span>
-          <span class="schedule-name">Kangoo Jumping</span>
-        </div>
-
-      </div>
-
-
-      <div class="day-title">
-        ВТОРНИК
-      </div>
-
-      <div class="option">
-
-        <div class="schedule-row">
-          <span class="schedule-time">10:15</span>
-          <span class="schedule-name">Pilates</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">11:30</span>
-          <span class="schedule-name">Aqua Jumping</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:00</span>
-          <span class="schedule-name">Fly Yoga</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:45</span>
-          <span class="schedule-name">Zumba</span>
-        </div>
-
-      </div>
-
-
-      <div class="day-title">
-        СРЕДА
-      </div>
-
-      <div class="option">
-
-        <div class="schedule-row">
-          <span class="schedule-time">10:15</span>
-          <span class="schedule-name">Pilates</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">11:30</span>
-          <span class="schedule-name">Aqua Gym</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:00</span>
-          <span class="schedule-name">Step Aerobic</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:45</span>
-          <span class="schedule-name">Kangoo Jumping</span>
-        </div>
-
-      </div>
-
-
-      <div class="day-title">
-        ЧЕТВЕРГ
-      </div>
-
-      <div class="option">
-
-        <div class="schedule-row">
-          <span class="schedule-time">10:15</span>
-          <span class="schedule-name">Pilates</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">11:30</span>
-          <span class="schedule-name">Aqua Jumping</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:00</span>
-          <span class="schedule-name">Fly Yoga</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:45</span>
-          <span class="schedule-name">Zumba</span>
-        </div>
-
-      </div>
-
-
-      <div class="day-title">
-        ПЯТНИЦА
-      </div>
-
-      <div class="option">
-
-        <div class="schedule-row">
-          <span class="schedule-time">10:15</span>
-          <span class="schedule-name">Pilates</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">11:30</span>
-          <span class="schedule-name">Aqua Gym</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:30</span>
-          <span class="schedule-name">Pool Party</span>
-        </div>
-
-      </div>
-
-
-      <div class="day-title">
-        СУББОТА
-      </div>
-
-      <div class="option">
-
-        <div class="schedule-row">
-          <span class="schedule-time">10:15</span>
-          <span class="schedule-name">Pilates</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">11:30</span>
-          <span class="schedule-name">Aqua Jumping</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:00</span>
-          <span class="schedule-name">Fly Yoga</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:45</span>
-          <span class="schedule-name">Zumba</span>
-        </div>
-
-      </div>
-
-
-      <div class="sub-title">
-        🏖️ Утренние и дневные активности
-      </div>
-
-
-      <div class="option">
-
-        <div class="schedule-row">
-          <span class="schedule-time">10:30</span>
-          <span class="schedule-name">Beach Voleybol</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">10:45</span>
-          <span class="schedule-name">Dart</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">11:00</span>
-          <span class="schedule-name">Su Topu</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">12:00</span>
-          <span class="schedule-name">Havuz Oyunu</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">14:45</span>
-          <span class="schedule-name">Su Topu</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">15:30</span>
-          <span class="schedule-name">Dart</span>
-        </div>
-
-        <div class="schedule-row">
-          <span class="schedule-time">16:30</span>
-          <span class="schedule-name">Beach Voleybol</span>
-        </div>
-
-      </div>
-
-
-      <div class="sub-title">
-        ☕ Cafe Games
-      </div>
-
-
-      <div class="option">
-
-        🎯 Pool Game<br>
-        🥄 Kaşık Oyunu
-
-      </div>
-
-
-      <div class="option">
-
-        🏄 Surf<br>
-        💃 Oryantal
-
-      </div>
-
-
-      <div class="option">
-
-        🏄 Surf<br>
-        🏀 Basket
-
-      </div>
-
-
-      <div class="category-card">
-
-        <strong>
-          🏊 Бассейн
-        </strong>
-
-        <span>
-          Havuz Oyunu, Su Topu, Aqua Gym,
-          Aqua Jumping и Pool Party.
-        </span>
-
-      </div>
-
-
-      <div class="category-card">
-
-        <strong>
-          🧘 Wellness
-        </strong>
-
-        <span>
-          Pilates, Fly Yoga, Zumba,
-          Step Aerobic и Kangoo Jumping.
-        </span>
-
-      </div>
-
-
-      <button
-        class="modal-action"
-        onclick="quickQuestion('Какие активности доступны сегодня?');closeModal()">
-
-        Спросить Zeya
-
-      </button>
-
-
-      <div class="note">
-        Время и программа мероприятий могут изменяться отелем.
-      </div>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     TRANSFER
-  =================================================== */
-
-  transfer:{
-
-    title:"🚕 Трансфер и такси",
-
-    html:`
-
-      <div class="option">
-        ✈️ Трансфер в аэропорт Антальи
-      </div>
-
-      <div class="option">
-        🚕 Такси
-      </div>
-
-      <div class="option">
-        🚌 Экскурсионный транспорт
-      </div>
-
-      <button
-        class="modal-action"
-        onclick="quickQuestion('Мне нужен трансфер до аэропорта Антальи');closeModal()">
-
-        Запросить трансфер
-
-      </button>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     MAP
-  =================================================== */
-
-  map:{
-
-    title:"📍 Карта",
-
-    html:`
-
-      <div class="option">
-        🏨 Selectum Noa Belek
-      </div>
-
-      <div class="option">
-        🏊 Бассейн — центральная зона
-      </div>
-
-      <div class="option">
-        🧖 SPA — wellness-зона
-      </div>
-
-      <div class="option">
-        🍽️ Рестораны — основная зона отеля
-      </div>
-
-      <div class="option">
-        🏖️ Пляж — рядом с территорией отеля
-      </div>
-
-      <button
-        class="modal-action"
-        onclick="openGoogleMaps()">
-
-        📍 Открыть Google Maps
-
-      </button>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     EXCURSIONS
-  =================================================== */
-
-  excursions:{
-
-    title:"🗺️ Экскурсии",
-
-    html:`
-
-      <div class="option">
-        🏛️ Античные города
-      </div>
-
-      <div class="option">
-        💦 Водопады и природа
-      </div>
-
-      <div class="option">
-        🛥️ Морская прогулка
-      </div>
-
-      <div class="option">
-        🚙 Сафари
-      </div>
-
-      <button
-        class="modal-action"
-        onclick="quickQuestion('Посоветуй экскурсию рядом с Belek');closeModal()">
-
-        Подобрать экскурсию
-
-      </button>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     PREMIUM
-  =================================================== */
-
-  premium:{
-
-    title:"💎 Premium",
-
-    html:`
-
-      <div class="option">
-        💎 Premium-поддержка
-      </div>
-
-      <div class="option">
-        🎁 Сюрприз в номер
-      </div>
-
-      <div class="option">
-        💆 Индивидуальные SPA-процедуры
-      </div>
-
-      <div class="option">
-        🚗 Индивидуальный трансфер
-      </div>
-
-      <button
-        class="modal-action"
-        onclick="quickQuestion('Какие premium услуги доступны?');closeModal()">
-
-        Спросить Zeya
-
-      </button>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     HISTORY
-  =================================================== */
-
-  history:{
-
-    title:"◷ История",
-
-    html:`
-
-      <div class="option">
-        История запросов Zeya будет отображаться здесь.
-      </div>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     FAVORITES
-  =================================================== */
-
-  favorites:{
-
-    title:"♡ Избранное",
-
-    html:`
-
-      <div class="option">
-        Здесь будут ваши избранные рестораны,
-        услуги и рекомендации.
-      </div>
-
-    `
-
-  },
-
-
-  /* ===================================================
-     PROFILE
-  =================================================== */
-
-  profile:{
-
-    title:"● Профиль",
-
-    html:`
-
-      <div class="option">
-        🛏️ Номер: <b>5407</b>
-      </div>
-
-      <div class="option">
-        🌐 Язык: выбран в верхнем меню
-      </div>
-
-      <div class="option">
-        Zeya AI Concierge
-      </div>
-
-    `
-
-  }
-
-};
-
+  updateSmartToday();
+  renderNightDates();
+  renderNightShows();
+});
 
 /* =====================================================
-   OPEN MODAL
-===================================================== */
-
-function openModal(key){
-
-  const data =
-    modalData[key];
-
-  if(!data)
-    return;
-
-  document.getElementById(
-    "modalTitle"
-  ).innerHTML =
-    data.title;
-
-  document.getElementById(
-    "modalContent"
-  ).innerHTML =
-    data.html;
-
-  document.getElementById(
-    "modal"
-  ).classList.add(
-    "show"
-  );
-
-
-  if(key === "reviews"){
-
-    renderAllReviews();
-
-  }
-
-}
-
-
-/* =====================================================
-   ALL REVIEWS
-===================================================== */
-
-function renderAllReviews(){
-
-  const container =
-    document.getElementById(
-      "allReviewsContainer"
-    );
-
-  if(!container)
-    return;
-
-  const reviews =
-    getReviews();
-
-  if(!reviews.length){
-
-    container.innerHTML =
-      `
-      <div class="review-empty">
-
-        ⭐ Пока нет отзывов.
-
-        <br><br>
-
-        Будьте первым гостем,
-        который оставит отзыв!
-
-      </div>
-      `;
-
-    return;
-
-  }
-
-  const average =
-    reviews.reduce(
-      function(sum,review){
-
-        return sum +
-          Number(review.rating || 0);
-
-      },
-      0
-    ) / reviews.length;
-
-
-  let html = `
-
-    <div class="review-summary">
-
-      <div class="review-average">
-        ${average.toFixed(1)}
-      </div>
-
-      <div class="review-stars-display">
-        ${starsHTML(
-          Math.round(average)
-        )}
-      </div>
-
-      <div class="review-count">
-        ${reviews.length} отзыв(ов)
-      </div>
-
-    </div>
-
-  `;
-
-
-  reviews
-    .slice()
-    .reverse()
-    .forEach(
-      function(review){
-
-        html +=
-          createReviewHTML(
-            review
-          );
-
-      }
-    );
-
-
-  container.innerHTML =
-    html;
-
-}
-
-
-/* =====================================================
-   CLOSE MODAL
-===================================================== */
-
-function closeModal(){
-
-  document.getElementById(
-    "modal"
-  ).classList.remove(
-    "show"
-  );
-
-}
-
-
-function closeOutside(event){
-
-  if(
-    event.target.id === "modal"
-  ){
-
-    closeModal();
-
-  }
-
-}
-
-
-/* =====================================================
-   GOOGLE MAPS
+   MAP
 ===================================================== */
 
 function openGoogleMaps(){
@@ -6314,9 +2018,19 @@ function openGoogleMaps(){
     "https://www.google.com/maps/search/?api=1&query=Selectum+Noa+Belek",
     "_blank"
   );
-
 }
 
+/* =====================================================
+   MODAL
+===================================================== */
+
+function closeModal(){
+  document.getElementById("modal").classList.remove("show");
+}
+
+function closeOutside(e){
+  if(e.target.id==="modal")closeModal();
+}
 
 /* =====================================================
    TOAST
@@ -6324,58 +2038,111 @@ function openGoogleMaps(){
 
 function showToast(text){
 
-  const toast =
-    document.getElementById(
-      "toast"
-    );
+  const toast=document.getElementById("toast");
 
-  toast.textContent =
-    text;
+  toast.textContent=text;
+  toast.style.display="block";
 
-  toast.style.display =
-    "block";
+  clearTimeout(window.toastTimer);
 
-  clearTimeout(
-    window.toastTimer
-  );
-
-  window.toastTimer =
-    setTimeout(
-      function(){
-
-        toast.style.display =
-          "none";
-
-      },
-      2300
-    );
-
+  window.toastTimer=setTimeout(()=>{
+    toast.style.display="none";
+  },2500);
 }
 
+/* =====================================================
+   NOTIFICATION CHECK
+===================================================== */
+
+function checkReminders(){
+
+  const now=new Date();
+
+  const key=
+    now.getFullYear()+"-"+
+    String(now.getMonth()+1).padStart(2,"0")+"-"+
+    String(now.getDate()).padStart(2,"0");
+
+  const current=
+    String(now.getHours()).padStart(2,"0")+":"+
+    String(now.getMinutes()).padStart(2,"0");
+
+  let changed=false;
+
+  reminders.forEach(r=>{
+
+    if(
+      !r.notified &&
+      r.date===key &&
+      r.time===current
+    ){
+
+      r.notified=true;
+      changed=true;
+
+      const message=
+        "🔔 "+r.name+" — "+r.place;
+
+      showToast(message);
+
+      if(
+        "Notification" in window &&
+        Notification.permission==="granted"
+      ){
+
+        new Notification(
+          "Zeya — Selectum Noa Belek",
+          {
+            body:r.time+" · "+r.name+" · "+r.place
+          }
+        );
+
+      }
+
+    }
+
+  });
+
+  if(changed)saveStore("zeyaReminders",reminders);
+}
+
+/* =====================================================
+   ENTER
+===================================================== */
+
+input.addEventListener("keydown",e=>{
+  if(e.key==="Enter"){
+    e.preventDefault();
+    sendMessage();
+  }
+});
 
 /* =====================================================
    START
 ===================================================== */
 
-input.placeholder =
-  langData.ru.placeholder;
+renderActivities();
+renderNightDates();
+
+if(nightProgram[todayKey()]){
+  selectedNightDate=todayKey();
+}else{
+  const keys=Object.keys(nightProgram);
+  selectedNightDate=keys.find(k=>k>=todayKey())||keys[keys.length-1];
+}
+
+renderNightDates();
+renderNightShows();
 
 updateSmartToday();
 
-renderReviewPreview();
+setInterval(updateSmartToday,30000);
+setInterval(checkReminders,30000);
 
-setInterval(
-  updateSmartToday,
-  30000
-);
-
-status.textContent =
-  "AI Concierge";
-
+status.textContent="AI Concierge";
 
 </script>
 
 </div>
-
 </body>
 </html>
