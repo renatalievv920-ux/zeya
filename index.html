@@ -1,476 +1,444 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07101f">
-<meta name="apple-mobile-web-app-capable" content="yes">
 
-<title>Zeya AI — AI помощник</title>
+<title>Зея — AI помощник</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    color: white;
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Arial, sans-serif;
     background:
-        radial-gradient(circle at top left, #243d78 0%, transparent 35%),
-        radial-gradient(circle at bottom right, #211b52 0%, transparent 35%),
-        #050b17;
+        radial-gradient(circle at top,#18294b 0%,#080d19 45%,#05070d 100%);
+    color:white;
 }
 
-.container {
-    width: min(900px, 100%);
-    margin: auto;
-    padding: 20px;
+.app{
+    width:100%;
+    max-width:850px;
+    margin:auto;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
 
 /* HEADER */
 
-.header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 5px 25px;
+.header{
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(5,8,18,.75);
+    backdrop-filter:blur(15px);
+    position:sticky;
+    top:0;
+    z-index:10;
 }
 
-.logo {
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    background: linear-gradient(135deg, #8d9cff, #4f65ff);
-    box-shadow: 0 10px 30px rgba(80, 100, 255, .35);
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.title {
-    font-size: 25px;
-    font-weight: 700;
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    background:linear-gradient(135deg,#6c63ff,#9c6cff);
+    box-shadow:0 0 25px rgba(108,99,255,.35);
 }
 
-.online {
-    margin-top: 3px;
-    color: #72e5b0;
-    font-size: 15px;
+.logo-text{
+    font-size:20px;
+    font-weight:bold;
 }
 
-/* WELCOME */
-
-.welcome {
-    padding: 28px;
-    border-radius: 28px;
-    background: rgba(22, 39, 70, .72);
-    border: 1px solid rgba(255,255,255,.12);
-    box-shadow: 0 20px 60px rgba(0,0,0,.2);
-    backdrop-filter: blur(18px);
+.logo-sub{
+    font-size:12px;
+    color:#9ba6bd;
+    margin-top:3px;
 }
 
-.welcome h1 {
-    margin: 0 0 10px;
-    font-size: 27px;
-}
-
-.welcome p {
-    margin: 0;
-    line-height: 1.6;
-    color: #c9d4e8;
-}
-
-/* LANGUAGE */
-
-.language-box {
-    margin-top: 18px;
-}
-
-.language-box select {
-    width: 100%;
-    padding: 14px;
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,.12);
-    background: #101b30;
-    color: white;
-    font-size: 15px;
-    outline: none;
-}
-
-/* QUICK ACTIONS */
-
-.section-title {
-    margin: 30px 0 15px;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.actions {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.action {
-    min-height: 145px;
-    padding: 22px;
-    border-radius: 24px;
-    cursor: pointer;
-    background: rgba(23, 33, 54, .85);
-    border: 1px solid rgba(255,255,255,.10);
-    transition: .2s;
-}
-
-.action:hover {
-    transform: translateY(-3px);
-    background: rgba(35, 49, 78, .95);
-}
-
-.action:active {
-    transform: scale(.98);
-}
-
-.icon {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.action-title {
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.action-text {
-    margin-top: 7px;
-    color: #8997ad;
-    line-height: 1.4;
+.language{
+    background:#111a2d;
+    color:white;
+    border:1px solid #273653;
+    border-radius:10px;
+    padding:9px 10px;
+    outline:none;
 }
 
 /* CHAT */
 
-.chat-box {
-    margin-top: 30px;
-    padding: 20px;
-    border-radius: 28px;
-    background: rgba(13, 22, 39, .9);
-    border: 1px solid rgba(255,255,255,.10);
+.chat{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
 }
 
-.chat-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 18px;
+.welcome{
+    text-align:center;
+    padding:25px 10px 20px;
 }
 
-.messages {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-height: 480px;
-    overflow-y: auto;
-    padding-right: 4px;
+.welcome-icon{
+    font-size:55px;
+    margin-bottom:10px;
 }
 
-.message {
-    max-width: 85%;
-    padding: 14px 17px;
-    border-radius: 19px;
-    line-height: 1.5;
-    white-space: pre-wrap;
+.welcome h1{
+    margin:0;
+    font-size:28px;
 }
 
-.message.user {
-    align-self: flex-end;
-    background: #3430a0;
-    border-bottom-right-radius: 6px;
+.welcome p{
+    color:#aab4c8;
+    line-height:1.5;
 }
 
-.message.bot {
-    align-self: flex-start;
-    background: #1c2639;
-    border-bottom-left-radius: 6px;
-    color: #e4ebf7;
+/* MESSAGES */
+
+.message{
+    display:flex;
+    margin:14px 0;
+}
+
+.message.user{
+    justify-content:flex-end;
+}
+
+.bubble{
+    max-width:82%;
+    padding:13px 16px;
+    border-radius:18px;
+    line-height:1.5;
+    white-space:pre-wrap;
+}
+
+.message.zeya .bubble{
+    background:#151f34;
+    border:1px solid #263653;
+    border-bottom-left-radius:5px;
+}
+
+.message.user .bubble{
+    background:linear-gradient(135deg,#635bff,#7e68ff);
+    border-bottom-right-radius:5px;
+}
+
+/* QUICK BUTTONS */
+
+.quick-title{
+    color:#929db3;
+    font-size:13px;
+    margin:5px 0 10px;
+}
+
+.quick{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.quick button{
+    background:#111a2d;
+    color:#e9edff;
+    border:1px solid #263653;
+    padding:13px 10px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.quick button:hover{
+    background:#1b2944;
+    transform:translateY(-1px);
+}
+
+/* STATUS */
+
+.status{
+    min-height:24px;
+    padding:0 20px 5px;
+    color:#929db3;
+    font-size:13px;
 }
 
 /* INPUT */
 
-.input-area {
-    display: flex;
-    gap: 9px;
-    margin-top: 18px;
+.bottom{
+    padding:12px 15px 18px;
+    background:rgba(5,8,18,.9);
+    border-top:1px solid rgba(255,255,255,.07);
 }
 
-.input-area input {
-    flex: 1;
-    min-width: 0;
-    padding: 16px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,.12);
-    background: #111b2d;
-    color: white;
-    font-size: 16px;
-    outline: none;
+.input-row{
+    display:flex;
+    gap:8px;
 }
 
-.input-area input:focus {
-    border-color: #6977ff;
+.input{
+    flex:1;
+    min-width:0;
+    background:#111a2d;
+    color:white;
+    border:1px solid #2a3956;
+    border-radius:15px;
+    padding:14px;
+    font-size:16px;
+    outline:none;
 }
 
-button {
-    border: 0;
-    cursor: pointer;
-    color: white;
+.input:focus{
+    border-color:#7168ff;
 }
 
-.send-btn {
-    width: 54px;
-    border-radius: 18px;
-    background: #4d5bff;
-    font-size: 22px;
+.icon-button,
+.send-button{
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    color:white;
 }
 
-.voice-btn {
-    width: 54px;
-    border-radius: 18px;
-    background: #26334d;
-    font-size: 21px;
+.icon-button{
+    width:50px;
+    background:#17223a;
+    font-size:20px;
 }
 
-.voice-btn.listening {
-    background: #b32b4c;
+.send-button{
+    width:55px;
+    background:linear-gradient(135deg,#635bff,#816aff);
+    font-size:20px;
 }
 
-.status {
-    min-height: 22px;
-    margin-top: 10px;
-    text-align: center;
-    color: #8f9cb2;
-    font-size: 14px;
+.icon-button.active{
+    background:#d93855;
+    animation:pulse 1s infinite;
 }
 
-/* CLEAR */
-
-.clear-btn {
-    width: 100%;
-    margin-top: 15px;
-    padding: 13px;
-    border-radius: 15px;
-    background: #18243a;
-    color: #aebbd0;
+@keyframes pulse{
+    50%{
+        transform:scale(1.06);
+    }
 }
 
-/* FOOTER */
+.clear{
+    text-align:center;
+    margin-top:10px;
+}
 
-.footer {
-    padding: 30px 0 15px;
-    text-align: center;
-    color: #65748c;
-    font-size: 13px;
+.clear button{
+    background:none;
+    border:none;
+    color:#6f7b92;
+    cursor:pointer;
+    font-size:12px;
 }
 
 /* MOBILE */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    .container {
-        padding: 14px;
+    .header{
+        padding:12px;
     }
 
-    .welcome {
-        padding: 22px;
+    .chat{
+        padding:14px;
     }
 
-    .welcome h1 {
-        font-size: 23px;
+    .bubble{
+        max-width:90%;
     }
 
-    .actions {
-        gap: 12px;
+    .welcome h1{
+        font-size:24px;
     }
 
-    .action {
-        min-height: 135px;
-        padding: 18px;
+    .quick{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .action-title {
-        font-size: 16px;
+    .input{
+        font-size:15px;
     }
 
-    .action-text {
-        font-size: 14px;
-    }
-
-    .chat-box {
-        padding: 15px;
-    }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<div class="container">
+<div class="app">
 
     <!-- HEADER -->
 
     <div class="header">
-        <div class="logo">✨</div>
 
-        <div>
-            <div class="title">Zeya AI</div>
-            <div class="online">● Онлайн 24/7</div>
-        </div>
-    </div>
+        <div class="logo">
 
+            <div class="logo-icon">
+                ✨
+            </div>
 
-    <!-- WELCOME -->
+            <div>
+                <div class="logo-text">
+                    Зея AI
+                </div>
 
-    <div class="welcome">
-
-        <h1 id="welcomeTitle">
-            Чем я могу помочь вам сегодня? 😊
-        </h1>
-
-        <p id="welcomeText">
-            Напишите вопрос или воспользуйтесь одной из кнопок ниже.
-            Я помогу с отелем, путешествием, ресторанами, трансфером
-            и другими вопросами.
-        </p>
-
-        <div class="language-box">
-
-            <select id="languageSelect" onchange="changeLanguage()">
-
-                <option value="ru">🇷🇺 Русский</option>
-                <option value="tr">🇹🇷 Türkçe</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="de">🇩🇪 Deutsch</option>
-                <option value="fr">🇫🇷 Français</option>
-                <option value="es">🇪🇸 Español</option>
-                <option value="it">🇮🇹 Italiano</option>
-                <option value="ar">🇸🇦 العربية</option>
-                <option value="uk">🇺🇦 Українська</option>
-                <option value="pl">🇵🇱 Polski</option>
-
-            </select>
+                <div class="logo-sub">
+                    AI concierge
+                </div>
+            </div>
 
         </div>
 
-    </div>
 
+        <select id="languageSelect" class="language">
 
-    <!-- QUICK ACTIONS -->
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="tr">🇹🇷 Türkçe</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="uk">🇺🇦 Українська</option>
+            <option value="pl">🇵🇱 Polski</option>
 
-    <div class="section-title">
-        Быстрые действия
-    </div>
-
-    <div class="actions">
-
-        <div class="action" onclick="quickQuestion('Во сколько завтрак и где он проходит?')">
-            <div class="icon">🍳</div>
-            <div class="action-title">Завтрак</div>
-            <div class="action-text">Время и место</div>
-        </div>
-
-        <div class="action" onclick="quickQuestion('Какие рестораны есть в отеле и какие у них часы работы?')">
-            <div class="icon">🍽️</div>
-            <div class="action-title">Рестораны</div>
-            <div class="action-text">Меню и часы работы</div>
-        </div>
-
-        <div class="action" onclick="quickQuestion('Где находится бассейн?')">
-            <div class="icon">🏊</div>
-            <div class="action-title">Бассейн</div>
-            <div class="action-text">Расположение</div>
-        </div>
-
-        <div class="action" onclick="quickQuestion('Как заказать трансфер?')">
-            <div class="icon">🚐</div>
-            <div class="action-title">Трансфер</div>
-            <div class="action-text">Заказать машину</div>
-        </div>
-
-        <div class="action" onclick="quickQuestion('Какие экскурсии и интересные места есть рядом?')">
-            <div class="icon">🗺️</div>
-            <div class="action-title">Экскурсии</div>
-            <div class="action-text">Интересные места</div>
-        </div>
-
-        <div class="action" onclick="quickQuestion('Мне нужна помощь персонала отеля.')">
-            <div class="icon">🆘</div>
-            <div class="action-title">Помощь</div>
-            <div class="action-text">Связаться с персоналом</div>
-        </div>
+        </select>
 
     </div>
 
 
     <!-- CHAT -->
 
-    <div class="chat-box">
+    <div id="chat" class="chat">
 
-        <div class="chat-title">
-            💬 Спросить Zeya
-        </div>
+        <div class="welcome">
 
-        <div id="messages" class="messages">
-
-            <div class="message bot">
-                Привет! 👋 Я Zeya — ваш AI-помощник.
-                Чем могу помочь?
+            <div class="welcome-icon">
+                🤖
             </div>
 
+            <h1 id="welcomeTitle">
+                Привет! Я Зея
+            </h1>
+
+            <p id="welcomeText">
+                Ваш AI-консьерж. Я помогу с отелем,
+                ресторанами, трансфером, экскурсиями
+                и путешествиями.
+            </p>
+
         </div>
 
 
-        <div class="input-area">
+        <div class="quick-title" id="quickTitle">
+            Быстрые вопросы
+        </div>
 
-            <button
-                class="voice-btn"
-                id="voiceButton"
-                onclick="startVoice()">
-                🎙️
+
+        <div class="quick">
+
+            <button onclick="quickQuestion('Во сколько завтрак?')">
+                🍳 Завтрак
             </button>
 
+            <button onclick="quickQuestion('Какие рестораны есть в отеле?')">
+                🍽️ Рестораны
+            </button>
+
+            <button onclick="quickQuestion('Где находится бассейн?')">
+                🏊 Бассейн
+            </button>
+
+            <button onclick="quickQuestion('Можно заказать трансфер?')">
+                🚕 Трансфер
+            </button>
+
+            <button onclick="quickQuestion('Какие экскурсии доступны?')">
+                🚌 Экскурсии
+            </button>
+
+            <button onclick="quickQuestion('Что можно посмотреть рядом с отелем?')">
+                📍 Рядом
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATUS -->
+
+    <div id="status" class="status"></div>
+
+
+    <!-- INPUT -->
+
+    <div class="bottom">
+
+        <div class="input-row">
+
             <input
-                id="messageInput"
+                id="input"
+                class="input"
                 type="text"
                 placeholder="Напишите сообщение..."
                 autocomplete="off"
-                onkeydown="handleEnter(event)"
             >
 
             <button
-                class="send-btn"
-                onclick="sendMessage()">
+                id="voiceButton"
+                class="icon-button"
+                onclick="startVoice()"
+                title="Голосовой ввод"
+            >
+                🎙️
+            </button>
+
+            <button
+                class="send-button"
+                onclick="sendMessage()"
+                title="Отправить"
+            >
                 ➤
             </button>
 
         </div>
 
-        <div id="status" class="status"></div>
 
-        <button
-            class="clear-btn"
-            onclick="clearChat()">
-            🗑️ Очистить чат
-        </button>
+        <div class="clear">
 
-    </div>
+            <button onclick="clearChat()">
+                🗑️ Очистить чат
+            </button>
 
+        </div>
 
-    <div class="footer">
-        Zeya AI • Ваш интеллектуальный помощник 🤖
     </div>
 
 </div>
@@ -478,294 +446,669 @@ button {
 
 <script>
 
-/* =========================================
-   Z E Y A   A I
-   ========================================= */
+/* =========================
+   НАСТРОЙКИ
+========================= */
 
-const API_URL = "https://zeya-pi.vercel.app/api/chat";
+const API_URL =
+    "https://zeya-pi.vercel.app/api/chat";
 
-const input = document.getElementById("messageInput");
-const messages = document.getElementById("messages");
-const statusText = document.getElementById("status");
-const voiceButton = document.getElementById("voiceButton");
+const TTS_URL =
+    "https://zeya-pi.vercel.app/api/tts";
 
 
-/* =========================================
-   ДОБАВИТЬ СООБЩЕНИЕ
-   ========================================= */
+/* =========================
+   ELEMENTS
+========================= */
 
-function addMessage(text, type) {
+const chat =
+    document.getElementById("chat");
 
-    const message = document.createElement("div");
+const input =
+    document.getElementById("input");
 
-    message.className = "message " + type;
+const statusText =
+    document.getElementById("status");
 
-    message.textContent = text;
+const voiceButton =
+    document.getElementById("voiceButton");
 
-    messages.appendChild(message);
+const languageSelect =
+    document.getElementById("languageSelect");
 
-    messages.scrollTop = messages.scrollHeight;
 
-    return message;
+/* =========================
+   ЯЗЫКИ
+========================= */
+
+const languages = {
+
+    ru:{
+        welcome:"Привет! Я Зея",
+        text:"Ваш AI-консьерж. Я помогу с отелем, ресторанами, трансфером, экскурсиями и путешествиями.",
+        placeholder:"Напишите сообщение...",
+        quick:"Быстрые вопросы",
+        thinking:"Зея думает... 🤖",
+        listening:"🔴 Слушаю тебя...",
+        error:"Произошла ошибка. Попробуйте ещё раз.",
+        empty:"Напишите сообщение."
+    },
+
+    tr:{
+        welcome:"Merhaba! Ben Zeya",
+        text:"Otel, restoranlar, transfer, geziler ve seyahat konusunda size yardımcı olan AI asistanınızım.",
+        placeholder:"Mesajınızı yazın...",
+        quick:"Hızlı sorular",
+        thinking:"Zeya düşünüyor... 🤖",
+        listening:"🔴 Seni dinliyorum...",
+        error:"Bir hata oluştu. Lütfen tekrar deneyin.",
+        empty:"Bir mesaj yazın."
+    },
+
+    en:{
+        welcome:"Hello! I'm Zeya",
+        text:"Your AI concierge. I can help with the hotel, restaurants, transfers, excursions and travel.",
+        placeholder:"Write a message...",
+        quick:"Quick questions",
+        thinking:"Zeya is thinking... 🤖",
+        listening:"🔴 I'm listening...",
+        error:"Something went wrong. Please try again.",
+        empty:"Write a message."
+    },
+
+    de:{
+        welcome:"Hallo! Ich bin Zeya",
+        text:"Ihre AI-Concierge. Ich helfe Ihnen mit dem Hotel, Restaurants, Transfers und Ausflügen.",
+        placeholder:"Nachricht schreiben...",
+        quick:"Schnelle Fragen",
+        thinking:"Zeya denkt nach... 🤖",
+        listening:"🔴 Ich höre zu...",
+        error:"Ein Fehler ist aufgetreten.",
+        empty:"Schreiben Sie eine Nachricht."
+    },
+
+    fr:{
+        welcome:"Bonjour ! Je suis Zeya",
+        text:"Votre concierge IA. Je peux vous aider avec l'hôtel, les restaurants, les transferts et les excursions.",
+        placeholder:"Écrivez un message...",
+        quick:"Questions rapides",
+        thinking:"Zeya réfléchit... 🤖",
+        listening:"🔴 Je vous écoute...",
+        error:"Une erreur est survenue.",
+        empty:"Écrivez un message."
+    },
+
+    es:{
+        welcome:"¡Hola! Soy Zeya",
+        text:"Tu conserje de IA. Puedo ayudarte con el hotel, restaurantes, traslados y excursiones.",
+        placeholder:"Escribe un mensaje...",
+        quick:"Preguntas rápidas",
+        thinking:"Zeya está pensando... 🤖",
+        listening:"🔴 Te escucho...",
+        error:"Ha ocurrido un error.",
+        empty:"Escribe un mensaje."
+    },
+
+    it:{
+        welcome:"Ciao! Sono Zeya",
+        text:"La tua concierge AI. Posso aiutarti con hotel, ristoranti, trasferimenti ed escursioni.",
+        placeholder:"Scrivi un messaggio...",
+        quick:"Domande rapide",
+        thinking:"Zeya sta pensando... 🤖",
+        listening:"🔴 Ti ascolto...",
+        error:"Si è verificato un errore.",
+        empty:"Scrivi un messaggio."
+    },
+
+    ar:{
+        welcome:"مرحباً! أنا زيا",
+        text:"مساعدك الذكي للفندق والمطاعم والتنقل والرحلات والسفر.",
+        placeholder:"اكتب رسالتك...",
+        quick:"أسئلة سريعة",
+        thinking:"زيا تفكر... 🤖",
+        listening:"🔴 أنا أستمع...",
+        error:"حدث خطأ.",
+        empty:"اكتب رسالة."
+    },
+
+    uk:{
+        welcome:"Привіт! Я Зея",
+        text:"Ваш AI-консьєр. Я допоможу з готелем, ресторанами, трансфером та екскурсіями.",
+        placeholder:"Напишіть повідомлення...",
+        quick:"Швидкі запитання",
+        thinking:"Зея думає... 🤖",
+        listening:"🔴 Я слухаю...",
+        error:"Сталася помилка.",
+        empty:"Напишіть повідомлення."
+    },
+
+    pl:{
+        welcome:"Cześć! Jestem Zeya",
+        text:"Twój AI concierge. Pomogę z hotelem, restauracjami, transferami i wycieczkami.",
+        placeholder:"Napisz wiadomość...",
+        quick:"Szybkie pytania",
+        thinking:"Zeya myśli... 🤖",
+        listening:"🔴 Słucham...",
+        error:"Wystąpił błąd.",
+        empty:"Napisz wiadomość."
+    }
+
+};
+
+
+/* =========================
+   LANGUAGE CHANGE
+========================= */
+
+languageSelect.addEventListener(
+    "change",
+    changeLanguage
+);
+
+
+function changeLanguage(){
+
+    const lang =
+        languageSelect.value;
+
+    const t =
+        languages[lang] || languages.ru;
+
+    document.getElementById(
+        "welcomeTitle"
+    ).textContent = t.welcome;
+
+    document.getElementById(
+        "welcomeText"
+    ).textContent = t.text;
+
+    document.getElementById(
+        "quickTitle"
+    ).textContent = t.quick;
+
+    input.placeholder =
+        t.placeholder;
+
 }
 
 
-/* =========================================
-   ОТПРАВКА СООБЩЕНИЯ
-   ========================================= */
+/* =========================
+   ADD MESSAGE
+========================= */
 
-async function sendMessage(customMessage = null) {
+function addMessage(text,type){
 
     const message =
-        customMessage !== null
-            ? customMessage.trim()
-            : input.value.trim();
+        document.createElement("div");
 
-    if (!message) return;
+    message.className =
+        "message " + type;
+
+    const bubble =
+        document.createElement("div");
+
+    bubble.className =
+        "bubble";
+
+    bubble.textContent =
+        text;
+
+    message.appendChild(
+        bubble
+    );
+
+    chat.appendChild(
+        message
+    );
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
 
 
-    if (customMessage === null) {
-        input.value = "";
+/* =========================
+   SEND MESSAGE
+========================= */
+
+async function sendMessage(){
+
+    const message =
+        input.value.trim();
+
+    const lang =
+        languageSelect.value;
+
+    const t =
+        languages[lang] || languages.ru;
+
+
+    if(!message){
+
+        statusText.textContent =
+            t.empty;
+
+        return;
     }
 
 
-    addMessage(message, "user");
+    addMessage(
+        message,
+        "user"
+    );
 
-    statusText.textContent = "Zeya думает... 🤖";
+    input.value = "";
+
+    statusText.textContent =
+        t.thinking;
 
 
-    const thinkingMessage =
-        addMessage("⏳ Думаю...", "bot");
+    try{
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+                        message:message
+                    })
+                }
+            );
 
 
-    try {
+        const data =
+            await response.json();
 
-        const response = await fetch(
-            API_URL,
-            {
-                method: "POST",
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+        if(!response.ok){
 
-                body: JSON.stringify({
-                    message: message
-                })
-            }
+            throw new Error(
+                data.error ||
+                "Server error"
+            );
+
+        }
+
+
+        const reply =
+            data.reply ||
+            "Не удалось получить ответ.";
+
+
+        addMessage(
+            reply,
+            "zeya"
         );
 
 
-        const data = await response.json();
+        statusText.textContent = "";
 
 
-        thinkingMessage.remove();
+        /* НОВЫЙ ГОЛОС */
+
+        await speak(reply);
 
 
-        if (!response.ok) {
-
-            throw new Error(
-                data.error || "Ошибка сервера"
-            );
-
-        }
-
-
-        if (data.reply) {
-
-            addMessage(
-                data.reply,
-                "bot"
-            );
-
-            speak(data.reply);
-
-        } else {
-
-            addMessage(
-                "Зея не получила ответ от сервера.",
-                "bot"
-            );
-
-        }
-
-    }
-
-    catch (error) {
+    }catch(error){
 
         console.error(error);
 
-        thinkingMessage.remove();
+        statusText.textContent =
+            t.error;
 
         addMessage(
-            "Не удалось связаться с Зеей. Проверь интернет или попробуй ещё раз.",
-            "bot"
+            t.error,
+            "zeya"
         );
 
     }
 
+}
 
-    statusText.textContent = "";
+
+/* =========================
+   QUICK QUESTION
+========================= */
+
+function quickQuestion(question){
+
+    input.value =
+        question;
+
+    sendMessage();
 
 }
 
 
-/* =========================================
-   БЫСТРЫЕ КНОПКИ
-   ========================================= */
-
-function quickQuestion(question) {
-
-    sendMessage(question);
-
-}
-
-
-/* =========================================
+/* =========================
    ENTER
-   ========================================= */
+========================= */
 
-function handleEnter(event) {
+input.addEventListener(
+    "keydown",
+    function(event){
 
-    if (event.key === "Enter") {
+        if(event.key === "Enter"){
 
-        event.preventDefault();
+            event.preventDefault();
 
-        sendMessage();
+            sendMessage();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   OPENAI TTS
+========================= */
+
+async function speak(text){
+
+    if(!text){
+        return;
+    }
+
+
+    const language =
+        languageSelect.value || "ru";
+
+
+    try{
+
+        const response =
+            await fetch(
+                TTS_URL,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        text:text,
+
+                        language:language
+
+                    })
+                }
+            );
+
+
+        if(!response.ok){
+
+            const errorText =
+                await response.text();
+
+            console.error(
+                "TTS server error:",
+                errorText
+            );
+
+            throw new Error(
+                "TTS error"
+            );
+
+        }
+
+
+        const audioBlob =
+            await response.blob();
+
+
+        const audioUrl =
+            URL.createObjectURL(
+                audioBlob
+            );
+
+
+        const audio =
+            new Audio(audioUrl);
+
+
+        audio.onended =
+            function(){
+
+                URL.revokeObjectURL(
+                    audioUrl
+                );
+
+            };
+
+
+        audio.onerror =
+            function(){
+
+                URL.revokeObjectURL(
+                    audioUrl
+                );
+
+            };
+
+
+        await audio.play();
+
+
+    }catch(error){
+
+        console.error(
+            "OpenAI TTS error:",
+            error
+        );
+
+
+        /*
+           ЕСЛИ OPENAI TTS НЕ СРАБОТАЛ,
+           ИСПОЛЬЗУЕМ ГОЛОС БРАУЗЕРА
+        */
+
+        browserSpeak(text);
 
     }
 
 }
 
 
-/* =========================================
-   ГОЛОС
-   ========================================= */
+/* =========================
+   BROWSER FALLBACK VOICE
+========================= */
 
-let recognition = null;
+function browserSpeak(text){
 
-function startVoice() {
+    if(!("speechSynthesis" in window)){
+        return;
+    }
+
+
+    speechSynthesis.cancel();
+
+
+    const lang =
+        languageSelect.value || "ru";
+
+
+    const langMap = {
+
+        ru:"ru-RU",
+        tr:"tr-TR",
+        en:"en-US",
+        de:"de-DE",
+        fr:"fr-FR",
+        es:"es-ES",
+        it:"it-IT",
+        ar:"ar-SA",
+        uk:"uk-UA",
+        pl:"pl-PL"
+
+    };
+
+
+    const utterance =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+
+    utterance.lang =
+        langMap[lang] || "ru-RU";
+
+
+    utterance.rate =
+        0.95;
+
+    utterance.pitch =
+        1.0;
+
+
+    const voices =
+        speechSynthesis.getVoices();
+
+
+    const selectedVoice =
+        voices.find(
+            voice =>
+                voice.lang.toLowerCase()
+                ===
+                utterance.lang.toLowerCase()
+        );
+
+
+    if(selectedVoice){
+
+        utterance.voice =
+            selectedVoice;
+
+    }
+
+
+    speechSynthesis.speak(
+        utterance
+    );
+
+}
+
+
+/* =========================
+   VOICE INPUT
+========================= */
+
+function startVoice(){
 
     const SpeechRecognition =
         window.SpeechRecognition ||
         window.webkitSpeechRecognition;
 
 
-    if (!SpeechRecognition) {
+    if(!SpeechRecognition){
 
         alert(
-            "Голосовой ввод не поддерживается этим браузером."
+            "Ваш браузер не поддерживает голосовой ввод."
         );
 
         return;
-
     }
 
 
-    if (recognition) {
-
-        try {
-            recognition.stop();
-        } catch(e) {}
-
-        recognition = null;
-
-        voiceButton.classList.remove("listening");
-
-        return;
-
-    }
+    const recognition =
+        new SpeechRecognition();
 
 
-    recognition = new SpeechRecognition();
+    const lang =
+        languageSelect.value || "ru";
 
 
-    const selectedLanguage =
-        document.getElementById("languageSelect").value;
+    const langMap = {
 
-
-    const languages = {
-
-        ru: "ru-RU",
-        tr: "tr-TR",
-        en: "en-US",
-        de: "de-DE",
-        fr: "fr-FR",
-        es: "es-ES",
-        it: "it-IT",
-        ar: "ar-SA",
-        uk: "uk-UA",
-        pl: "pl-PL"
+        ru:"ru-RU",
+        tr:"tr-TR",
+        en:"en-US",
+        de:"de-DE",
+        fr:"fr-FR",
+        es:"es-ES",
+        it:"it-IT",
+        ar:"ar-SA",
+        uk:"uk-UA",
+        pl:"pl-PL"
 
     };
 
 
     recognition.lang =
-        languages[selectedLanguage] || "ru-RU";
+        langMap[lang] || "ru-RU";
 
 
-    recognition.continuous = false;
+    recognition.continuous =
+        false;
 
-    recognition.interimResults = false;
-
-
-    recognition.onstart = function() {
-
-        voiceButton.classList.add("listening");
-
-        voiceButton.textContent = "🔴";
-
-        statusText.textContent =
-            "Слушаю тебя... 🎙️";
-
-    };
+    recognition.interimResults =
+        false;
 
 
-    recognition.onresult = function(event) {
+    recognition.onstart =
+        function(){
 
-        const text =
-            event.results[0][0].transcript;
+            const t =
+                languages[lang] || languages.ru;
 
+            statusText.textContent =
+                t.listening;
 
-        input.value = text;
+            voiceButton.classList.add(
+                "active"
+            );
 
-        statusText.textContent = "";
-
-        voiceButton.classList.remove("listening");
-
-        voiceButton.textContent = "🎙️";
-
-
-        sendMessage();
-
-    };
+        };
 
 
-    recognition.onerror = function(event) {
+    recognition.onresult =
+        function(event){
 
-        console.log(
-            "Voice error:",
-            event.error
-        );
+            const text =
+                event.results[0][0].transcript;
 
-        statusText.textContent =
-            "Не удалось услышать голос.";
+            input.value =
+                text;
 
+            statusText.textContent = "";
 
-        voiceButton.classList.remove("listening");
+            sendMessage();
 
-        voiceButton.textContent = "🎙️";
-
-    };
+        };
 
 
-    recognition.onend = function() {
+    recognition.onerror =
+        function(event){
 
-        voiceButton.classList.remove("listening");
+            console.error(
+                "Voice error:",
+                event.error
+            );
 
-        voiceButton.textContent = "🎙️";
+            statusText.textContent =
+                "";
 
-    };
+        };
+
+
+    recognition.onend =
+        function(){
+
+            voiceButton.classList.remove(
+                "active"
+            );
+
+        };
 
 
     recognition.start();
@@ -773,161 +1116,80 @@ function startVoice() {
 }
 
 
-/* =========================================
-   ОЗВУЧКА ОТВЕТА
-   ========================================= */
+/* =========================
+   CLEAR CHAT
+========================= */
 
-function speak(text) {
+function clearChat(){
 
-    if (!("speechSynthesis" in window)) {
-        return;
-    }
+    chat.innerHTML = `
 
+        <div class="welcome">
 
-    window.speechSynthesis.cancel();
+            <div class="welcome-icon">
+                🤖
+            </div>
 
+            <h1 id="welcomeTitle">
+                ${languages[
+                    languageSelect.value
+                ].welcome}
+            </h1>
 
-    const language =
-        document.getElementById("languageSelect").value;
+            <p id="welcomeText">
+                ${languages[
+                    languageSelect.value
+                ].text}
+            </p>
 
+        </div>
 
-    const voices = {
+        <div class="quick-title" id="quickTitle">
+            ${languages[
+                languageSelect.value
+            ].quick}
+        </div>
 
-        ru: "ru-RU",
-        tr: "tr-TR",
-        en: "en-US",
-        de: "de-DE",
-        fr: "fr-FR",
-        es: "es-ES",
-        it: "it-IT",
-        ar: "ar-SA",
-        uk: "uk-UA",
-        pl: "pl-PL"
+        <div class="quick">
 
-    };
+            <button onclick="quickQuestion('Во сколько завтрак?')">
+                🍳 Завтрак
+            </button>
 
+            <button onclick="quickQuestion('Какие рестораны есть в отеле?')">
+                🍽️ Рестораны
+            </button>
 
-    const speech =
-        new SpeechSynthesisUtterance(text);
+            <button onclick="quickQuestion('Где находится бассейн?')">
+                🏊 Бассейн
+            </button>
 
+            <button onclick="quickQuestion('Можно заказать трансфер?')">
+                🚕 Трансфер
+            </button>
 
-    speech.lang =
-        voices[language] || "ru-RU";
+            <button onclick="quickQuestion('Какие экскурсии доступны?')">
+                🚌 Экскурсии
+            </button>
 
+            <button onclick="quickQuestion('Что можно посмотреть рядом с отелем?')">
+                📍 Рядом
+            </button>
 
-    speech.rate = 1;
+        </div>
 
-    speech.pitch = 1;
+    `;
 
-
-    window.speechSynthesis.speak(speech);
-
-}
-
-
-/* =========================================
-   ОЧИСТИТЬ ЧАТ
-   ========================================= */
-
-function clearChat() {
-
-    messages.innerHTML = "";
-
-    addMessage(
-        "Чат очищен. 👋 Чем могу помочь?",
-        "bot"
-    );
-
-}
-
-
-/* =========================================
-   ЯЗЫК
-   ========================================= */
-
-function changeLanguage() {
-
-    const language =
-        document.getElementById("languageSelect").value;
-
-
-    const titles = {
-
-        ru: "Чем я могу помочь вам сегодня? 😊",
-        tr: "Bugün size nasıl yardımcı olabilirim? 😊",
-        en: "How can I help you today? 😊",
-        de: "Wie kann ich Ihnen heute helfen? 😊",
-        fr: "Comment puis-je vous aider aujourd'hui ? 😊",
-        es: "¿Cómo puedo ayudarte hoy? 😊",
-        it: "Come posso aiutarti oggi? 😊",
-        ar: "كيف يمكنني مساعدتك اليوم؟ 😊",
-        uk: "Чим я можу допомогти вам сьогодні? 😊",
-        pl: "Jak mogę Ci dziś pomóc? 😊"
-
-    };
-
-
-    const placeholders = {
-
-        ru: "Напишите сообщение...",
-        tr: "Mesajınızı yazın...",
-        en: "Write a message...",
-        de: "Nachricht schreiben...",
-        fr: "Écrivez un message...",
-        es: "Escribe un mensaje...",
-        it: "Scrivi un messaggio...",
-        ar: "اكتب رسالة...",
-        uk: "Напишіть повідомлення...",
-        pl: "Napisz wiadomość..."
-
-    };
-
-
-    document.getElementById("welcomeTitle")
-        .textContent =
-        titles[language];
-
-
-    input.placeholder =
-        placeholders[language];
-
-
-    if (language === "tr") {
-
-        document.getElementById("welcomeText")
-            .textContent =
-            "Sorunuzu yazın veya aşağıdaki seçeneklerden birini kullanın.";
-
-    }
-
-    else if (language === "en") {
-
-        document.getElementById("welcomeText")
-            .textContent =
-            "Write your question or use one of the options below.";
-
-    }
-
-    else {
-
-        document.getElementById("welcomeText")
-            .textContent =
-            "Напишите вопрос или воспользуйтесь одной из кнопок ниже. Я помогу с отелем, путешествием, ресторанами и другими вопросами.";
-
-    }
+    statusText.textContent = "";
 
 }
 
 
-/* =========================================
-   ЗАГРУЗКА
-   ========================================= */
+/* =========================
+   LOAD
+========================= */
 
-window.addEventListener("load", function() {
-
-    input.focus();
-
-});
+changeLanguage();
 
 </script>
 
