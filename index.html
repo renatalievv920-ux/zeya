@@ -2,13 +2,9 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
-
-<title>Зея AI</title>
+<title>Selectum Noa Belek — Zeya AI</title>
 
 <style>
 
@@ -16,361 +12,243 @@
     box-sizing:border-box;
 }
 
-html,
 body{
     margin:0;
-    padding:0;
-    width:100%;
-    height:100%;
-}
-
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-    background:#050914;
+    min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at top,#173d52 0,#08131d 45%,#050a10 100%);
     color:white;
-    overflow:hidden;
 }
 
 .app{
     width:100%;
     max-width:850px;
-    height:100vh;
-    height:100dvh;
     margin:auto;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
 }
 
 /* HEADER */
 
-.header{
-    flex-shrink:0;
-    padding:14px 14px 12px;
-    padding-top:max(14px,env(safe-area-inset-top));
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    background:rgba(7,11,24,.96);
-    border-bottom:1px solid #202b43;
-
-    z-index:10;
+header{
+    padding:20px 16px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    background:rgba(4,12,18,.75);
+    backdrop-filter:blur(15px);
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:11px;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:.5px;
 }
 
-.logo-icon{
-    width:48px;
-    height:48px;
-    border-radius:15px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:27px;
-
-    background:linear-gradient(
-        135deg,
-        #695dff,
-        #a06aff
-    );
-
-    box-shadow:0 0 25px rgba(100,90,255,.4);
+.hotel{
+    margin-top:5px;
+    font-size:15px;
+    opacity:.75;
 }
 
-.logo-name{
-    font-size:21px;
-    font-weight:700;
+.status{
+    margin-top:8px;
+    font-size:13px;
+    color:#7ee7c6;
 }
 
-.logo-sub{
-    margin-top:3px;
-    color:#8995ad;
-    font-size:12px;
+/* LANGUAGE */
+
+.language-box{
+    padding:12px 16px 0;
 }
 
-.language{
-    background:#111a2d;
-    color:white;
-    border:1px solid #293957;
+select{
+    width:100%;
+    padding:13px;
     border-radius:12px;
-    padding:10px;
-    font-size:14px;
-    outline:none;
-    max-width:145px;
+    border:1px solid rgba(255,255,255,.15);
+    background:#101d27;
+    color:white;
+    font-size:15px;
+}
+
+/* WELCOME */
+
+.welcome{
+    padding:22px 16px 8px;
+}
+
+.welcome h1{
+    margin:0;
+    font-size:25px;
+}
+
+.welcome p{
+    margin:8px 0 0;
+    opacity:.75;
+    line-height:1.5;
+}
+
+/* QUICK BUTTONS */
+
+.quick{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:12px 16px;
+}
+
+.quick button{
+    white-space:nowrap;
+    border:1px solid rgba(255,255,255,.12);
+    background:#10202b;
+    color:white;
+    border-radius:20px;
+    padding:10px 14px;
+    cursor:pointer;
+}
+
+.quick button:active{
+    transform:scale(.97);
 }
 
 /* CHAT */
 
 .chat{
     flex:1;
+    padding:10px 16px 120px;
     overflow-y:auto;
-    padding:15px 13px 20px;
-
-    -webkit-overflow-scrolling:touch;
 }
-
-.welcome{
-    text-align:center;
-    padding:25px 10px 18px;
-}
-
-.robot{
-    font-size:52px;
-}
-
-.welcome h1{
-    margin:8px 0 0;
-    font-size:26px;
-}
-
-.welcome p{
-    color:#9da9bf;
-    line-height:1.5;
-    margin:10px auto;
-    max-width:650px;
-}
-
-/* MESSAGES */
 
 .message{
-    display:flex;
-    margin:13px 0;
-}
-
-.message.user{
-    justify-content:flex-end;
-}
-
-.bubble{
-    max-width:90%;
-    padding:13px 16px;
-    border-radius:18px;
-    line-height:1.5;
-    font-size:16px;
+    max-width:85%;
+    margin:10px 0;
+    padding:13px 15px;
+    border-radius:17px;
+    line-height:1.45;
     white-space:pre-wrap;
-    word-break:break-word;
 }
 
-.message.zeya .bubble{
-    background:#141f34;
-    border:1px solid #293957;
+.bot{
+    background:#122631;
     border-bottom-left-radius:5px;
 }
 
-.message.user .bubble{
-    background:linear-gradient(
-        135deg,
-        #6258ff,
-        #8068ff
-    );
+.user{
+    margin-left:auto;
+    background:#176b63;
     border-bottom-right-radius:5px;
 }
 
-/* QUICK */
+/* TYPING */
 
-.quick-title{
-    color:#8d99b0;
-    font-size:13px;
-    margin:5px 0 9px;
-}
-
-.quick{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-}
-
-.quick button{
-    min-height:47px;
-    padding:9px;
-
-    border-radius:13px;
-
-    background:#10192c;
-    color:#e8ecff;
-
-    border:1px solid #293957;
-
+.typing{
+    display:none;
+    opacity:.65;
     font-size:14px;
-}
-
-.quick button:active{
-    transform:scale(.98);
-}
-
-/* STATUS */
-
-.status{
-    flex-shrink:0;
-    min-height:23px;
-    padding:0 15px 5px;
-    color:#8f9ab1;
-    font-size:13px;
-}
-
-/* BOTTOM */
-
-.bottom{
-    flex-shrink:0;
-
-    padding:
-        8px
-        12px
-        max(12px,env(safe-area-inset-bottom))
-        12px;
-
-    background:#060a16;
-
-    border-top:1px solid #1c273d;
+    padding:5px 5px 12px;
 }
 
 /* VOICE */
 
-.voice-enable{
-    width:100%;
-
-    height:43px;
-
-    margin-bottom:9px;
-
-    border-radius:12px;
-
-    border:1px solid #394b70;
-
-    background:#111a2d;
-
-    color:#e9edff;
-
-    font-size:14px;
-    font-weight:600;
+.voice-area{
+    padding:0 16px 10px;
 }
 
-.voice-enable.enabled{
-    background:#172344;
-    border-color:#6c63ff;
+.voice-button{
+    width:100%;
+    padding:13px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.15);
+    background:#101f2a;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.voice-button.enabled{
+    background:#164c45;
+    border-color:#3ac9a4;
 }
 
 /* INPUT */
 
-.input-row{
+.input-area{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    max-width:850px;
+    margin:auto;
+    padding:10px 12px 14px;
+    background:rgba(4,10,15,.94);
+    backdrop-filter:blur(18px);
     display:flex;
     gap:8px;
+    border-top:1px solid rgba(255,255,255,.1);
 }
 
-.input{
+.input-area input{
     flex:1;
     min-width:0;
-
-    height:55px;
-
-    background:#111a2d;
+    padding:14px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.15);
+    background:#101b24;
     color:white;
-
-    border:1px solid #2a3956;
-    border-radius:15px;
-
-    padding:0 14px;
-
-    font-size:16px;
     outline:none;
+    font-size:15px;
 }
 
-.input::placeholder{
-    color:#71809a;
-}
-
-.input:focus{
-    border-color:#7067ff;
+.input-area button{
+    width:48px;
+    border:0;
+    border-radius:14px;
+    background:#18796c;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
 }
 
 .mic{
-    width:55px;
-    height:55px;
-
-    border:0;
-    border-radius:15px;
-
-    background:#17233e;
-    color:white;
-
-    font-size:21px;
-}
-
-.mic.active{
-    background:#d93855;
-    animation:pulse 1s infinite;
-}
-
-.send{
-    width:55px;
-    height:55px;
-
-    border:0;
-    border-radius:15px;
-
-    background:linear-gradient(
-        135deg,
-        #6258ff,
-        #8068ff
-    );
-
-    color:white;
-
-    font-size:21px;
-}
-
-@keyframes pulse{
-    50%{
-        transform:scale(1.06);
-    }
+    background:#273746 !important;
 }
 
 /* CLEAR */
 
 .clear{
     text-align:center;
-    margin-top:8px;
+    padding:4px 16px 10px;
 }
 
 .clear button{
-    background:none;
     border:0;
-    color:#6f7b91;
-    font-size:12px;
+    background:none;
+    color:#aaa;
+    cursor:pointer;
+    font-size:13px;
 }
 
 /* MOBILE */
 
 @media(max-width:600px){
 
-    .header{
-        padding-left:12px;
-        padding-right:12px;
-    }
-
-    .logo-icon{
-        width:44px;
-        height:44px;
+    .logo{
         font-size:24px;
     }
 
-    .logo-name{
-        font-size:19px;
+    .hotel{
+        font-size:13px;
     }
 
-    .language{
-        max-width:140px;
+    .welcome h1{
+        font-size:22px;
     }
 
-    .bubble{
-        max-width:92%;
+    .message{
+        max-width:90%;
     }
 
 }
@@ -383,195 +261,142 @@ body{
 
 <div class="app">
 
-
-<!-- HEADER -->
-
-<div class="header">
+<header>
 
     <div class="logo">
-
-        <div class="logo-icon">
-            ✨
-        </div>
-
-        <div>
-
-            <div class="logo-name">
-                Зея AI
-            </div>
-
-            <div class="logo-sub">
-                AI concierge
-            </div>
-
-        </div>
-
+        🤖 Zeya AI
     </div>
 
+    <div class="hotel">
+        Selectum Noa Belek
+    </div>
 
-    <select
-        id="language"
-        class="language"
-    >
+    <div class="status" id="status">
+        AI Concierge
+    </div>
 
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="tr">🇹🇷 Türkçe</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="it">🇮🇹 Italiano</option>
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="uk">🇺🇦 Українська</option>
-        <option value="pl">🇵🇱 Polski</option>
+</header>
 
-    </select>
+
+<div class="language-box">
+
+<select id="language">
+
+    <option value="tr">🇹🇷 Türkçe</option>
+    <option value="ru">🇷🇺 Русский</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="de">🇩🇪 Deutsch</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="ar">🇸🇦 العربية</option>
+    <option value="uk">🇺🇦 Українська</option>
+    <option value="pl">🇵🇱 Polski</option>
+
+</select>
 
 </div>
 
 
-<!-- CHAT -->
+<section class="welcome">
 
-<div
-    id="chat"
-    class="chat"
->
+    <h1 id="welcomeTitle">
+        Hoş geldiniz! 👋
+    </h1>
 
-    <div class="welcome">
+    <p id="welcomeText">
+        Ben Zeya, Selectum Noa Belek AI asistanınızım.
+        Oteliniz hakkında size yardımcı olabilirim.
+    </p>
 
-        <div class="robot">
-            🤖
-        </div>
-
-        <h1 id="welcomeTitle">
-            Привет! Я Зея 😊
-        </h1>
-
-        <p id="welcomeText">
-            Ваш AI-консьерж. Я помогу с отелем,
-            ресторанами, трансфером, экскурсиями
-            и путешествиями.
-        </p>
-
-    </div>
+</section>
 
 
-    <div
-        id="quickTitle"
-        class="quick-title"
-    >
-        Быстрые вопросы
-    </div>
+<div class="quick">
 
-
-    <div class="quick">
-
-        <button onclick="quick('Во сколько завтрак?')">
-            🍳 Завтрак
-        </button>
-
-        <button onclick="quick('Какие рестораны есть в отеле?')">
-            🍽️ Рестораны
-        </button>
-
-        <button onclick="quick('Где находится бассейн?')">
-            🏊 Бассейн
-        </button>
-
-        <button onclick="quick('Можно заказать трансфер?')">
-            🚕 Трансфер
-        </button>
-
-        <button onclick="quick('Какие экскурсии доступны?')">
-            🚌 Экскурсии
-        </button>
-
-        <button onclick="quick('Что можно посмотреть рядом с отелем?')">
-            📍 Рядом
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- STATUS -->
-
-<div
-    id="status"
-    class="status"
-></div>
-
-
-<!-- BOTTOM -->
-
-<div class="bottom">
-
-
-    <!-- ГЛАВНАЯ КНОПКА ГОЛОСА -->
-
-    <button
-        id="voiceEnable"
-        class="voice-enable"
-        onclick="enableVoice()"
-    >
-        🔊 Включить голос Зеи
+    <button onclick="quickQuestion('Restoranlar saat kaçta açılıyor?')">
+        🍽️ Restoranlar
     </button>
 
+    <button onclick="quickQuestion('Kahvaltı saat kaçta?')">
+        🍳 Kahvaltı
+    </button>
 
-    <div class="input-row">
+    <button onclick="quickQuestion('Akşam yemeği saat kaçta?')">
+        🌙 Akşam yemeği
+    </button>
 
+    <button onclick="quickQuestion('SPA hakkında bilgi verir misiniz?')">
+        💆 SPA
+    </button>
 
-        <input
-            id="input"
-            class="input"
-            type="text"
-            placeholder="Напишите сообщение..."
-            autocomplete="off"
-        >
-
-
-        <button
-            id="mic"
-            class="mic"
-            onclick="startVoice()"
-        >
-            🎙️
-        </button>
-
-
-        <button
-            class="send"
-            onclick="sendMessage()"
-        >
-            ➤
-        </button>
-
-
-    </div>
-
-
-    <div class="clear">
-
-        <button onclick="clearChat()">
-            🗑️ Очистить чат
-        </button>
-
-    </div>
-
+    <button onclick="quickQuestion('Otelde hangi aktiviteler var?')">
+        🎯 Aktiviteler
+    </button>
 
 </div>
 
+
+<div class="chat" id="chat"></div>
+
+<div class="typing" id="typing">
+    Zeya düşünüyor... 🤖
+</div>
+
+
+<div class="voice-area">
+
+    <button
+        class="voice-button"
+        id="voiceButton"
+        onclick="enableVoice()"
+    >
+        🔊 Zeya'nın sesini aç
+    </button>
+
+</div>
+
+
+<div class="clear">
+
+    <button onclick="clearChat()">
+        🗑️ Sohbeti temizle
+    </button>
+
+</div>
+
+
+<div class="input-area">
+
+    <button
+        class="mic"
+        onclick="startVoice()"
+        id="micButton"
+    >
+        🎙️
+    </button>
+
+    <input
+        id="input"
+        type="text"
+        placeholder="Zeya'ya bir soru sorun..."
+        autocomplete="off"
+    >
+
+    <button onclick="sendMessage()">
+        ➤
+    </button>
+
+</div>
 
 </div>
 
 
 <script>
 
-
-/* ==========================================
+/* =========================
    API
-========================================== */
+========================= */
 
 const API_URL =
     "https://zeya-pi.vercel.app/api/chat";
@@ -580,9 +405,9 @@ const TTS_URL =
     "https://zeya-pi.vercel.app/api/tts";
 
 
-/* ==========================================
+/* =========================
    ELEMENTS
-========================================== */
+========================= */
 
 const chat =
     document.getElementById("chat");
@@ -590,263 +415,473 @@ const chat =
 const input =
     document.getElementById("input");
 
-const status =
-    document.getElementById("status");
-
 const language =
     document.getElementById("language");
 
-const mic =
-    document.getElementById("mic");
+const typing =
+    document.getElementById("typing");
 
-const voiceEnable =
-    document.getElementById("voiceEnable");
+const status =
+    document.getElementById("status");
+
+const voiceButton =
+    document.getElementById("voiceButton");
+
+const micButton =
+    document.getElementById("micButton");
 
 
-/* ==========================================
-   AUDIO
-========================================== */
+/* =========================
+   VOICE
+========================= */
 
 let voiceEnabled = false;
 
-let audio =
-    new Audio();
+let audio = new Audio();
 
-audio.preload =
-    "auto";
+audio.preload = "auto";
 
 
-/* ==========================================
-   LANGUAGES
-========================================== */
+/* =========================
+   LANGUAGE TEXT
+========================= */
 
 const langData = {
 
-    ru:{
-        welcome:"Привет! Я Зея 😊",
-        text:"Ваш AI-консьерж. Я помогу с отелем, ресторанами, трансфером, экскурсиями и путешествиями.",
-        placeholder:"Напишите сообщение...",
-        quick:"Быстрые вопросы",
-        thinking:"Зея думает... 🤖",
-        listening:"🔴 Слушаю тебя...",
-        enabled:"🔊 Голос Зеи включён",
-        enable:"🔊 Включить голос Зеи",
-        error:"Произошла ошибка. Попробуйте ещё раз."
+    tr:{
+        welcome:"Hoş geldiniz! 👋",
+        text:"Ben Zeya, Selectum Noa Belek AI asistanınızım. Oteliniz hakkında size yardımcı olabilirim.",
+        placeholder:"Zeya'ya bir soru sorun...",
+        voice:"🔊 Zeya'nın sesini aç",
+        enabled:"🔊 Zeya'nın sesi açık",
+        thinking:"Zeya düşünüyor... 🤖",
+        listening:"🎙️ Sizi dinliyorum..."
     },
 
-    tr:{
-        welcome:"Merhaba! Ben Zeya 😊",
-        text:"Otel, restoranlar, transfer, geziler ve seyahat konusunda size yardımcı olan AI asistanınızım.",
-        placeholder:"Mesajınızı yazın...",
-        quick:"Hızlı sorular",
-        thinking:"Zeya düşünüyor... 🤖",
-        listening:"🔴 Seni dinliyorum...",
-        enabled:"🔊 Zeya'nın sesi açık",
-        enable:"🔊 Zeya'nın sesini aç",
-        error:"Bir hata oluştu. Lütfen tekrar deneyin."
+    ru:{
+        welcome:"Добро пожаловать! 👋",
+        text:"Я Зея, AI-консьерж Selectum Noa Belek. Я помогу вам с вопросами об отеле.",
+        placeholder:"Задайте вопрос Зее...",
+        voice:"🔊 Включить голос Зеи",
+        enabled:"🔊 Голос Зеи включён",
+        thinking:"Зея думает... 🤖",
+        listening:"🎙️ Я слушаю..."
     },
 
     en:{
-        welcome:"Hello! I'm Zeya 😊",
-        text:"Your AI concierge. I can help with hotels, restaurants, transfers, excursions and travel.",
-        placeholder:"Write a message...",
-        quick:"Quick questions",
+        welcome:"Welcome! 👋",
+        text:"I'm Zeya, the Selectum Noa Belek AI concierge. I can help you with questions about the hotel.",
+        placeholder:"Ask Zeya a question...",
+        voice:"🔊 Turn on Zeya's voice",
+        enabled:"🔊 Zeya's voice is on",
         thinking:"Zeya is thinking... 🤖",
-        listening:"🔴 I'm listening...",
-        enabled:"🔊 Zeya voice is on",
-        enable:"🔊 Enable Zeya voice",
-        error:"Something went wrong."
+        listening:"🎙️ I'm listening..."
     },
 
     de:{
-        welcome:"Hallo! Ich bin Zeya 😊",
-        text:"Ihre AI-Concierge. Ich helfe Ihnen mit Hotels, Restaurants, Transfers und Ausflügen.",
-        placeholder:"Nachricht schreiben...",
-        quick:"Schnelle Fragen",
+        welcome:"Willkommen! 👋",
+        text:"Ich bin Zeya, der AI-Concierge des Selectum Noa Belek.",
+        placeholder:"Frage an Zeya...",
+        voice:"🔊 Zeyas Stimme einschalten",
+        enabled:"🔊 Zeyas Stimme ist aktiv",
         thinking:"Zeya denkt nach... 🤖",
-        listening:"🔴 Ich höre zu...",
-        enabled:"🔊 Stimme aktiviert",
-        enable:"🔊 Stimme aktivieren",
-        error:"Ein Fehler ist aufgetreten."
+        listening:"🎙️ Ich höre zu..."
     },
 
     fr:{
-        welcome:"Bonjour ! Je suis Zeya 😊",
-        text:"Votre concierge IA. Je peux vous aider avec l'hôtel, les restaurants, les transferts et les excursions.",
-        placeholder:"Écrivez un message...",
-        quick:"Questions rapides",
+        welcome:"Bienvenue ! 👋",
+        text:"Je suis Zeya, votre concierge IA du Selectum Noa Belek.",
+        placeholder:"Posez une question à Zeya...",
+        voice:"🔊 Activer la voix de Zeya",
+        enabled:"🔊 La voix de Zeya est activée",
         thinking:"Zeya réfléchit... 🤖",
-        listening:"🔴 Je vous écoute...",
-        enabled:"🔊 Voix activée",
-        enable:"🔊 Activer la voix",
-        error:"Une erreur est survenue."
+        listening:"🎙️ Je vous écoute..."
     },
 
     es:{
-        welcome:"¡Hola! Soy Zeya 😊",
-        text:"Tu conserje de IA. Puedo ayudarte con hoteles, restaurantes, traslados y excursiones.",
-        placeholder:"Escribe un mensaje...",
-        quick:"Preguntas rápidas",
+        welcome:"¡Bienvenido! 👋",
+        text:"Soy Zeya, la asistente de IA del Selectum Noa Belek.",
+        placeholder:"Haz una pregunta a Zeya...",
+        voice:"🔊 Activar la voz de Zeya",
+        enabled:"🔊 La voz de Zeya está activa",
         thinking:"Zeya está pensando... 🤖",
-        listening:"🔴 Te escucho...",
-        enabled:"🔊 Voz activada",
-        enable:"🔊 Activar voz",
-        error:"Ha ocurrido un error."
+        listening:"🎙️ Te escucho..."
     },
 
     it:{
-        welcome:"Ciao! Sono Zeya 😊",
-        text:"La tua concierge AI. Posso aiutarti con hotel, ristoranti, trasferimenti ed escursioni.",
-        placeholder:"Scrivi un messaggio...",
-        quick:"Domande rapide",
+        welcome:"Benvenuti! 👋",
+        text:"Sono Zeya, l'assistente AI del Selectum Noa Belek.",
+        placeholder:"Fai una domanda a Zeya...",
+        voice:"🔊 Attiva la voce di Zeya",
+        enabled:"🔊 La voce di Zeya è attiva",
         thinking:"Zeya sta pensando... 🤖",
-        listening:"🔴 Ti ascolto...",
-        enabled:"🔊 Voce attivata",
-        enable:"🔊 Attiva voce",
-        error:"Si è verificato un errore."
+        listening:"🎙️ Ti ascolto..."
     },
 
     ar:{
-        welcome:"مرحباً! أنا زيا 😊",
-        text:"مساعدك الذكي للفندق والمطاعم والتنقل والرحلات والسفر.",
-        placeholder:"اكتب رسالتك...",
-        quick:"أسئلة سريعة",
+        welcome:"مرحباً بكم! 👋",
+        text:"أنا زيا، المساعدة الذكية في Selectum Noa Belek.",
+        placeholder:"اسأل زيا سؤالاً...",
+        voice:"🔊 تشغيل صوت زيا",
+        enabled:"🔊 صوت زيا يعمل",
         thinking:"زيا تفكر... 🤖",
-        listening:"🔴 أنا أستمع...",
-        enabled:"🔊 تم تشغيل الصوت",
-        enable:"🔊 تشغيل صوت زيا",
-        error:"حدث خطأ."
+        listening:"🎙️ أنا أستمع..."
     },
 
     uk:{
-        welcome:"Привіт! Я Зея 😊",
-        text:"Ваш AI-консьєр. Я допоможу з готелем, ресторанами, трансфером та екскурсіями.",
-        placeholder:"Напишіть повідомлення...",
-        quick:"Швидкі запитання",
+        welcome:"Ласкаво просимо! 👋",
+        text:"Я Зея, AI-консьєрж Selectum Noa Belek.",
+        placeholder:"Поставте запитання Зеї...",
+        voice:"🔊 Увімкнути голос Зеї",
+        enabled:"🔊 Голос Зеї увімкнено",
         thinking:"Зея думає... 🤖",
-        listening:"🔴 Я слухаю...",
-        enabled:"🔊 Голос увімкнено",
-        enable:"🔊 Увімкнути голос",
-        error:"Сталася помилка."
+        listening:"🎙️ Я слухаю..."
     },
 
     pl:{
-        welcome:"Cześć! Jestem Zeya 😊",
-        text:"Twój AI concierge. Pomogę z hotelem, restauracjami, transferami i wycieczkami.",
-        placeholder:"Napisz wiadomość...",
-        quick:"Szybkie pytania",
+        welcome:"Witamy! 👋",
+        text:"Jestem Zeya, asystentką AI hotelu Selectum Noa Belek.",
+        placeholder:"Zadaj pytanie Zeyi...",
+        voice:"🔊 Włącz głos Zeyi",
+        enabled:"🔊 Głos Zeyi jest włączony",
         thinking:"Zeya myśli... 🤖",
-        listening:"🔴 Słucham...",
-        enabled:"🔊 Głos włączony",
-        enable:"🔊 Włącz głos",
-        error:"Wystąpił błąd."
+        listening:"🎙️ Słucham..."
     }
 
 };
 
 
-/* ==========================================
-   LANGUAGE
-========================================== */
-
-function updateLanguage(){
-
-    const l =
-        langData[language.value] ||
-        langData.ru;
-
-    document.getElementById(
-        "welcomeTitle"
-    ).textContent =
-        l.welcome;
-
-    document.getElementById(
-        "welcomeText"
-    ).textContent =
-        l.text;
-
-    document.getElementById(
-        "quickTitle"
-    ).textContent =
-        l.quick;
-
-    input.placeholder =
-        l.placeholder;
-
-    if(!voiceEnabled){
-
-        voiceEnable.textContent =
-            l.enable;
-
-    }else{
-
-        voiceEnable.textContent =
-            l.enabled;
-
-    }
-
-}
+/* =========================
+   LANGUAGE CHANGE
+========================= */
 
 language.addEventListener(
     "change",
-    updateLanguage
+    function(){
+
+        const data =
+            langData[language.value] ||
+            langData.tr;
+
+        document.getElementById(
+            "welcomeTitle"
+        ).textContent =
+            data.welcome;
+
+        document.getElementById(
+            "welcomeText"
+        ).textContent =
+            data.text;
+
+        input.placeholder =
+            data.placeholder;
+
+        if(!voiceEnabled){
+
+            voiceButton.textContent =
+                data.voice;
+
+        }else{
+
+            voiceButton.textContent =
+                data.enabled;
+
+        }
+
+        typing.textContent =
+            data.thinking;
+
+    }
 );
 
 
-/* ==========================================
+/* =========================
    ADD MESSAGE
-========================================== */
+========================= */
 
 function addMessage(
     text,
     type
 ){
 
-    const message =
+    const div =
         document.createElement("div");
 
-    message.className =
+    div.className =
         "message " + type;
 
-
-    const bubble =
-        document.createElement("div");
-
-    bubble.className =
-        "bubble";
-
-    bubble.textContent =
+    div.textContent =
         text;
 
-
-    message.appendChild(
-        bubble
-    );
-
-    chat.appendChild(
-        message
-    );
-
+    chat.appendChild(div);
 
     chat.scrollTop =
         chat.scrollHeight;
+}
+
+
+/* =========================
+   SEND
+========================= */
+
+async function sendMessage(){
+
+    const message =
+        input.value.trim();
+
+    if(!message){
+        return;
+    }
+
+    addMessage(
+        message,
+        "user"
+    );
+
+    input.value = "";
+
+    typing.style.display =
+        "block";
+
+    status.textContent =
+        "Zeya AI";
+
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                        "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        message:message,
+
+                        language:
+                            language.value
+
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.error ||
+                "API error"
+            );
+
+        }
+
+
+        const reply =
+            data.reply ||
+            "Üzgünüm, cevap alınamadı.";
+
+
+        addMessage(
+            reply,
+            "bot"
+        );
+
+
+        if(voiceEnabled){
+
+            speak(reply);
+
+        }
+
+
+    }catch(error){
+
+        console.error(
+            "CHAT ERROR:",
+            error
+        );
+
+        addMessage(
+            "Bağlantıda bir sorun oluştu. Lütfen tekrar deneyin.",
+            "bot"
+        );
+
+    }
+
+
+    typing.style.display =
+        "none";
+}
+
+
+/* =========================
+   ENTER
+========================= */
+
+input.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            sendMessage();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   QUICK QUESTION
+========================= */
+
+function quickQuestion(
+    question
+){
+
+    input.value =
+        question;
+
+    sendMessage();
 
 }
 
 
-/* ==========================================
+/* =========================
+   OPENAI TTS
+========================= */
+
+async function speak(text){
+
+    if(!voiceEnabled){
+        return;
+    }
+
+    try{
+
+        const response =
+            await fetch(
+                TTS_URL,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                        "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        text:text,
+
+                        language:
+                            language.value
+
+                    })
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "TTS error"
+            );
+
+        }
+
+
+        const blob =
+            await response.blob();
+
+
+        const url =
+            URL.createObjectURL(blob);
+
+
+        audio.pause();
+
+        audio.src =
+            url;
+
+        audio.currentTime =
+            0;
+
+        await audio.play();
+
+
+        audio.onended =
+            function(){
+
+                URL.revokeObjectURL(
+                    url
+                );
+
+            };
+
+
+    }catch(error){
+
+        console.error(
+            "TTS ERROR:",
+            error
+        );
+
+
+        /* fallback */
+
+        if(
+            "speechSynthesis"
+            in window
+        ){
+
+            const utterance =
+                new SpeechSynthesisUtterance(
+                    text
+                );
+
+            utterance.lang =
+                language.value === "tr"
+                    ? "tr-TR"
+                    : language.value + "-" +
+                      language.value.toUpperCase();
+
+            utterance.rate =
+                0.95;
+
+            speechSynthesis.cancel();
+
+            speechSynthesis.speak(
+                utterance
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================
    ENABLE VOICE
-========================================== */
+========================= */
 
 async function enableVoice(){
 
     try{
-
-        /*
-         * iPhone Safari требует,
-         * чтобы первое audio.play()
-         * произошло внутри нажатия пользователя.
-         */
 
         const silentWav =
             "data:audio/wav;base64," +
@@ -883,10 +918,6 @@ async function enableVoice(){
             1;
 
 
-        /*
-         * AudioContext
-         */
-
         const AC =
             window.AudioContext ||
             window.webkitAudioContext;
@@ -903,14 +934,11 @@ async function enableVoice(){
 
 
             if(
-                window.zeyaContext.state
-                ===
+                window.zeyaContext.state ===
                 "suspended"
             ){
 
-                await
-                    window.zeyaContext
-                    .resume();
+                await window.zeyaContext.resume();
 
             }
 
@@ -921,15 +949,16 @@ async function enableVoice(){
             true;
 
 
-        voiceEnable.textContent =
+        voiceButton.textContent =
             (
                 langData[
                     language.value
-                ] || langData.ru
+                ] ||
+                langData.tr
             ).enabled;
 
 
-        voiceEnable.classList.add(
+        voiceButton.classList.add(
             "enabled"
         );
 
@@ -938,7 +967,8 @@ async function enableVoice(){
             (
                 langData[
                     language.value
-                ] || langData.ru
+                ] ||
+                langData.tr
             ).enabled;
 
 
@@ -946,7 +976,7 @@ async function enableVoice(){
             function(){
 
                 status.textContent =
-                    "";
+                    "AI Concierge";
 
             },
             2000
@@ -965,378 +995,21 @@ async function enableVoice(){
 }
 
 
-/* ==========================================
-   SEND
-========================================== */
-
-async function sendMessage(){
-
-    const message =
-        input.value.trim();
-
-
-    const l =
-        langData[
-            language.value
-        ] || langData.ru;
-
-
-    if(!message){
-
-        status.textContent =
-            "Напишите сообщение.";
-
-        return;
-
-    }
-
-
-    addMessage(
-        message,
-        "user"
-    );
-
-
-    input.value =
-        "";
-
-
-    status.textContent =
-        l.thinking;
-
-
-    try{
-
-        const response =
-            await fetch(
-                API_URL,
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body:
-                        JSON.stringify({
-                            message:message
-                        })
-                }
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if(!response.ok){
-
-            throw new Error(
-                data.error ||
-                "API error"
-            );
-
-        }
-
-
-        const reply =
-            data.reply ||
-            "Не удалось получить ответ.";
-
-
-        addMessage(
-            reply,
-            "zeya"
-        );
-
-
-        status.textContent =
-            "";
-
-
-        await speak(
-            reply
-        );
-
-
-    }catch(error){
-
-        console.error(
-            error
-        );
-
-
-        status.textContent =
-            l.error;
-
-
-        addMessage(
-            l.error,
-            "zeya"
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   TTS
-========================================== */
-
-async function speak(
-    text
-){
-
-    if(!text){
-        return;
-    }
-
-
-    if(!voiceEnabled){
-
-        console.log(
-            "Голос ещё не включён."
-        );
-
-        return;
-
-    }
-
-
-    try{
-
-        const response =
-            await fetch(
-                TTS_URL,
-                {
-
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body:
-                        JSON.stringify({
-
-                            text:text,
-
-                            language:
-                                language.value
-
-                        })
-
-                }
-            );
-
-
-        if(!response.ok){
-
-            const error =
-                await response.text();
-
-            console.error(
-                "TTS ERROR:",
-                error
-            );
-
-            throw new Error(
-                "TTS server error"
-            );
-
-        }
-
-
-        const blob =
-            await response.blob();
-
-
-        const url =
-            URL.createObjectURL(
-                blob
-            );
-
-
-        /*
-         * Останавливаем предыдущий звук
-         */
-
-        audio.pause();
-
-        audio.currentTime =
-            0;
-
-
-        audio.src =
-            url;
-
-        audio.volume =
-            1;
-
-
-        audio.onended =
-            function(){
-
-                URL.revokeObjectURL(
-                    url
-                );
-
-            };
-
-
-        audio.onerror =
-            function(){
-
-                URL.revokeObjectURL(
-                    url
-                );
-
-            };
-
-
-        await audio.play();
-
-
-    }catch(error){
-
-        console.error(
-            "TTS:",
-            error
-        );
-
-
-        /*
-         * Запасной голос браузера
-         */
-
-        browserSpeak(
-            text
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   BROWSER VOICE
-========================================== */
-
-function browserSpeak(
-    text
-){
-
-    if(
-        !("speechSynthesis" in window)
-    ){
-
-        return;
-
-    }
-
-
-    speechSynthesis.cancel();
-
-
-    const map = {
-
-        ru:"ru-RU",
-        tr:"tr-TR",
-        en:"en-US",
-        de:"de-DE",
-        fr:"fr-FR",
-        es:"es-ES",
-        it:"it-IT",
-        ar:"ar-SA",
-        uk:"uk-UA",
-        pl:"pl-PL"
-
-    };
-
-
-    const utterance =
-        new SpeechSynthesisUtterance(
-            text
-        );
-
-
-    utterance.lang =
-        map[
-            language.value
-        ] || "ru-RU";
-
-
-    utterance.rate =
-        0.95;
-
-    utterance.pitch =
-        1;
-
-
-    speechSynthesis.speak(
-        utterance
-    );
-
-}
-
-
-/* ==========================================
-   QUICK
-========================================== */
-
-function quick(
-    text
-){
-
-    input.value =
-        text;
-
-    sendMessage();
-
-}
-
-
-/* ==========================================
-   ENTER
-========================================== */
-
-input.addEventListener(
-    "keydown",
-    function(event){
-
-        if(
-            event.key ===
-            "Enter"
-        ){
-
-            event.preventDefault();
-
-            sendMessage();
-
-        }
-
-    }
-);
-
-
-/* ==========================================
-   VOICE INPUT
-========================================== */
+/* =========================
+   MICROPHONE
+========================= */
 
 function startVoice(){
 
-    const Recognition =
+    const SpeechRecognition =
         window.SpeechRecognition ||
         window.webkitSpeechRecognition;
 
 
-    if(!Recognition){
+    if(!SpeechRecognition){
 
         alert(
-            "Голосовой ввод не поддерживается этим браузером."
+            "Sesli giriş bu tarayıcıda desteklenmiyor."
         );
 
         return;
@@ -1345,29 +1018,7 @@ function startVoice(){
 
 
     const recognition =
-        new Recognition();
-
-
-    const map = {
-
-        ru:"ru-RU",
-        tr:"tr-TR",
-        en:"en-US",
-        de:"de-DE",
-        fr:"fr-FR",
-        es:"es-ES",
-        it:"it-IT",
-        ar:"ar-SA",
-        uk:"uk-UA",
-        pl:"pl-PL"
-
-    };
-
-
-    recognition.lang =
-        map[
-            language.value
-        ] || "ru-RU";
+        new SpeechRecognition();
 
 
     recognition.continuous =
@@ -1376,42 +1027,45 @@ function startVoice(){
     recognition.interimResults =
         false;
 
-
-    recognition.onstart =
-        function(){
-
-            const l =
-                langData[
-                    language.value
-                ] || langData.ru;
+    recognition.lang =
+        getSpeechLanguage();
 
 
-            status.textContent =
-                l.listening;
+    const data =
+        langData[
+            language.value
+        ] ||
+        langData.tr;
 
 
-            mic.classList.add(
-                "active"
-            );
+    micButton.textContent =
+        "🔴";
 
-        };
+
+    status.textContent =
+        data.listening;
+
+
+    recognition.start();
 
 
     recognition.onresult =
         function(event){
 
             const text =
-                event
-                    .results[0][0]
-                    .transcript;
+                event.results[0][0].transcript;
 
 
             input.value =
                 text;
 
 
+            micButton.textContent =
+                "🎙️";
+
+
             status.textContent =
-                "";
+                "AI Concierge";
 
 
             sendMessage();
@@ -1423,12 +1077,17 @@ function startVoice(){
         function(event){
 
             console.error(
-                "MIC:",
+                "MIC ERROR:",
                 event.error
             );
 
+
+            micButton.textContent =
+                "🎙️";
+
+
             status.textContent =
-                "";
+                "AI Concierge";
 
         };
 
@@ -1436,106 +1095,72 @@ function startVoice(){
     recognition.onend =
         function(){
 
-            mic.classList.remove(
-                "active"
-            );
+            micButton.textContent =
+                "🎙️";
 
         };
-
-
-    try{
-
-        recognition.start();
-
-    }catch(error){
-
-        console.error(
-            error
-        );
-
-    }
 
 }
 
 
-/* ==========================================
+/* =========================
+   SPEECH LANGUAGE
+========================= */
+
+function getSpeechLanguage(){
+
+    const languages = {
+
+        tr:"tr-TR",
+
+        ru:"ru-RU",
+
+        en:"en-US",
+
+        de:"de-DE",
+
+        fr:"fr-FR",
+
+        es:"es-ES",
+
+        it:"it-IT",
+
+        ar:"ar-SA",
+
+        uk:"uk-UA",
+
+        pl:"pl-PL"
+
+    };
+
+
+    return languages[
+        language.value
+    ] || "tr-TR";
+
+}
+
+
+/* =========================
    CLEAR
-========================================== */
+========================= */
 
 function clearChat(){
 
-    const l =
-        langData[
-            language.value
-        ] || langData.ru;
-
-
-    chat.innerHTML = `
-
-        <div class="welcome">
-
-            <div class="robot">
-                🤖
-            </div>
-
-            <h1 id="welcomeTitle">
-                ${l.welcome}
-            </h1>
-
-            <p id="welcomeText">
-                ${l.text}
-            </p>
-
-        </div>
-
-        <div
-            id="quickTitle"
-            class="quick-title"
-        >
-            ${l.quick}
-        </div>
-
-        <div class="quick">
-
-            <button onclick="quick('Во сколько завтрак?')">
-                🍳 Завтрак
-            </button>
-
-            <button onclick="quick('Какие рестораны есть в отеле?')">
-                🍽️ Рестораны
-            </button>
-
-            <button onclick="quick('Где находится бассейн?')">
-                🏊 Бассейн
-            </button>
-
-            <button onclick="quick('Можно заказать трансфер?')">
-                🚕 Трансфер
-            </button>
-
-            <button onclick="quick('Какие экскурсии доступны?')">
-                🚌 Экскурсии
-            </button>
-
-            <button onclick="quick('Что можно посмотреть рядом с отелем?')">
-                📍 Рядом
-            </button>
-
-        </div>
-
-    `;
-
-    status.textContent =
+    chat.innerHTML =
         "";
 
 }
 
 
-/* ==========================================
-   START
-========================================== */
+/* =========================
+   START MESSAGE
+========================= */
 
-updateLanguage();
+addMessage(
+    "Merhaba! 👋 Ben Zeya, Selectum Noa Belek AI asistanınızım. Size nasıl yardımcı olabilirim?",
+    "bot"
+);
 
 </script>
 
