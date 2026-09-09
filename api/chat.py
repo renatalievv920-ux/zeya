@@ -1,458 +1,151 @@
-import os
 import json
+import os
 import urllib.request
 import urllib.error
-
 from http.server import BaseHTTPRequestHandler
 
 
-OPENAI_URL = "https://api.openai.com/v1/chat/completions"
+OPENAI_URL = "https://api.openai.com/v1/responses"
+MODEL = "gpt-5.6-luna"
 
-MODEL = "gpt-5.6"
 
-
-def ask_openai(message, image=None):
-
+def ask_openai(message):
     api_key = os.environ.get("OPENAI_API_KEY")
 
     if not api_key:
-        raise Exception(
-            "OPENAI_API_KEY не найден в настройках Vercel."
-        )
+        raise Exception("OPENAI_API_KEY не найден в Vercel.")
 
-
-    # -----------------------------
-    # ТОЛЬКО ТЕКСТ
-    # -----------------------------
-
-    if not image:
-
-        messages = [
-            {
-                "role": "system",
-                "content": (
-                    "Ты — Зея, личный AI-помощник. "
-                    "Твоё имя только Зея. "
-                    "Никогда не называй себя Теоманом. "
-                    "Отвечай понятно, дружелюбно и по делу."
-                )
-            },
-            {
-                "role": "user",
-                "content": message
-            }
-        ]
-
-
-    # -----------------------------
-    # ТЕКСТ + ФОТО
-    # -----------------------------
-
-    else:
-
-        messages = [
-            {
-                "role": "system",
-                "content": (
-                    "Ты — Зея, личный AI-помощник. "
-                    "Твоё имя только Зея. "
-                    "Никогда не называй себя Теоманом. "
-                    "Ты умеешь анализировать фотографии. "
-                    "Опиши пользователю, что изображено на фотографии, "
-                    "и отвечай на его вопрос по изображению."
-                )
-            },
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": message
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": image
-                        }
-                    }
-                ]
-            }
-        ]
-
-
-    payload = {
+    data = {
         "model": MODEL,
-        "messages": messages
+        "instructions": (
+            "Ты Зея — дружелюбный AI-консьерж для отелей. "
+            "Отвечай на языке пользователя. "
+            "Помогай с вопросами об отеле, ресторанах, трансфере, "
+            "экскурсиях, сервисах и путешествиях. "
+            "Отвечай понятно и коротко. "
+            "Никогда не придумывай часы работы, цены, правила отеля "
+            "или другие факты, которых у тебя нет. "
+            "Если точной информации нет — честно скажи об этом."
+        ),
+        "input": message
     }
-
-
-    data = json.dumps(
-        payload,
-        ensure_ascii=False
-    ).encode("utf-8")
-
 
     request = urllib.request.Request(
         OPENAI_URL,
-        data=data,
+        data=json.dumps(data).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + api_key
+        },
         method="POST"
     )
 
-
-    request.add_header(
-        "Authorization",
-        "Bearer " + api_key
-    )
-
-    request.add_header(
-        "Content-Type",
-        "application/json"
-    )
-
-
     try:
-
-        with urllib.request.urlopen(
-            request,
-            timeout=60
-        ) as response:
-
-            raw = response.read().decode(
-                "utf-8"
-            )
-
-            result = json.loads(raw)
-
+        with urllib.request.urlopen(request, timeout=60) as response:
+            result = json.loads(response.read().decode("utf-8"))
 
     except urllib.error.HTTPError as e:
+        error_text = e.read().decode("utf-8", errors="ignore")
+        raise Exception("OpenAI API error: " + error_text)
 
-        error_body = e.read().decode(
-            "utf-8",
-            errors="replace"
-        )
+    # Получаем текст ответа
+    if result.get("output_text"):
+        return result["output_text"]
 
-        raise Exception(
-            "OpenAI API " +
-            str(e.code) +
-            ": " +
-            error_body
-        )
+    texts = []
 
-
-    except Exception as e:
-
-        raise Exception(
-            "Ошибка подключения к OpenAI: " +
-            str(e)
-        )
-
-
-    # -----------------------------
-    # ПОЛУЧАЕМ ТЕКСТ
-    # -----------------------------
-
-    try:
-
-        answer = (
-            result
-            .get("choices", [{}])[0]
-            .get("message", {})
-            .get("content")
-        )
-
-    except Exception:
-
-        answer = None
-
-
-    if isinstance(answer, list):
-
-        parts = []
-
-        for item in answer:
-
-            if isinstance(item, dict):
-
-                text = item.get("text")
-
+    for item in result.get("output", []):
+        for content in item.get("content", []):
+            if content.get("type") == "output_text":
+                text = content.get("text", "")
                 if text:
-                    parts.append(
-                        str(text)
-                    )
+                    texts.append(text)
 
-        answer = "\n".join(parts)
+    if texts:
+        return "\n".join(texts)
 
-
-    if not answer:
-
-        raise Exception(
-            "OpenAI не вернул текстовый ответ. "
-            "Ответ API: " +
-            json.dumps(
-                result,
-                ensure_ascii=False
-            )
-        )
-
-
-    return str(answer).strip()
-
+    return "Не удалось получить ответ от ИИ."
 
 
 class handler(BaseHTTPRequestHandler):
 
-
-    # =====================================
-    # CORS
-    # =====================================
-
-    def send_cors(self):
-
-        self.send_header(
-            "Access-Control-Allow-Origin",
-            "*"
-        )
-
-        self.send_header(
-            "Access-Control-Allow-Methods",
-            "POST, OPTIONS"
-        )
-
-        self.send_header(
-            "Access-Control-Allow-Headers",
-            "Content-Type"
-        )
-
-
-    # =====================================
-    # JSON RESPONSE
-    # =====================================
-
-    def send_json(
-        self,
-        status,
-        data
-    ):
-
+    def send_json(self, status, data):
         body = json.dumps(
             data,
             ensure_ascii=False
         ).encode("utf-8")
 
-
         self.send_response(status)
-
-
-        self.send_cors()
-
-
         self.send_header(
             "Content-Type",
             "application/json; charset=utf-8"
         )
-
-
         self.send_header(
-            "Content-Length",
-            str(len(body))
+            "Access-Control-Allow-Origin",
+            "*"
         )
-
-
+        self.send_header(
+            "Access-Control-Allow-Headers",
+            "Content-Type"
+        )
+        self.send_header(
+            "Access-Control-Allow-Methods",
+            "POST, OPTIONS"
+        )
         self.end_headers()
-
 
         self.wfile.write(body)
 
-
-    # =====================================
-    # OPTIONS
-    # =====================================
-
     def do_OPTIONS(self):
-
-        self.send_json(
-            200,
-            {
-                "ok": True
-            }
-        )
-
-
-    # =====================================
-    # GET
-    # =====================================
+        self.send_json(200, {"ok": True})
 
     def do_GET(self):
-
         self.send_json(
             200,
             {
                 "ok": True,
-                "message": "Зея API работает 🤖"
+                "message": "Зея работает"
             }
         )
 
-
-    # =====================================
-    # POST
-    # =====================================
-
     def do_POST(self):
-
         try:
-
             content_length = int(
-                self.headers.get(
-                    "Content-Length",
-                    "0"
-                )
+                self.headers.get("Content-Length", "0")
             )
 
-
-            if content_length <= 0:
-
-                self.send_json(
-                    400,
-                    {
-                        "ok": False,
-                        "error": "Пустой запрос."
-                    }
-                )
-
-                return
-
-
-            body = self.rfile.read(
-                content_length
-            )
-
+            body = self.rfile.read(content_length)
 
             data = json.loads(
                 body.decode("utf-8")
             )
 
-
             message = str(
-                data.get(
-                    "message",
-                    ""
-                )
+                data.get("message", "")
             ).strip()
 
-
-            image = data.get(
-                "image"
-            )
-
-
-            # -----------------------------
-            # ПРОВЕРКА
-            # -----------------------------
-
             if not message:
-
-                message = (
-                    "Проанализируй изображение."
-                    if image
-                    else ""
-                )
-
-
-            if not message and not image:
-
                 self.send_json(
                     400,
                     {
-                        "ok": False,
-                        "error": "Сообщение пустое."
+                        "error": "Сообщение пустое"
                     }
                 )
-
                 return
 
-
-            # -----------------------------
-            # ПРОВЕРКА ФОТО
-            # -----------------------------
-
-            if image:
-
-                if not isinstance(
-                    image,
-                    str
-                ):
-
-                    self.send_json(
-                        400,
-                        {
-                            "ok": False,
-                            "error":
-                                "Неверный формат изображения."
-                        }
-                    )
-
-                    return
-
-
-                if not image.startswith(
-                    "data:image/"
-                ):
-
-                    self.send_json(
-                        400,
-                        {
-                            "ok": False,
-                            "error":
-                                "Изображение должно быть Base64 data URL."
-                        }
-                    )
-
-                    return
-
-
-            # -----------------------------
-            # OPENAI
-            # -----------------------------
-
-            answer = ask_openai(
-                message,
-                image
-            )
-
-
-            # -----------------------------
-            # УСПЕХ
-            # -----------------------------
+            reply = ask_openai(message)
 
             self.send_json(
                 200,
                 {
-                    "ok": True,
-                    "reply": answer,
-                    "response": answer,
-                    "message": answer
+                    "reply": reply
                 }
             )
-
-
-        except json.JSONDecodeError:
-
-            self.send_json(
-                400,
-                {
-                    "ok": False,
-                    "error":
-                        "Сервер получил неправильный JSON."
-                }
-            )
-
 
         except Exception as e:
-
             self.send_json(
                 500,
                 {
-                    "ok": False,
                     "error": str(e)
                 }
             )
