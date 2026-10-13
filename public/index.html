@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>Zeya AI — Selectum Noa Belek</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#0d0d0d;
+    color:#fff;
+    min-height:100vh;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:rgba(13,13,13,.94);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-circle{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#d6aa54;
+    color:#111;
+    font-size:22px;
+    font-family:Georgia,serif;
+}
+
+.logo-text{
+    font-size:20px;
+    font-weight:700;
+}
+
+.logo-sub{
+    font-size:11px;
+    color:#999;
+    margin-top:2px;
+}
+
+.language-btn{
+    border:1px solid rgba(255,255,255,.18);
+    background:#171717;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:24px;
+}
+
+.hero{
+    min-height:540px;
+    padding:90px 7% 70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at 50% 20%,rgba(214,170,84,.20),transparent 35%),
+        linear-gradient(180deg,#151515,#0d0d0d);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid rgba(214,170,84,.45);
+    border-radius:30px;
+    color:#d6aa54;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:clamp(42px,7vw,78px);
+    line-height:1;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:#d6aa54;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#aaa;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.hero-button{
+    margin-top:35px;
+    padding:16px 30px;
+    border:none;
+    border-radius:30px;
+    background:#d6aa54;
+    color:#111;
+    font-weight:700;
+    box-shadow:0 10px 35px rgba(214,170,84,.15);
+}
+
+.section{
+    padding:70px 7%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.section-title{
+    font-family:Georgia,serif;
+    font-size:36px;
+    margin-bottom:12px;
+}
+
+.section-subtitle{
+    color:#888;
+    margin-bottom:35px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.card{
+    min-height:170px;
+    padding:25px;
+    border-radius:20px;
+    background:#151515;
+    border:1px solid rgba(255,255,255,.07);
+    transition:.25s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(214,170,84,.4);
+}
+
+.card-icon{
+    font-size:32px;
+    margin-bottom:22px;
+}
+
+.card h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#888;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.chat-section{
+    padding:80px 5%;
+    background:#111;
+}
+
+.chat-box{
+    max-width:900px;
+    margin:auto;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:25px;
+    overflow:hidden;
+    background:#151515;
+    box-shadow:0 20px 70px rgba(0,0,0,.4);
+}
+
+.chat-header{
+    padding:22px 25px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.status{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#56c596;
+}
+
+.chat-title{
+    font-weight:700;
+}
+
+.chat-status{
+    color:#777;
+    font-size:12px;
+    margin-top:3px;
+}
+
+.messages{
+    height:390px;
+    overflow-y:auto;
+    padding:25px;
+}
+
+.message{
+    max-width:80%;
+    padding:13px 16px;
+    border-radius:16px;
+    margin-bottom:14px;
+    line-height:1.5;
+    white-space:pre-wrap;
+}
+
+.message.ai{
+    background:#202020;
+    color:#eee;
+    border-bottom-left-radius:4px;
+}
+
+.message.user{
+    margin-left:auto;
+    background:#d6aa54;
+    color:#111;
+    border-bottom-right-radius:4px;
+}
+
+.chat-input-area{
+    display:flex;
+    gap:10px;
+    padding:15px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.chat-input{
+    flex:1;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    padding:15px 18px;
+    background:#202020;
+    color:#fff;
+}
+
+.send-btn{
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    background:#d6aa54;
+    color:#111;
+    font-size:20px;
+}
+
+.quick{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:0 25px 20px;
+}
+
+.quick button{
+    border:1px solid rgba(255,255,255,.1);
+    background:#1d1d1d;
+    color:#bbb;
+    padding:9px 13px;
+    border-radius:20px;
+}
+
+.footer{
+    padding:35px 7%;
+    text-align:center;
+    color:#666;
+    font-size:13px;
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:500;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.75);
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(650px,100%);
+    max-height:85vh;
+    overflow:auto;
+    background:#181818;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:25px;
+    padding:30px;
+}
+
+.modal-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close{
+    border:none;
+    background:#252525;
+    color:#fff;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    font-size:20px;
+}
+
+.modal-content{
+    color:#aaa;
+    line-height:1.7;
+}
+
+.language-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.lang{
+    padding:16px;
+    border-radius:15px;
+    background:#222;
+    color:#fff;
+    border:1px solid transparent;
+}
+
+.lang:hover{
+    border-color:#d6aa54;
+}
+
+@media(max-width:900px){
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .header{
+        padding:0 20px;
+    }
+
+    .logo-sub{
+        display:none;
+    }
+
+    .hero{
+        min-height:500px;
+        padding:70px 20px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:55px 20px;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .card{
+        padding:18px;
+        min-height:150px;
+    }
+
+    .card-icon{
+        font-size:26px;
+    }
+
+    .chat-section{
+        padding:55px 12px;
+    }
+
+    .messages{
+        height:350px;
+        padding:18px;
+    }
+
+    .message{
+        max-width:90%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <div class="logo-circle">Z</div>
+        <div>
+            <div class="logo-text">Zeya</div>
+            <div class="logo-sub">Selectum Noa Belek</div>
+        </div>
+    </div>
+
+    <button class="language-btn" onclick="openLanguage()">
+        🌐 <span id="currentLanguage">English</span>
+    </button>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="badge">SELECTUM NOA BELEK</div>
+
+        <h1>Your stay.<br><span>Made easier.</span></h1>
+
+        <p>
+            Meet Zeya, your personal AI hotel concierge.
+            Ask about dining, activities, SPA, transfers,
+            hotel facilities and everything you need during your stay.
+        </p>
+
+        <button class="hero-button" onclick="scrollToChat()">
+            ✦ Ask Zeya
+        </button>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">How can I help?</h2>
+    <p class="section-subtitle">Everything you need during your stay.</p>
+
+    <div class="cards">
+
+        <div class="card" onclick="quickAsk('Tell me about restaurants and dining options.')">
+            <div class="card-icon">🍽️</div>
+            <h3>Dining</h3>
+            <p>Restaurants, meals and dining information.</p>
+        </div>
+
+        <div class="card" onclick="quickAsk('What activities and entertainment are available?')">
+            <div class="card-icon">🎉</div>
+            <h3>Experience</h3>
+            <p>Activities, entertainment and events.</p>
+        </div>
+
+        <div class="card" onclick="quickAsk('Tell me about SPA and wellness.')">
+            <div class="card-icon">💆</div>
+            <h3>SPA & Wellness</h3>
+            <p>Relaxation, wellness and SPA services.</p>
+        </div>
+
+        <div class="card" onclick="quickAsk('How can I arrange an airport transfer?')">
+            <div class="card-icon">✈️</div>
+            <h3>Transfers</h3>
+            <p>Airport transfers and transportation help.</p>
+        </div>
+
+        <div class="card" onclick="quickAsk('What hotel facilities are available?')">
+            <div class="card-icon">🏨</div>
+            <h3>Hotel</h3>
+            <p>Facilities, services and useful information.</p>
+        </div>
+
+        <div class="card" onclick="quickAsk('What is happening today at the hotel?')">
+            <div class="card-icon">📅</div>
+            <h3>Program</h3>
+            <p>Daily activities and entertainment.</p>
+        </div>
+
+        <div class="card" onclick="quickAsk('I need help with my room.')">
+            <div class="card-icon">🛏️</div>
+            <h3>Room Assistance</h3>
+            <p>Help with your room and hotel services.</p>
+        </div>
+
+        <div class="card" onclick="quickAsk('What do you recommend visiting in Belek?')">
+            <div class="card-icon">📍</div>
+            <h3>Belek</h3>
+            <p>Places, recommendations and things to do.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="chat-section" id="chat">
+    <div class="chat-box">
+
+        <div class="chat-header">
+            <div class="status"></div>
+            <div>
+                <div class="chat-title">Zeya AI Concierge</div>
+                <div class="chat-status">Ready to help</div>
+            </div>
+        </div>
+
+        <div class="messages" id="messages">
+            <div class="message ai">
+Hello! I'm Zeya, your personal hotel concierge.
+
+How can I help you today?
+            </div>
+        </div>
+
+        <div class="quick">
+            <button onclick="quickAsk('What activities are available today?')">🎉 Activities</button>
+            <button onclick="quickAsk('What restaurants are available?')">🍽️ Restaurants</button>
+            <button onclick="quickAsk('Tell me about the SPA.')">💆 SPA</button>
+            <button onclick="quickAsk('I need help with my room.')">🛏️ Room</button>
+        </div>
+
+        <div class="chat-input-area">
+            <input
+                id="chatInput"
+                class="chat-input"
+                type="text"
+                placeholder="Ask Zeya anything..."
+                onkeydown="if(event.key==='Enter') sendMessage()"
+            >
+
+            <button class="send-btn" onclick="sendMessage()">➤</button>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    Zeya AI Concierge · Selectum Noa Belek
+</footer>
+
+<div class="modal" id="languageModal">
+    <div class="modal-box">
+
+        <div class="modal-top">
+            <h2>Choose language</h2>
+            <button class="close" onclick="closeLanguage()">×</button>
+        </div>
+
+        <div class="language-grid">
+
+            <button class="lang" onclick="setLanguage('English')">
+                🇬🇧 English
+            </button>
+
+            <button class="lang" onclick="setLanguage('Türkçe')">
+                🇹🇷 Türkçe
+            </button>
+
+            <button class="lang" onclick="setLanguage('Русский')">
+                🇷🇺 Русский
+            </button>
+
+            <button class="lang" onclick="setLanguage('Deutsch')">
+                🇩🇪 Deutsch
+            </button>
+
+            <button class="lang" onclick="setLanguage('Français')">
+                🇫🇷 Français
+            </button>
+
+            <button class="lang" onclick="setLanguage('العربية')">
+                🇸🇦 العربية
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+function scrollToChat(){
+    document.getElementById("chat").scrollIntoView({
+        behavior:"smooth"
+    });
+
+    setTimeout(function(){
+        document.getElementById("chatInput").focus();
+    },500);
+}
+
+function addMessage(text,type){
+    const messages=document.getElementById("messages");
+
+    const div=document.createElement("div");
+    div.className="message "+type;
+    div.textContent=text;
+
+    messages.appendChild(div);
+    messages.scrollTop=messages.scrollHeight;
+
+    return div;
+}
+
+function quickAsk(text){
+    scrollToChat();
+
+    setTimeout(function(){
+        document.getElementById("chatInput").value=text;
+        sendMessage();
+    },300);
+}
+
+async function sendMessage(){
+
+    const input=document.getElementById("chatInput");
+    const text=input.value.trim();
+
+    if(!text){
+        return;
+    }
+
+    addMessage(text,"user");
+    input.value="";
+
+    const loading=addMessage("Zeya is thinking...","ai");
+
+    try{
+
+        const response=await fetch("/api/chat",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                message:text
+            })
+        });
+
+        const data=await response.json();
+
+        loading.remove();
+
+        if(data.answer){
+            addMessage(data.answer,"ai");
+        }else if(data.output_text){
+            addMessage(data.output_text,"ai");
+        }else if(data.error){
+            addMessage(data.error,"ai");
+        }else{
+            addMessage("I'm sorry, I couldn't get an answer right now.","ai");
+        }
+
+    }catch(error){
+
+        loading.remove();
+
+        addMessage(
+            "Zeya is temporarily unavailable. Please try again.",
+            "ai"
+        );
+
+        console.error(error);
+    }
+}
+
+function openLanguage(){
+    document.getElementById("languageModal").classList.add("active");
+}
+
+function closeLanguage(){
+    document.getElementById("languageModal").classList.remove("active");
+}
+
+function setLanguage(language){
+
+    document.getElementById("currentLanguage").textContent=language;
+
+    closeLanguage();
+
+    addMessage(
+        "Language changed to "+language+". How can I help you?",
+        "ai"
+    );
+
+    scrollToChat();
+}
+
+document.getElementById("languageModal").addEventListener("click",function(e){
+
+    if(e.target===this){
+        closeLanguage();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
